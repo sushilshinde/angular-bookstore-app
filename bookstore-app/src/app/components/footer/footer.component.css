@@ -1,0 +1,16 @@
+.footer{
+    background-color: rgb(88, 88, 88);
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+}
+a{
+    color: rgb(189, 189, 189);
+    text-decoration: none;
+
+}
+a:hover{
+    color: aliceblue;
+    text-decoration: underline;
+}
