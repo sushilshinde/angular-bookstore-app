@@ -1,0 +1,61 @@
+.navbar {
+  background-color: rgb(255, 255, 255);
+}
+a{
+    padding-right: 1rem;
+    color: rgb(17, 17, 17);
+    text-decoration: none;
+  }
+.row1 {
+  font-size: small;
+  justify-content: space-between;
+  cursor: pointer;
+  
+}
+.row1 a:hover , .sign:hover{
+    text-decoration: underline;
+   
+}
+.row2 {
+  justify-content: center;
+  border-bottom: 1px solid rgb(196, 195, 195);
+}
+p {
+    font-size: larger;
+    font-weight: bolder;
+  }
+.row3 {
+  font-size: small;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(214, 212, 212);
+  cursor: pointer;
+ 
+}
+.row3 a:hover{
+    background-color: rgb(53, 182, 160);
+    padding: 5px;
+    color: white;
+   
+}
+input[type="text"] {
+  padding: 2px;
+  outline: none;
+  border: 2px solid rgb(74, 201, 233);
+  cursor: pointer;
+  width:300px;
+}
+.input{
+    display: flex;
+    align-items: center;
+}
+.button{
+    background-color:rgb(74, 201, 233);
+    width: 30px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-right: 20px;
+   
+}
