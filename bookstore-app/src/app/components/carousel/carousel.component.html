@@ -3,14 +3,14 @@
 	<ng-template ngbSlide *ngFor="let item of content">
 		   
 		<div
-			class="rounded-sm w-100vw h-[40vh] sm:w-full sm:h-[70vh] mt-3 relative bg-[cover] flex flex-col justify-center text-[white] items-center gap-y-[2.5vh] sm:gap-y-[5vh]">
+			class="carousel-card">
 			   
-			<a href="/"><img [src]="item.imgUrl" class="h-30 w-95 absolute top-[0] object-fit-cover  z-0 brightness-75" [alt]="item.title" width="100%" height="450px"/>
+			<a href="/"><img [src]="item.imgUrl" [alt]="item.title" />
 			  </a>   
 			<!-- <h4 class="text-[1rem] sm:text-[1.5rem] font-[500] mt-[5vh] z-1">
 				        15% OFF YOUR FIRST ORDER      
 			</h4>
-			     
+			class="h-30 w-95 absolute top-[0] object-fit-cover z-0 brightness-75"
 			<h2 class="text-[2.5rem] sm:text-[3.6rem] font-[500] z-1">
 				        {{ item.title }}      
 			</h2>
