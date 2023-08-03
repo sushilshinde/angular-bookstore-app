@@ -1,12 +1,9 @@
 <ngb-carousel *ngIf="content.length" [showNavigationIndicators]="false">
-	 
 	<ng-template ngbSlide *ngFor="let item of content">
-		   
 		<div
 			class="carousel-card">
-			   
 			<a href="/"><img [src]="item.imgUrl" [alt]="item.title" />
-			  </a>   
+			</a>
 			<!-- <h4 class="text-[1rem] sm:text-[1.5rem] font-[500] mt-[5vh] z-1">
 				        15% OFF YOUR FIRST ORDER      
 			</h4>
@@ -17,8 +14,6 @@
 			     
 			<a class="bg-[white] rounded-sm cursor-pointer text-black font-[800] py-3 px-4 z-1">
 				        Shop Now</a> -->
-			   
-		</div>
-		 
-	</ng-template>
+			</div>
+		</ng-template>
 </ngb-carousel>
