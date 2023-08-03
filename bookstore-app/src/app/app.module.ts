@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatIconModule} from '@angular/material/icon';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -12,6 +11,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material_ui/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SigninComponent } from './signin/signin.component';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +24,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     CarouselComponent,
     BooksCategoryComponent,
     FooterComponent,
+    SigninComponent,
+    SignupComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MaterialModule,MatIconModule,ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule,RouterModule, BrowserAnimationsModule,MaterialModule,MatIconModule,ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
