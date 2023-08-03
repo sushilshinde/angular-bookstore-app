@@ -1,0 +1,56 @@
+h2,h3{
+    font-weight: bold;
+}
+.card {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.bookdetails-card {
+  width: 1000px;
+  height: auto;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  transform: translate(-50%);
+  left: 50%;
+  top: 50%;
+}
+.book-detail {
+  display: flex;
+  flex: row wrap;
+}
+.book-img {
+  width: 300px;
+  margin-right: 50px;
+}
+.book-title {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+/* .author-name{
+    
+} */
+.book-desc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.book-price{
+    display: flex;
+    flex: row wrap;
+    
+}
+.book-atc{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.cart-btn{
+    margin-bottom: 8px;
+}

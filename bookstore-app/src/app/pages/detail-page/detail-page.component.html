@@ -1,0 +1,35 @@
+<h1>HEADER</h1>
+<div class="card">
+
+    <div class="bookdetails-card" *ngFor="let book of data">
+        <div class="book-detail">
+            <div class="book-img">
+                <img [src]="book.thumbnailUrl" alt="{{book.title}}" />
+            </div>
+            <div class="book-title">
+                <h3>{{book.title}}</h3>
+                <p>by <i>{{book.authors}}</i></p>
+                <p>{{book.categories}}</p>
+
+
+                <div class="book-price">
+                    <h2>&#8377;{{book.price}}</h2>
+                    <label for="qty">Quantity</label>
+                    <button>-</button>
+                    <input type="number" id="qty" placeholder="1" min="1" />
+                    <button>+</button>
+                    <div class="book-atc">
+                        <button type="button" class="cart-btn">Add to Cart</button>
+                        <button type="button">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="book-desc">
+            <h3>Description</h3>
+            <p>{{book.longDescription}}</p>
+            <a href="#">back to home</a>
+        </div>
+    </div>
+</div>
+<h1>FOOTER</h1>

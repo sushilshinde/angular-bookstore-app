@@ -12,8 +12,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material_ui/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,8 +25,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CarouselComponent,
     BooksCategoryComponent,
     FooterComponent,
+    DetailPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
