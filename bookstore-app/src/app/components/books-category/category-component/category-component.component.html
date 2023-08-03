@@ -1,0 +1,35 @@
+<div class="m-5 background">
+    <div class="d-flex justify-content-between headdingButton">
+        <!-- <b> -->
+            <h2 class="text-danger">{{title}}:</h2>
+        <!-- </b> -->
+        <button class="btn btn-success">View All</button>
+    </div>
+    <ngx-slick-carousel class="carousel" 
+    #slickModal="slick-carousel" 
+    [config]="slideConfig" 
+    >
+    <div ngxSlickItem *ngFor="let slide of imagesData.slice(0,6)" class="slide m-2">
+        <img class="slider-book-image" src="{{ slide.thumbnailUrl }}" alt="image not avaliable" width="100%" height="250px">
+        <hr>
+        <b><p class="text-center m-0 text-danger mt-1">{{slide.title | shorten}}</p>
+            </b>
+            <p class="text-center text-secondary m-0">
+                {{slide.authors[0] | shorten}}
+            </p>
+            <b class="text-center">
+                <div class="text-center" *ngIf="slide.discount; else noDiscount" >
+
+                    <del>
+                        <span class="text-center m-0 text-warning">{{slide.price}} ₹</span>
+                    </del> 
+                    <span class="text-center text-secondary">  {{slide.discount}}% off</span>
+                    <p class="text-center m-0 text-success">{{calculateDiscount(slide.price,slide.discount)}} ₹</p>
+                </div>
+                <ng-template #noDiscount class="text-center">
+                    <p class="text-center m-0 text-success">{{slide.price}} ₹</p>
+                </ng-template>
+                </b>
+            </div>
+</ngx-slick-carousel>
+</div>
