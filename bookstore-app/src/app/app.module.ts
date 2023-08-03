@@ -12,6 +12,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material_ui/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CategoryComponentComponent } from './components/books-category/category-component/category-component.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { HttpClientModule } from '@angular/common/http';
+import { shortenPipe } from './shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -21,8 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CarouselComponent,
     BooksCategoryComponent,
     FooterComponent,
+    CategoryComponentComponent,shortenPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MaterialModule,MatIconModule,ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule,MaterialModule,MatIconModule,ReactiveFormsModule,SlickCarouselModule,HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
