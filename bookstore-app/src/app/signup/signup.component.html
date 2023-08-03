@@ -1,0 +1,13 @@
+<div class="signup">
+    <div class="sign">
+      <form [formGroup]="register">
+        <h1>Sign Up</h1>
+        <input type="text" placeholder="name" formControlName="name"/><br />
+        <input type="email" placeholder="E-mail" formControlName="email"/><br />
+        <input type="password" placeholder="password"formControlName ="password"/><br />
+        <input type="password" placeholder="confirm password"formControlName="confirm"/><br />
+        <button (click)="submit()">Sign Up</button>
+    </form>
+    </div>
+  </div>
+  
