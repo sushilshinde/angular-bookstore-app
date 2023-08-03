@@ -21,6 +21,11 @@ import { shortenPipe } from './shorten.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
+import { SigninComponent } from './signin/signin.component';
+import { Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { SignupComponent } from './signup/signup.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     DetailPageComponent, 
     CategoryComponentComponent,shortenPipe,
+    SigninComponent,
+    SignupComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule],
   providers: [],
