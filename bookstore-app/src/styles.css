@@ -2,6 +2,19 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.slick:prev-before, .slick:next-before{
+    color: black !important;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+}
+.slick-prev:before{
+    color: rgb(234, 0, 255) !important;
+    left: 50px !important;
+}
+ .slick-next:before{
+    color: rgb(255, 0, 255) !important;
+    right: 50px !important;
+  }
+  .img-style{
+    width:400px;
+    height: 400px !important;
+  }
