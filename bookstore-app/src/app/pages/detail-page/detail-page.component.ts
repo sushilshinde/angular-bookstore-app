@@ -10,10 +10,11 @@ import { map } from 'rxjs/operators';
 export class DetailPageComponent implements OnInit
 {
   data: any;
+  count: number=0;
   constructor (private http: HttpClient) { }
   ngOnInit(): void
   {
-    let params = new HttpParams().set('id', '22');
+    let params = new HttpParams().set('id', '20');
     this.http.get(`http://localhost:3000/books`, { params: params }).pipe(
       map((responseData: any) =>
       {
