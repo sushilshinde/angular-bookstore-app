@@ -27,7 +27,6 @@ h2 {
   display: flex;
   max-width: 950px;
   flex-wrap: wrap;
-  /* margin: 20px 10px 25px 0; */
 }
 .book-img {
   width: 250px;
