@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { SignupComponent } from './components/signup/signup.component';
     CategoryComponentComponent,shortenPipe,
     SigninComponent,
     SignupComponent,
+    CartPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule,RouterModule],
   providers: [],
