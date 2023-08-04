@@ -16,7 +16,6 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  /* flex-direction: column; */
   position: relative;
   transform: translate(-50%);
   left: 50%;
@@ -152,6 +151,8 @@ h2 {
   }
   .book-detail {
     display: flex;
+    justify-content: center;
+    align-items: center;
     width: 300px;
     
   }
@@ -160,6 +161,7 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 10px;
   
 }
 .book-img{
@@ -167,5 +169,11 @@ h2 {
 }
 .back-btn{
   right: 17px;
+} 
+.book-title{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0px;
 }
 }
