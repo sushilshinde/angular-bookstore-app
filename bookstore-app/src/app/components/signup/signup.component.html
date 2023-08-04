@@ -3,53 +3,25 @@
     <form [formGroup]="register" (ngSubmit)="submit()">
       <h1>Sign Up</h1>
       <div class="error">
-      <input type="text" placeholder="name" formControlName="name" /><br />
-      <p
-        *ngIf="
-          register.controls['name'].touched &&
-          register.hasError('required', 'name')
-        "
-        >*name is required</p
-      >
-      <p *ngIf="register.hasError('minlength', 'name')"
-        >*name is atleast 8 characters</p
-      >
-      <p *ngIf="register.hasError('pattern', 'name')"
-        >*name is only characters</p
-      ></div>
+        <input type="text" placeholder="Name" formControlName="name" /><br />
+        <p *ngIf="register.controls['name'].touched &&register.hasError('required', 'name')">*This field is required </p>
+      </div>
       <div class="error">
-      <input type="email" placeholder="E-mail" formControlName="email" /><br />
-      <p
-        *ngIf="
-          register.controls['email'].touched &&
-          register.hasError('required', 'email')
-        "
-        >*email is required</p
-      >
-      <p *ngIf="register.hasError('email', 'email')">*email contain @</p>
-    </div>
-    <div class="error">
-      <input
-        type="password"
-        placeholder="password"
-        formControlName="password"
-      /><br />
-      <p
-        *ngIf="
-          register.controls['password'].touched &&
-          register.hasError('required', 'password')
-        "
-        >*password is required</p
-      >
-      <p *ngIf="register.hasError('minlength', 'password')"
-        >*password is must be 8 characters</p
-      >
-    </div>
-    <div class="error">
-      <input type="password" placeholder="confirm password"formControlName="confirm"/><br />
-    </div>
-      <button class="btn btn-success" type="submit" [disabled]="!register.valid">Sign Up</button>
-      <a routerLink="/signin">Sign in</a>
+        <input type="email" placeholder="E-mail" formControlName="email"/><br />
+        <p *ngIf="register.controls['email'].touched &&register.hasError('required', 'email')">*This field is required</p>
+        <p *ngIf="register.hasError('email', 'email')">*Please enter a valid email address</p>
+      </div>
+      <div class="error">
+        <input type="password" placeholder="Password" formControlName="password"/><br />
+        <p *ngIf="register.controls['password'].touched && register.hasError('required', 'password')">*This field is required</p>
+      </div>
+      <div class="error">
+        <input type="password" placeholder="Confirm password"formControlName="confirm"/><br />
+        <p *ngIf="register.controls['password'].touched && register.hasError('required', 'confirm')">*This field is required</p>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!register.valid">Sign Up </button>
+      <p class="already">Already have an account?
+      <a routerLink="/signin">Sign In</a></p> 
     </form>
   </div>
 </div>
