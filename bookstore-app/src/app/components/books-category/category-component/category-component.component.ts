@@ -7,20 +7,21 @@ import { Book } from 'src/app/interface.book';
   styleUrls: ['./category-component.component.css'],
 })
 export class CategoryComponentComponent {
-  @Input() imagesData!:Book[];
-  @Input() title!:string;
-//   slides!:any;
-// ngOnInit(){
-//   this.slides =this.imagesData;
-//   console.log(this.slides)
-// }
+  @Input() imagesData!: Book[];
+  @Input() title!: string;
+  //   slides!:any;
+  // ngOnInit(){
+  //   this.slides =this.imagesData;
+  //   console.log(this.slides)
+  // }
+
   slideConfig = {
     slidesToShow: 5,
     slidesToScroll: 1,
     infinite: true,
     arrows: true,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 8000,
     responsive: [
       {
         breakpoint: '922',
@@ -49,9 +50,11 @@ export class CategoryComponentComponent {
     ],
   };
 
-
-  calculateDiscount(price:number,discount:number){
-    const discountedPrice = price - (price *discount / 100);
+  calculateDiscount(price: number, discount: number) {
+    const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
+  }
+  viewAllHandeller(data: Book[]) {
+    console.log(data);
   }
 }
