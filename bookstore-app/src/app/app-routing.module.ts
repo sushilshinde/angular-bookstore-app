@@ -1,10 +1,16 @@
-import { Component, NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { TrendingBooksComponent } from './pages/trending-books-page/trending-books.component';
+import { BestOffersBooksPageComponent } from './pages/best-offers-books-page/best-offers-books-page.component';
+import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-books-page.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: "full" },
-  { path: 'details', component: DetailPageComponent }
+  { path: 'details', component: DetailPageComponent },
+  {path:'Avaliable Books',component:ViewallBooksPageComponent},
+  {path:'Trending',component:TrendingBooksComponent},
+  {path:'Best Offers',component:BestOffersBooksPageComponent}
 ];
 
 @NgModule({

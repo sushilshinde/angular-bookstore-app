@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+  }
+  mat-grid-tile {
+    background: rgb(223 215 215);
+  }
+  img {
+    width: 100px;
+    height: 150px;
+  }
+  .books-container {
+    padding: 10px;
+    align-items: center;
+    
+  }
+  .books-container:hover{
+  opacity: 0.5;
+  
+  }

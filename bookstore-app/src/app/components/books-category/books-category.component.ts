@@ -17,7 +17,23 @@ export class BooksCategoryComponent implements OnInit {
 ngOnInit() {
   this.httpdata.oNGetTrendingBooks().subscribe((resp)=>{this.trendingBooks=resp});
   this.httpdata.oNGetBestOffersBooks().subscribe((resp)=>{this.bestOfferBooks=resp});
-  this.httpdata.onGetBooks().subscribe((resp)=>this.allBooks=resp)
+  this.httpdata.onGetBooks().subscribe((resp)=>{this.allBooks=resp});
+  // this.httpdata.onGetBooks().subscribe((resp)=>{
+  //   let booksoffer=[]
+  //   let trending=[]
+  //   for(let data of resp){
+  //     if( data.discount){
+  //       booksoffer.push({...data})
+  //   }
+  //   if( data.categories.includes("Trending")){
+  //     trending.push({...data})
+  // }
+  //   this.bestOfferBooks=booksoffer;
+  //   this.trendingBooks=trending
+  //   this.allBooks=resp;
+
+  //   }
+  // })
 
 }
 
