@@ -13,7 +13,7 @@ export class BestOffersBooksPageComponent implements OnInit {
   constructor(private httpdata:httpService){}
  
   ngOnInit() {
-    this.httpdata.onGetBooks().subscribe((resp)=>{this.allBooks=resp}
+    this.httpdata.oNGetBestOffersBooks().subscribe((resp)=>{this.allBooks=resp}
     )}
 calculateDiscount(price:number,discount:number){
   const discountedPrice = price - (price *discount / 100);
