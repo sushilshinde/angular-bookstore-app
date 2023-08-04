@@ -10,10 +10,8 @@
   <div class="input">
     <input type="text" placeholder="Title,Other,....." />
     <mat-icon class="search">search</mat-icon>
-    <div class="signin">
-      <a routerLink="signin">SIGN IN</a>
-    </div>
-    <mat-icon class="cart" routerLink="/cart">shopping_cart</mat-icon>
+    <span class="login" routerLink="/signin" >SIGN IN</span>
+    <mat-icon class="cart" matBadge="0" matBadgeSize="small" matBadgeColor="warn" aria-hidden="false" routerLink="/cart">shopping_cart</mat-icon>
   </div>
 </mat-toolbar>
 </header>

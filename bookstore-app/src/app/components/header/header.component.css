@@ -4,9 +4,12 @@
   flex-wrap: wrap;
   padding: 10px;
   background-color: rgb(255, 255, 255);
+  height: 100%;
+  padding:10px;
   border-bottom: 2px solid rgb(236, 236, 236);
   margin-bottom: 25px;
 }
+
 .category{
   cursor: pointer;
 }
@@ -14,7 +17,7 @@ a {
   color: rgb(17, 17, 17);
   text-decoration: none;
   font-size: small;
-  padding: 5px;
+  padding: 7px;
 }
 a:hover {
   background-color: rgb(42, 138, 138);
@@ -25,9 +28,10 @@ a:hover {
   align-items: center;
   margin-right: 20px;
   cursor: pointer;
+  width:40%;
 }
 input[type="text"] {
-  width: 200px;
+  width: 100%;
   font-size: small;
   outline: none;
   border: 2px solid rgb(42, 138, 138);
@@ -41,16 +45,16 @@ input[type="text"] {
   background-color: rgb(42, 138, 138);
   color: white;
 }
-.signin {
-  font-size: medium;
+.login{
+  font-size: small;
   padding-left: 10px;
   padding-right: 10px;
 }
 .cart{
-    transition: all 0.2s;
+    transition: all 0.2ms;
 }
 .cart:hover{
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 @media screen and (max-width: 800px) {
   .navbar {
@@ -59,5 +63,6 @@ input[type="text"] {
     padding: 5px;
   }
 }
+
 
 

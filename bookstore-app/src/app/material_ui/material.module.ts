@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatBadgeModule} from '@angular/material/badge'
 const MaterialImports = [
   MatCardModule,
   MatCheckboxModule,
@@ -16,7 +16,8 @@ const MaterialImports = [
   MatIconModule,
   MatInputModule,
   MatFormFieldModule,
-  MatGridListModule
+  MatGridListModule,
+  MatBadgeModule
 ];
 
 @NgModule({

@@ -8,7 +8,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SignupComponent {
   register = new FormGroup({
     name: new FormControl('',[Validators.required]),
-    email: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('',[Validators.required]),
     confirm: new FormControl('',[Validators.required])
   });
@@ -17,6 +17,8 @@ export class SignupComponent {
     console.log(this.register.controls.email.value);
     console.log(this.register.controls.password.value);
     console.log(this.register.controls.confirm.value);
+    alert("successfully registered");
+    this.register.reset();
     
   }
 }
