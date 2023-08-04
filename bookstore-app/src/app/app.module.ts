@@ -42,7 +42,8 @@ import { OrderSuccessPageComponent } from './pages/order-success-page/order-succ
     ViewallBooksPageComponent,
     BestOffersBooksPageComponent,
     TrendingBooksComponent,
-    OrderSuccessPageComponent
+    OrderSuccessPageComponent,
+    
     
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule,RouterModule],
