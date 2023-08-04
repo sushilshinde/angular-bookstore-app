@@ -23,9 +23,10 @@ a:hover {
   align-items: center;
   margin-right: 20px;
   cursor: pointer;
+  width:40%;
 }
 input[type="text"] {
-  width: 200px;
+  width: 100%;
   font-size: small;
   outline: none;
   border: 2px solid rgb(42, 138, 138);
@@ -45,9 +46,14 @@ input[type="text"] {
   padding-right: 10px;
 }
 .cart{
-    transition: all 0.2s;
+    transition: all 0.2ms;
 }
 .cart:hover{
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 
+/* @media only screen and (max-width: 950px) {
+  .navbar{
+    display: block;
+}
+} */

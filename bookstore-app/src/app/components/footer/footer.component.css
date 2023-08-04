@@ -10,6 +10,8 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 h2{
   font-size: medium;
@@ -29,10 +31,12 @@ a:hover {
   margin: 0 10px;
   gap: 10px;
   color: white;
-  transition: all 0.2s;
+}
+mat-icon{
+  transition: all 0.2ms;
 }
 mat-icon:hover{
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 span{
     display: flex;

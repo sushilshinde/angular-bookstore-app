@@ -13,6 +13,7 @@
     height: 300px;
     width: 350px;
     box-shadow: 5px 10px 15px rgb(153, 151, 151);
+    border-radius: 20px;
 }
 h1{
     font-weight: bold;
@@ -32,17 +33,11 @@ button{
     color: white;
     border: none;
     outline: none;
-    transition: all 0.2s;
+    transition: all 0.2ms;
     margin-top: 10px;
 }
 button:hover{
     cursor: pointer;
     background-color: rgb(18, 87, 87);
     transform:scale(1.1)
-}
-input.ng-touched.ng-invalid{
-    border-bottom:1px solid red
-}
-input.ng-touched.ng-valid{
-    border-bottom:1px solid rgb(10, 102, 7)
 }

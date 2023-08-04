@@ -6,7 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {MatBadgeModule} from '@angular/material/badge'
 const MaterialImports = [
   MatCardModule,
   MatCheckboxModule,
@@ -14,7 +14,8 @@ const MaterialImports = [
   MatDividerModule,
   MatIconModule,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatBadgeModule
 ];
 
 @NgModule({
