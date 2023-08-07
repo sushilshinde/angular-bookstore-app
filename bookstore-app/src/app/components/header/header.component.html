@@ -1,11 +1,14 @@
 <header>
 <mat-toolbar class="navbar">
-  <div class="category">
+  <div class="category d-flex">
     <img src="/assets/images/bookstore-logo.png" alt="logo" height="50px" width="50px">
-    <a href="#">NEW</a>
-    <a href="#">COMING SOON</a>
-    <a href="#">SPECIAL EDITIONS</a>
-    <a href="#">BOOKS</a>
+    <div class="navItems">
+
+      <a routerLink="/viewall/Trending">Trending</a>
+      <a routerLink="/viewall/Best Offers">Offers</a>
+      <!-- <a href="#">SP</a> -->
+      <a routerLink="/viewall/Avaliable Books">Books</a>
+    </div>
   </div>
   <div class="input">
     <input type="text" placeholder="Title,Other,....." />

@@ -49,3 +49,11 @@ p{
 }
 
 
+@media only screen  and (max-width:400px){
+    .sign{
+        width: 80vw;
+    }
+    input[type="text"],input[type="email"],input[type="password"]{
+        width: 100%;
+    }
+}

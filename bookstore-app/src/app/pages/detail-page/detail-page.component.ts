@@ -1,5 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,10 +12,10 @@ export class DetailPageComponent implements OnInit
 {
   data: any;
   count: number=0;
-  constructor (private http: HttpClient) { }
+  constructor (private http: HttpClient,private activeRoute:ActivatedRoute) { }
   ngOnInit(): void
   {
-    let params = new HttpParams().set('id', '20');
+    let params = new HttpParams().set('id', this.activeRoute.snapshot.params['id']);
     this.http.get(`http://localhost:3000/books`, { params: params }).pipe(
       map((responseData: any) =>
       {
@@ -31,7 +32,7 @@ export class DetailPageComponent implements OnInit
       .subscribe(array =>
       {
         this.data = array;
-        console.log(this.data, "JSONdata")
+        // console.log(this.data, "JSONdata")
       })
   }
 }

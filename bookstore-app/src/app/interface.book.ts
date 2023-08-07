@@ -8,4 +8,5 @@ export interface Book {
   authors: string[];
   categories: string[];
   discount?:number;
+  quantity?:number;
 }

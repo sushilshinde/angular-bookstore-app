@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from 'src/app/interface.book';
+// import { viewallservice } from 'src/app/viewall.data.service';
 
 @Component({
   selector: 'app-category-component',
@@ -7,13 +9,14 @@ import { Book } from 'src/app/interface.book';
   styleUrls: ['./category-component.component.css'],
 })
 export class CategoryComponentComponent {
-  @Input() imagesData!: Book[];
-  @Input() title!: string;
+  @Input() imagesData: Book[]=[];
+  @Input() title: string="";
   //   slides!:any;
   // ngOnInit(){
   //   this.slides =this.imagesData;
   //   console.log(this.slides)
   // }
+  constructor(private navpage:Router){}
 
   slideConfig = {
     slidesToShow: 5,
@@ -54,7 +57,8 @@ export class CategoryComponentComponent {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  viewAllHandeller(data: Book[]) {
-    console.log(data);
+  navigateToDetails(id: number) {
+    this.navpage.navigate(["details",id] );
   }
+
 }
