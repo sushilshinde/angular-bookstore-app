@@ -14,10 +14,10 @@
   margin-left: 10px;
   margin-right: 10px; */
 }
-h2{
+h2 {
   font-size: medium;
 }
-a{
+a {
   color: rgb(189, 189, 189);
   text-decoration: none;
 }
@@ -33,24 +33,30 @@ a:hover {
   gap: 10px;
   color: white;
 }
-mat-icon{
+mat-icon {
   transition: all 0.2ms;
 }
-mat-icon:hover{
+mat-icon:hover {
   transform: scale(1.2);
 }
-span{
-    display: flex;
-    justify-content: center;
+span {
+  display: flex;
+  justify-content: center;
 }
-.clarity{
-    color: rgb(184, 186, 187);
+.clarity {
+  color: rgb(184, 186, 187);
 }
-@media screen and (min-width:250px) and (max-width:800px) {
+@media screen and (min-width: 250px) and (max-width: 800px) {
   .footer {
     max-width: 100%;
     height: 100%;
-     }
+  }
 }
-
-
+@media screen and (min-width: 50px) and (max-width: 250px) {
+  .cols {
+    overflow: hidden;
+  }
+  .icons {
+    overflow: hidden;
+  }
+}
