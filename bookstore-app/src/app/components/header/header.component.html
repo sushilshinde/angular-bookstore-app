@@ -1,20 +1,31 @@
 <header>
-<mat-toolbar class="navbar">
-  <div class="category d-flex">
-    <img src="/assets/images/bookstore-logo.png" alt="logo" height="50px" width="50px">
-    <div class="navItems">
-
-      <a routerLink="/viewall/Trending">Trending</a>
-      <a routerLink="/viewall/Best Offers">Offers</a>
-      <!-- <a href="#">SP</a> -->
-      <a routerLink="/viewall/Avaliable Books">Books</a>
+  <mat-toolbar class="navbar">
+    <div class="category d-flex">
+      <img
+        src="/assets/images/bookstore-logo.png"
+        alt="logo"
+        height="50px"
+        width="50px"
+      />
+      <div class="navItems">
+        <a routerLink="/viewall/Trending">TRENDING</a>
+        <a routerLink="/viewall/Best Offers">OFFERS</a>
+        <a routerLink="/viewall/Avaliable Books">ALL BOOKS</a>
+      </div>
     </div>
-  </div>
-  <div class="input">
-    <input type="text" placeholder="Title,Other,....." />
-    <mat-icon class="search">search</mat-icon>
-    <span class="login" routerLink="/signin" >SIGN IN</span>
-    <mat-icon class="cart" matBadge="0" matBadgeSize="small" matBadgeColor="warn" aria-hidden="false" routerLink="/cart">shopping_cart</mat-icon>
-  </div>
-</mat-toolbar>
+    <div class="input">
+      <input type="text" placeholder="Title,Other,....." />
+      <mat-icon class="search">search</mat-icon>
+      <span class="login" routerLink="/signin">SIGN IN</span>
+      <mat-icon
+        class="cart"
+        matBadge="0"
+        matBadgeSize="small"
+        matBadgeColor="warn"
+        aria-hidden="false"
+        routerLink="/cart"
+        >shopping_cart</mat-icon
+      >
+    </div>
+  </mat-toolbar>
 </header>
