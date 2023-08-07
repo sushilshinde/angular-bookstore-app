@@ -1,43 +1,64 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { httpService } from 'src/app/http.service';
 import { Book } from 'src/app/interface.book';
+
 @Component({
   selector: 'app-viewall-books-page',
   templateUrl: './viewall-books-page.component.html',
-  styleUrls: ['./viewall-books-page.component.css']
+  styleUrls: ['./viewall-books-page.component.css'],
 })
 export class ViewallBooksPageComponent {
-  @Input() cols!: number;
-  allBooks:Book[]=[];
-  constructor(private httpdata:httpService){}
- 
-ngOnInit() {
-  this.httpdata.onGetBooks().subscribe((resp)=>{this.allBooks=resp 
-  console.log(this.allBooks)}
+  allBooks: Book[] = [];
+  title: string = '';
+  category: string = '';
+  cols: number = 4;
   
-  )
+  @HostListener('window:resize', ['$event'])
+  onWindowResize(event: any) {
+    this.cols = this.getRows();
+  }
 
-}
-calculateDiscount(price:number,discount:number){
-  const discountedPrice = price - (price *discount / 100);
-  return discountedPrice;
-}
-getRows(){
- if( window.innerWidth>1000 ){
-  return 4
- }
- else if(window.innerWidth<1000&& window.innerWidth>768){
-  return 3
- }
- else if(window.innerWidth<768&& window.innerWidth>576){
-  return 2
- }
- else if(window.innerWidth<576&& window.innerWidth>500){
-  return 2
- }
- else{
-  return 1
- }
-}
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private http: httpService,
+    private navpage: Router
+  ) {}
 
+  ngOnInit() {
+    this.category = this.activeRoute.snapshot.params['category'];
+    this.activeRoute.params.subscribe((param) => {
+      if (param['category'] === 'Trending') {
+        this.http
+          .oNGetTrendingBooks()
+          .subscribe((resp) => (this.allBooks = resp));
+      } else if (param['category'] === 'Best Offers') {
+        this.http
+          .oNGetBestOffersBooks()
+          .subscribe((resp) => (this.allBooks = resp));
+      } else {
+        this.http.onGetBooks().subscribe((resp) => (this.allBooks = resp));
+      }
+    });
+  }
+  calculateDiscount(price: number, discount: number) {
+    const discountedPrice = price - (price * discount) / 100;
+    return discountedPrice;
+  }
+  getRows() {
+    if (window.innerWidth > 1000) {
+      return 4;
+    } else if (window.innerWidth < 1000 && window.innerWidth > 768) {
+      return 3;
+    } else if (window.innerWidth < 768 && window.innerWidth > 576) {
+      return 2;
+    } else if (window.innerWidth < 576 && window.innerWidth > 500) {
+      return 2;
+    } else{
+      return 1;
+    }
+  }
+  navigateToDetails(id: number) {
+    this.navpage.navigate(["details",id] );
+  }
 }
