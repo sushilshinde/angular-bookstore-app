@@ -4,10 +4,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatBadgeModule} from '@angular/material/badge'
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatBadgeModule } from '@angular/material/badge';
 const MaterialImports = [
   MatCardModule,
   MatCheckboxModule,
@@ -17,7 +17,7 @@ const MaterialImports = [
   MatInputModule,
   MatFormFieldModule,
   MatGridListModule,
-  MatBadgeModule
+  MatBadgeModule,
 ];
 
 @NgModule({

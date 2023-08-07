@@ -1,20 +1,41 @@
 <div class="signin">
-    <div class="sign">
-      <form [formGroup]="login">
-        <h1>Sign In</h1>
-        <div class="error">
-        <input type="email" placeholder="E-mail" formControlName="email"/><br />
-        <p *ngIf="login.controls['email'].touched && login.hasError('required', 'email')">*This field is required</p>
-        <p *ngIf="login.hasError('email', 'email')">*Please enter a valid email address</p>
+  <div class="sign">
+    <form [formGroup]="login" (ngSubmit)="submit()">
+      <h1>Sign In</h1>
+      <div class="error">
+        <input
+          type="email"
+          placeholder="E-mail"
+          formControlName="email"
+        /><br />
+        <p
+          *ngIf="
+            login.controls['email'].touched &&
+            login.hasError('required', 'email')
+          "
+        >
+          *This field is required
+        </p>
       </div>
-    <div class="error">
-        <input type="password" placeholder="Password"formControlName ="password"/><br />
-        <p *ngIf="login.controls['password'].touched && login.hasError('required', 'password')">*This field is required</p>
+      <div class="error">
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        /><br />
+        <p
+          *ngIf="
+            login.controls['password'].touched &&
+            login.hasError('required', 'password')
+          "
+        >
+          *This field is required
+        </p>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!login.valid">Sign In</button>
-        <p>Don't have an account?
-        <a routerLink="/signup">Sign Up</a></p>
+      <button type="submit" class="btn btn-primary" [disabled]="!login.valid">
+        Sign In
+      </button>
+      <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
     </form>
-    </div>
   </div>
-  
+</div>
