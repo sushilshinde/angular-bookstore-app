@@ -1,51 +1,49 @@
-.signin{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+.signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
-.sign{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: rgb(219, 221, 221);
-    border: 1px solid rgb(219, 221, 221);
-    height: 350px;
-    width: 350px;
-    box-shadow: 5px 10px 15px rgb(153, 151, 151);
-    border-radius: 15px;
-   
+.sign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: rgb(219, 221, 221);
+  border: 1px solid rgb(219, 221, 221);
+  height: 350px;
+  width: 350px;
+  box-shadow: 5px 10px 15px rgb(153, 151, 151);
+  border-radius: 15px;
 }
-h1{
-    font-weight: bold;
-    margin-bottom: 20px;
+h1 {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
-input[type="email"],input[type="password"]{
-    padding: 7px;
-    width: 250px;
-    border: none;
-    outline: none;
-    border-bottom: 1px solid rgb(199, 198, 198);
-    border-radius: 5px;
-   
+input[type="email"],
+input[type="password"] {
+  padding: 7px;
+  width: 250px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(199, 198, 198);
+  border-radius: 5px;
 }
-.error{
-    margin-bottom: 20px;
-    text-align: start;
-    height: 40px;
+.error {
+  margin-bottom: 20px;
+  text-align: start;
+  height: 40px;
 }
-.error p{
-    color: red;
-   
+.error p {
+  color: red;
 }
-button{
-    width: 150px;
-    padding: 5px;
-    margin-bottom: 20px;
+button {
+  width: 150px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
-p{
-    color:black
+p {
+  color: black;
 }
 
 @media only screen  and (max-width:400px){

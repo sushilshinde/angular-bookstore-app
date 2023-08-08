@@ -5,7 +5,7 @@
   padding: 10px;
   background-color: rgb(255, 255, 255);
   height: 100%;
-  padding:10px;
+  padding: 10px;
   border-bottom: 2px solid rgb(236, 236, 236);
   margin-bottom: 25px;
 }
@@ -14,7 +14,7 @@
   margin-left: 20px;
 }
 
-.category{
+.category {
   cursor: pointer;
   width: 50vw;
 }
@@ -33,7 +33,7 @@ a:hover {
   align-items: center;
   margin-right: 20px;
   cursor: pointer;
-  width:40%;
+  width: 40%;
 }
 input[type="text"] {
   width: 100%;
@@ -50,15 +50,15 @@ input[type="text"] {
   background-color: rgb(42, 138, 138);
   color: white;
 }
-.login{
+.login {
   font-size: small;
   padding-left: 10px;
   padding-right: 10px;
 }
-.cart{
-    transition: all 0.2ms;
+.cart {
+  transition: all 0.2ms;
 }
-.cart:hover{
+.cart:hover {
   transform: scale(1.2);
 }
 @media screen and (max-width: 600px) {
@@ -80,6 +80,3 @@ input[type="text"] {
 }
 
 }
-
-
-
