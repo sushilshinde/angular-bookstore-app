@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -13,7 +13,7 @@ import { MaterialModule } from './material_ui/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { CategoryComponentComponent } from './components/books-category/category-component/category-component.component';
-import { shortenPipe } from './shorten.pipe';
+import { shortenPipe } from './pipes/shorten.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,6 +23,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -32,19 +33,29 @@ import { OrderSuccessPageComponent } from './pages/order-success-page/order-succ
     CarouselComponent,
     BooksCategoryComponent,
     FooterComponent,
-    DetailPageComponent, 
-    CategoryComponentComponent,shortenPipe,
+    DetailPageComponent,
+    CategoryComponentComponent,
+    shortenPipe,
     SigninComponent,
     SignupComponent,
     CartPageComponent,
     ViewallBooksPageComponent,
     OrderSuccessPageComponent,
-    
-    
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule,RouterModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    NgbModule,
+    SlickCarouselModule,
+    HttpClientModule,
+    RouterModule,
+    StoreModule.forRoot({}, {}),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-  

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { httpService } from 'src/app/http.service';
-import { Book } from 'src/app/interface.book';
+import { httpService } from 'src/app/services/http.service';
+import { Book } from 'src/app/interfaces/interface.book';
 
 @Component({
   selector: 'app-books-category',

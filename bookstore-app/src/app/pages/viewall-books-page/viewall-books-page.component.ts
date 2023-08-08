@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { httpService } from 'src/app/http.service';
-import { Book } from 'src/app/interface.book';
+import { httpService } from 'src/app/services/http.service';
+import { Book } from 'src/app/interfaces/interface.book';
 
 @Component({
   selector: 'app-viewall-books-page',
@@ -13,7 +13,7 @@ export class ViewallBooksPageComponent {
   title: string = '';
   category: string = '';
   cols: number = 4;
-  
+
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any) {
     this.cols = this.getRows();
@@ -54,11 +54,11 @@ export class ViewallBooksPageComponent {
       return 2;
     } else if (window.innerWidth < 576 && window.innerWidth > 500) {
       return 2;
-    } else{
+    } else {
       return 1;
     }
   }
   navigateToDetails(id: number) {
-    this.navpage.navigate(["details",id] );
+    this.navpage.navigate(['details', id]);
   }
 }
