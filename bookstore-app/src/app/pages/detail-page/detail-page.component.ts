@@ -1,7 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
+import { Book } from 'src/app/interfaces/interface.book';
+import { BookQty } from 'src/app/interfaces/interface.bookwithqty';
+import { cartState } from 'src/app/interfaces/interface.cartState';
+import { onAdd } from 'src/app/store/cart.actions';
 
 @Component({
   selector: 'app-detail-page',
@@ -11,8 +16,8 @@ import { map } from 'rxjs/operators';
 export class DetailPageComponent implements OnInit
 {
   data: any;
-  count: number=0;
-  constructor (private http: HttpClient,private activeRoute:ActivatedRoute) { }
+  count: number=1;
+  constructor (private http: HttpClient,private route:Router,private activeRoute:ActivatedRoute,private store:Store<{cartItems:cartState}>) { }
   ngOnInit(): void
   {
     let params = new HttpParams().set('id', this.activeRoute.snapshot.params['id']);
@@ -34,5 +39,20 @@ export class DetailPageComponent implements OnInit
         this.data = array;
         // console.log(this.data, "JSONdata")
       })
+  }
+  onDecrement(){
+    if(this.count >1 ){
+
+      this.count-=1
+    }
+
+  }
+  onIncrement(){
+    this.count+=1
+  }
+  addTOCart(bookdata:BookQty){
+    bookdata['quantity']=this.count;
+this.store.dispatch(onAdd({bookdata}))
+this.route.navigate(['/cart'])
   }
 }

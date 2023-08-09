@@ -24,6 +24,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
 import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './store/cart.reducer';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,7 @@ import { StoreModule } from '@ngrx/store';
     SlickCarouselModule,
     HttpClientModule,
     RouterModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({cartItems:cartReducer}),
   ],
   providers: [],
   bootstrap: [AppComponent],
