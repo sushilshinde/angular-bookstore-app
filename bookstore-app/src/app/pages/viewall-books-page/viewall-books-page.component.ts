@@ -1,7 +1,7 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { httpService } from 'src/app/http.service';
-import { Book } from 'src/app/interface.book';
+import { httpService } from 'src/app/services/http.service';
+import { Book } from 'src/app/interfaces/interface.book';
 
 @Component({
   selector: 'app-viewall-books-page',
@@ -64,8 +64,7 @@ export class ViewallBooksPageComponent
       return 1;
     }
   }
-  navigateToDetails(id: number)
-  {
-    this.navpage.navigate(["details", id]);
+  navigateToDetails(id: number) {
+    this.navpage.navigate(['details', id]);
   }
 }

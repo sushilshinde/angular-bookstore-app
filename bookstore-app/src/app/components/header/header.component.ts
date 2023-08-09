@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { cart } from 'src/app/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +6,4 @@ import { cart } from 'src/app/cart.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private cartservice:cart){}
-
 }

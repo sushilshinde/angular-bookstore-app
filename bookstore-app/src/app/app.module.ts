@@ -13,7 +13,7 @@ import { MaterialModule } from './material_ui/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DetailPageComponent } from './pages/detail-page/detail-page.component';
 import { CategoryComponentComponent } from './components/books-category/category-component/category-component.component';
-import { shortenPipe } from './shorten.pipe';
+import { shortenPipe } from './pipes/shorten.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,6 +27,7 @@ import { StylesDirective } from './directives/styles.directive';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatCardModule } from '@angular/material/card';
     BooksCategoryComponent,
     FooterComponent,
     DetailPageComponent,
-    CategoryComponentComponent, shortenPipe,
+    CategoryComponentComponent,
+    shortenPipe,
     SigninComponent,
     SignupComponent,
     CartPageComponent,
@@ -59,8 +61,10 @@ import { MatCardModule } from '@angular/material/card';
     NgbModule,
     SlickCarouselModule,
     HttpClientModule,
-    RouterModule],
+    RouterModule,
+    StoreModule.forRoot({}, {}),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
