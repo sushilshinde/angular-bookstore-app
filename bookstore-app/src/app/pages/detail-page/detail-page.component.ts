@@ -19,13 +19,12 @@ export class DetailPageComponent implements OnInit
     this.http.get(`http://localhost:3000/books`, { params: params }).pipe(
       map((responseData: any) =>
       {
-        const array = [];
-        array.push(...responseData);
-        return array;
+        return responseData;
       })
     )
       .subscribe(array =>
       {
+        console.log(array, "details data");
         this.datas = array;
       })
   }
@@ -34,8 +33,11 @@ export class DetailPageComponent implements OnInit
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  addItems()
+  addItems(data: any)
   {
-    alert("Added to cart!")
+    console.log(data);
+    const arr = [];
+    arr.push(data);
+    console.log(arr, "Cart array")
   }
 }

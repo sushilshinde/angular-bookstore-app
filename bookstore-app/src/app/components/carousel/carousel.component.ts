@@ -1,14 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/interfaces/interface.book';
-import { map } from 'rxjs';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
 
 })
-export class CarouselComponent implements OnInit
+export class CarouselComponent 
 {
   carouselData: any[] = [];
   content: any[] = [
@@ -33,24 +30,5 @@ export class CarouselComponent implements OnInit
       id: 8,
     },
   ];
-  constructor (private http: HttpClient) { }
-  ngOnInit()
-  {
-    return this.http.get<Book[]>('http://localhost:3000/carousel')
-      .pipe(
-        map((data) =>
-        {
-          const dataArray = [];
-          dataArray.push(...data);
-          return dataArray;
-        })
-      )
-      .subscribe(array =>
-      {
-        this.carouselData = array;
-        console.log(this.carouselData);
-
-      })
-  }
 }
 
