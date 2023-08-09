@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/interface.book';
-// import { viewallservice } from 'src/app/viewall.data.service';
 
 @Component({
   selector: 'app-category-component',

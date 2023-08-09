@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Book } from 'src/app/interface.book';
+import { Book } from 'src/app/interfaces/interface.book';
 import { map } from 'rxjs';
 @Component({
   selector: 'app-carousel',
