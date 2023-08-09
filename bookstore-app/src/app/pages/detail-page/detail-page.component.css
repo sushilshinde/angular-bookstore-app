@@ -1,17 +1,26 @@
 h1,
-h2 {
+h2,
+h4,
+h3 {
   font-weight: bold;
+}
+h3{
+  margin: 0px;
+}
+.discountPrice h4{
+  color: rgb(19, 182, 33);
 }
 .details-card {
   max-width: 100%;
   height: auto;
-  margin-top: 20px;
   padding-top: 25px;
 }
 .bookdetails-card {
   max-width: 1000px;
   height: auto;
-  margin: 20px;
+  margin: 20px 20px 0 20px;
+
+  padding-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +32,6 @@ h2 {
   line-height: 22px;
 }
 .book-detail {
-  
   display: flex;
   max-width: 950px;
   flex-wrap: wrap;
@@ -118,6 +126,11 @@ h2 {
   margin-bottom: 25px;
   padding: 10px 0px 10px 12px;
 }
+.goback-arrow .material-symbols-outlined{
+  margin-left: 35px;
+  font-size: 40px;
+  color:rgb(5, 5, 61);
+}
 .back-btn {
   position: absolute;
   max-width: 160px;
@@ -133,19 +146,19 @@ h2 {
   background-color: rgb(21, 21, 131);
   border: 1px solid rgb(21, 21, 131);
   border-radius: 5px;
-  margin-top: 20%;
   right: 0px;
   bottom: 0px;
+  margin-bottom: 20px;
 }
 
-@media screen and (min-width: 200px) and (max-width:930px) {
+@media screen and (min-width: 200px) and (max-width: 930px) {
   .book-desc {
     display: flex;
     max-width: 700px;
     margin-right: 10px;
   }
-  
-  .book-desc p{
+
+  .book-desc p {
     padding: 0%;
   }
   .book-detail {
@@ -153,26 +166,24 @@ h2 {
     justify-content: center;
     align-items: center;
     width: 300px;
-    
   }
-.bookdetails-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 10px;
-  
-}
-.book-img{
-  margin: 0px;
-}
-.back-btn{
-  right: 17px;
-} 
-.book-title{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 0px;
-}
+  .bookdetails-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  .book-img {
+    margin: 0px;
+  }
+  .back-btn {
+    right: 17px;
+  }
+  .book-title {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0px;
+  }
 }

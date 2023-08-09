@@ -1,10 +1,10 @@
-<app-header></app-header>
+<!-- <app-header></app-header> -->
 <a routerLink="/"><span class="material-symbols-outlined"
-        style="margin-left:25px;font-size: 40px;color: rgb(5, 5, 61);">
+       >
         arrow_left_alt
     </span>
 </a>
-<div class="cart-details">
+<div class="cart-details" *ngIf="true; else noitems">
     <div class="cart-card" *ngFor="let item of cartData">
         <div class="cart-book">
             <div class="book-img">
@@ -30,10 +30,17 @@
         <h2>Total price: 0</h2>
         <a href="#" class="buynow-btn">Buy Now</a>
     </div>
-    <!-- <div class="error-msg">
-        <h2>Your Shopping Cart is empty.<a href="/">Continue Shopping</a> and select 'Add to Cart' to move items
+    </div>
+    <ng-template #noitems>
+        <div class="background flex-center">
+            <div appStyles>
+                <h2>Your Shopping Cart is empty.</h2>
+                <h2><a href="/" class="error-msg">Continue Shopping</a> and select 'Add to
+                    Cart' to
+                    move items
             into your cart.
         </h2>
-    </div> -->
-</div>
-<app-footer></app-footer>
+        </div>
+        </div>
+        </ng-template>
+        <!-- <app-footer></app-footer> -->

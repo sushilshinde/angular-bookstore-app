@@ -20,24 +20,27 @@
             <div class="text-center" *ngIf="data.discount; else noDiscount">
               <del>
                 <span class="text-center m-0 text-warning"
-                  >{{ data.price }} ₹</span
+                  >₹{{ data.price }}</span
                 >
               </del>
               <span class="text-center text-secondary">
                 {{ data.discount }}% off</span
               >
               <p class="text-center m-0 text-success">
-                {{ calculateDiscount(data.price, data.discount) }} ₹
+                ₹{{ calculateDiscount(data.price, data.discount) }}
               </p>
             </div>
             <ng-template #noDiscount class="text-center">
-              <p class="text-center m-0 text-success">{{ data.price }} ₹</p>
+              <p class="text-center m-0 text-success">₹{{ data.price }}</p>
             </ng-template>
           </b>
         </div>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
+  <!-- <a routerLink="/" class="back-btn"><span class="material-symbols-outlined">
+            arrow_left_alt
+          </span> Back</a> -->
   <div class="d-flex justify-content-end">
     <a routerLink="/">
       <button class="btn btn-primary mt-3 mb-3">Back</button>

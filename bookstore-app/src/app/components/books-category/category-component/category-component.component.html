@@ -40,14 +40,14 @@
         <div class="text-center" *ngIf="slide.discount; else noDiscount">
           <del>
             <span class="text-center m-0 text-info"
-              >₹ {{ slide.price }} </span
+              >₹{{ slide.price }} </span
             >
           </del>
           <span class="text-center text-secondary">
             {{ slide.discount }}% off</span
           >
           <p class="text-center m-0 text-success">
-            ₹ {{ calculateDiscount(slide.price, slide.discount) }} 
+            ₹{{ calculateDiscount(slide.price, slide.discount) }}
           </p>
         </div>
         <ng-template #noDiscount class="text-center">

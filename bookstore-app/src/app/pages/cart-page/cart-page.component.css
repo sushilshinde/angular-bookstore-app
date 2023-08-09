@@ -2,6 +2,21 @@ h2,
 h3 {
   font-weight: 700;
 }
+.background {
+  background-color: rgb(241, 243, 245);
+  width: 100vw;
+  height: 100vh;
+}
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-msg {
+  text-decoration: none;
+}
 .cart-details {
   max-width: 100%;
   height: auto;
@@ -71,39 +86,44 @@ h3 {
   font-size: 18px;
   text-decoration: none;
 }
-.price-card{
-    display: flex;
-    flex: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    height: auto;
-    width: 650px;
-    margin-bottom: 20px;
-    padding: 15px;
+.material-symbols-outlined {
+  margin: 20px 0px 0px 25px;
+  font-size: 40px;
+  color: rgb(5, 5, 61);
 }
-.price-card h2{
-    padding-top: 15px;
+.price-card {
+  display: flex;
+  flex: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: auto;
+  width: 650px;
+  margin-bottom: 20px;
+  padding: 15px;
 }
-.buynow-btn{
-    padding: 15px;
-    width: 200px;
-    background-color: rgb(243, 167, 26);
-    border: 1px solid rgb(243, 167, 26);
-    border-radius: 15px;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 20px;
+.price-card h2 {
+  padding-top: 15px;
+}
+.buynow-btn {
+  padding: 15px;
+  width: 200px;
+  background-color: rgb(243, 167, 26);
+  border: 1px solid rgb(243, 167, 26);
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 650px) {
   * {
     font-size: xx-small;
   }
-  .price-card{
-     max-width: 100%;
+  .price-card {
+    max-width: 100%;
     font-size: 13px;
     display: flex;
     flex-direction: row;
@@ -112,10 +132,10 @@ h3 {
     text-align: center;
     padding: 8px;
   }
-  .buynow-btn{
+  .buynow-btn {
     max-width: 130px;
   }
- 
+
   .cart-card {
     max-width: 100%;
     font-size: 15px;
@@ -131,12 +151,18 @@ h3 {
     align-items: center;
   }
   .book-img {
-  padding: 0px;
-}
+    padding: 0px;
+  }
   .book-img img {
     width: 75px;
     height: 105px;
     margin-left: 5px;
     margin-right: 10px;
+  }
+}
+@media only screen and (max-width: 672px) {
+  .card {
+    width: 65vw;
+    height: 200px;
   }
 }

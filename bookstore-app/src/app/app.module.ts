@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
@@ -23,6 +23,10 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
+import { StylesDirective } from './directives/styles.directive';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -32,19 +36,31 @@ import { OrderSuccessPageComponent } from './pages/order-success-page/order-succ
     CarouselComponent,
     BooksCategoryComponent,
     FooterComponent,
-    DetailPageComponent, 
-    CategoryComponentComponent,shortenPipe,
+    DetailPageComponent,
+    CategoryComponentComponent, shortenPipe,
     SigninComponent,
     SignupComponent,
     CartPageComponent,
     ViewallBooksPageComponent,
     OrderSuccessPageComponent,
-    
-    
+    StylesDirective,
+    PageNotFoundComponent,
+
+
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule,RouterModule],
+  imports: [BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    NgbModule,
+    SlickCarouselModule,
+    HttpClientModule,
+    RouterModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
-  
+export class AppModule { }

@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class DetailPageComponent implements OnInit
 {
-  data: any;
+  datas: any;
   count: number=0;
   constructor (private http: HttpClient,private activeRoute:ActivatedRoute) { }
   ngOnInit(): void
@@ -20,19 +20,22 @@ export class DetailPageComponent implements OnInit
       map((responseData: any) =>
       {
         const array = [];
-        // for (const key in responseData) {
-        //   if (responseData.hasOwnProperty(key)) {
-        //     array.push({ ...responseData[key], id: key });
-        //   }
-        // }
         array.push(...responseData);
         return array;
       })
     )
       .subscribe(array =>
       {
-        this.data = array;
-        // console.log(this.data, "JSONdata")
+        this.datas = array;
       })
+  }
+  calculateDiscount(price: number, discount: number)
+  {
+    const discountedPrice = price - (price * discount) / 100;
+    return discountedPrice;
+  }
+  addItems()
+  {
+    alert("Added to cart!")
   }
 }
