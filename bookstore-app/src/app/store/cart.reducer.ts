@@ -26,13 +26,20 @@ export const initialState: cartState = {
 export const cartReducer = createReducer(
   initialState,
   on(onAdd, (state: cartState, action) => {
-
 const  bookd =  {...action.bookdata}
-
 let allid=[]
-for(id)
+for(let id of state.cartItems){
+  allid.push(id.id)
+}
+
+if(allid.includes(bookd.id)){
+  return state
+}
+
+else{
     return {
       cartItems:[... state.cartItems,bookd]};
+    }
   }),
   on(onDelete,(state:cartState,action)=>{
     return{

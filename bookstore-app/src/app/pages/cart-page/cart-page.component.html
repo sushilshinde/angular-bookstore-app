@@ -26,8 +26,8 @@
         </div>
         <button class="btn remove-btn" (click)="onRemoveHandeller(item.id)">Remove</button>
     </div>
-    <div class="price-card">
-        <h2>Total price: 0</h2>
+    <div  *ngIf="cartData.length>0" class="price-card">
+        <h2>Total price:<span class="text-danger">{{totalPrice}}</span> </h2>
         <a href="#" class="buynow-btn">Buy Now</a>
         <!-- <button (click)="getDetails()">getDetails</button> -->
     </div>

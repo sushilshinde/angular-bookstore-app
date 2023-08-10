@@ -17,6 +17,11 @@ export class CartPageComponent implements OnInit
 {
   cartData!:BookQty[];
   count: number = 0;
+  totalPrice:number=0
+
+updatePrice(){
+  this.totalPrice=this.cartData.reduce((acc:number,value)=>{return acc+value.price*value.quantity},0)
+}
 
 constructor(private store:Store<{cartItems:cartState}>){
 }
@@ -24,7 +29,8 @@ ngOnInit(): void {
   this.store.select('cartItems').subscribe((data)=>{
     this.cartData=data.cartItems;
   })
-  // this.store.select('cartItems')
+  this.updatePrice();
+
  }
 
 //  getDetails(){
@@ -32,35 +38,15 @@ ngOnInit(): void {
 //  }
  onRemoveHandeller(id:number){
 this.store.dispatch(onDelete({id}))
+this.updatePrice()
  }
  onIncrement(item:BookQty){
   this.store.dispatch(increment({item}))
+  this.updatePrice()
  }
  onDecrement(item:BookQty){
   this.store.dispatch(decrement({item}))
+  this.updatePrice()
  }
 }
-  // constructor (private http: HttpClient) { }
-  // ngOnInit(): void
-  // {
-  //   this.http.get("http://localhost:3000/carousel").pipe(
-  //     map((responseData: any) =>
-  //     {
-  //       const array = [];
-  //       // for (const key in responseData) {
-  //       //   if (responseData.hasOwnProperty(key)) {
-  //       //     array.push({ ...responseData[key], id: key });
-  //       //   }
-  //       // }
-  //       array.push(...responseData);
-  //       return array;
-  //     })
-  //   )
-  //     .subscribe(array =>
-  //     {
-  //       this.cartData = array;
-  //       console.log(this.cartData, "JSONdata")
-  //     })
-  // }
-
- 
+  
