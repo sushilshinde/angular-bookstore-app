@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'src/app/interfaces/interface.book';
-// import { viewallservice } from 'src/app/viewall.data.service';
 
 @Component({
   selector: 'app-category-component',
@@ -11,11 +10,8 @@ import { Book } from 'src/app/interfaces/interface.book';
 export class CategoryComponentComponent {
   @Input() imagesData: Book[] = [];
   @Input() title: string = '';
-  //   slides!:any;
-  // ngOnInit(){
-  //   this.slides =this.imagesData;
-  //   console.log(this.slides)
-  // }
+
+
   constructor(private navpage: Router) {}
 
   slideConfig = {
@@ -60,4 +56,6 @@ export class CategoryComponentComponent {
   navigateToDetails(id: number) {
     this.navpage.navigate(['details', id]);
   }
+  
+
 }

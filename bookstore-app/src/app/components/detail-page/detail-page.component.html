@@ -1,7 +1,7 @@
-<app-header></app-header>
+
 <div class="details-card">
-    <a routerLink="/"><span class="material-symbols-outlined"
-            style="margin-left: 35px;font-size: 40px;color:rgb(5, 5, 61);">
+    <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined" 
+            >
             arrow_left_alt
         </span>
     </a>
@@ -14,19 +14,33 @@
                 <div class="title-name">
                     <h2>{{book.title}}</h2>
                     <p>by <i style="font-size: 14px;">{{book.authors}}</i></p>
-                    <!-- <p style="font-size: 14px;">{{book.categories}}</p> -->
                 </div>
 
                 <div class="book-price">
-                    <h1>&#8377;{{book.price}}</h1>
+                    <div class="discountPrice" *ngIf="book.discount; else noDiscount">
+                        <del>
+                            <h3>₹{{ book.price }} </h3>
+                        </del>
+                        <h4>
+                            {{ book.discount }}% off
+                        </h4>
+                        <h1>
+                            ₹{{calculateDiscount(book.price, book.discount) }}
+                        </h1>
+                    </div>
+                    <ng-template #noDiscount>
+                        <h1>&#8377;{{book.price}}</h1>
+                    </ng-template>
+
                     <div class="book-qty">
-                    
+
+
                         <h4>Quantity:</h4>
                         <button (click)="onDecrement()">-</button>
                         <p>{{count}}</p>
                         <button (click)="onIncrement()">+</button>
                     </div>
-                    </div>
+                </div>
                 <div class="book-atc">
                     <a class="cart-btn" (click)="addTOCart(book)">Add to Cart <span class="material-symbols-outlined">
                             add_shopping_cart
@@ -45,4 +59,3 @@
             </span> Back</a>
     </div>
 </div>
-<app-footer></app-footer>

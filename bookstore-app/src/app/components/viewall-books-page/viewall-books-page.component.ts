@@ -8,44 +8,50 @@ import { Book } from 'src/app/interfaces/interface.book';
   templateUrl: './viewall-books-page.component.html',
   styleUrls: ['./viewall-books-page.component.css'],
 })
-export class ViewallBooksPageComponent {
+export class ViewallBooksPageComponent
+{
   allBooks: Book[] = [];
-  title: string = '';
   category: string = '';
   cols: number = 4;
 
   @HostListener('window:resize', ['$event'])
-  onWindowResize(event: any) {
+  onWindowResize(event: any)
+  {
     this.cols = this.getRows();
   }
 
-  constructor(
+  constructor (
     private activeRoute: ActivatedRoute,
     private http: httpService,
     private navpage: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.category = this.activeRoute.snapshot.params['category'];
-    this.activeRoute.params.subscribe((param) => {
+    this.activeRoute.params.subscribe((param) =>
+    {
+
       if (param['category'] === 'Trending') {
         this.http
-          .oNGetTrendingBooks()
+          .getTrendingBooks()
           .subscribe((resp) => (this.allBooks = resp));
       } else if (param['category'] === 'Best Offers') {
         this.http
-          .oNGetBestOffersBooks()
+          .getBestOffersBooks()
           .subscribe((resp) => (this.allBooks = resp));
       } else {
-        this.http.onGetBooks().subscribe((resp) => (this.allBooks = resp));
+        this.http.getBooks().subscribe((resp) => (this.allBooks = resp));
       }
     });
   }
-  calculateDiscount(price: number, discount: number) {
+  calculateDiscount(price: number, discount: number)
+  {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  getRows() {
+  getRows()
+  {
     if (window.innerWidth > 1000) {
       return 4;
     } else if (window.innerWidth < 1000 && window.innerWidth > 768) {

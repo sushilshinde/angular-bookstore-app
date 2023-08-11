@@ -1,8 +1,42 @@
-<ngb-carousel *ngIf="content.length" [showNavigationIndicators]="false">
-	<ng-template ngbSlide *ngFor="let item of content">
-		<div class="carousel-card">
-			<a href="/"><img [src]="item.imgUrl" [alt]="item.title" />
-				</a>
-		</div>
-	</ng-template>
+<ngb-carousel *ngIf="4" [showNavigationIndicators]="false">
+  <ng-template ngbSlide>
+    <div class="carousel-card">
+      <a [routerLink]="['/details', 3]"
+        ><img
+          src="../../../assets/images/carousel images/carousel-1.jpg"
+          alt="no data"
+        />
+      </a>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="carousel-card">
+      <a [routerLink]="['/details', 6]"
+        ><img
+          src="../../../assets/images/carousel images/carousel-2.jpg"
+          alt="no data"
+        />
+      </a>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="carousel-card">
+      <a [routerLink]="['/details', 7]"
+        ><img
+          src="../../../assets/images/carousel images/carousel-3.jpg"
+          alt="no data"
+        />
+      </a>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="carousel-card">
+      <a [routerLink]="['/details', 8]"
+        ><img
+          src="../../../assets/images/carousel images/carousel-4.jpg"
+          alt="no data"
+        />
+      </a>
+    </div>
+  </ng-template>
 </ngb-carousel>

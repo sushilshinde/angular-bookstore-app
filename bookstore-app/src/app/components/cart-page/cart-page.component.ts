@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
-import { Book } from 'src/app/interfaces/interface.book';
 import { BookQty } from 'src/app/interfaces/interface.bookwithqty';
 import { cartState } from 'src/app/interfaces/interface.cartState';
 import { decrement, onDelete } from 'src/app/store/cart.actions';
@@ -15,12 +12,23 @@ import { increment } from 'src/app/store/cart.actions';
 
 export class CartPageComponent implements OnInit
 {
-  cartData!:BookQty[];
+  cartData:any=[];
   count: number = 0;
   totalPrice:number=0
 
 updatePrice(){
-  this.totalPrice=this.cartData.reduce((acc:number,value)=>{return acc+value.price*value.quantity},0)
+  this.totalPrice=this.cartData.reduce((acc:number,value:any)=>{
+    if(value.categories.includes('Offers')){
+      return acc+ this.calculateDiscount(value.price,value.discount)  *value.quantity
+
+    }
+    else{
+
+  return    acc+value.price*value.quantity
+    }
+  
+  
+  },0)
 }
 
 constructor(private store:Store<{cartItems:cartState}>){
@@ -48,5 +56,9 @@ this.updatePrice()
   this.store.dispatch(decrement({item}))
   this.updatePrice()
  }
+
+calculateDiscount(price: number, discount: number) {
+  const discountedPrice = price - (price * discount) / 100;
+  return discountedPrice;
 }
-  
+}

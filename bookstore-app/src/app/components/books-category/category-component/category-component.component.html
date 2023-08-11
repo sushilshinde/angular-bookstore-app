@@ -1,24 +1,20 @@
 <div class="m-5 background">
   <div class="d-flex justify-content-between headdingButton">
-    <!-- <b> -->
     <h2 class="text-danger">{{ title }}:</h2>
-    <!-- </b> -->
-    <!-- <a [routerLink]="['/', title.trim()]"> -->
-      <!-- <button class="btn btn-success" (click)="viewAllHandeller(imagesData,title)">View All</button> -->
-    <!-- </a> -->
-    <a [routerLink]="['/viewall', title]"><button  class="btn btn-success">View All</button></a>
+    <a [routerLink]="['/viewall', title]"
+      ><button class="btn btn-success" (click)="eventEmitterTest(title)">View All</button></a
+    >
   </div>
   <ngx-slick-carousel
     class="carousel"
     #slickModal="slick-carousel"
     [config]="slideConfig"
   >
-    <div  
+    <div
       ngxSlickItem
       *ngFor="let slide of imagesData.slice(0, 6)"
       class="slide m-2"
     >
-    
       <img
         class="slider-book-image"
         src="{{ slide.thumbnailUrl }}"
@@ -30,28 +26,26 @@
       <hr />
       <b
         ><p class="text-center m-0 text-danger mt-1">
-          {{ slide.title | shorten }}
+          {{ slide.title | shorten:15 }}
         </p>
       </b>
       <p class="text-center text-secondary m-0">
-        {{ slide.authors[0] | shorten }}
+        {{ slide.authors[0] | shorten:15 }}
       </p>
       <b class="text-center">
         <div class="text-center" *ngIf="slide.discount; else noDiscount">
           <del>
-            <span class="text-center m-0 text-info"
-              >₹ {{ slide.price }} </span
-            >
+            <span class="text-center m-0 text-info">₹{{ slide.price }} </span>
           </del>
           <span class="text-center text-secondary">
             {{ slide.discount }}% off</span
           >
           <p class="text-center m-0 text-success">
-            ₹ {{ calculateDiscount(slide.price, slide.discount) }} 
+            ₹{{ calculateDiscount(slide.price, slide.discount) }}
           </p>
         </div>
         <ng-template #noDiscount class="text-center">
-          <p class="text-center m-0 text-success">₹{{ slide.price }} </p>
+          <p class="text-center m-0 text-success">₹{{ slide.price }}</p>
         </ng-template>
       </b>
     </div>
