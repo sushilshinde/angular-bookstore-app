@@ -16,7 +16,9 @@
     <div class="input">
       <input type="text" placeholder="Title,Other,....." />
       <mat-icon class="search">search</mat-icon>
-      <span class="login" routerLink="/signin">SIGN IN</span>
+      <span class="login" (click)="signinPage()">sign in</span>
+      <!-- <ng-template #temp>welcome {{username}}</ng-template> -->
+      <!-- <span>{{username}}</span> -->
       <mat-icon
         class="cart"
         matBadge="0"
@@ -27,5 +29,6 @@
         >shopping_cart</mat-icon
       >
     </div>
+ 
   </mat-toolbar>
 </header>

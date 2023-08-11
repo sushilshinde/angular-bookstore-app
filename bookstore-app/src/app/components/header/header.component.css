@@ -51,7 +51,7 @@ input[type="text"] {
   color: white;
 }
 .login {
-  font-size: small;
+  font-size: smaller;
   padding-left: 10px;
   padding-right: 10px;
 }

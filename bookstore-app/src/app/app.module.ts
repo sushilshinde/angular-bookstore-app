@@ -18,11 +18,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './pages/signin-page/signin.component';
+import { SignupComponent } from './pages/signup-page/signup.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { OrderSuccessPageComponent } from './pages/order-success-page/order-succ
     
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule,RouterModule],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

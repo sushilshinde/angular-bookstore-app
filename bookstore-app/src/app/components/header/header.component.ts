@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { cart } from 'src/app/cart.service';
 
 @Component({
@@ -7,6 +9,11 @@ import { cart } from 'src/app/cart.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private cartservice:cart){}
+  constructor(private cartservice:cart,private router:Router,private authentication:AuthenticationService){}
+  
+  signinPage(){
+    this.router.navigate(["signin"])
+  }
+  
 
 }
