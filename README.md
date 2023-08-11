@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Running backend
-To run backend we used json-server which is used to serve the json data from local. To start that server run the following command "json-server --watch json-data/book-data.json --port 3000"
+To run backend we used json-server which is used to serve the json data from local. To install "npm i json-server". To start that server run the following command "json-server --watch json-data/book-data.json --port 3000"
 
 ## Code scaffolding
 
