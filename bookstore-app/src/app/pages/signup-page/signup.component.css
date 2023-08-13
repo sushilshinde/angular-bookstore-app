@@ -37,7 +37,7 @@ input[type="password"] {
 }
 .validate p {
   color: red;
-  font-size:x-small;
+  font-size: x-small;
 }
 button {
   width: 150px;
@@ -48,7 +48,7 @@ p {
   color: black;
 }
 @media only screen and (max-width: 400px) {
-  .sign {
+  .signup {
     width: 80vw;
   }
   .input[type="text"],
@@ -57,11 +57,13 @@ p {
     width: 100%;
   }
 }
-@media only screen  and (max-width:400px){
-    .sign{
-        width: 80vw;
-    }
-    input[type="text"],input[type="email"],input[type="password"]{
-        width: 100%;
-    }
+@media only screen and (max-width: 400px) {
+  .signup {
+    width: 80vw;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+  }
 }

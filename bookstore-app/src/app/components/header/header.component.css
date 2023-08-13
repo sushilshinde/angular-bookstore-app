@@ -55,6 +55,11 @@ input[type="text"] {
   padding-left: 10px;
   padding-right: 10px;
 }
+.username{
+  font-size: small;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .cart {
   transition: all 0.2ms;
 }
@@ -78,5 +83,11 @@ input[type="text"] {
   margin-left: auto;
   margin-right:10px;
 }
-
 }
+@media screen and (max-width: 400px) {
+  .logout{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+

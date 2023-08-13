@@ -45,11 +45,12 @@ p {
   color: black;
 }
 
-@media only screen  and (max-width:400px){
-    .sign{
-        width: 80vw;
-    }
-    input[type="email"],input[type="password"]{
-        width: 100%;
-    }
+@media only screen and (max-width: 400px) {
+  .signin {
+    width: 80vw;
+  }
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+  }
 }
