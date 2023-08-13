@@ -1,5 +1,5 @@
 import { createAction,props } from "@ngrx/store";
-import { BookQty } from "../interfaces/interface.bookwithqty";
+import { BookQty } from "../interfaces/interface.book";
 
 export const onAdd=createAction('onAdd',props<{bookdata:BookQty}>())
 export const onDelete=createAction('onDelete',props<{id:number}>())

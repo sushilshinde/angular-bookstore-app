@@ -9,11 +9,11 @@ import { cartState } from 'src/app/interfaces/interface.cartState';
 })
 export class HeaderComponent implements OnInit {
   count:number=0;
-constructor( private store:Store<{cartItems:cartState}>){
+constructor( private store:Store<{cartItems:cartState}>){   //getting store
 }
  ngOnInit(): void {
     this.store.select('cartItems').subscribe((data)=>{
-        this.count=data.cartItems.length
+        this.count=data.cartItems.length                    //returning cart length and assigning to count
       })
  }
 

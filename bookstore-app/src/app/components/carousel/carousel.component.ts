@@ -1,3 +1,4 @@
+//this component is used to display carousel
 import { Component } from '@angular/core';
 @Component({
   selector: 'app-carousel',

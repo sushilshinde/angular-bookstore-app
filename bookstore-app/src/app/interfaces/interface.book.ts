@@ -8,5 +8,7 @@ export interface Book {
   authors: string[];
   categories: string[];
   discount?:number;
-  quantity?:number;
+}
+export interface  BookQty extends Book  {
+  quantity:number;
 }

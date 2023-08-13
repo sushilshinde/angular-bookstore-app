@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { BookQty } from '../interfaces/interface.bookwithqty';
+import { BookQty } from '../interfaces/interface.book';
 import { cartState } from '../interfaces/interface.cartState';
 import { decrement, increment, onAdd, onDelete } from './cart.actions';
 

@@ -1,3 +1,4 @@
+//this directive is usee to center the elements with blackground color and border radious
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
@@ -5,7 +6,7 @@ import { Directive, ElementRef } from '@angular/core';
 })
 export class StylesDirective
 {
-  constructor (private el: ElementRef)
+  constructor (private el: ElementRef)  //usig element reference for updating css
   {
     this.el.nativeElement.style.backgroundColor = '#b9dfb9';
     this.el.nativeElement.style.color = 'black';

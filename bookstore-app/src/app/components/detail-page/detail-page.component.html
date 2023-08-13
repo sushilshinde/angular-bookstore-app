@@ -1,7 +1,6 @@
 
 <div class="details-card">
-    <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined" 
-            >
+    <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined" >
             arrow_left_alt
         </span>
     </a>
@@ -12,8 +11,8 @@
             </div>
             <div class="book-title">
                 <div class="title-name">
-                    <h2>{{book.title}}</h2>
-                    <p>by <i style="font-size: 14px;">{{book.authors}}</i></p>
+                    <h2 [ngStyle]="{color:'red'}">{{book.title}}</h2>
+                    <p class="text-secondary">by <i style="font-size: 14px;">{{book.authors}}</i></p>
                 </div>
 
                 <div class="book-price">
