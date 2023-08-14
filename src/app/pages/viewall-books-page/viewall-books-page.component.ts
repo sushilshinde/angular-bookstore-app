@@ -13,6 +13,8 @@ export class ViewallBooksPageComponent {
   title: string = '';
   category: string = '';
   cols: number = 4;
+  books:any ;
+  search:string= '';
   
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any) {
@@ -23,6 +25,7 @@ export class ViewallBooksPageComponent {
     private activeRoute: ActivatedRoute,
     private http: httpService,
     private navpage: Router
+    
   ) {}
 
   ngOnInit() {
@@ -40,6 +43,7 @@ export class ViewallBooksPageComponent {
         this.http.onGetBooks().subscribe((resp) => (this.allBooks = resp));
       }
     });
+
   }
   calculateDiscount(price: number, discount: number) {
     const discountedPrice = price - (price * discount) / 100;
@@ -60,5 +64,7 @@ export class ViewallBooksPageComponent {
   }
   navigateToDetails(id: number) {
     this.navpage.navigate(["details",id] );
+  
+  
   }
 }

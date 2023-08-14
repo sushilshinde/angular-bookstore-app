@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,7 +25,7 @@ import { OrderSuccessPageComponent } from './pages/order-success-page/order-succ
 import { AuthService } from './auth.service';
 import { SearchComponent } from './components/search/search.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,20 +34,30 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     CarouselComponent,
     BooksCategoryComponent,
     FooterComponent,
-    DetailPageComponent, 
-    CategoryComponentComponent,shortenPipe,
+    DetailPageComponent,
+    CategoryComponentComponent,
+    shortenPipe,
     SigninComponent,
     SignupComponent,
     CartPageComponent,
     ViewallBooksPageComponent,
     OrderSuccessPageComponent,
     SearchComponent,
-    
-    
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialModule, MatIconModule, ReactiveFormsModule, NgbModule, SlickCarouselModule, HttpClientModule,RouterModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    NgbModule,
+    SlickCarouselModule,
+    HttpClientModule,
+    RouterModule,
+    FormsModule,
+  ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-  

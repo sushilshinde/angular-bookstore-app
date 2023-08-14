@@ -8,6 +8,7 @@ import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-bo
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
 import { AuthService } from './auth.service';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: "full" },
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'details/:id', component: DetailPageComponent,canActivate:[AuthService]},
   { path: 'cart', component: CartPageComponent, canActivate:[AuthService]},
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
-  {path:'buy',component:OrderSuccessPageComponent}
+  {path:'buy',component:OrderSuccessPageComponent},
+  {path:'search/:search',component:SearchComponent}
 
 ];
 

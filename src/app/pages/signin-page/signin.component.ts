@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
