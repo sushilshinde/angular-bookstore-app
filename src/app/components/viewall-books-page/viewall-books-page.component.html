@@ -5,7 +5,7 @@
 <label>Sort:</label>
 <select [(ngModel)]='sort'>
   <option value="title">title</option>
-  <option value="author">Author</option>
+  <option value="price">price</option>
 </select>
   <mat-grid-list [cols]="cols">
     <mat-grid-tile *ngFor="let data of allBooks | sort:[sort,'ascending']">

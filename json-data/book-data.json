@@ -659,7 +659,55 @@
       ]
     }
   ],
-  "cartItems": [],
+  "cartItems": [
+    {
+      "title": "Red, White & Royal Blue",
+      "id": 9,
+      "price": 780,
+      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7yIkGslCZkFzGYpkiwmMnAS_8KNJMuM5Zfe-n3EHmWUDRjzHX",
+      "longDescription": "First Son Alex Claremont-Diaz is the closest thing to a prince this side of the Atlantic. With his intrepid sister and the Veep’s genius granddaughter, they’re the White House Trio, a beautiful millennial marketing strategy for his mother, President Ellen Claremont. International socialite duties do have downsides—namely, when photos of a confrontation with his longtime nemesis Prince Henry at a royal wedding leak to the tabloids and threaten American/British relations. The plan for damage control: staging a fake friendship between the First Son and the Prince. As President Claremont kicks off her reelection bid, Alex finds himself hurtling into a secret relationship with Henry that could derail the campaign and upend two nations. What is worth the sacrifice? How do you do all the good you can do? And, most importantly, how will history remember you?",
+      "status": "PUBLISH",
+      "authors": [
+        "Casey McQuiston"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 3
+    },
+    {
+      "title": "Hibernate in Action",
+      "id": 32,
+      "price": 1990,
+      "discount": 15,
+      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bauer.jpg",
+      "longDescription": "Hibernate practically exploded on the Java scene. Why is this open-source tool so popular  Because it automates a tedious task: persisting your Java objects to a relational database. The inevitable mismatch between your object-oriented code and the relational database requires you to write code that maps one to the other. This code is often complex, tedious and costly to develop. Hibernate does the mapping for you.    Not only that, Hibernate makes it easy. Positioned as a layer between your application and your database, Hibernate takes care of loading and saving of objects. Hibernate applications are cheaper, more portable, and more resilient to change. And they perform better than anything you are likely to develop yourself.    Hibernate in Action carefully explains the concepts you need, then gets you going. It builds on a single example to show you how to use Hibernate in practice, how to deal with concurrency and transactions, how to efficiently retrieve objects and use caching.    The authors created Hibernate and they field questions from the Hibernate community every day - they know how to make Hibernate sing. Knowledge and insight seep out of every pore of this book.",
+      "status": "PUBLISH",
+      "authors": [
+        "Christian Bauer",
+        "Gavin King"
+      ],
+      "categories": [
+        "Offers"
+      ],
+      "quantity": 1
+    },
+    {
+      "title": "The Hunger Games",
+      "id": 8,
+      "price": 900,
+      "thumbnailUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRSkUNQrln1w8K8eMQGRRF6-XEMjzDtBKfd1bw7XJ9zH-WW0P58",
+      "longDescription": "In the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV. Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love.",
+      "status": "PUBLISH",
+      "authors": [
+        "Suzanne Collins"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
+    }
+  ],
   "users": [
     {
       "name": "Balaji",
@@ -667,6 +715,20 @@
       "password": "Ba2112@#",
       "confirm": "Ba2112@#",
       "id": 1
+    },
+    {
+      "name": "vicky",
+      "email": "v@gmail.com",
+      "password": "Vicky1@",
+      "confirm": "Vicky1@",
+      "id": 2
+    },
+    {
+      "name": "Vysali",
+      "email": "vysali@gmail.com",
+      "password": "Vysali1@",
+      "confirm": "Vysali2@",
+      "id": 3
     }
   ]
 }

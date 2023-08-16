@@ -3,7 +3,7 @@ import { map, switchMap } from "rxjs";
 import { HttpService } from "app/services/http.service";
 import { getItem, getItemSuccess, addItem, addItemSuccess, removeItem, removeItemSuccess, increment, incrementItemSuccess, decrement, decrementItemSuccess } from './cart.actions';
 import { Injectable } from "@angular/core"
-import { BookQty } from "app/interfaces/interface.bookwithqty";
+import { BookQty } from "app/interface.book";
 @Injectable()
 export class CartEffects
 {
