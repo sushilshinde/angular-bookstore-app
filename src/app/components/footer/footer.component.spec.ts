@@ -1,10 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
 import { MaterialModule } from 'src/app/material_ui/material.module';
-import { cartReducer } from 'src/app/store/cart.reducer';
-
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -13,7 +10,7 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-        imports: [ MaterialModule,MatIconModule,  RouterTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
+      imports: [MaterialModule, MatIconModule, RouterTestingModule],
       declarations: [FooterComponent],
     });
     fixture = TestBed.createComponent(FooterComponent);

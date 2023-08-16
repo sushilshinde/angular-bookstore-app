@@ -21,22 +21,22 @@ describe('CategoryComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-//   it('should render the title', () => {
-//     component.title = 'Best Offers';
-//     fixture.detectChanges();
-//     const titleElement: HTMLElement = fixture.nativeElement.querySelector('h2');
-//     expect(titleElement.textContent).toContain('Best Offers');
-//   });
-//   it('should render the title', () => {
-//     component.title = 'Best Offers';
-//     fixture.detectChanges();
-//     const titleElement: HTMLElement = fixture.nativeElement.querySelector('h2');
-//     expect(titleElement.textContent).toContain('Trending');
-//   });
-//   it('should render the title', () => {
-//     component.title = 'Available Books';
-//     fixture.detectChanges();
-//     const titleElement: HTMLElement = fixture.nativeElement.querySelector('h2');
-//     expect(titleElement.textContent).toContain('Available Books');
-//   });
+  // it('should render the title', () => {
+  //   component.title = 'Best Offers';
+  //   fixture.detectChanges();
+  //   const titleElement: HTMLElement = fixture.nativeElement.querySelector('h2');
+  //   expect(titleElement.textContent).toContain('Best Offers');
+  // });
+  // it('should render the title', () => {
+  //   component.title = 'Best Offers';
+  //   fixture.detectChanges();
+  //   const titleElement: HTMLElement = fixture.nativeElement.querySelector('h2');
+  //   expect(titleElement.textContent).toContain('Trending');
+  // });
+  // it('should render the title', () => {
+  //   component.title = 'Available Books';
+  //   fixture.detectChanges();
+  //   const titleElement: HTMLElement = fixture.nativeElement.querySelector('h2');
+  //   expect(titleElement.textContent).toContain('Available Books');
+  // });
 });
