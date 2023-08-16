@@ -1,0 +1,61 @@
+
+<div class="details-card">
+    <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined" 
+            >
+            arrow_left_alt
+        </span>
+    </a>
+    <div class="bookdetails-card" *ngFor="let book of data">
+        <div class="book-detail">
+            <div class="book-img">
+                <img [src]="book.thumbnailUrl" alt="{{book.title}}" />
+            </div>
+            <div class="book-title">
+                <div class="title-name">
+                    <h2>{{book.title}}</h2>
+                    <p>by <i style="font-size: 14px;">{{book.authors}}</i></p>
+                </div>
+
+                <div class="book-price">
+                    <div class="discountPrice" *ngIf="book.discount; else noDiscount">
+                        <del>
+                            <h3>₹{{ book.price }} </h3>
+                        </del>
+                        <h4>
+                            {{ book.discount }}% off
+                        </h4>
+                        <h1>
+                            ₹{{calculateDiscount(book.price, book.discount) }}
+                        </h1>
+                    </div>
+                    <ng-template #noDiscount>
+                        <h1>&#8377;{{book.price}}</h1>
+                    </ng-template>
+
+                    <div class="book-qty">
+
+
+                        <h4>Quantity:</h4>
+                        <button (click)="onDecrement()">-</button>
+                        <p>{{count}}</p>
+                        <button (click)="onIncrement()">+</button>
+                    </div>
+                </div>
+                <div class="book-atc">
+                    <a class="cart-btn" (click)="addTOCart(book)">Add to Cart <span class="material-symbols-outlined">
+                            add_shopping_cart
+                        </span></a>
+                    <a routerLink="/buy" class="buynow-btn">Buy Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="book-desc">
+            <h2>Description</h2>
+            <p>{{book.longDescription}}</p>
+
+        </div>
+        <a routerLink="/" class="back-btn"><span class="material-symbols-outlined">
+                arrow_left_alt
+            </span> Back</a>
+    </div>
+</div>

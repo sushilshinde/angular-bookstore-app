@@ -1,6 +1,9 @@
 import { Component,OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { cartState } from 'src/app/interfaces/interface.cartState';
+import { cart } from 'src/app/cart.service';
+import { Router } from '@angular/router';
+import { httpService } from 'src/app/http.service';
+import { Book } from 'src/app/interface.book';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +11,29 @@ import { cartState } from 'src/app/interfaces/interface.cartState';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  count:number=0;
-constructor( private store:Store<{cartItems:cartState}>){
-}
- ngOnInit(): void {
-    this.store.select('cartItems').subscribe((data)=>{
-        this.count=data.cartItems.length
-      })
- }
-
+  constructor(
+    private http: HttpClient,
+    private cartservice: cart,
+    private router: Router,
+  
+    private httpser:httpService
+  ) {}
+  username: string | null = null;
+  search = '';
+  signinPage() {
+    this.router.navigate(['signin']);
+  }
+  ngOnInit(): void {
+    const userDetails = localStorage.getItem('userdetails');
+    console.log('user header', userDetails);
+    if (userDetails) {
+      const user = JSON.parse(userDetails);
+      this.username = user.name;
+    }
+  }
+  logout() {
+    this.router.navigate(['signin']);
+    localStorage.removeItem('userdetails');
+  }
+ 
 }
