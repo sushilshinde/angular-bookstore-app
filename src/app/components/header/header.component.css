@@ -55,9 +55,22 @@ input[type="text"] {
   color: white;
 }
 .login {
+  font-size: smaller;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.username{
   font-size: small;
   padding-left: 10px;
   padding-right: 10px;
+}
+.logout{
+  padding-top: 8px;
+  font-size: large;
+  transition: all 0.2ms;
+}
+.logout:hover {
+  transform: scale(1.2);
 }
 .cart {
   transition: all 0.2ms;
@@ -82,5 +95,5 @@ input[type="text"] {
   margin-left: auto;
   margin-right:10px;
 }
-
 }
+

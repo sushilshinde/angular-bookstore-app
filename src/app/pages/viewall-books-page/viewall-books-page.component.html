@@ -2,13 +2,8 @@
 
 <div class="container">
   <h2 class="text-center text-danger font-weight-bold pt-3">{{ category }}</h2>
-<label>Sort:</label>
-<select [(ngModel)]='sort'>
-  <option value="title">title</option>
-  <option value="author">Author</option>
-</select>
   <mat-grid-list [cols]="cols">
-    <mat-grid-tile *ngFor="let data of allBooks | sort:[sort,'ascending']">
+    <mat-grid-tile *ngFor="let data of allBooks">
       <div (click)="navigateToDetails(data.id)" class="d-flex flex-column justify-content-center books-container image-div">
         <div>
           <img src="{{ data.thumbnailUrl }}" alt="noimg" />

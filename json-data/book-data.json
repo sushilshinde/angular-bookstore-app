@@ -660,22 +660,245 @@
     }
   ],
   "cartItems": [
+  ],
+  "users": [
     {
-      "title": "Java Persistence with Hibernate",
-      "id": 33,
-      "price": 2000,
-      "discount": 14,
-      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bauer2.jpg",
-      "longDescription": "Persistence -- the ability of data to outlive an instance of a program -- is central to modern applications. Hibernate, the most popular Java persistence tool, provides automatic and transparent object/relational mapping so it's a snap to work with SQL databases in Java applications. Hibernate conforms to the new EJB 3.0 and Java Persistence 1.0 standards.    Java Persistence with Hibernate explores Hibernate by developing an application that ties together hundreds of individual examples. You'll immediately dig into the rich programming model of Hibernate 3.2 and Java Persistence, working through queries, fetching strategies, caching, transactions, conversations, and more. You'll also appreciate the well-illustrated discussion of best practices in database design, object/relational mapping, and optimization techniques.    In this revised edition of Manning's bestselling Hibernate in Action, authors Christian Bauer and Gavin King -- the founder of the Hibernate project -- cover Hibernate 3.2 in detail along with the EJB 3.0 and Java Persistence 1.0 standards.",
-      "status": "PUBLISH",
-      "authors": [
-        "Christian Bauer",
-        "Gavin King"
-      ],
-      "categories": [
-        "Offers"
-      ],
-      "quantity": 1
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 1
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 2
+    },
+    {
+      "name": "vyshu",
+      "email": "vyshu@gmail.com",
+      "password": "Vy1@",
+      "confirm": "Vy1@",
+      "id": 3
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 4
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 5
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 6
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 7
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 8
+    },
+    {
+      "name": "ammu",
+      "email": "ammu@gmail.com",
+      "password": "Ab1@",
+      "confirm": "Ab1@",
+      "id": 9
+    },
+    {
+      "name": "Janu",
+      "email": "janu@gmail.com",
+      "password": "Janu@123",
+      "confirm": "Janu@123",
+      "id": 10
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 11
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 12
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 13
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 14
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 15
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 16
+    },
+    {
+      "name": "shali",
+      "email": "shali@gmail.com",
+      "password": "Shali@123",
+      "confirm": "Shali@123",
+      "id": 17
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 18
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 19
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 20
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 21
+    },
+    {
+      "name": "balaji",
+      "email": "balaji@gmail.com",
+      "password": "Balaji@123",
+      "confirm": "Balaji@123",
+      "id": 22
+    },
+    {
+      "name": "srikanth",
+      "email": "srikanth@gmail.com",
+      "password": "Srikanth@123",
+      "confirm": "Srikanth@123",
+      "id": 23
+    },
+    {
+      "name": null,
+      "email": null,
+      "password": null,
+      "confirm": null,
+      "id": 24
+    },
+    {
+      "name": "mahee",
+      "email": "mahee@gmail.com",
+      "password": "Mahee@123",
+      "confirm": "Mahee@123",
+      "id": 25
+    },
+    {
+      "name": "honey",
+      "email": "honey@gmail.com",
+      "password": "Honey@123",
+      "confirm": "Honey@123",
+      "id": 26
+    },
+    {
+      "name": "nisha",
+      "email": "nisha@gmail.com",
+      "password": "Nisha@123",
+      "confirm": "Nisha@123",
+      "id": 27
+    },
+    {
+      "name": "sai",
+      "email": "sai@gmail.com",
+      "password": "Sai@123",
+      "confirm": "Sai@123",
+      "id": 28
+    },
+    {
+      "name": "ramya",
+      "email": "ramya@gmail.com",
+      "password": "Ramya@123",
+      "confirm": "Ramya@123",
+      "id": 29
+    },
+    {
+      "name": "Vyshu",
+      "email": "Vyshu123@gmail",
+      "password": "Ab1@",
+      "confirm": "Ab1@",
+      "id": 30
+    },
+    {
+      "name": "mahee",
+      "email": "mahee@gmail.com",
+      "password": "Mahee@123",
+      "confirm": "Mahee@123",
+      "id": 31
+    },
+    {
+      "name": "lavanya",
+      "email": "lavanya@gmail.com",
+      "password": "Lavanya@123",
+      "confirm": "Lavanya@123",
+      "id": 32
+    },
+    {
+      "name": "yoshi",
+      "email": "yoshi@gmail.com",
+      "password": "Yoshi@123",
+      "confirm": "Yoshi@123",
+      "id": 33
+    },
+    {
+      "name": "venkat",
+      "email": "venkat@gmail.com",
+      "password": "Venkat@123",
+      "confirm": "Venkat@123",
+      "id": 34
     }
   ]
 }

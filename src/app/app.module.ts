@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { BooksCategoryComponent } from './components/books-category/books-category.component';
@@ -32,6 +31,7 @@ import { cartReducer } from './store/cart.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CartEffects } from './store/cart.effects';
 import { SortPipe } from './pipes/sort.pipe';
+import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
