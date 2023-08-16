@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+//this books category component is used to oneway data binding and reusable category components
+import { Component,  OnInit } from '@angular/core';
 import { HttpService } from 'app/services/http.service';
-import { Book } from 'app/interfaces/interface.book';
+import { Book } from 'app/interface.book';
+
 @Component({
   selector: 'app-books-category',
   templateUrl: './books-category.component.html',
@@ -14,29 +16,19 @@ export class BooksCategoryComponent implements OnInit {
   constructor(private httpdata: HttpService) {}
 
   ngOnInit() {
-    // this.httpdata.getTrendingBooks().subscribe((resp) => {
-    //   this.trendingBooks = resp;
-    // });
-    // this.httpdata.getBestOffersBooks().subscribe((resp) => {
-    //   this.bestOfferBooks = resp;
-    // });
-    // this.httpdata.getBooks().subscribe((resp) => {
-    //   this.allBooks = resp;
-    // });
-
     this.httpdata.getBooks().subscribe((resp) => {
       let booksoffer = [];
       let trending = [];
       for (let data of resp) {
         if (data.discount) {
-          booksoffer.push({ ...data });
+          booksoffer.push({ ...data });//updating book offers
         }
         if (data.categories.includes('Trending')) {
-          trending.push({ ...data });
+          trending.push({ ...data });//updating trending books
         }
         this.bestOfferBooks = booksoffer;
         this.trendingBooks = trending;
-        this.allBooks = resp;
+        this.allBooks = resp;        //updating all books
       }
     });
   }

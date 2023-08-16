@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { BookQty } from "../interfaces/interface.bookwithqty";
+import { BookQty } from "app/interface.book";
 
 export const addItem = createAction('addItem', props<{ bookdata: BookQty }>())
 export const addItemSuccess = createAction('addItemSuccess', props<{ bookdata: BookQty }>())

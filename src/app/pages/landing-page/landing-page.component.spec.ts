@@ -1,6 +1,15 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { BooksCategoryComponent } from 'app/components/books-category/books-category.component';
+import { HttpService } from 'app/services/http.service';
 
 import { LandingPageComponent } from './landing-page.component';
+import { CarouselComponent } from 'app/components/carousel/carousel.component';
+import { CategoryComponentComponent } from 'app/components/books-category/category-component/category-component.component';
 
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;
@@ -8,7 +17,9 @@ describe('LandingPageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [LandingPageComponent]
+        imports: [HttpClientModule,NgbModule, SlickCarouselModule,  RouterTestingModule],
+      declarations: [LandingPageComponent,CarouselComponent,BooksCategoryComponent,CategoryComponentComponent],
+      providers:[ HttpService ]
     });
     fixture = TestBed.createComponent(LandingPageComponent);
     component = fixture.componentInstance;
@@ -18,4 +29,13 @@ describe('LandingPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+it('should render carousel component and category component',()=>{
+   const  compile=fixture.nativeElement
+   const carousel=compile.querySelector('app-carousel');
+   const booksCategory=compile.querySelector('app-books-category');
+   expect(carousel).toBeTruthy();
+   expect(booksCategory).toBeTruthy();
+})
+
 });

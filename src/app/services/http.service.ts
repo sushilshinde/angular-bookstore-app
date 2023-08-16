@@ -6,7 +6,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BookQty } from 'app/interfaces/interface.bookwithqty';
+import { BookQty } from 'app/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { map } from 'rxjs';
 import { Book } from '../interfaces/interface.book';
@@ -36,7 +36,7 @@ export class HttpService
     return this.http.get<Book[]>('http://localhost:3000/books').pipe(
       map((Resp) =>
       {
-        const dataArray = [];
+        const dataArray:any = [];
         for (const data of Resp) {
           if (data.categories.includes('Trending')) {
             dataArray.push({ ...data });

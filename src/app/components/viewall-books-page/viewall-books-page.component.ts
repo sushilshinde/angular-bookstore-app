@@ -27,20 +27,20 @@ export class ViewallBooksPageComponent
 
   ngOnInit()
   {
-    this.category = this.activeRoute.snapshot.params['category'];
+  this.activeRoute.params.subscribe(res=>this.category=res['category']);  //asigning params to category
     this.activeRoute.params.subscribe((param) =>
     {
 
       if (param['category'] === 'Trending') {
         this.http
           .getTrendingBooks()
-          .subscribe((resp) => (this.allBooks = resp));
+          .subscribe((resp) => (this.allBooks = resp));       //assigning allbooks with  trending books  
       } else if (param['category'] === 'Best Offers') {
         this.http
           .getBestOffersBooks()
-          .subscribe((resp) => (this.allBooks = resp));
+          .subscribe((resp) => (this.allBooks = resp));       //assigning allbooks with best offer books  
       } else {
-        this.http.getBooks().subscribe((resp) => (this.allBooks = resp));
+        this.http.getBooks().subscribe((resp) => (this.allBooks = resp));  //assigning allbooks with avaliable books  
       }
     });
   }
@@ -52,7 +52,7 @@ export class ViewallBooksPageComponent
   }
   getRows()
   {
-    if (window.innerWidth > 1000) {
+    if (window.innerWidth > 1000) {                          //grid items for window
       return 4;
     } else if (window.innerWidth < 1000 && window.innerWidth > 768) {
       return 3;
@@ -65,6 +65,6 @@ export class ViewallBooksPageComponent
     }
   }
   navigateToDetails(id: number) {
-    this.navpage.navigate(['details', id]);
+    this.navpage.navigate(['details', id]);         //navigate with id to details page
   }
 }

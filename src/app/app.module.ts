@@ -16,7 +16,7 @@ import { shortenPipe } from './pipes/shorten.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
@@ -73,4 +73,6 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}

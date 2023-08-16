@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
@@ -12,8 +13,8 @@ export class SigninComponent
 {
   
   login = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, passwordValidator()]),
+    email: new FormControl(null, [Validators.required, Validators.email]), // creating control for emial field with validations 
+    password: new FormControl(null, [Validators.required, passwordValidator()]),// creating control for password field with validations
   });
   constructor (private authentication: AuthenticationService) { }
 

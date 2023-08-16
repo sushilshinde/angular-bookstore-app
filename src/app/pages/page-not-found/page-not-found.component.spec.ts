@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'src/app/material_ui/material.module';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
@@ -8,6 +10,7 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+        imports:[MaterialModule,RouterTestingModule],
       declarations: [PageNotFoundComponent]
     });
     fixture = TestBed.createComponent(PageNotFoundComponent);
