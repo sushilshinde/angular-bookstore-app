@@ -10,7 +10,9 @@ export class AuthenticationService {
   private isAuthenticate:boolean = false
   signin(login: any) {
     this.http.get<any>('http://localhost:3000/users').subscribe(
-      (res) => {
+      (res) =>
+      {
+        console.log(res, "balaji");
         const user = res.find((a: any) => {
           return (
             a.email === login.controls.email.value &&
@@ -18,7 +20,6 @@ export class AuthenticationService {
           );
         });
         if (user) {
-          alert('Login Successfull');
           login.reset();
           this.router.navigate(['/']);
           console.log("user details",user)
