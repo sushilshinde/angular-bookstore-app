@@ -4,7 +4,7 @@ import { map } from "rxjs";
 import { Book } from "./interface.book";
 
 @Injectable({providedIn:"root"})
-export class httpService{
+export class HttpService{
 
     constructor(private http:HttpClient){}
 

@@ -8,15 +8,10 @@ import { Book } from 'app/interfaces/interface.book';
   styleUrls: ['./category-component.component.css'],
 })
 export class CategoryComponentComponent {
-<<<<<<< HEAD
-  @Input() imagesData: Book[] = [];   
-  @Input() title!: string ;
-=======
   @Input() imagesData: Book[] = [];
   @Input() title: string = '';
  
 
->>>>>>> 8cc4c8c129ba1de5c96a35f549f9a95e6dc139c6
 
   constructor(private navpage: Router) {}
 

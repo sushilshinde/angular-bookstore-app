@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { httpService } from 'app/services/http.service';
+import { HttpService } from 'app/services/http.service';
 // import { Book } from 'app/interfaces/interface.book';
 @Component({
   selector: 'app-viewall-books-page',
@@ -21,7 +21,7 @@ export class ViewallBooksPageComponent
 
   constructor (
     private activeRoute: ActivatedRoute,
-    private http: httpService,
+    private http: HttpService,
     private navpage: Router
   ) { }
 

@@ -29,7 +29,7 @@ import { MatCardModule } from '@angular/material/card';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './store/cart.reducer';
 import { EffectsModule } from '@ngrx/effects';
-import { CartEffects } from './store/cart.effects';
+// import { CartEffects } from './store/cart.effects';
 import { SortPipe } from './pipes/sort.pipe';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
@@ -68,11 +68,8 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     HttpClientModule,
     RouterModule,
     StoreModule.forRoot({ cartItems: cartReducer }),
-<<<<<<< HEAD
-    
-=======
-    EffectsModule.forRoot([CartEffects]),
->>>>>>> 8cc4c8c129ba1de5c96a35f549f9a95e6dc139c6
+    EffectsModule.forRoot([]),
+    // EffectsModule.forRoot([CartEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
