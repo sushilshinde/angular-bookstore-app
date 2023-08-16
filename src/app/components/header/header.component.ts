@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   ) {}
   username: string | null = null;
   search = '';
+  count = 0;
   signinPage() {
     this.router.navigate(['signin']);
   }

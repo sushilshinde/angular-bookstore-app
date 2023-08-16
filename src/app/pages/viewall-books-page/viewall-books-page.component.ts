@@ -13,14 +13,11 @@ export class ViewallBooksPageComponent
   allBooks: Book[] = [];
   category: string = '';
   cols: number = 4;
-<<<<<<<< HEAD:src/app/components/viewall-books-page/viewall-books-page.component.ts
 
-========
   books:any ;
   search:string= '';
   
->>>>>>>> 69d2bac4e13581498583fcf4f64b242649365daf:src/app/pages/viewall-books-page/viewall-books-page.component.ts
-  @HostListener('window:resize', ['$event'])
+@HostListener('window:resize', ['$event'])
   onWindowResize(event: any)
   {
     this.cols = this.getRows();
@@ -30,12 +27,12 @@ export class ViewallBooksPageComponent
     private activeRoute: ActivatedRoute,
     private http: httpService,
     private navpage: Router
-<<<<<<<< HEAD:src/app/components/viewall-books-page/viewall-books-page.component.ts
-  ) { }
-========
+// <<<<<<<< HEAD:src/app/components/viewall-books-page/viewall-books-page.component.ts
+//   ) { }
+// ========
     
   ) {}
->>>>>>>> 69d2bac4e13581498583fcf4f64b242649365daf:src/app/pages/viewall-books-page/viewall-books-page.component.ts
+// >>>>>>>> 69d2bac4e13581498583fcf4f64b242649365daf:src/app/pages/viewall-books-page/viewall-books-page.component.ts
 
   ngOnInit()
   {
@@ -77,12 +74,12 @@ export class ViewallBooksPageComponent
     }
   }
   navigateToDetails(id: number) {
-<<<<<<<< HEAD:src/app/components/viewall-books-page/viewall-books-page.component.ts
-    this.navpage.navigate(['details', id]);
-========
+// <<<<<<<< HEAD:src/app/components/viewall-books-page/viewall-books-page.component.ts
+//     this.navpage.navigate(['details', id]);
+// ========
     this.navpage.navigate(["details",id] );
   
   
->>>>>>>> 69d2bac4e13581498583fcf4f64b242649365daf:src/app/pages/viewall-books-page/viewall-books-page.component.ts
+// >>>>>>>> 69d2bac4e13581498583fcf4f64b242649365daf:src/app/pages/viewall-books-page/viewall-books-page.component.ts
   }
 }

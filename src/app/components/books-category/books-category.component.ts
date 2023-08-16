@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { httpService } from 'src/app/services/http.service';
 import { Book } from 'src/app/interfaces/interface.book';
-=======
-import { httpService } from 'src/app/http.service';
-import { Book } from 'src/app/interface.book';
->>>>>>> 69d2bac4e13581498583fcf4f64b242649365daf
 
 @Component({
   selector: 'app-books-category',

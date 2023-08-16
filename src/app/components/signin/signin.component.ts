@@ -12,7 +12,7 @@ export class SigninComponent {
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required, passwordValidator()]),
   });
-  submit() {
+  signin() {
     console.log(this.login.value);
     // console.log(this.login.controls.email.value);
     // console.log(this.login.controls.password.value);
