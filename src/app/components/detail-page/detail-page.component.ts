@@ -3,10 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { Book } from 'src/app/interfaces/interface.book';
-import { BookQty } from 'src/app/interfaces/interface.bookwithqty';
-import { cartState } from 'src/app/interfaces/interface.cartState';
-import { onAdd } from 'src/app/store/cart.actions';
+import { BookQty } from 'app/interfaces/interface.bookwithqty';
+import { cartState } from 'app/interfaces/interface.cartState';
+import { addItem } from 'app/store/cart.actions';
 
 @Component({
   selector: 'app-detail-page',
@@ -47,9 +46,9 @@ export class DetailPageComponent implements OnInit {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  addTOCart(bookdata: BookQty) {
+  addToCart(bookdata: BookQty) {
     bookdata['quantity'] = this.count;
-    this.store.dispatch(onAdd({ bookdata }));
+    this.store.dispatch(addItem({ bookdata }));
     this.route.navigate(['/cart']);
   }
 }

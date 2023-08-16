@@ -1,7 +1,6 @@
 import { Component, Input,} from '@angular/core';
 import { Router } from '@angular/router';
-import { Book } from 'src/app/interfaces/interface.book';
-
+import { Book } from 'app/interfaces/interface.book';
 @Component({
   selector: 'app-category-component',
   templateUrl: './category-component.component.html',
@@ -10,6 +9,7 @@ import { Book } from 'src/app/interfaces/interface.book';
 export class CategoryComponentComponent {
   @Input() imagesData: Book[] = [];
   @Input() title: string = '';
+ 
 
 
   constructor(private navpage: Router) {}

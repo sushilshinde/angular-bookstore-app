@@ -1,8 +1,8 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { httpService } from 'src/app/services/http.service';
-import { Book } from 'src/app/interfaces/interface.book';
-
+import { HttpService } from 'app/services/http.service';
+import { Book } from 'app/interfaces/interface.book';
+import { SortPipe } from 'app/pipes/sort.pipe';
 @Component({
   selector: 'app-viewall-books-page',
   templateUrl: './viewall-books-page.component.html',
@@ -10,10 +10,10 @@ import { Book } from 'src/app/interfaces/interface.book';
 })
 export class ViewallBooksPageComponent
 {
-  allBooks: Book[] = [];
+  allBooks: any = [];
   category: string = '';
   cols: number = 4;
-
+  sort = '';
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any)
   {
@@ -22,7 +22,7 @@ export class ViewallBooksPageComponent
 
   constructor (
     private activeRoute: ActivatedRoute,
-    private http: httpService,
+    private http: HttpService,
     private navpage: Router
   ) { }
 
@@ -45,6 +45,7 @@ export class ViewallBooksPageComponent
       }
     });
   }
+  
   calculateDiscount(price: number, discount: number)
   {
     const discountedPrice = price - (price * discount) / 100;

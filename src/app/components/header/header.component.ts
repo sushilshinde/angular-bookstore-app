@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { cartState } from 'src/app/interfaces/interface.cartState';
+import { cartState } from 'app/interfaces/interface.cartState';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +13,7 @@ constructor( private store:Store<{cartItems:cartState}>){
 }
  ngOnInit(): void {
     this.store.select('cartItems').subscribe((data)=>{
-        this.count=data.cartItems.length
+        // this.count=data.cartItems.length
       })
  }
 

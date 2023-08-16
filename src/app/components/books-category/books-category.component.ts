@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { httpService } from 'src/app/services/http.service';
-import { Book } from 'src/app/interfaces/interface.book';
-
+import { HttpService } from 'app/services/http.service';
+import { Book } from 'app/interfaces/interface.book';
 @Component({
   selector: 'app-books-category',
   templateUrl: './books-category.component.html',
@@ -12,7 +11,7 @@ export class BooksCategoryComponent implements OnInit {
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
 
-  constructor(private httpdata: httpService) {}
+  constructor(private httpdata: HttpService) {}
 
   ngOnInit() {
     // this.httpdata.getTrendingBooks().subscribe((resp) => {

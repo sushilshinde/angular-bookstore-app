@@ -10,7 +10,7 @@ import { BooksCategoryComponent } from './components/books-category/books-catego
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material_ui/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { CategoryComponentComponent } from './components/books-category/category-component/category-component.component';
 import { shortenPipe } from './pipes/shorten.pipe';
@@ -29,6 +29,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './store/cart.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CartEffects } from './store/cart.effects';
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,7 @@ import { cartReducer } from './store/cart.reducer';
     OrderSuccessPageComponent,
     StylesDirective,
     PageNotFoundComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule,
@@ -58,11 +62,13 @@ import { cartReducer } from './store/cart.reducer';
     MatCardModule,
     MatButtonModule,
     ReactiveFormsModule,
+    FormsModule,
     NgbModule,
     SlickCarouselModule,
     HttpClientModule,
     RouterModule,
     StoreModule.forRoot({ cartItems: cartReducer }),
+    EffectsModule.forRoot([CartEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

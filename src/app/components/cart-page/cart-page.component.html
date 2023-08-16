@@ -2,7 +2,8 @@
   ><span class="material-symbols-outlined"> arrow_left_alt </span>
 </a>
 <div class="cart-details">
-  <div class="cart-card" *ngFor="let item of cartData">
+<div *ngIf="cartData[0].length>=1;else noitems">
+  <div class="cart-card" *ngFor="let item of cartData[0]" >
     <div class="cart-book">
       <div class="book-img">
         <img src="{{ item.thumbnailUrl }}" alt="{{ item.title }}" />
@@ -33,7 +34,7 @@
 
         <div class="book-qty">
           <h4>Quantity:</h4>
-          <button (click)="onDecrement(item)">-</button>
+          <button (click)="onDecrement(item)" [disabled]="item.quantity<=1">-</button>
           <p>{{ item.quantity }}</p>
           <button (click)="onIncrement(item)">+</button>
         </div>
@@ -54,6 +55,7 @@
       <h1 class="text-danger">{{ totalPrice | currency : "INR" }}</h1>
     </div>
     <a routerLink="/buy" class="buynow-btn">Buy Now</a>
+  </div>
   </div>
   <ng-template #noitems>
     <div class="background flex-center">
