@@ -1,7 +1,6 @@
-import { Component,HostListener,OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Book } from 'src/app/interface.book';
-import { httpService } from 'src/app/http.service';
+import { Component, HostListener } from '@angular/core';
+import { Book } from 'app/interface.book';
+import { HttpService } from 'app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,16 +11,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchComponent {
   constructor(
     private activeRoute: ActivatedRoute,
-    private http: httpService,
+    private http: HttpService,
     private navpage: Router
     
   ) {}
   allBooks: Book[] = [];
   title: string = '';
   category: string = '';
-  cols: number = 4;
+  cols: number = this.getRows();
   books:any ;
-  search = '';
+  search: string = '';
   
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any) {
@@ -29,7 +28,7 @@ export class SearchComponent {
   }
   
   ngOnInit() {
-    this.http.onGetBooks().subscribe((resp:any) => 
+    this.http.getBooks().subscribe((resp: any) => 
     this.books = resp)
     // this.http.onGetBooks().subscribe((resp) => (this.allBooks = resp));
     this.activeRoute.params.subscribe((res)=>this.search = res['search'])

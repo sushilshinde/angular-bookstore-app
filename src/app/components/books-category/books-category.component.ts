@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { httpService } from 'src/app/http.service';
-import { Book } from 'src/app/interface.book';
+//this books category component is used to oneway data binding and reusable category components
+import { Component,  OnInit } from '@angular/core';
+import { HttpService } from 'app/services/http.service';
+import { Book } from 'app/interface.book';
 
 @Component({
   selector: 'app-books-category',
@@ -12,33 +13,23 @@ export class BooksCategoryComponent implements OnInit {
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
 
-  constructor(private httpdata: httpService) {}
+  constructor(private httpdata: HttpService) {}
 
   ngOnInit() {
-    this.httpdata.oNGetTrendingBooks().subscribe((resp) => {
-      this.trendingBooks = resp;
+    this.httpdata.getBooks().subscribe((resp) => {
+      let booksoffer = [];
+      let trending = [];
+      for (let data of resp) {
+        if (data.discount) {
+          booksoffer.push({ ...data });//updating book offers
+        }
+        if (data.categories.includes('Trending')) {
+          trending.push({ ...data });//updating trending books
+        }
+        this.bestOfferBooks = booksoffer;
+        this.trendingBooks = trending;
+        this.allBooks = resp;        //updating all books
+      }
     });
-    this.httpdata.oNGetBestOffersBooks().subscribe((resp) => {
-      this.bestOfferBooks = resp;
-    });
-    this.httpdata.onGetBooks().subscribe((resp) => {
-      this.allBooks = resp;
-    });
-    // this.httpdata.onGetBooks().subscribe((resp)=>{
-    //   let booksoffer=[]
-    //   let trending=[]
-    //   for(let data of resp){
-    //     if( data.discount){
-    //       booksoffer.push({...data})
-    //   }
-    //   if( data.categories.includes("Trending")){
-    //     trending.push({...data})
-    // }
-    //   this.bestOfferBooks=booksoffer;
-    //   this.trendingBooks=trending
-    //   this.allBooks=resp;
-
-    //   }
-    // })
   }
 }

@@ -1,4 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MaterialModule } from 'src/app/material_ui/material.module';
 import { FooterComponent } from './footer.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MaterialModule } from 'src/app/material_ui/material.module';
@@ -9,7 +12,7 @@ describe('FooterComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MatIconModule, MaterialModule, RouterTestingModule],
+      imports: [MaterialModule, MatIconModule, RouterTestingModule],
       declarations: [FooterComponent],
     });
     fixture = TestBed.createComponent(FooterComponent);

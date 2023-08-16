@@ -9,23 +9,30 @@ import { BooksCategoryComponent } from './components/books-category/books-catego
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material_ui/material.module';
-import { ReactiveFormsModule } from '@angular/forms';
-import { DetailPageComponent } from './pages/detail-page/detail-page.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DetailPageComponent } from './components/detail-page/detail-page.component';
 import { CategoryComponentComponent } from './components/books-category/category-component/category-component.component';
-import { shortenPipe } from './shorten.pipe';
+import { shortenPipe } from './pipes/shorten.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { SigninComponent } from './pages/signin-page/signin.component';
-import { SignupComponent } from './pages/signup-page/signup.component';
-import { CartPageComponent } from './pages/cart-page/cart-page.component';
-import { ViewallBooksPageComponent } from './pages/viewall-books-page/viewall-books-page.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { CartPageComponent } from './components/cart-page/cart-page.component';
+import { ViewallBooksPageComponent } from './components/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
-import { AuthService } from './auth.service';
-import { SearchComponent } from './components/search/search.component';
+import { StylesDirective } from './directives/styles.directive';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './store/cart.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { CartEffects } from './store/cart.effects';
+import { SortPipe } from './pipes/sort.pipe';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +49,9 @@ import { FormsModule } from '@angular/forms';
     CartPageComponent,
     ViewallBooksPageComponent,
     OrderSuccessPageComponent,
-    SearchComponent,
+    StylesDirective,
+    PageNotFoundComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule,
@@ -50,14 +59,20 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MaterialModule,
     MatIconModule,
+    MatCardModule,
+    MatButtonModule,
     ReactiveFormsModule,
+    FormsModule,
     NgbModule,
     SlickCarouselModule,
     HttpClientModule,
     RouterModule,
-    FormsModule,
+    StoreModule.forRoot({ cartItems: cartReducer }),
+    EffectsModule.forRoot([CartEffects]),
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+
+}

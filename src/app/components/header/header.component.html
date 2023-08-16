@@ -1,12 +1,13 @@
 <header>
   <mat-toolbar class="navbar">
     <div class="category d-flex">
-      <img
+      <a routerLink="/" class="logo-img"><img
         src="/assets/images/bookstore-logo.png"
         alt="logo"
         height="50px"
         width="50px"
-      />
+        class="navIcon"
+      /></a>
       <div class="navItems">
         <a routerLink="/viewall/Trending">TRENDING</a>
         <a routerLink="/viewall/Best Offers">OFFERS</a>
@@ -17,7 +18,7 @@
       <input
         type="text"
         placeholder="Title,Other,....."
-        [(ngModel)]="search"
+        
       />
       <a  [routerLink]="['search',search]"><mat-icon class="search" >search</mat-icon></a>
 
@@ -34,7 +35,7 @@
       </div>
       <mat-icon
         class="cart"
-        matBadge="0"
+        matBadge={{count}}
         matBadgeSize="small"
         matBadgeColor="warn"
         aria-hidden="false"

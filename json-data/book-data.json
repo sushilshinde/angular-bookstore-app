@@ -214,6 +214,7 @@
     {
       "title": "Practical Methods for Your Year 2000 Problem",
       "id": 16,
+      "thumbnailUrl": "https://m.media-amazon.com/images/I/419Q61DA9DL._SX403_BO1,204,203,200_.jpg",
       "price": 790,
       "longDescription": "Practical Methods for Your Year 2000 Problem gives the Year 2000 project team a step-by-step methodology for addressing the Year 2000 problem. By seeking to minimize the amount of work to be performed, and thus maximize the probability of having a successful Year 2000 project, the book is geared towards (a) helping the inhouse personnel understand, scope and, execute their project while (b) removing the need to spend large amounts of money on professional consulting firms. The VisualAge 2000 toolset by IBM is used for examples.    Practical Methods for Your Year 2000 Problem identifies what you need to look for, how you need to look at it, and what to do with what you see. No other book or company in the market today provides a solution as comprehensive and cost-effective as this. Starting with the clear, concise, and unambiguous definitions of what dates are and how programs and files relate to them, the book goes on to describe how to change them to be useful forever, not just up to the next century.    Finally, Practical Methods for Your Year 2000 Problem gives practical and comprehensive advice on all aspects of the Year 2000 problem, from inventorying software and hardware through to implementing large numbers of interrelated programs, files, and tables.",
       "status": "PUBLISH",
@@ -658,279 +659,76 @@
       ]
     }
   ],
+  "cartItems": [
+    {
+      "title": "Red, White & Royal Blue",
+      "id": 9,
+      "price": 780,
+      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7yIkGslCZkFzGYpkiwmMnAS_8KNJMuM5Zfe-n3EHmWUDRjzHX",
+      "longDescription": "First Son Alex Claremont-Diaz is the closest thing to a prince this side of the Atlantic. With his intrepid sister and the Veep’s genius granddaughter, they’re the White House Trio, a beautiful millennial marketing strategy for his mother, President Ellen Claremont. International socialite duties do have downsides—namely, when photos of a confrontation with his longtime nemesis Prince Henry at a royal wedding leak to the tabloids and threaten American/British relations. The plan for damage control: staging a fake friendship between the First Son and the Prince. As President Claremont kicks off her reelection bid, Alex finds himself hurtling into a secret relationship with Henry that could derail the campaign and upend two nations. What is worth the sacrifice? How do you do all the good you can do? And, most importantly, how will history remember you?",
+      "status": "PUBLISH",
+      "authors": [
+        "Casey McQuiston"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 3
+    },
+    {
+      "title": "Hibernate in Action",
+      "id": 32,
+      "price": 1990,
+      "discount": 15,
+      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bauer.jpg",
+      "longDescription": "Hibernate practically exploded on the Java scene. Why is this open-source tool so popular  Because it automates a tedious task: persisting your Java objects to a relational database. The inevitable mismatch between your object-oriented code and the relational database requires you to write code that maps one to the other. This code is often complex, tedious and costly to develop. Hibernate does the mapping for you.    Not only that, Hibernate makes it easy. Positioned as a layer between your application and your database, Hibernate takes care of loading and saving of objects. Hibernate applications are cheaper, more portable, and more resilient to change. And they perform better than anything you are likely to develop yourself.    Hibernate in Action carefully explains the concepts you need, then gets you going. It builds on a single example to show you how to use Hibernate in practice, how to deal with concurrency and transactions, how to efficiently retrieve objects and use caching.    The authors created Hibernate and they field questions from the Hibernate community every day - they know how to make Hibernate sing. Knowledge and insight seep out of every pore of this book.",
+      "status": "PUBLISH",
+      "authors": [
+        "Christian Bauer",
+        "Gavin King"
+      ],
+      "categories": [
+        "Offers"
+      ],
+      "quantity": 1
+    },
+    {
+      "title": "The Hunger Games",
+      "id": 8,
+      "price": 900,
+      "thumbnailUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRSkUNQrln1w8K8eMQGRRF6-XEMjzDtBKfd1bw7XJ9zH-WW0P58",
+      "longDescription": "In the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV. Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sister's place in the Games. But Katniss has been close to dead before—and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love.",
+      "status": "PUBLISH",
+      "authors": [
+        "Suzanne Collins"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
+    }
+  ],
   "users": [
     {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Ba2112@#",
+      "confirm": "Ba2112@#",
       "id": 1
     },
     {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
+      "name": "vicky",
+      "email": "v@gmail.com",
+      "password": "Vicky1@",
+      "confirm": "Vicky1@",
       "id": 2
     },
     {
-      "name": "vyshu",
-      "email": "vyshu@gmail.com",
-      "password": "Vy1@",
-      "confirm": "Vy1@",
-      "id": 3
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 4
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 5
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 6
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 7
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 8
-    },
-    {
-      "name": "ammu",
-      "email": "ammu@gmail.com",
-      "password": "Ab1@",
-      "confirm": "Ab1@",
-      "id": 9
-    },
-    {
-      "name": "Janu",
-      "email": "janu@gmail.com",
-      "password": "Janu@123",
-      "confirm": "Janu@123",
-      "id": 10
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 11
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 12
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 13
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 14
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 15
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 16
-    },
-    {
-      "name": "shali",
-      "email": "shali@gmail.com",
-      "password": "Shali@123",
-      "confirm": "Shali@123",
-      "id": 17
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 18
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 19
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 20
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 21
-    },
-    {
-      "name": "balaji",
-      "email": "balaji@gmail.com",
-      "password": "Balaji@123",
-      "confirm": "Balaji@123",
-      "id": 22
-    },
-    {
-      "name": "srikanth",
-      "email": "srikanth@gmail.com",
-      "password": "Srikanth@123",
-      "confirm": "Srikanth@123",
-      "id": 23
-    },
-    {
-      "name": null,
-      "email": null,
-      "password": null,
-      "confirm": null,
-      "id": 24
-    },
-    {
-      "name": "mahee",
-      "email": "mahee@gmail.com",
-      "password": "Mahee@123",
-      "confirm": "Mahee@123",
-      "id": 25
-    },
-    {
-      "name": "honey",
-      "email": "honey@gmail.com",
-      "password": "Honey@123",
-      "confirm": "Honey@123",
-      "id": 26
-    },
-    {
-      "name": "nisha",
-      "email": "nisha@gmail.com",
-      "password": "Nisha@123",
-      "confirm": "Nisha@123",
-      "id": 27
-    },
-    {
-      "name": "sai",
-      "email": "sai@gmail.com",
-      "password": "Sai@123",
-      "confirm": "Sai@123",
-      "id": 28
-    },
-    {
-      "name": "ramya",
-      "email": "ramya@gmail.com",
-      "password": "Ramya@123",
-      "confirm": "Ramya@123",
-      "id": 29
-    },
-    {
-      "name": "Vyshu",
-      "email": "Vyshu123@gmail",
-      "password": "Ab1@",
-      "confirm": "Ab1@",
-      "id": 30
-    },
-    {
-      "name": "mahee",
-      "email": "mahee@gmail.com",
-      "password": "Mahee@123",
-      "confirm": "Mahee@123",
-      "id": 31
-    },
-    {
-      "name": "lavanya",
-      "email": "lavanya@gmail.com",
-      "password": "Lavanya@123",
-      "confirm": "Lavanya@123",
-      "id": 32
-    },
-    {
-      "name": "yoshi",
-      "email": "yoshi@gmail.com",
-      "password": "Yoshi@123",
-      "confirm": "Yoshi@123",
-      "id": 33
-    },
-    {
-      "name": "venkat",
-      "email": "venkat@gmail.com",
-      "password": "Venkat@123",
-      "confirm": "Venkat@123",
-      "id": 34
-    },
-    {
-      "name": "mahee",
-      "email": "mahee@gmail.com",
-      "password": "Mahee@123",
-      "confirm": "Mahee@12",
-      "id": 35
-    },
-    {
-      "name": "vyshu",
-      "email": "vyshu@gmail.com",
-      "password": "Vyshu@123",
-      "confirm": "b hb",
-      "id": 36
-    },
-    {
-      "name": "vysali",
+      "name": "Vysali",
       "email": "vysali@gmail.com",
-      "password": "Vysali@123",
-      "confirm": "Vysali@12",
-      "id": 37
-    },
-    {
-      "name": "vyshali",
-      "email": "vyshali@gmail.com",
-      "password": "Vyshali@123",
-      "confirm": "Vyshali@123",
-      "id": 38
-    },
-    {
-      "name": "priya",
-      "email": "priya@gmail.com",
-      "password": "Priya@123",
-      "confirm": "Priya@123",
-      "id": 39
+      "password": "Vysali1@",
+      "confirm": "Vysali2@",
+      "id": 3
     }
   ]
 }
