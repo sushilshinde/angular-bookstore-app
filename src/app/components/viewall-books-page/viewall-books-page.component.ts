@@ -1,8 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'app/services/http.service';
-import { Book } from 'app/interfaces/interface.book';
-import { SortPipe } from 'app/pipes/sort.pipe';
+// import { Book } from 'app/interfaces/interface.book';
 @Component({
   selector: 'app-viewall-books-page',
   templateUrl: './viewall-books-page.component.html',
