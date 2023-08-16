@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { AuthenticationService } from 'app/authentication.service';
 import { passwordValidator } from 'app/password.validator';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
-export class SigninComponent {
+export class SigninComponent
+{
+  
   login = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required, passwordValidator()]),
   });
-  signin() {
-    console.log(this.login.value);
-    // console.log(this.login.controls.email.value);
-    // console.log(this.login.controls.password.value);
-    alert('successfully login');
-    this.login.reset();
+  constructor (private authentication: AuthenticationService) { }
+
+  signin()
+  {
+    this.authentication.signin(this.login);
   }
+
 }
