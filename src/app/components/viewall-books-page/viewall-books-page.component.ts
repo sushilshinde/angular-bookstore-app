@@ -1,8 +1,7 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { httpService } from 'src/app/services/http.service';
-import { Book } from 'src/app/interfaces/interface.book';
-
+import { httpService } from 'app/services/http.service';
+// import { Book } from 'app/interfaces/interface.book';
 @Component({
   selector: 'app-viewall-books-page',
   templateUrl: './viewall-books-page.component.html',
@@ -10,10 +9,10 @@ import { Book } from 'src/app/interfaces/interface.book';
 })
 export class ViewallBooksPageComponent
 {
-  allBooks: Book[] = [];
+  allBooks: any = [];
   category: string = '';
   cols: number = this.getRows();
-
+  sort=""
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any)
   {

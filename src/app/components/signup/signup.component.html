@@ -1,19 +1,19 @@
-<div class="signup">
-  <div class="sign">
-    <form [formGroup]="register" (ngSubmit)="submit()">
+<div class="signupcomponent">
+  <div class="signup">
+    <form [formGroup]="register" (ngSubmit)="signup()">
       <h1>Sign Up</h1>
-      <div class="error">
+      <div class="validate">
         <input type="text" placeholder="Name" formControlName="name" /><br />
         <p
           *ngIf="
-            register.controls['name'].touched &&
+            register.controls['name'].touched&&
             register.hasError('required', 'name')
           "
         >
           *This field is required
         </p>
       </div>
-      <div class="error">
+      <div class="validate">
         <input
           type="email"
           placeholder="E-mail"
@@ -21,7 +21,7 @@
         /><br />
         <p
           *ngIf="
-            register.controls['email'].touched &&
+            register.controls['email'].touched&&
             register.hasError('required', 'email')
           "
         >
@@ -31,7 +31,7 @@
           *Please enter a valid email address
         </p>
       </div>
-      <div class="error">
+      <div class="validate">
         <input
           type="password"
           placeholder="Password"
@@ -45,11 +45,11 @@
         >
           *This field is required
         </p>
-        <p *ngIf="register.hasError('passwordStrength', 'password')">
-          *Password must be special Characters
+        <p class="pwd" *ngIf="register.hasError('passwordStrength', 'password')">
+          *Password must be upper,lower,numeric & special 
         </p>
       </div>
-      <div class="error">
+      <div class="validate">
         <input
           type="password"
           placeholder="Confirm password"
@@ -60,11 +60,13 @@
             register.controls['confirm'].touched &&
             register.hasError('required', 'confirm')
           "
-        >*This field is required</p>
+        >
+          *This field is required
+        </p>
         <p
           *ngIf="
             register.get('password')?.value !==
-              register.get('confirm')?.value && register.get('confirm')?.dirty
+              register.get('confirm')?.value && register.get('confirm')?.valid
           "
         >
           *Password Doesn't Matched
@@ -73,7 +75,7 @@
       <button
         type="submit"
         class="btn btn-primary"
-        [disabled]="!register.valid"
+        [disabled]="register.invalid"
       >
         Sign Up
       </button>

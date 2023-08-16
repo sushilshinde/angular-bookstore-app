@@ -1,16 +1,15 @@
-.signin {
+.signincomponent {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-.sign {
+.signin {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   background-color: rgb(219, 221, 221);
-  border: 1px solid rgb(219, 221, 221);
   height: 350px;
   width: 350px;
   box-shadow: 5px 10px 15px rgb(153, 151, 151);
@@ -29,12 +28,12 @@ input[type="password"] {
   border-bottom: 1px solid rgb(199, 198, 198);
   border-radius: 5px;
 }
-.error {
+.validate {
   margin-bottom: 20px;
   text-align: start;
   height: 40px;
 }
-.error p {
+.validate p {
   color: red;
 }
 button {
@@ -46,11 +45,12 @@ p {
   color: black;
 }
 
-@media only screen  and (max-width:400px){
-    .sign{
-        width: 80vw;
-    }
-    input[type="email"],input[type="password"]{
-        width: 100%;
-    }
+@media only screen and (max-width: 400px) {
+  .signin {
+    width: 80vw;
+  }
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+  }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 // import { DetailPageComponent } from './detail-page.component';
@@ -19,3 +20,26 @@
 //     expect(component).toBeTruthy();
 //   });
 // });
+=======
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { DetailPageComponent } from './detail-page.component';
+
+describe('DetailPageComponent', () => {
+  let component: DetailPageComponent;
+  let fixture: ComponentFixture<DetailPageComponent>;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [DetailPageComponent]
+    });
+    fixture = TestBed.createComponent(DetailPageComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
+>>>>>>> 8cc4c8c129ba1de5c96a35f549f9a95e6dc139c6

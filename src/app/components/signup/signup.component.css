@@ -1,10 +1,10 @@
-.signup {
+.signupcomponent {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
 }
-.sign {
+.signup {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,13 +30,14 @@ input[type="password"] {
   border-bottom: 1px solid rgb(199, 198, 198);
   border-radius: 5px;
 }
-.error {
+.validate {
   margin-bottom: 20px;
   text-align: start;
   height: 40px;
 }
-.error p {
+.validate p {
   color: red;
+  font-size: x-small;
 }
 button {
   width: 150px;
@@ -47,7 +48,7 @@ p {
   color: black;
 }
 @media only screen and (max-width: 400px) {
-  .sign {
+  .signup {
     width: 80vw;
   }
   .input[type="text"],
@@ -56,13 +57,13 @@ p {
     width: 100%;
   }
 }
-
-
-@media only screen  and (max-width:400px){
-    .sign{
-        width: 80vw;
-    }
-    input[type="text"],input[type="email"],input[type="password"]{
-        width: 100%;
-    }
+@media only screen and (max-width: 400px) {
+  .signup {
+    width: 80vw;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+  }
 }
