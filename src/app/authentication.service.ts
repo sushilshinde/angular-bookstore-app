@@ -8,6 +8,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {}
   private username:any = null
   private isAuthenticate:boolean = false
+  //function for signin
   signin(login: any) {
     this.http.get<any>('http://localhost:3000/users').subscribe(
       (res) => {
@@ -36,6 +37,7 @@ export class AuthenticationService {
   loginStatus(){
     return this.isAuthenticate
   }
+  //function for signup
   signup(register: any) {
     this.http
       .post<any>('http://localhost:3000/users', register.value)

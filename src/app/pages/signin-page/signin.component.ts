@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
@@ -9,15 +9,16 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./signin.component.css'],
 })
 export class SigninComponent {
-  constructor(private auth:AuthService,private authentication:AuthenticationService){}
- 
-    login = new FormGroup({
+  constructor(
+    private auth: AuthService,
+    private authentication: AuthenticationService
+  ) {}
+
+  login = new FormGroup({
     email: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required]),
   });
-  signin(){
+  signin() {
     this.authentication.signin(this.login);
   }
 }
-    
-  

@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { cart } from 'src/app/cart.service';
 import { Router } from '@angular/router';
 import { httpService } from 'src/app/http.service';
-import { Book } from 'src/app/interface.book';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

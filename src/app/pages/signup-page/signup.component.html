@@ -6,7 +6,7 @@
         <input type="text" placeholder="Name" formControlName="name" /><br />
         <p
           *ngIf="
-            register.controls['name'].touched&&
+            register.controls['name'].touched &&
             register.hasError('required', 'name')
           "
         >
@@ -21,7 +21,7 @@
         /><br />
         <p
           *ngIf="
-            register.controls['email'].touched&&
+            register.controls['email'].touched &&
             register.hasError('required', 'email')
           "
         >
@@ -45,8 +45,11 @@
         >
           *This field is required
         </p>
-        <p class="pwd" *ngIf="register.hasError('passwordStrength', 'password')">
-          *Password must be upper,lower,numeric & special 
+        <p
+          class="pwd"
+          *ngIf="register.hasError('passwordStrength', 'password')"
+        >
+          *Password must be upper,lower,numeric & special
         </p>
       </div>
       <div class="validate">
