@@ -14,9 +14,8 @@ export class AuthenticationService
     this.http.get<any>(this.URL + '/users').subscribe(
       (res) =>
       {
-        console.log(res, "service");
         this.user = res;
-        console.log(this.user, "service file");
+     
       })
   }
 
@@ -36,7 +35,7 @@ export class AuthenticationService
           this.isAuthenticate = true;
           localStorage.setItem("userdetails", JSON.stringify(user))
           this.router.navigate(['/']);
-          console.log("user details", user)
+         
         } else {
           alert('User Not Found');
         }
@@ -48,7 +47,7 @@ export class AuthenticationService
   }
   loginStatus()
   {
-    console.log(this.isAuthenticate, "auth");
+   
     let userDetails = localStorage.getItem("userdetails");
     if (userDetails) this.isAuthenticate = true;
     return this.isAuthenticate
@@ -56,29 +55,17 @@ export class AuthenticationService
   signup(register: any)
   {
     let filterUser = this.user.filter((item: any) => item.email === register.value.email)
-    console.log(filterUser, "already there");
-    console.log(this.user, "user details");
+  
     this.http
       .post<any>(this.URL + '/users', register.value)
       .subscribe(
         (res) =>
         {
-          // console.log();
-          // const registerUser = res.includes((a: any) =>
-          // {
-          //   console.log(a.email, "email aa");
-          //   console.log(register.controls.email.value, "email b");
-          //   return (
-
-          //     a.email === register.controls.email.value
-          //   );
-          // });;
-          console.log(res);
+          
           alert('Registration Successfull');
           register.reset();
           this.router.navigate(['/']);
-          // console.log(registerUser, "regii")
-          // localStorage.setItem("userdetails", JSON.stringify(registerUser))
+         
 
         },
         (err) => {

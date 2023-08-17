@@ -22,11 +22,9 @@ export class CartEffects {
     this.action$.pipe(
       ofType(addItem),
       switchMap((data: any) => {
-        console.log(data, 'data');
-        // return of(onAdd({ bookdata: data.bookdata }))
+       
         return this.cartService.addCartItems(data.bookdata).pipe(
           map((cartData: any) => {
-            console.log(cartData, 'data 123');
             return addItemSuccess({ bookdata: cartData });
           })
         );
@@ -53,7 +51,7 @@ export class CartEffects {
       switchMap((item: any) => {
         return this.cartService.removeCartItems(item.id).pipe(
           map((cartData: any) => {
-            console.log(cartData, 'response-deleted data');
+           
             return removeItemSuccess({ id: item.id });
           })
         );
@@ -64,7 +62,7 @@ export class CartEffects {
     return this.action$.pipe(
       ofType(increment),
       switchMap((item: any) => {
-        console.log(item, 'switchmap');
+       
         return this.cartService.incrementCartItems(item.id).pipe(
           map((cartData: any) => {
             return incrementItemSuccess({ bookdata: cartData });
@@ -77,10 +75,10 @@ export class CartEffects {
     return this.action$.pipe(
       ofType(decrement),
       switchMap((item: any) => {
-        console.log(item, 'switchmap');
+       
         return this.cartService.decrementCartItems(item.id).pipe(
           map((cartData: any) => {
-            console.log(cartData, 'response-deleted data');
+           
 
             return decrementItemSuccess({ bookdata: cartData });
           })

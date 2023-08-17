@@ -39,8 +39,7 @@ export class CartPageComponent implements OnInit {
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) => {
       this.cartData = data.cartItems;
-      // console.log(cartData,"incoming data");
-      this.updatePrice();
+        this.updatePrice();
     });
   }
 
