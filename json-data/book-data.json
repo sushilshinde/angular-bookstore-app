@@ -673,7 +673,7 @@
       "categories": [
         "Trending"
       ],
-      "quantity": 3
+      "quantity": 2
     },
     {
       "title": "Hibernate in Action",
@@ -706,6 +706,51 @@
         "Trending"
       ],
       "quantity": 1
+    },
+    {
+      "title": "Twisted Love",
+      "id": 3,
+      "price": 400,
+      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTZhtsKmo50jpJ6Meltf1tzUAGTJH2osk37Nvz8Qegv6c8bVxhr",
+      "longDescription": "Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart. But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest: \"A crack\". \"A melt\" \"A fire that could end his world as he knew it\". Ava Chen is a free spirit trapped by nightmares of a childhood she can’t remember. But despite her broken past, she’s never stopped seeing the beauty in the world…including the heart beneath the icy exterior of a man she shouldn’t want. Her brother’s best friend. Her neighbor. Her savior and her downfall. Theirs is a love that was never supposed to happen—but when it does, it unleashes secrets that could destroy them both…and everything they hold dear. Twisted Love is a brother’s best friend/opposites attract romance with a hint of suspense. It's book one in the Twisted series but can be read as a standalone.",
+      "status": "PUBLISH",
+      "authors": [
+        "Ana Huang"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
+    },
+    {
+      "title": "Fourth Wing",
+      "id": 2,
+      "price": 300,
+      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMGygN6vmJYLi9nkL769kQfNDg3kt-zfrb1AQRkAnvtiUysGdh",
+      "longDescription": "Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, living a quiet life among books and history. Now, the commanding general—also known as her tough-as-talons mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders. But when you’re smaller than everyone else and your body is brittle, death is only a heartbeat away...because dragons don’t bond to “fragile” humans. They incinerate them. With fewer dragons willing to bond than cadets, most would kill Violet to better their own chances of success. The rest would kill her just for being her mother’s daughter—like Xaden Riorson, the most powerful and ruthless wingleader in the Riders Quadrant. Yet, with every day that passes, the war outside grows more deadly, the kingdom's protective wards are failing, and the death toll continues to rise. Even worse, Violet begins to suspect leadership is hiding a terrible secret.",
+      "status": "PUBLISH",
+      "authors": [
+        "Rebecca Yarros"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
+    },
+    {
+      "title": "A Little Life",
+      "id": 4,
+      "price": 500,
+      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbphzgI6WkqUY8QwpMVAlDWsbORBa16Uj35LtsNyKsaOYhs0Y4",
+      "longDescription": "The novel focuses on the lives of four friends: Jude St. Francis, a disabled genius with a mysterious past; Willem Ragnarsson, a kind, handsome man who aspires to be an actor; Malcolm Irvine, an architect working at a prestigious firm; and Jean-Baptiste \"JB\" Marion, a quick-witted painter who wants to make a name in the art world. The book follows their relationships changing under the influence of success, wealth, addiction, and pride. It becomes clear that Jude was sexually traumatized at a very young age, making it difficult for him to engage in romantic relationships. His friends and loved ones begin questioning this isolation as he enters his forties, with Willem especially being baffled with regard to Jude's sexuality. As his loneliness grows more intense, he enters an abusive relationship with fashion executive Caleb, who is disgusted by Jude's limp and his increasing use of a wheelchair. Jude finally breaks off the relationship after Caleb rapes him, and they meet a final time when Caleb follows him to dinner with Harold, humiliates him, and then follows Jude to his apartment, where he brutally beats and rapes him, leaving him for dead. Jude nonetheless refuses to report the incident to the police, believing he deserved it. Besides Harold, only Andy – Jude's doctor and ongoing confidante – knows the truth of the failed relationship. With his close friend and lover dead, Jude descends once again into self-destructive habits, losing such an excessive amount of weight that his remaining loved ones stage another intervention. Though they are able to get him to gain weight and to attend therapy, years of depression and despair finally overtake Jude, and he takes his own life.",
+      "status": "PUBLISH",
+      "authors": [
+        "Hanya Yanagihara"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
     }
   ],
   "users": [
@@ -724,10 +769,10 @@
       "id": 2
     },
     {
-      "name": "Vysali",
-      "email": "vysali@gmail.com",
-      "password": "Vysali1@",
-      "confirm": "Vysali2@",
+      "name": "Balaji",
+      "email": "ba@gmail.coom",
+      "password": "Ba2112@#",
+      "confirm": "Ba2112@#",
       "id": 3
     },
     {

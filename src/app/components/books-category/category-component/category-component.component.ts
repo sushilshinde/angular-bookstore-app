@@ -11,7 +11,7 @@ export class CategoryComponentComponent {
   @Input() imagesData: Book[] = [];   
   @Input() title!: string ;
 
-  constructor(private navpage: Router) {}
+  constructor (private router: Router) {}
 
   slideConfig = {
     slidesToShow: 6,
@@ -52,8 +52,8 @@ export class CategoryComponentComponent {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number) {                           //navigate to pirticular details page
-    this.navpage.navigate(['details', id]);
+  navigateToDetails(id: number) {                           //navigate to particular details page
+    this.router.navigate(['details', id]);
   }
   
 
