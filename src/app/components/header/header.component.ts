@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { cart } from 'app/cart.service';
 import { Router } from '@angular/router';
 import { HttpService } from 'app/services/http.service';
+import { getItem } from 'app/store/cart.actions';
 
 @Component({
   selector: 'app-header',
@@ -17,29 +18,26 @@ import { HttpService } from 'app/services/http.service';
 export class HeaderComponent implements OnInit, OnDestroy
 {
   constructor (
-    private http: HttpClient,
-    private cartservice: cart,
     private router: Router,
     private store: Store<{ cartItems: cartState }>,
-    private httpser: HttpService
-
   ) { }
   username: string | null = null;
   search = '';
-  count: number = 0;
+  count!: number;
+  cartData: any;
   cartItemsSubscription!: Subscription;
 
 
   ngOnInit(): void
   {
-
+    this.store.dispatch(getItem())
     this.cartItemsSubscription = this.store.select('cartItems').subscribe((data) =>
     {
-      this.count = data.cartItems.length                    //returning cart length and assigning to count
+      this.cartData = data.cartItems[0];
+      this.count = this.cartData.length;                  //returning cartData length and assigning to count
     })
 
     const userDetails = localStorage.getItem('userdetails');
-    console.log('user header', userDetails);
     if (userDetails) {
       const user = JSON.parse(userDetails);
       this.username = user.name;

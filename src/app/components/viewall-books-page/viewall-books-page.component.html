@@ -4,7 +4,7 @@
     <h2>{{ category }}</h2>
     <div>
       <label>Sort: </label>
-      <select [(ngModel)]='sortBy'>
+      <select [(ngModel)]='sort' (change)="sortBy($event)">
         <option value="title">title</option>
   <option value="price">price</option>
 </select>
@@ -15,8 +15,8 @@
 </button>
 </div>
 </div>
-<mat-grid-list [cols]="cols" *ngIf="!isLoading;else loading">
-  <mat-grid-tile *ngFor="let data of allBooks | sort:[sortBy,sortDirection]">
+<mat-grid-list [cols]="cols" *ngIf="!isLoading;else loader">
+  <mat-grid-tile *ngFor="let data of allBooks | sort:[sort,sortDirection]">
       <div (click)="navigateToDetails(data.id)" class="d-flex flex-column justify-content-center books-container image-div">
         <div>
           <img src="{{ data.thumbnailUrl }}" alt="noimg" />
@@ -52,7 +52,11 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
-  <ng-template #loading>Loading</ng-template>
+  <ng-template #loader>
+    <div class="spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
   <div class="d-flex justify-content-end">
     <a routerLink="/">
       <button class="btn btn-primary mt-3 mb-3">Back</button>

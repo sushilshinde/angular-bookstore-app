@@ -54,5 +54,6 @@ export class DetailPageComponent implements OnInit {
     bookdata['quantity'] = this.count;
     this.store.dispatch(addItem({ bookdata }));
     this.route.navigate(['/cart']);
+    // this.route.nav
   }
 }

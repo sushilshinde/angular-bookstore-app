@@ -12,7 +12,7 @@ export class ViewallBooksPageComponent
   allBooks: any = [];
   category: string = '';
   cols: number = 4;
-  sortBy!: string;
+  sort!: string;
   isLoading = false;
   sortDirection = 'asc';
   @HostListener('window:resize', ['$event'])
@@ -29,7 +29,6 @@ export class ViewallBooksPageComponent
 
   ngOnInit()
   {
-    console.log(this.sortBy,"sortby");
   this.activeRoute.params.subscribe(res=>this.category=res['category']);  //asigning params to category
     this.activeRoute.params.subscribe((param) =>
     {
@@ -73,7 +72,6 @@ export class ViewallBooksPageComponent
   sortDir()
   {
     this.isLoading = true;
-    console.log(this.sortBy,"sortby");
     if (this.sortDirection === 'asc') {
       this.sortDirection = 'desc'
       this.clearLoading();
@@ -85,11 +83,17 @@ export class ViewallBooksPageComponent
 
     }
   }
+  sortBy(event:any)
+  {
+    this.isLoading = true;
+    this.sort = event.target.value;
+    this.clearLoading();
+  }
   clearLoading()
   {
     setTimeout(() =>
     {
       this.isLoading=false
-    },300)
+    },400)
   }
 }
