@@ -5,38 +5,34 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { BookQty } from 'app/interface.book';
-import { cartState } from 'app/interfaces/interface.cartState';
 import { map } from 'rxjs';
 import { Book } from '../interfaces/interface.book';
-// import { environment } from "src/environments/environment";
+import { environment } from 'environment/environment.dev';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService
 {
   cartItems: any;
-  constructor (private store: Store<{ cartItems: cartState }>, private http: HttpClient)
+  constructor (private http: HttpClient)
   {
 
-    this.store.select('cartItems').subscribe(data =>
-      this.cartItems = data.cartItems[0]
-    )
-  }
 
+  }
+  private URL = environment.apiURL;
   //getBooks() will return all books but need to subscribe when using
   getBooks()
   {
-    return this.http.get<Book[]>('http://localhost:3000/books');
+    return this.http.get<Book[]>(this.URL + '/books');
   }
 
   //getTrendingBooks() will return all books but need to subscribe when using
   getTrendingBooks()
   {
-    return this.http.get<Book[]>('http://localhost:3000/books').pipe(
+    return this.http.get<Book[]>(this.URL + '/books').pipe(
       map((Resp) =>
       {
-        const dataArray:any = [];
+        const dataArray: any = [];
         for (const data of Resp) {
           if (data.categories.includes('Trending')) {
             dataArray.push({ ...data });
@@ -50,7 +46,7 @@ export class HttpService
   //getOfferBooks() will return all books but need to subscribe when using
   getBestOffersBooks()
   {
-    return this.http.get<Book[]>('http://localhost:3000/books').pipe(
+    return this.http.get<Book[]>(this.URL + '/books').pipe(
       map((Resp) =>
       {
         const dataArray: any = [];
@@ -65,11 +61,11 @@ export class HttpService
   }
   addCartItems(data: any)
   {
-    return this.http.post('http://localhost:3000/cartItems', data)
+    return this.http.post(this.URL + '/cartItems', data)
   }
   getCartItems()
   {
-    return this.http.get<Book[]>('http://localhost:3000/cartItems').pipe(
+    return this.http.get<Book[]>(this.URL + '/cartItems').pipe(
       map((Resp) =>
       {
         return Resp;
@@ -78,16 +74,16 @@ export class HttpService
   }
   removeCartItems(id: number)
   {
-    return this.http.delete(`http://localhost:3000/cartItems/${id}`)
+    return this.http.delete(this.URL + `/cartItems/${id}`)
   }
 
   incrementCartItems(item: any)
   {
     let currentQuantity = item.quantity;
 
-      let incitem: BookQty = { ...item, quantity: currentQuantity + 1 };
+    let incitem: BookQty = { ...item, quantity: currentQuantity + 1 };
 
-    return this.http.put(`http://localhost:3000/cartItems/${item.id}`, incitem);
+    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
   }
   decrementCartItems(item: any)
   {
@@ -95,7 +91,7 @@ export class HttpService
 
     let incitem: BookQty = { ...item, quantity: currentQuantity - 1 };
 
-    return this.http.put(`http://localhost:3000/cartItems/${item.id}`, incitem);
+    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
   }
- 
+
 }

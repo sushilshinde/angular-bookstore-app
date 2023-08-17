@@ -16,7 +16,7 @@ export class SortPipe implements PipeTransform
     console.log(sortDir, "sortdir value")
 
     let multiplier = 1;
-    if (sortDir === "descending") {
+    if (sortDir === "desc") {
       multiplier = -1;
     }
     return value.sort((a: any, b: any) =>

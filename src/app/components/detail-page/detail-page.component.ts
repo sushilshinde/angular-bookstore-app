@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { BookQty } from 'app/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { addItem } from 'app/store/cart.actions';
-
+import { environment } from 'environment/environment.dev';
 @Component({
   selector: 'app-detail-page',
   templateUrl: './detail-page.component.html',
@@ -20,14 +20,15 @@ export class DetailPageComponent implements OnInit {
     private route: Router,
     private activeRoute: ActivatedRoute,
     private store: Store<{ cartItems: cartState }>
-  ) {}
+  ) { }
+  private URL=environment.apiURL
   ngOnInit(): void {
     let params = new HttpParams().set(
       'id',
       this.activeRoute.snapshot.params['id']
     );
     this.http
-      .get(`http://localhost:3000/books`, { params: params })
+      .get(this.URL + `/books`, { params: params })
       .pipe(
         map((responseData: any) => {
           return responseData;
@@ -38,9 +39,9 @@ export class DetailPageComponent implements OnInit {
       });
   }
   onDecrement() {                   //decrement item 
-    if (this.count > 1) {
+    
       this.count -= 1;              
-    }
+
   }
   onIncrement() {                   //increment item
     this.count += 1;

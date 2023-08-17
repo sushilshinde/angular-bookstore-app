@@ -1,4 +1,4 @@
-
+<app-header></app-header>
 <div class="details-card">
     <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined" >
             arrow_left_alt
@@ -35,7 +35,7 @@
 
 
                         <h4>Quantity:</h4>
-                        <button (click)="onDecrement()">-</button>
+                        <button (click)="onDecrement()" [disabled]="count<=1">-</button>
                         <p>{{count}}</p>
                         <button (click)="onIncrement()">+</button>
                     </div>
@@ -58,3 +58,4 @@
             </span> Back</a>
     </div>
 </div>
+<app-footer></app-footer>

@@ -83,6 +83,9 @@ h3{
   flex-direction: column;
   flex-wrap: wrap;
 }
+.book-atc a{
+  cursor: pointer;
+}
 .cart-btn {
   max-width: 160px;
   height: 40px;

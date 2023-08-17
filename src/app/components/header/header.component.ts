@@ -57,7 +57,6 @@ export class HeaderComponent implements OnInit, OnDestroy
   {
     this.router.navigate(['signin']);
     localStorage.removeItem('userdetails');
-    window.location.reload();
   }
   ngOnDestroy()
   {
