@@ -9,16 +9,9 @@ import { MaterialModule } from 'app/material_ui/material.module';
 import { cartReducer } from 'app/store/cart.reducer';
 import { HeaderComponent } from './header.component';
 
-//   beforeEach(() => {
-//     TestBed.configureTestingModule({
-//       imports:[RouterTestingModule,HttpClientModule,MatToolbarModule,MatIconModule],
-//       declarations: [HeaderComponent,],
-//       providers:[cart,httpService]
-//     });
-//     fixture = TestBed.createComponent(HeaderComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+describe('FooterComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
 
   beforeEach(() => {
@@ -42,4 +35,4 @@ import { HeaderComponent } from './header.component';
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+})

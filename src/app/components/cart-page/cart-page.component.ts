@@ -6,7 +6,7 @@ import { HttpService } from 'app/services/http.service';
 import { increment, decrement, removeItem, getItem } from 'app/store/cart.actions';
 @Component({
   selector: 'app-cart-page',
-  templateUrl: './cart-page.component.html',
+  templateUrl:'./cart-page.component.html',
   styleUrls: ['./cart-page.component.css']
 })
 

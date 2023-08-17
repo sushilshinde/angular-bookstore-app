@@ -49,10 +49,10 @@ export class HeaderComponent implements OnInit, OnDestroy
 
     // ngOnInit(): void
   }
-  signinPage()
-  {
-    this.router.navigate(['signin']);
-  }
+  // signinPage()
+  // {
+  //   this.router.navigate(['signin']);
+  // }
   logout()
   {
     this.router.navigate(['signin']);

@@ -69,7 +69,7 @@
         <p
           *ngIf="
             register.get('password')?.value !==
-              register.get('confirm')?.value && register.get('confirm')?.valid
+              register.get('confirm')?.value && register.get('confirm')?.invalid
           "
         >
           *Password Doesn't Matched

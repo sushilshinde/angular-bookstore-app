@@ -11,9 +11,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CategoryComponentComponent } from './category-component/category-component.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 
-// describe('BooksCategoryComponent', () => {
-//   let component: BooksCategoryComponent;
-//   let fixture: ComponentFixture<BooksCategoryComponent>;
+describe('BooksCategoryComponent', () => {
+  let component: BooksCategoryComponent;
+  let fixture: ComponentFixture<BooksCategoryComponent>;
 
 
   beforeEach(() => {
