@@ -9,15 +9,17 @@
         class="navIcon"
       /></a>
       <div class="navItems">
-        <a routerLink="/viewall/Trending">TRENDING</a>
-        <a routerLink="/viewall/Best Offers">OFFERS</a>
-        <a routerLink="/viewall/Avaliable Books">ALL BOOKS</a>
+        <a class="navLink" routerLink="/viewall/Trending">TRENDING</a>
+        <a class="navLink" routerLink="/viewall/Best Offers">OFFERS</a>
+        <a class="navLink" routerLink="/viewall/Avaliable Books">ALL BOOKS</a>
       </div>
     </div>
     <div class="input">
       <input
         type="text"
         placeholder="Title,Other,....."
+        [(ngModel)]="search"
+        (input)="go($event)"
         
       />
       <a  [routerLink]="['search',search]"><mat-icon class="search" >search</mat-icon></a>

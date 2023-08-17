@@ -1,13 +1,12 @@
-import { Component,OnInit ,OnDestroy} from '@angular/core';
+
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/internal/Subscription';
-import { cartState } from 'app/interfaces/interface.cartState';
 import { HttpClient } from '@angular/common/http';
-import { cart } from 'app/cart.service';
 import { Router } from '@angular/router';
 import { HttpService } from 'app/services/http.service';
 import { getItem } from 'app/store/cart.actions';
-
+import { Component, OnInit,OnDestroy } from '@angular/core';
+import { cartState } from 'app/interfaces/interface.cartState';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,12 +14,13 @@ import { getItem } from 'app/store/cart.actions';
 })
 
 
-export class HeaderComponent implements OnInit, OnDestroy
-{
-  constructor (
-    private router: Router,
+
+export class HeaderComponent implements OnInit {
+  constructor(
+    private http: HttpClient,
     private store: Store<{ cartItems: cartState }>,
-  ) { }
+    private router: Router // private httpser:HttpService
+  ) {}
   username: string | null = null;
   search = '';
   count!: number;
@@ -62,4 +62,10 @@ export class HeaderComponent implements OnInit, OnDestroy
       this.cartItemsSubscription.unsubscribe();              //unsubscription
     }
   }
+  
+  go(event:any){
+    
+    this.router.navigate(['search', event.target.value]);
+  }
+ 
 }

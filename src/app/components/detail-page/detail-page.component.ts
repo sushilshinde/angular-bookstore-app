@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { BookQty } from 'app/interface.book';
+import { environment } from 'environment/environment.dev';
+import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { addItem } from 'app/store/cart.actions';
-import { environment } from 'environment/environment.dev';
+
 @Component({
   selector: 'app-detail-page',
   templateUrl: './detail-page.component.html',
@@ -35,7 +36,7 @@ export class DetailPageComponent implements OnInit {
         })
       )
       .subscribe((array) => {
-        this.data = array;        //assigning params to data
+        this.data = array; //assigning params to data
       });
   }
   onDecrement() {                   //decrement item 
@@ -43,10 +44,12 @@ export class DetailPageComponent implements OnInit {
       this.count -= 1;              
 
   }
-  onIncrement() {                   //increment item
+  onIncrement() {
+    //increment item
     this.count += 1;
   }
-  calculateDiscount(price: number, discount: number) {          //to calculate discount
+  calculateDiscount(price: number, discount: number) {
+    //to calculate discount
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }

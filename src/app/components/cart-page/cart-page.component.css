@@ -19,9 +19,8 @@ h3 {
 }
 .cart-details {
   max-width: 100%;
-  /* height: auto; */
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -38,6 +37,7 @@ h3 {
   margin-bottom: 25px;
   padding: 12px;
 }
+
 .cart-book {
   display: flex;
   flex: row wrap;
@@ -93,6 +93,7 @@ h3 {
 }
 .price-card {
   display: flex;
+  /* flex-direction: column; */
   flex: row wrap;
   justify-content: space-around;
   align-items: center;
@@ -123,7 +124,7 @@ h3 {
     font-size: xx-small;
   }
   .price-card {
-    max-width: 100%;
+    width: 100%;
     font-size: 13px;
     display: flex;
     flex-direction: row;
@@ -139,7 +140,7 @@ h3 {
 margin-right: 0;
 }
   .cart-card {
-    max-width: 100%;
+    width: 100%;
     font-size: 15px;
     display: flex;
     flex-direction: column;
@@ -182,6 +183,17 @@ margin-right: 0;
   }
   .remove-btn{
     padding: 2px 17px;
+  }
+  /* .card {
+    width: 55vw;
+    height: 200px;
+  } */
+  .cart-card {
+    width: 90vw;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
   }
 }
 .get-font {

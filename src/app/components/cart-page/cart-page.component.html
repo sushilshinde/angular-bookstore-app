@@ -3,7 +3,7 @@
   ><span class="material-symbols-outlined"> arrow_left_alt </span>
 </a>
 <div class="cart-details">
-<div *ngIf="cartData[0].length>=1;else noitems">
+<div *ngIf="cartData[0].length>=1;else noitems"  class="cartandpricediv"> <!-- cart and price div-->
   <div class="cart-card" *ngFor="let item of cartData[0]" >
     <div class="cart-book">
       <div class="book-img">

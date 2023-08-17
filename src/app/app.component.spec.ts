@@ -9,10 +9,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 describe('AppComponent', () => {
     
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [  MatToolbarModule,MatIconModule,  RouterTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
+    imports: [  MatToolbarModule,MatIconModule, HttpClientTestingModule, RouterTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
     declarations: [AppComponent,HeaderComponent,FooterComponent],
     providers: [
       {

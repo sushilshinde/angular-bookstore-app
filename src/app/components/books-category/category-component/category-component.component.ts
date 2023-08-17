@@ -8,10 +8,12 @@ import { Book } from 'app/interfaces/interface.book';
   styleUrls: ['./category-component.component.css'],
 })
 export class CategoryComponentComponent {
-  @Input() imagesData: Book[] = [];   
-  @Input() title!: string ;
+  @Input() imagesData: Book[] = [];
+  @Input() title: string = '';
+ 
 
-  constructor (private router: Router) {}
+
+  constructor(private navpage: Router) {}
 
   slideConfig = {
     slidesToShow: 6,
@@ -53,7 +55,7 @@ export class CategoryComponentComponent {
     return discountedPrice;
   }
   navigateToDetails(id: number) {                           //navigate to particular details page
-    this.router.navigate(['details', id]);
+    this.navpage.navigate(['details', id]);
   }
   
 
