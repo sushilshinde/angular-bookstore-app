@@ -1,8 +1,6 @@
-import { Component,OnInit } from '@angular/core';
-import { cart } from 'app/cart.service';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from 'app/core/services/cart.service';
 import { Router } from '@angular/router';
-import { HttpService } from 'app/services/http.service';
-import { Book } from 'app/interface.book';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -13,10 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class HeaderComponent implements OnInit {
   constructor(
     private http: HttpClient,
-    private cartservice: cart,
-    private router: Router,
-  
-    // private httpser:HttpService
+    private cartservice: CartService,
+    private router: Router // private httpser:HttpService
   ) {}
   username: string | null = null;
   search = '';
@@ -26,7 +22,6 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit(): void {
     const userDetails = localStorage.getItem('userdetails');
-    console.log('user header', userDetails);
     if (userDetails) {
       const user = JSON.parse(userDetails);
       this.username = user.name;
@@ -35,6 +30,11 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.router.navigate(['signin']);
     localStorage.removeItem('userdetails');
+  }
+  
+  go(event:any){
+    
+    this.router.navigate(['search', event.target.value]);
   }
  
 }

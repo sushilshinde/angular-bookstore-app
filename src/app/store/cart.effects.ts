@@ -1,6 +1,7 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, switchMap } from 'rxjs';
-import { HttpService } from 'app/http.service';
+import { CartService } from 'app/core/services/cart.service';
+import { Injectable } from '@angular/core';
 import {
   getItem,
   getItemSuccess,
@@ -13,11 +14,9 @@ import {
   decrement,
   decrementItemSuccess,
 } from './cart.actions';
-import { Injectable } from '@angular/core';
-import { BookQty } from 'app/interfaces/interface.bookwithqty';
 @Injectable()
 export class CartEffects {
-  constructor(private action$: Actions, private httpService: HttpService) {}
+  constructor(private action$: Actions, private cartService: CartService) {}
 
   addItem$ = createEffect(() =>
     this.action$.pipe(
@@ -25,7 +24,7 @@ export class CartEffects {
       switchMap((data: any) => {
         console.log(data, 'data');
         // return of(onAdd({ bookdata: data.bookdata }))
-        return this.httpService.addCartItems(data.bookdata).pipe(
+        return this.cartService.addCartItems(data.bookdata).pipe(
           map((cartData: any) => {
             console.log(cartData, 'data 123');
             return addItemSuccess({ bookdata: cartData });
@@ -39,7 +38,7 @@ export class CartEffects {
     this.action$.pipe(
       ofType(getItem),
       switchMap(() => {
-        return this.httpService.getCartItems().pipe(
+        return this.cartService.getCartItems().pipe(
           map((cartData: any) => {
             return getItemSuccess({ bookdata: cartData });
           })
@@ -52,7 +51,7 @@ export class CartEffects {
     return this.action$.pipe(
       ofType(removeItem),
       switchMap((item: any) => {
-        return this.httpService.removeCartItems(item.id).pipe(
+        return this.cartService.removeCartItems(item.id).pipe(
           map((cartData: any) => {
             console.log(cartData, 'response-deleted data');
             return removeItemSuccess({ id: item.id });
@@ -66,7 +65,7 @@ export class CartEffects {
       ofType(increment),
       switchMap((item: any) => {
         console.log(item, 'switchmap');
-        return this.httpService.incrementCartItems(item.id).pipe(
+        return this.cartService.incrementCartItems(item.id).pipe(
           map((cartData: any) => {
             return incrementItemSuccess({ bookdata: cartData });
           })
@@ -79,7 +78,7 @@ export class CartEffects {
       ofType(decrement),
       switchMap((item: any) => {
         console.log(item, 'switchmap');
-        return this.httpService.decrementCartItems(item.id).pipe(
+        return this.cartService.decrementCartItems(item.id).pipe(
           map((cartData: any) => {
             console.log(cartData, 'response-deleted data');
 

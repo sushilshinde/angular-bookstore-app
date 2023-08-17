@@ -20,12 +20,16 @@
   width: 50vw;
 }
 a {
+  text-decoration: none;
+}
+.navLink{
+  padding: 7px;
   color: rgb(17, 17, 17);
   text-decoration: none;
   font-size: small;
-  padding: 7px;
+
 }
-a:hover {
+.navLink:hover{
   background-color: rgb(42, 138, 138);
   color: white;
 }

@@ -6,20 +6,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { Book } from '../interfaces/interface.book';
+import { Book } from '../../interfaces/interface.book';
+// import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
+  cartItems: any;
   constructor(private http: HttpClient) {}
+
   //getBooks() will return all books but need to subscribe when using
-  getBooks() {                                                          
+  getBooks() {
     return this.http.get<Book[]>('http://localhost:3000/books');
   }
+
   //getTrendingBooks() will return all books but need to subscribe when using
-  getTrendingBooks() {                                                  
+  getTrendingBooks() {
     return this.http.get<Book[]>('http://localhost:3000/books').pipe(
       map((Resp) => {
-        const dataArray = [];
+        const dataArray: any = [];
         for (const data of Resp) {
           if (data.categories.includes('Trending')) {
             dataArray.push({ ...data });
@@ -29,11 +33,12 @@ export class HttpService {
       })
     );
   }
+
   //getOfferBooks() will return all books but need to subscribe when using
-  getBestOffersBooks() {                                                
+  getBestOffersBooks() {
     return this.http.get<Book[]>('http://localhost:3000/books').pipe(
       map((Resp) => {
-        const dataArray = [];
+        const dataArray: any = [];
         for (const data of Resp) {
           if (data.discount) {
             dataArray.push({ ...data });
