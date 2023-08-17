@@ -19,12 +19,16 @@ const routes: Routes = [
   // { path: 'viewall/:category', component: ViewallBooksPageComponent },
   // { path: 'buy', component: OrderSuccessPageComponent },
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
-  { path: 'details/:id', component: DetailPageComponent,canActivate:[AuthService]},
-  { path: 'cart', component: CartPageComponent, canActivate:[AuthService]},
+  {
+    path: 'details/:id',
+    component: DetailPageComponent,
+    canActivate: [AuthService],
+  },
+  { path: 'cart', component: CartPageComponent, canActivate: [AuthService] },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
-  {path:'buy',component:OrderSuccessPageComponent},
-  {path:'search/:search',component:SearchComponent},
-  { path: '**', component: PageNotFoundComponent }
+  { path: 'buy', component: OrderSuccessPageComponent },
+  { path: 'search/:search', component: SearchComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
