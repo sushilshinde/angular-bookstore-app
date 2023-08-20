@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { Book } from 'app/interface.book';
+import { Book } from 'app/interfaces/interface.book';
 import { HttpService } from 'app/services/http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 

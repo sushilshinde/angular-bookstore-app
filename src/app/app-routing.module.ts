@@ -6,7 +6,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './components/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './pages/order-success-page/order-success-page.component';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';

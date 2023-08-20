@@ -57,28 +57,27 @@
           type="password"
           placeholder="Confirm password"
           formControlName="confirm"
+          (input)="confirmPasswordMatch()"
         /><br />
-        <p
+        
+        <!-- <p
           *ngIf="
             register.controls['confirm'].touched &&
             register.hasError('required', 'confirm')
           "
         >
           *This field is required
-        </p>
-        <p
-          *ngIf="
-            register.get('password')?.value !==
-              register.get('confirm')?.value && register.get('confirm')?.invalid
-          "
-        >
-          *Password Doesn't Matched
-        </p>
-      </div>
+      </p> -->
+      <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.dirty">
+        *Password Doesn't Matched 
+      </p>
+       
+      </div> 
+
       <button
         type="submit"
         class="btn btn-primary"
-        [disabled]="register.invalid"
+        [disabled]="register.invalid || !confirmPasswordMatch()"
       >
         Sign Up
       </button>
@@ -88,3 +87,8 @@
     </form>
   </div>
 </div>
+
+     
+      
+       
+      

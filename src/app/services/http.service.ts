@@ -5,7 +5,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BookQty } from 'app/interface.book';
+import { BookQty } from '../interfaces/interface.book';
 import { map } from 'rxjs';
 import { Book } from '../interfaces/interface.book';
 import { environment } from 'environment/environment.dev';

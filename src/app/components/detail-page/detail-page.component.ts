@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { BookQty } from 'app/interface.book';
+import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { addItem } from 'app/store/cart.actions';
 import { environment } from 'environment/environment.dev';
@@ -20,8 +20,8 @@ export class DetailPageComponent implements OnInit {
     private route: Router,
     private activeRoute: ActivatedRoute,
     private store: Store<{ cartItems: cartState }>
-  ) { }
-  private URL=environment.apiURL
+  ) {}
+  private URL = environment.apiURL;
   ngOnInit(): void {
     let params = new HttpParams().set(
       'id',
@@ -35,18 +35,20 @@ export class DetailPageComponent implements OnInit {
         })
       )
       .subscribe((array) => {
-        this.data = array;        //assigning params to data
+        this.data = array; //assigning params to data
       });
   }
-  onDecrement() {                   //decrement item 
-    
-      this.count -= 1;              
+  onDecrement() {
+    //decrement item
 
+    this.count -= 1;
   }
-  onIncrement() {                   //increment item
+  onIncrement() {
+    //increment item
     this.count += 1;
   }
-  calculateDiscount(price: number, discount: number) {          //to calculate discount
+  calculateDiscount(price: number, discount: number) {
+    //to calculate discount
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }

@@ -1,25 +1,21 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { AuthenticationService } from 'app/authentication.service';
+import { AuthenticationService } from 'app/services/authentication.service';
 import { passwordValidator } from 'app/password.validator';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
-export class SigninComponent
-{
-  
+export class SigninComponent {
   login = new FormGroup({
-    email: new FormControl(null, [Validators.required, Validators.email]), // creating control for emial field with validations 
-    password: new FormControl(null, [Validators.required, passwordValidator()]),// creating control for password field with validations
+    email: new FormControl(null, [Validators.required, Validators.email]), // creating control for emial field with validations
+    password: new FormControl(null, [Validators.required, passwordValidator()]), // creating control for password field with validations
   });
-  constructor (private authentication: AuthenticationService) { }
+  constructor(private authentication: AuthenticationService) {}
 
-  signin()
-  {
+  signin() {
     this.authentication.signin(this.login);
   }
-
 }

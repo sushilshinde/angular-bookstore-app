@@ -14,3 +14,4 @@ export function passwordValidator(): ValidatorFn {
     return !passwordValid ? { passwordStrength: true } : null;
   };
 }
+

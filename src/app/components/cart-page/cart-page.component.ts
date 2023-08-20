@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BookQty } from 'app/interface.book';
+import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { HttpService } from 'app/services/http.service';
 import { increment, decrement, removeItem, getItem } from 'app/store/cart.actions';
