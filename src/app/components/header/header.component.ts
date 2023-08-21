@@ -23,14 +23,10 @@ export class HeaderComponent implements OnInit,OnChanges {
     private cartservice: CartService,
     private router: Router,private store:Store<{cartItems:cartState}>
   ) {}
-  signinPage() {
-    this.router.navigate(['signin']);
-  }
-  ngOnInit(){
-    this.store.select('cartItems').subscribe((data)=>{
-      this.count=data.cartItems.length
-    })
-    
+  ngOnInit() {
+    this.store.select('cartItems').subscribe((data) => {
+      this.count = data.cartItems.length;
+    });
     const userDetails = localStorage.getItem('userdetails');
     if (userDetails) {
       const user = JSON.parse(userDetails);
@@ -42,14 +38,18 @@ export class HeaderComponent implements OnInit,OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.ngOnInit()
   }
-  logout() {
-    this.router.navigate(['signin']);
-    localStorage.removeItem('userdetails');
-  }
-  
-  redirectToSearch(event:any){
-    
+  redirectToSearch(event: any) {
     this.router.navigate(['search', event.target.value]);
+  }
+  signinPage() {
+    this.router.navigate(['signin']);
+  }
+  logout() {
+    let result = confirm('Are you sure you want to Sign Out?');
+    if (result) {
+      this.router.navigate(['signin']);
+      localStorage.removeItem('userdetails');
+    }
   }
  
 }

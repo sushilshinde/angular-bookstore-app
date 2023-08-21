@@ -8,8 +8,12 @@
           *ngIf="
             register.controls['name'].touched &&
             register.hasError('required', 'name')
-          ">
+          "
+        >
           *This field is required
+        </p>
+        <p *ngIf="register.hasError('nameStrength', 'name')">
+          *Name must be upper & lower
         </p>
       </div>
       <div class="validate">
@@ -58,7 +62,15 @@
           formControlName="confirm"
           (input)="confirmPasswordMatch()"
         /><br />
-        <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.dirty">
+        <p
+          *ngIf="
+            register.controls['confirm'].touched &&
+            register.hasError('required', 'confirm')
+          "
+        >
+          *This field is required
+        </p>
+        <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.value">
           *Password Doesn't Matched
         </p>
       </div>

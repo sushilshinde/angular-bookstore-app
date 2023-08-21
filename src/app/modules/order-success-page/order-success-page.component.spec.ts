@@ -18,8 +18,13 @@ describe('OrderSuccessPageComponent', () => {
   let debugElement: DebugElement;
   beforeEach(() => {
     TestBed.configureTestingModule({
+<<<<<<< HEAD
         imports:[MaterialModule,FormsModule,RouterTestingModule,HttpClientTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
       declarations: [OrderSuccessPageComponent,HeaderComponent,FooterComponent]
+=======
+      imports: [MaterialModule, RouterTestingModule],
+      declarations: [OrderSuccessPageComponent],
+>>>>>>> vysali
     });
     fixture = TestBed.createComponent(OrderSuccessPageComponent);
     component = fixture.componentInstance;
@@ -36,8 +41,9 @@ describe('OrderSuccessPageComponent', () => {
     const continueShoppingButton = debugElement.query(By.css('button'));
 
     expect(tickIcon).toBeTruthy();
-    expect(message.nativeElement.textContent).toContain('Order placed Successfully...');
+    expect(message.nativeElement.textContent).toContain(
+      'Order placed Successfully...'
+    );
     expect(continueShoppingButton).toBeTruthy();
   });
- 
 });
