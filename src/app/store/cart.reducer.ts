@@ -36,18 +36,6 @@ export const cartReducer = createReducer(
       cartItems: [bookd],
     };
   }),
-  // const bookd = { ...action.bookdata };
-  // let allid = [];
-  // for (let id of state.cartItems) {
-  //   allid.push(id.id);
-  // }
-  // if (allid.includes(bookd.id)) {
-  //   return state;
-  // } else {
-  //   return {
-  //     cartItems: [...state.cartItems, bookd],
-  //   };
-  // }
   on(increment, (state, action) => {
     return state;
   }),

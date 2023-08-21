@@ -10,9 +10,9 @@ import { map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  cartItems: any;
+  cartItems: any;                               //initializing cart items
   constructor(
-    private store: Store<{ cartItems: cartState }>,   //initializing the store
+    private store: Store<{ cartItems: cartState }>,   //declaring the store
     private http: HttpClient
   ) {
     this.store
@@ -22,7 +22,7 @@ export class CartService {
   addCartItems(data: any) {                   //adding data to server
     return this.http.post('http://localhost:3000/cartItems', data);
   }
-  getCartItems() {                          //getting data from server
+  getCartItems() {                          //getting cart data from server
     return this.http.get<Book[]>('http://localhost:3000/cartItems').pipe(
       map((Resp) => {
         return Resp;

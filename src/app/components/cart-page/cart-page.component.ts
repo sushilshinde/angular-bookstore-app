@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { cartState } from 'app/interfaces/interface.cartState';
-import { HttpService } from 'app/core/services/http.service';
 import {
   increment,
   decrement,
@@ -14,11 +13,12 @@ import {
   styleUrls: ['./cart-page.component.css'],
 })
 export class CartPageComponent implements OnInit {
-  cartData: any = [];
+  cartData:any[] = [];
   count: number = 0;
   totalPrice: number = 0;
 
   updatePrice() {
+    if(Array.isArray(this.cartData[0])){
     this.totalPrice = this.cartData[0].reduce((acc: number, value: any) => {
       if (value.categories.includes('Offers')) {
         return (
@@ -30,31 +30,33 @@ export class CartPageComponent implements OnInit {
       }
     }, 0);
   }
+  else{
+    this.totalPrice=0;
+  }
+  }
 
-  constructor(
-    private store: Store<{ cartItems: cartState }>,
-    private httpService: HttpService
-  ) {}
+  constructor(private store: Store<{ cartItems: cartState }>,) {}
   ngOnInit(): void {
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) => {
       this.cartData = data.cartItems;
-      // console.log(cartData,"incoming data");
       this.updatePrice();
     });
   }
-
+// ngOnChanges() {
+//   this.updatePrice();
+// }
   onRemoveHandeller(id: number) {
     this.store.dispatch(removeItem({ id }));
-    this.updatePrice();
+    // this.updatePrice();
   }
   onIncrement(id: number) {
     this.store.dispatch(increment({ id }));
-    this.updatePrice();
+    // this.updatePrice();
   }
   onDecrement(id: number) {
     this.store.dispatch(decrement({ id }));
-    this.updatePrice();
+    // this.updatePrice();
   }
 
   calculateDiscount(price: number, discount: number) {

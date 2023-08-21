@@ -34,7 +34,7 @@ export class DetailPageComponent implements OnInit {
         })
       )
       .subscribe((array) => {
-        this.data = array; //assigning params to data
+        this.data = array; //assigning response to data
       });
   }
   onDecrement() {

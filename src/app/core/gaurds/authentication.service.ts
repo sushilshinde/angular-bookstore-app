@@ -6,27 +6,26 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {}
-  private username:any = null
-  private isAuthenticate:boolean = false
+  private username: any = null;
+  private isAuthenticate: boolean = false;
   signin(login: any) {
     this.http.get<any>('http://localhost:3000/users').subscribe(
-      (res) =>
-      {
-        console.log(res, "balaji");
+      //getting all books
+      (res) => {
         const user = res.find((a: any) => {
           return (
-            a.email === login.controls.email.value &&
+            a.email === login.controls.email.value && //checking user details to match
             a.password === login.controls.password.value
           );
         });
         if (user) {
+          //if matched nav to home and set user details
           login.reset();
           this.router.navigate(['/']);
-          console.log("user details",user)
-          localStorage.setItem("userdetails",JSON.stringify(user))
-           this.isAuthenticate =true;
+          localStorage.setItem('userdetails', JSON.stringify(user));
+          this.isAuthenticate = true;
         } else {
-          alert('User Not Found');
+          alert('User Not Found'); //else alert not found
         }
       },
       (err) => {
@@ -34,23 +33,32 @@ export class AuthenticationService {
       }
     );
   }
-  loginStatus(){
-    return this.isAuthenticate
+  loginStatus() {
+    return this.isAuthenticate;
   }
   signup(register: any) {
-    this.http
-      .post<any>('http://localhost:3000/users', register.value)
-      .subscribe(
-        (res) => {
-          console.log(res);
-          alert('Registration Successfull');
-          register.reset();
-          this.router.navigate(['/signin']);
-          console.log(register.value)
-        },
-        (err) => {
-          alert('Something Went Wrong');
-        }
-      );
+    this.http.get<any>('http://localhost:3000/users').subscribe((res) => {
+      const valid = res.find((val: any) => {                                  //getting all user data and checking
+        return val.email === register.value.email;
+      });
+
+      if (valid) {                                                //if found alert that details allready exist
+        alert('data allready exist');
+        register.reset();
+      } else {
+        this.http
+          .post<any>('http://localhost:3000/users', register.value) //if not post data to api
+          .subscribe(
+            (res) => {
+              alert('Registration Successfull');
+              register.reset();
+              this.router.navigate(['/signin']);
+            },
+            (err) => {                                     //if encounter some error  alert someting went wrong
+              alert('Something Went Wrong');
+            }
+          );
+      }
+    });
   }
 }

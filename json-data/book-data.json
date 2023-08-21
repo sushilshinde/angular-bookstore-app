@@ -659,54 +659,7 @@
       ]
     }
   ],
-  "cartItems": [
-    {
-      "title": "A Little Life",
-      "id": 4,
-      "price": 500,
-      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbphzgI6WkqUY8QwpMVAlDWsbORBa16Uj35LtsNyKsaOYhs0Y4",
-      "longDescription": "The novel focuses on the lives of four friends: Jude St. Francis, a disabled genius with a mysterious past; Willem Ragnarsson, a kind, handsome man who aspires to be an actor; Malcolm Irvine, an architect working at a prestigious firm; and Jean-Baptiste \"JB\" Marion, a quick-witted painter who wants to make a name in the art world. The book follows their relationships changing under the influence of success, wealth, addiction, and pride. It becomes clear that Jude was sexually traumatized at a very young age, making it difficult for him to engage in romantic relationships. His friends and loved ones begin questioning this isolation as he enters his forties, with Willem especially being baffled with regard to Jude's sexuality. As his loneliness grows more intense, he enters an abusive relationship with fashion executive Caleb, who is disgusted by Jude's limp and his increasing use of a wheelchair. Jude finally breaks off the relationship after Caleb rapes him, and they meet a final time when Caleb follows him to dinner with Harold, humiliates him, and then follows Jude to his apartment, where he brutally beats and rapes him, leaving him for dead. Jude nonetheless refuses to report the incident to the police, believing he deserved it. Besides Harold, only Andy – Jude's doctor and ongoing confidante – knows the truth of the failed relationship. With his close friend and lover dead, Jude descends once again into self-destructive habits, losing such an excessive amount of weight that his remaining loved ones stage another intervention. Though they are able to get him to gain weight and to attend therapy, years of depression and despair finally overtake Jude, and he takes his own life.",
-      "status": "PUBLISH",
-      "authors": [
-        "Hanya Yanagihara"
-      ],
-      "categories": [
-        "Trending"
-      ],
-      "quantity": 1
-    },
-    {
-      "title": "Fourth Wing",
-      "id": 2,
-      "price": 300,
-      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMGygN6vmJYLi9nkL769kQfNDg3kt-zfrb1AQRkAnvtiUysGdh",
-      "longDescription": "Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, living a quiet life among books and history. Now, the commanding general—also known as her tough-as-talons mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders. But when you’re smaller than everyone else and your body is brittle, death is only a heartbeat away...because dragons don’t bond to “fragile” humans. They incinerate them. With fewer dragons willing to bond than cadets, most would kill Violet to better their own chances of success. The rest would kill her just for being her mother’s daughter—like Xaden Riorson, the most powerful and ruthless wingleader in the Riders Quadrant. Yet, with every day that passes, the war outside grows more deadly, the kingdom's protective wards are failing, and the death toll continues to rise. Even worse, Violet begins to suspect leadership is hiding a terrible secret.",
-      "status": "PUBLISH",
-      "authors": [
-        "Rebecca Yarros"
-      ],
-      "categories": [
-        "Trending"
-      ],
-      "quantity": 1
-    },
-    {
-      "title": "JSTL in Action",
-      "id": 34,
-      "price": 1700,
-      "discount": 16,
-      "thumbnailUrl": "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/bayern.jpg",
-      "longDescription": "JSTL is an important simplification of the Java web platform. With JSTL, page authors can now write dynamic pages using standard HTML-like tags and an easy-to-learn expression language. JSTL is a standard from the Java Community Process, and its expression language will become part of JSP 2.0.    JSTL in Action shows you how to write rich, dynamic web pages without programming. From simple loops to tricky XML processing, every feature of JSTL is covered and exercised in numerous useful examples. Whether you are a novice page author or an experienced Java programmer, this book shows you easy ways to create powerful web sites.    To help readers who don't already have a JSP container run the examples in the book, there's a free companion download here. This bundle contains a ready-to-run JSP container, a JSTL implementation, and all the book's examples.",
-      "status": "PUBLISH",
-      "authors": [
-        "Shawn Bayern"
-      ],
-      "categories": [
-        "Offers"
-      ],
-      "quantity": 3
-    }
-  ],
+  "cartItems": [],
   "users": [
     {
       "name": "Balaji",
@@ -721,6 +674,13 @@
       "password": "Sri@123",
       "confirm": "Sri@123",
       "id": 2
+    },
+    {
+      "name": "asd",
+      "email": "sri@gmail.com",
+      "password": "Sri@123",
+      "confirm": "Sri@123",
+      "id": 3
     }
   ]
 }

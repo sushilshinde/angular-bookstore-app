@@ -18,9 +18,7 @@ describe('AppComponent', () => {
     providers: [
       {
         provide: ActivatedRoute,
-        useValue: {
-          paramMap: of({}),
-        },
+        useValue: null
       },
     ],
 

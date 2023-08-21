@@ -22,7 +22,7 @@ export class CartEffects {
     this.action$.pipe(
       ofType(addItem),
       switchMap((data: any) => {
-        console.log(data, 'data');
+        // console.log(data, 'data');
         // return of(onAdd({ bookdata: data.bookdata }))
         return this.cartService.addCartItems(data.bookdata).pipe(
           map((cartData: any) => {
