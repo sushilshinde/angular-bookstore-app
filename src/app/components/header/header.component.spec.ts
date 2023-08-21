@@ -44,14 +44,14 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should display username when logged in', () => {
-    const testUser = { name: 'John Doe' };
+    const testUser = { name:'John Doe' };
     localStorage.setItem('userdetails', JSON.stringify(testUser));
     fixture.detectChanges();
 
     const usernameElement =
       fixture.debugElement.nativeElement.querySelector('.username');
     expect(usernameElement.textContent).toContain(
-      'Welcome' + '  ' + testUser.name.toLocaleUpperCase()
+      'Welcome' + ' ' + testUser.name.toLocaleUpperCase()
     );
   });
 

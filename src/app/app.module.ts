@@ -73,7 +73,6 @@ import { MaterialModule } from './shared/material_ui/material.module';
     HttpClientModule,
     RouterModule,
     StoreModule.forRoot({ cartItems: cartReducer }),
-    // EffectsModule.forRoot([]),
     EffectsModule.forRoot([CartEffects]),
   ],
   providers: [],

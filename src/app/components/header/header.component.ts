@@ -20,9 +20,6 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private store: Store<{ cartItems: cartState }>
   ) {}
-  signinPage() {
-    this.router.navigate(['signin']);
-  }
   ngOnInit() {
     this.store.select('cartItems').subscribe((data) => {
       this.count = data.cartItems.length;
@@ -33,10 +30,18 @@ export class HeaderComponent implements OnInit {
       this.username = user.name;
     }
   }
-  logout() {
+  redirectToSearch(event: any) {
+    this.router.navigate(['search', event.target.value]);
+  }
+  signinPage() {
     this.router.navigate(['signin']);
-    confirm('confirm to logout');
-    localStorage.removeItem('userdetails');
+  }
+  logout() {
+    let result = confirm('Are you sure you want to Sign Out?');
+    if (result) {
+      this.router.navigate(['signin']);
+      localStorage.removeItem('userdetails');
+    }
   }
 
   go(event: any) {

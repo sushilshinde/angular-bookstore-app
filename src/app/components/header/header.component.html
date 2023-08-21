@@ -17,11 +17,14 @@
       </div>
     </div>
     <div class="input">
-      <input type="text" placeholder="Title,Other,....." />
-      <a [routerLink]="['search', search]" class="search">
-        <mat-icon class="searchicon">search</mat-icon></a
-      >
-      <a routerLink="signin" class="login" *ngIf="!username">sign in</a>
+      <input
+        type="text"
+        placeholder="Title,Other,....."
+        [(ngModel)]="search"
+        (input)="redirectToSearch($event)"
+      />
+      <mat-icon class="searchicon">search</mat-icon>
+      <a routerLink="/signin" class="login" *ngIf="!username">Sign In</a>
       <div class="loginItems" *ngIf="username">
         <span class="username">
           <span [style]="{ color: 'blue' }">Welcome </span
