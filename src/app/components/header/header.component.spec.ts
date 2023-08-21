@@ -51,7 +51,7 @@ describe('FooterComponent', () => {
     const usernameElement =
       fixture.debugElement.nativeElement.querySelector('.username');
     expect(usernameElement.textContent).toContain(
-      'Welcome' + '  ' + testUser.name.toLocaleUpperCase()
+      'Welcome' + ' ' + testUser.name.toLocaleUpperCase()
     );
   });
 

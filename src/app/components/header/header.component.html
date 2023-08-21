@@ -17,7 +17,8 @@
       </div>
     </div>
     <div class="input">
-      <input type="text" placeholder="Title,Other,....." />
+      <input type="text" placeholder="Search by Title"  [(ngModel)]="search"
+      (input)="redirectToSearch($event)" />
       <a [routerLink]="['search', search]" class="search">
         <mat-icon class="searchicon">search</mat-icon></a
       >

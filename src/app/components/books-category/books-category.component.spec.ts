@@ -1,4 +1,4 @@
-import {  HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'app/core/services/http.service';
@@ -7,7 +7,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CategoryComponentComponent } from './category-component/category-component.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { of } from 'rxjs';
-
 
 describe('BooksCategoryComponent', () => {
   let component: BooksCategoryComponent;
@@ -18,7 +17,7 @@ describe('BooksCategoryComponent', () => {
     testHttpService = {
       getBooks: () => of([]),
     };
-  })
+  });
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -45,7 +44,7 @@ describe('BooksCategoryComponent', () => {
       { id: 2, title: 'Book 2', discount: 20, categories: [] },
     ];
 
-    spyOn(testHttpService, 'getBooks' as any).and.returnValue(of(mockBooks));
+    spyOn(testHttpService, 'getBooks' as any).and.returnValue(of(mockBooks)); 
 
     component.ngOnInit();
 
@@ -53,12 +52,12 @@ describe('BooksCategoryComponent', () => {
   });
 
   it('should populate trendingBooks with books having "Trending" category', () => {
-    const mockBooks:any = [
+    const mockBooks: any = [
       { id: 1, title: 'Book 1', categories: ['Trending'] },
       { id: 2, title: 'Book 2', categories: [] },
     ];
 
-    spyOn(testHttpService, 'getBooks' as any).and.returnValue(of(mockBooks));
+    spyOn(testHttpService, 'getBooks' as any).and.returnValue(of(mockBooks)); 
 
     component.ngOnInit();
 

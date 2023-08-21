@@ -12,7 +12,7 @@ describe('DetailPageComponent', () => {
   let fixture: ComponentFixture<DetailPageComponent>;
   let router: Router;
   let store: Store<{ cartItems: cartState }>;
-  let httpTestingController: HttpTestingController;
+  let httpTestingController: HttpTestingController;//////////////////////////
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -114,6 +114,6 @@ describe('DetailPageComponent', () => {
     expect(storeSpy).toHaveBeenCalledWith(
       addItem({ bookdata: { ...bookdata, quantity: 3 } })
     );
-    expect(routerSpy).toHaveBeenCalledWith(['/cart']);
+    expect(routerSpy).toHaveBeenCalledWith(['/cart']); //////////////////
   });
 });

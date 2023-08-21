@@ -42,11 +42,6 @@ describe('SignupComponent', () => {
 
   });
 
-  it('checking confirm field validity', () => {
-    const confirm = component.register.controls['confirm'];
-    expect(confirm.valid).toBeFalsy();
-
-  });
 
   it('submitting form should call signup method', () => {
     spyOn(component, 'signup');

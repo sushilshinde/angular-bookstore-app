@@ -1,23 +1,24 @@
 <div class="container">
   <h2 class="text-center text-danger font-weight-bold pt-3">{{ category }}</h2>
-
+<label>Sort:</label>
+<select [(ngModel)]='sort'>
+  <option value="title">title</option>
+  <option value="author">Author</option>
+</select>
   <mat-grid-list [cols]="cols">
-    <mat-grid-tile *ngFor="let data of allBooks">
-      <div
-        (click)="navigateToDetails(data.id)"
-        class="d-flex flex-column justify-content-center books-container image-div"
-      >
+    <mat-grid-tile *ngFor="let data of allBooks | sort:[sort,'ascending']">
+      <div (click)="navigateToDetails(data.id)" class="d-flex flex-column justify-content-center books-container image-div">
         <div>
           <img src="{{ data.thumbnailUrl }}" alt="noimg" />
         </div>
         <div>
           <b
             ><p class="text-center m-0 text-danger mt-1">
-              {{ data.title | shorten : 15 }}
+              {{ data.title | shorten:15 }}
             </p>
           </b>
           <p class="text-center text-secondary m-0">
-            {{ data.authors[0] | shorten : 15 }}
+            {{ data.authors[0] | shorten:15 }}
           </p>
           <b class="text-center">
             <div class="text-center" *ngIf="data.discount; else noDiscount">
@@ -41,9 +42,6 @@
       </div>
     </mat-grid-tile>
   </mat-grid-list>
-  <!-- <a routerLink="/" class="back-btn"><span class="material-symbols-outlined">
-            arrow_left_alt
-          </span> Back</a> -->
   <div class="d-flex justify-content-end">
     <a routerLink="/">
       <button class="btn btn-primary mt-3 mb-3">Back</button>
