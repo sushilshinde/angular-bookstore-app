@@ -34,6 +34,7 @@ export class AuthenticationService {
           this.router.navigate(['/']);
         } else {
           alert('User Not Found');
+          login.reset();
         }
       },
       (err) => {
