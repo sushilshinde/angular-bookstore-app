@@ -5,6 +5,8 @@ import { HttpClient } from '@angular/common/http';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AuthService } from 'app/core/gaurds/auth.service';
+import { AuthenticationService } from 'app/core/gaurds/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -28,11 +30,14 @@ export class HeaderComponent implements OnInit,OnChanges {
     this.store.select('cartItems').subscribe((data)=>{
       this.count=data.cartItems.length
     })
+    
     const userDetails = localStorage.getItem('userdetails');
     if (userDetails) {
       const user = JSON.parse(userDetails);
+      
       this.username = user.name;
     }
+  
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.ngOnInit()

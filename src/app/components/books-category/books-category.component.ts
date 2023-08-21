@@ -7,16 +7,16 @@ import { Subscription } from 'rxjs';
   templateUrl: './books-category.component.html',
   styleUrls: ['./books-category.component.css'],
 })
-export class BooksCategoryComponent implements OnInit,OnDestroy {
+export class BooksCategoryComponent implements OnInit, OnDestroy {
   trendingBooks: Book[] = [];
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
   errors!: boolean;
-  private subscription!:Subscription;
+  private subscription!: Subscription;
   constructor(private httpdata: HttpService) {}
 
   ngOnInit() {
-   this.subscription=  this.httpdata.getBooks().subscribe((resp: any) => {
+    this.subscription = this.httpdata.getBooks().subscribe((resp: any) => {
       this.errors = true;
 
       let booksoffer = [];
@@ -34,7 +34,7 @@ export class BooksCategoryComponent implements OnInit,OnDestroy {
       }
     });
   }
-  ngOnDestroy(){
-  this.subscription.unsubscribe()
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

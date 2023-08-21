@@ -6,7 +6,6 @@ import { Router } from '@angular/router';
 })
 export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {}
-  private username: any = null;
   private isAuthenticate: boolean = false;
   signin(login: any) {
     this.http.get<any>('http://localhost:3000/users').subscribe(
