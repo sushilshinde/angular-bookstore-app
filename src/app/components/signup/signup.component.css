@@ -37,7 +37,7 @@ input[type="password"] {
 }
 .validate p {
   color: red;
-  font-size: x-small;
+  font-size: xx-small;
 }
 button {
   width: 150px;

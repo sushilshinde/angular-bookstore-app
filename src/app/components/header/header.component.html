@@ -1,34 +1,32 @@
 <header>
   <mat-toolbar class="navbar">
     <div class="category d-flex">
-      <a routerLink="/" class="logo-img"
-        ><img
+      <a routerLink="/">
+        <img
           src="/assets/images/bookstore-logo.png"
           alt="logo"
           height="50px"
           width="50px"
           class="navIcon"
-      /></a>
+        />
+      </a>
       <div class="navItems">
-        <a routerLink="/viewall/Trending">TRENDING</a>
-        <a routerLink="/viewall/Best Offers">OFFERS</a>
-        <a routerLink="/viewall/Avaliable Books">ALL BOOKS</a>
+        <a class="navitem" routerLink="/viewall/Trending">TRENDING</a>
+        <a class="navitem" routerLink="/viewall/Best Offers">OFFERS</a>
+        <a class="navitem" routerLink="/viewall/Avaliable Books">ALL BOOKS</a>
       </div>
     </div>
     <div class="input">
       <input type="text" placeholder="Title,Other,....." />
-      <a [routerLink]="['search', search]"
-        ><mat-icon class="search">search</mat-icon></a
+      <a [routerLink]="['search', search]" class="search">
+        <mat-icon class="searchicon">search</mat-icon></a
       >
-
-      <a  routerLink="signin" class="login" *ngIf="!username"
-        >sign in</a>
-
-      <div *ngIf="username">
-        <span class="username"
-          ><span [style]="{ color: 'blue' }">Welcome </span>
-          {{ username | uppercase }}</span
-        >
+      <a routerLink="signin" class="login" *ngIf="!username">sign in</a>
+      <div class="loginItems" *ngIf="username">
+        <span class="username">
+          <span [style]="{ color: 'blue' }">Welcome </span
+          >{{ username | uppercase }}
+        </span>
         <mat-icon class="logout" (click)="logout()">logout</mat-icon>
         <mat-icon
           class="cart"

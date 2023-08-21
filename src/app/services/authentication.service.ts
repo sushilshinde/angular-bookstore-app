@@ -10,9 +10,9 @@ export class AuthenticationService {
   private URL = environment.apiURL;
   constructor(private http: HttpClient, private router: Router) {
     this.http.get<any>(this.URL + '/users').subscribe((res) => {
-      console.log(res, 'service');
+      // console.log(res, 'service');
       this.user = res;
-      console.log(this.user, 'service file');
+      // console.log(this.user, 'service file');
     });
   }
 
@@ -54,7 +54,7 @@ export class AuthenticationService {
       });
 
       if (valid) {
-        alert('data allready exist');
+        alert('User Already Exist');
         register.reset();
       } else {
         this.http.post<any>(this.URL + '/users', register.value).subscribe(

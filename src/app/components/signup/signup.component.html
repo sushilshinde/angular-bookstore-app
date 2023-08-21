@@ -59,20 +59,10 @@
           formControlName="confirm"
           (input)="confirmPasswordMatch()"
         /><br />
-        
-        <!-- <p
-          *ngIf="
-            register.controls['confirm'].touched &&
-            register.hasError('required', 'confirm')
-          "
-        >
-          *This field is required
-      </p> -->
-      <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.dirty">
-        *Password Doesn't Matched 
-      </p>
-       
-      </div> 
+        <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.dirty">
+          *Password Doesn't Matched
+        </p>
+      </div>
 
       <button
         type="submit"
@@ -87,8 +77,3 @@
     </form>
   </div>
 </div>
-
-     
-      
-       
-      

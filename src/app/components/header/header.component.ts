@@ -33,20 +33,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
 
     const userDetails = localStorage.getItem('userdetails');
-    console.log('user header', userDetails);
     if (userDetails) {
       const user = JSON.parse(userDetails);
       this.username = user.name;
     }
-
-    // ngOnInit(): void
   }
-  // signinPage()
-  // {
-  //   this.router.navigate(['signin']);
-  // }
   logout() {
     this.router.navigate(['signin']);
+    confirm('confirm to logout');
     localStorage.removeItem('userdetails');
   }
   ngOnDestroy() {

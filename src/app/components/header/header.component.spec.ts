@@ -13,19 +13,24 @@ describe('FooterComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
-
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ MaterialModule, MatToolbarModule,MatIconModule,  RouterTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
-    declarations: [HeaderComponent],
-    providers: [
-      {
-        provide: ActivatedRoute,
-        useValue: {
-          paramMap: of({}),
+      imports: [
+        MaterialModule,
+        MatToolbarModule,
+        MatIconModule,
+        RouterTestingModule,
+        StoreModule.forRoot({ cartItems: cartReducer }),
+      ],
+      declarations: [HeaderComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: of({}),
+          },
         },
-      },
-    ],
+      ],
     });
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
@@ -35,4 +40,4 @@ describe('FooterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-})
+});
