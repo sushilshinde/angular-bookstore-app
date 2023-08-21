@@ -2,7 +2,6 @@
   box-sizing: border-box;
 }
 mat-grid-tile {
-  background:rgb(223 215 215);
   background: transparent;
 }
 img {

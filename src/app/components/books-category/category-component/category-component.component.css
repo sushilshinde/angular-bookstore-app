@@ -21,41 +21,21 @@ button {
     1;
   width: 100%;
 }
-@media only screen and (min-width: 400px) {
-  .slide img {
-    height: 30vw;
+.text-color{
+  color: rgb(218, 245, 239);
+}
+@media screen and (max-width:400px) {
+  .text-color{
+    display: none;
   }
 }
-@media only screen and (max-width: 400px) {
-  .slide img {
-    height: 50vw;
-  }
+.background{
+  position:relative;
 }
-
-@media only screen and (min-width: 576px) {
-  .slide img {
-    height: 28vw;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .slide img {
-    height: 27vw;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .slide img {
-    height: 20vw;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .slide img {
-    height: 20vw;
-  }
-}
-.slider-book-image:hover {
-  opacity: 0.6;
-  cursor: pointer;
+.spinner{
+  position:absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  color: pink !important;
 }

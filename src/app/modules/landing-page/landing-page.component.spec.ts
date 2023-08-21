@@ -5,10 +5,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StoreModule } from '@ngrx/store';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { BooksCategoryComponent } from 'app/components/books-category/books-category.component';
-import { HttpService } from 'app/services/http.service';
-import { LandingPageComponent } from './landing-page.component';
-import { CarouselComponent } from 'app/components/carousel/carousel.component';
 import { CategoryComponentComponent } from 'app/components/books-category/category-component/category-component.component';
+import { CarouselComponent } from 'app/components/carousel/carousel.component';
+import { HttpService } from 'app/core/services/http.service';
+import { LandingPageComponent } from './landing-page.component';
 
 describe('LandingPageComponent', () => {
   let component: LandingPageComponent;

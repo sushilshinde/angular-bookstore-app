@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 // import { MatIconModule } from '@angular/material/icon';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MaterialModule } from 'app/material_ui/material.module';
+import { MaterialModule } from 'app/shared/material_ui/material.module';
 import { FooterComponent } from './footer.component';
 import { MatIcon, MatIconModule } from '@angular/material/icon';
 // import { MaterialModule } from 'app/material_ui/material.module';

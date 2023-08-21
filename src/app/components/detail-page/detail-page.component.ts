@@ -35,13 +35,14 @@ export class DetailPageComponent implements OnInit {
         })
       )
       .subscribe((array) => {
-        this.data = array; //assigning params to data
+        this.data = array; //assigning response to data
       });
   }
   onDecrement() {
     //decrement item
-
-    this.count -= 1;
+    if (this.count > 1) {
+      this.count -= 1;
+    }
   }
   onIncrement() {
     //increment item

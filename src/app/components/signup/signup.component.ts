@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { passwordValidator } from 'app/password.validator';
-import { AuthenticationService } from 'app/services/authentication.service';
-// import { confirmPasswordValidator } from 'app/confirm';
-import { OnInit } from '@angular/core';
+import { passwordValidator } from 'app/components/signup/password.validator';
+import { AuthenticationService } from 'app/core/gaurds/authentication.service';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

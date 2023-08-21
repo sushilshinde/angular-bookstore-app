@@ -1,7 +1,8 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'app/services/http.service';
-// import { Book } from 'app/interfaces/interface.book';
+import { Book } from 'app/interfaces/interface.book';
+
 @Component({
   selector: 'app-viewall-books-page',
   templateUrl: './viewall-books-page.component.html',
@@ -9,12 +10,10 @@ import { HttpService } from 'app/services/http.service';
 })
 export class ViewallBooksPageComponent
 {
-  allBooks: any = [];
+  allBooks: Book[] = [];
   category: string = '';
   cols: number = 4;
-  sortBy!: string;
-  isLoading = false;
-  sortDirection = 'asc';
+
   @HostListener('window:resize', ['$event'])
   onWindowResize(event: any)
   {
@@ -29,25 +28,23 @@ export class ViewallBooksPageComponent
 
   ngOnInit()
   {
-    console.log(this.sortBy,"sortby");
-  this.activeRoute.params.subscribe(res=>this.category=res['category']);  //asigning params to category
+    this.category = this.activeRoute.snapshot.params['category'];
     this.activeRoute.params.subscribe((param) =>
     {
 
       if (param['category'] === 'Trending') {
         this.http
           .getTrendingBooks()
-          .subscribe((resp) => (this.allBooks = resp));       //assigning allbooks with  trending books  
+          .subscribe((resp) => (this.allBooks = resp));
       } else if (param['category'] === 'Best Offers') {
         this.http
           .getBestOffersBooks()
-          .subscribe((resp) => (this.allBooks = resp));       //assigning allbooks with best offer books  
+          .subscribe((resp) => (this.allBooks = resp));
       } else {
-        this.http.getBooks().subscribe((resp) => (this.allBooks = resp));  //assigning allbooks with avaliable books  
+        this.http.getBooks().subscribe((resp) => (this.allBooks = resp));
       }
     });
   }
-  
   calculateDiscount(price: number, discount: number)
   {
     const discountedPrice = price - (price * discount) / 100;
@@ -55,7 +52,7 @@ export class ViewallBooksPageComponent
   }
   getRows()
   {
-    if (window.innerWidth > 1000) {                          //grid items for window
+    if (window.innerWidth > 1000) {
       return 4;
     } else if (window.innerWidth < 1000 && window.innerWidth > 768) {
       return 3;
@@ -68,28 +65,6 @@ export class ViewallBooksPageComponent
     }
   }
   navigateToDetails(id: number) {
-    this.navpage.navigate(['details', id]);         //navigate with id to details page
-  }
-  sortDir()
-  {
-    this.isLoading = true;
-    console.log(this.sortBy,"sortby");
-    if (this.sortDirection === 'asc') {
-      this.sortDirection = 'desc'
-      this.clearLoading();
-      
-    }
-    else {
-      this.sortDirection = 'asc'
-      this.clearLoading();
-
-    }
-  }
-  clearLoading()
-  {
-    setTimeout(() =>
-    {
-      this.isLoading=false
-    },300)
+    this.navpage.navigate(['details', id]);
   }
 }

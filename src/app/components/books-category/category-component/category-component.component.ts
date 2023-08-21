@@ -1,5 +1,5 @@
 //category component is used to oneway data binding and reusable components for categorys
-import { Component, Input,} from '@angular/core';
+import { AfterContentInit, Component, Input, OnChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'app/interfaces/interface.book';
 @Component({
@@ -7,11 +7,21 @@ import { Book } from 'app/interfaces/interface.book';
   templateUrl: './category-component.component.html',
   styleUrls: ['./category-component.component.css'],
 })
-export class CategoryComponentComponent {
-  @Input() imagesData: Book[] = [];   
-  @Input() title!: string ;
+export class CategoryComponentComponent implements OnChanges, AfterContentInit {
+  @Input() imagesData: Book[] = [];
+  @Input() title: string = '';
+  changehook = false;
+  spinner = false;
 
-  constructor (private router: Router) {}
+  constructor(private navpage: Router) {
+    this.spinner = true;
+  }
+  ngOnChanges() {
+    this.changehook = true;
+  }
+  ngAfterContentInit() {
+    this.spinner = false;
+  }
 
   slideConfig = {
     slidesToShow: 6,
@@ -21,6 +31,7 @@ export class CategoryComponentComponent {
     autoplay: true,
     autoplaySpeed: 8000,
     responsive: [
+      //getting component images corresponding widths
       {
         breakpoint: '922',
         settings: {
@@ -45,16 +56,16 @@ export class CategoryComponentComponent {
           slidesToShow: 1,
         },
       },
-    ],                      //getting component images corresponding widths
+    ],
   };
 
-  calculateDiscount(price: number, discount: number) {         //calculating discount
+  calculateDiscount(price: number, discount: number) {
+    //calculating discount
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number) {                           //navigate to particular details page
-    this.router.navigate(['details', id]);
+  navigateToDetails(id: number) {
+    //navigate to pirticular details page
+    this.navpage.navigate(['details', id]);
   }
-  
-
 }
