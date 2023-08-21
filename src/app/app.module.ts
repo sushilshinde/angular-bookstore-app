@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
-import { MaterialModule } from './shared/material_ui/material.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,7 +16,7 @@ import { shortenPipe } from './shared/pipes/shorten.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
@@ -34,6 +34,8 @@ import { SortPipe } from './shared/pipes/sort.pipe';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { CartEffects } from './store/cart.effects';
+import { MaterialModule } from './shared/material_ui/material.module';
+
 
 @NgModule({
   declarations: [

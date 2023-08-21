@@ -6,7 +6,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './components/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './modules/order-success-page/order-success-page.component';
-import { AuthService } from './core/gaurds/auth.service';
+import { AuthService } from './services/auth.service';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
@@ -18,9 +18,9 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: DetailPageComponent,
-    
+    canActivate: [AuthService],
   },
-  { path: 'cart', component: CartPageComponent,  },
+  { path: 'cart', component: CartPageComponent },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
   { path: 'buy', component: OrderSuccessPageComponent },
   { path: 'search/:search', component: SearchComponent },

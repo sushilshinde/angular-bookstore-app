@@ -11,7 +11,7 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AuthService implements CanActivate {
   constructor(
-    private router: Router, //declaring router & authentication
+    private router: Router,                            //declaring router & authentication 
     private authentication: AuthenticationService
   ) {}
   //using canActivate authguard
@@ -19,11 +19,10 @@ export class AuthService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    if (this.authentication.loginStatus()) {
-      //controling state true for authentication successful
+    if (this.authentication.loginStatus()) {    //controling state true for authentication successful
       return true;
     } else {
-      this.router.navigate(['signin']); //controling state as false for authentication reject and redirect to sigin
+      this.router.navigate(['signin']);         //controling state as false for authentication reject and redirect to sigin
       return false;
     }
   }

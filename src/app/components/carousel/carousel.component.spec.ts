@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import {  NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { of } from 'rxjs';
-
 import { CarouselComponent } from './carousel.component';
+
 
 describe('CarouselComponent', () => {
   let component: CarouselComponent;

@@ -11,22 +11,22 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  
   username: string | null = null;
   search = '';
   count = 0;
   constructor(
     private http: HttpClient,
     private cartservice: CartService,
-    private router: Router,private store:Store<{cartItems:cartState}>
+    private router: Router,
+    private store: Store<{ cartItems: cartState }>
   ) {}
   signinPage() {
     this.router.navigate(['signin']);
   }
-  ngOnInit(){
-    this.store.select('cartItems').subscribe((data)=>{
-      this.count=data.cartItems.length
-    })
+  ngOnInit() {
+    this.store.select('cartItems').subscribe((data) => {
+      this.count = data.cartItems.length;
+    });
     const userDetails = localStorage.getItem('userdetails');
     if (userDetails) {
       const user = JSON.parse(userDetails);
@@ -35,12 +35,11 @@ export class HeaderComponent implements OnInit {
   }
   logout() {
     this.router.navigate(['signin']);
+    confirm('confirm to logout');
     localStorage.removeItem('userdetails');
   }
-  
-  go(event:any){
-    
+
+  go(event: any) {
     this.router.navigate(['search', event.target.value]);
   }
- 
 }

@@ -12,13 +12,19 @@ import { HeaderComponent } from './header.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule, NgModel } from '@angular/forms';
 
-describe('HeadderComponent', () => {
+describe('FooterComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule,MaterialModule,FormsModule,RouterTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
+      imports: [
+        HttpClientTestingModule,
+        MaterialModule,
+        FormsModule,
+        RouterTestingModule,
+        StoreModule.forRoot({ cartItems: cartReducer }),
+      ],
       declarations: [HeaderComponent],
       providers: [
         {
@@ -42,8 +48,11 @@ describe('HeadderComponent', () => {
     localStorage.setItem('userdetails', JSON.stringify(testUser));
     fixture.detectChanges();
 
-    const usernameElement = fixture.debugElement.nativeElement.querySelector('.username');
-    expect(usernameElement.textContent).toContain('Welcome'+'  '+ testUser.name.toLocaleUpperCase());
+    const usernameElement =
+      fixture.debugElement.nativeElement.querySelector('.username');
+    expect(usernameElement.textContent).toContain(
+      'Welcome' + '  ' + testUser.name.toLocaleUpperCase()
+    );
   });
 
   it('should display cart icon with badge', () => {
@@ -55,5 +64,4 @@ describe('HeadderComponent', () => {
 
     expect(badge.textContent).toBe('5');
   });
-
 });

@@ -8,7 +8,6 @@ import { BooksCategoryComponent } from 'app/components/books-category/books-cate
 import { CategoryComponentComponent } from 'app/components/books-category/category-component/category-component.component';
 import { CarouselComponent } from 'app/components/carousel/carousel.component';
 import { HttpService } from 'app/core/services/http.service';
-
 import { LandingPageComponent } from './landing-page.component';
 
 describe('LandingPageComponent', () => {

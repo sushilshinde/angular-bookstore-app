@@ -26,6 +26,7 @@ export class AuthenticationService {
           this.isAuthenticate = true;
         } else {
           alert('User Not Found'); //else alert not found
+          login.reset();
         }
       },
       (err) => {
@@ -38,12 +39,14 @@ export class AuthenticationService {
   }
   signup(register: any) {
     this.http.get<any>('http://localhost:3000/users').subscribe((res) => {
-      const valid = res.find((val: any) => {                                  //getting all user data and checking
+      const valid = res.find((val: any) => {
+        //getting all user data and checking
         return val.email === register.value.email;
       });
 
-      if (valid) {                                                //if found alert that details allready exist
-        alert('data allready exist');
+      if (valid) {
+        //if found alert that details allready exist
+        alert('User Already Exist');
         register.reset();
       } else {
         this.http
@@ -54,7 +57,8 @@ export class AuthenticationService {
               register.reset();
               this.router.navigate(['/signin']);
             },
-            (err) => {                                     //if encounter some error  alert someting went wrong
+            (err) => {
+              //if encounter some error  alert someting went wrong
               alert('Something Went Wrong');
             }
           );

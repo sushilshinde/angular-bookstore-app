@@ -37,4 +37,17 @@ opacity: 0.5;
   bottom: 0px;
   cursor: pointer;
 }
-
+button{
+  margin-left: 10px;
+  outline: none;
+  border-radius: 3px;
+}
+.heading{
+  display: flex;
+  flex: row wrap;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 15px;
+  justify-content: space-between;
+}

@@ -4,7 +4,9 @@
       <h1>Sign Up</h1>
       <div class="validate">
         <input type="text" placeholder="Name" formControlName="name" /><br />
-        <p *ngIf=" register.controls['name'].touched &&
+        <p
+          *ngIf="
+            register.controls['name'].touched &&
             register.hasError('required', 'name')
           ">
           *This field is required
@@ -54,28 +56,17 @@
           type="password"
           placeholder="Confirm password"
           formControlName="confirm"
+          (input)="confirmPasswordMatch()"
         /><br />
-        <p
-          *ngIf="
-            register.controls['confirm'].touched &&
-            register.hasError('required', 'confirm')
-          "
-        >
-          *This field is required
-        </p>
-        <p
-          *ngIf="
-            register.get('password')?.value !==
-              register.get('confirm')?.value && register.get('confirm')?.valid
-          "
-        >
+        <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.dirty">
           *Password Doesn't Matched
         </p>
       </div>
+
       <button
         type="submit"
         class="btn btn-primary"
-        [disabled]="register.invalid"
+        [disabled]="register.invalid || !confirmPasswordMatch()"
       >
         Sign Up
       </button>
