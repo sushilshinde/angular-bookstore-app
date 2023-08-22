@@ -1,70 +1,105 @@
 import { createReducer, on } from '@ngrx/store';
 import { cartState } from '../interfaces/interface.cartState';
-import {
-  decrement,
-  increment,
-  addItem,
-  addItemSuccess,
-  getItem,
-  getItemSuccess,
-  removeItem,
-  removeItemSuccess,
-  incrementItemSuccess,
-  decrementItemSuccess,
-} from './cart.actions';
+import
+  {
+    decrement,
+    increment,
+    addItem,
+    addItemSuccess,
+    getItem,
+    getItemSuccess,
+    removeItem,
+    removeItemSuccess,
+    incrementItemSuccess,
+    decrementItemSuccess,
+    removeItemFail,
+    loadItemFail,
+  } from './cart.actions';
 
 export const initialState: cartState = {
   cartItems: [],
+  error: ''
 };
 export const cartReducer = createReducer(
   initialState,
-  on(addItem, (state: cartState, action) => {
+  on(addItem, (state: cartState, action) =>
+  {
     return state;
   }),
-  on(addItemSuccess, (state, action) => {
+  on(addItemSuccess, (state, action) =>
+  {
     const bookd = { ...action.bookdata };
     return {
       cartItems: [...state.cartItems, bookd],
+      error: ''
     };
   }),
-  on(getItem, (state: cartState) => {
+  on(getItem, (state: cartState) =>
+  {
     return state;
   }),
-  on(getItemSuccess, (state: cartState, action) => {
+  on(getItemSuccess, (state: cartState, action) =>
+  {
     const bookd = action.bookdata;
     return {
       cartItems: [bookd],
+      error: ''
     };
   }),
-  on(increment, (state, action) => {
+  on(loadItemFail, (state, action) =>
+  {
+
+    return {
+      ...state,
+      error: action.error
+    }
+  }),
+  on(increment, (state, action) =>
+  {
     return state;
   }),
-  on(incrementItemSuccess, (state, action: any) => {
+  on(incrementItemSuccess, (state, action: any) =>
+  {
     let cart: any = JSON.parse(JSON.stringify(state.cartItems[0]));
     const index = cart.findIndex((item: any) => item.id === action.bookdata.id);
     cart[index] = action.bookdata;
     return {
+      error: '',
       cartItems: [cart],
     };
   }),
-  on(decrement, (state, action) => {
+  on(decrement, (state, action) =>
+  {
     return state;
   }),
-  on(decrementItemSuccess, (state, action: any) => {
+  on(decrementItemSuccess, (state, action: any) =>
+  {
     let cart: any = JSON.parse(JSON.stringify(state.cartItems[0]));
     const index = cart.findIndex((item: any) => item.id === action.bookdata.id);
     cart[index] = action.bookdata;
     return {
+      error: '',
       cartItems: [cart],
     };
   }),
-  on(removeItem, (state, action) => {
+  on(removeItem, (state, action) =>
+  {
     return state;
   }),
-  on(removeItemSuccess, (state, action) => {
+  on(removeItemFail, (state, action) =>
+  {
+
+    return {
+      ...state,
+      error: action.error
+    }
+  }),
+  on(removeItemSuccess, (state, action) =>
+  {
     const cart: any = [...state.cartItems][0];
     const filteredArr = cart.filter((item: any) => item.id !== action.id);
     return {
+      error: '',
       cartItems: [filteredArr],
     };
   })

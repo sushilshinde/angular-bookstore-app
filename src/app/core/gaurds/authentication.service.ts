@@ -21,7 +21,7 @@ export class AuthenticationService
 
   private isAuthenticate: boolean = false
   signin(login: any) {
-    this.http.get<any>(this.URL + '/users').subscribe(
+    this.http.get<any>("http://localhost:3000/users").subscribe(
       (res) =>
       {
         const user = res.find((a: any) => {

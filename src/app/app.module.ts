@@ -34,6 +34,7 @@ import { SortPipe } from './shared/pipes/sort.pipe';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { CartEffects } from './store/cart.effects';
+import { ErrorStylesDirective } from './shared/directives/error-styles.directive';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { CartEffects } from './store/cart.effects';
     PageNotFoundComponent,
     SortPipe,
     SearchComponent,
+    ErrorStylesDirective,
   ],
   imports: [
     BrowserModule,

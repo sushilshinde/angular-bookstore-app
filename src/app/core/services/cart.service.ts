@@ -6,11 +6,12 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Book, BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
-import { map } from 'rxjs';
-
+import { map, Observable } from 'rxjs';
+import { environment } from 'environment/environment';
 @Injectable({ providedIn: 'root' })
 export class CartService {
   cartItems: any;
+  private URL = environment.apiURL;
   constructor(
     private store: Store<{ cartItems: cartState }>,   //initializing the store
     private http: HttpClient
@@ -19,18 +20,27 @@ export class CartService {
       .select('cartItems')
       .subscribe((data) => (this.cartItems = data.cartItems[0]));//updating cart items from store
   }
-  addCartItems(data: any) {                   //adding data to server
-    return this.http.post('http://localhost:3000/cartItems', data);
+  addCartItems(data: any)  //adding data to server
+  {
+    // console.log(data, "id for data");
+    // const item = this.cartItems.filter((value: any) => value.id === data.id);
+    // if (!item)
+    return this.http.post(this.URL + '/cartItems', data);
+    // else {
+    //   alert("already added")
+    // }
+    // return;
   }
   getCartItems() {                          //getting data from server
-    return this.http.get<Book[]>('http://localhost:3000/cartItems').pipe(
+    return this.http.get<Book[]>(this.URL + '/cartItems').pipe(
       map((Resp) => {
         return Resp;
       })
     );
   }
-  removeCartItems(id: number) {                   //removing or deleting the data from server
-    return this.http.delete(`http://localhost:3000/cartItems/${id}`);
+  removeCartItems(id: number)
+  {
+    return this.http.delete(this.URL + `/cartItems/${id}`);  //removing or deleting the data from server
   }
 
   incrementCartItems(item: any) {                 //incrementing the cart item quantity
@@ -38,14 +48,14 @@ export class CartService {
 
     let incitem: BookQty = { ...item, quantity: currentQuantity + 1 };
 
-    return this.http.put(`http://localhost:3000/cartItems/${item.id}`, incitem);
+    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
   }
   decrementCartItems(item: any) {               //decrementing the cart item quantity
     let currentQuantity = item.quantity;
 
     let incitem: BookQty = { ...item, quantity: currentQuantity - 1 };
 
-    return this.http.put(`http://localhost:3000/cartItems/${item.id}`, incitem);
+    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
   }
 }
 

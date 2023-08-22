@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
     this.cartItemsSubscription = this.store.select('cartItems').subscribe((data) =>
     {
       this.cartData = data.cartItems[0];
-      this.count = this.cartData.length;                  //returning cartData length and assigning to count
+      this.count = this.cartData?.length;                  //returning cartData length and assigning to count
     })
 
     const userDetails = localStorage.getItem('userdetails');

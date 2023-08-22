@@ -4,31 +4,31 @@
             arrow_left_alt
         </span>
     </a>
-    <div class="bookdetails-card" *ngFor="let book of data">
+    <div class="bookdetails-card" >
         <div class="book-detail">
             <div class="book-img">
-                <img [src]="book.thumbnailUrl" alt="{{book.title}}" />
+                <img [src]="data?.thumbnailUrl" [alt]="data?.title" />
             </div>
             <div class="book-title">
                 <div class="title-name">
-                    <h2 [ngStyle]="{color:'red'}">{{book.title}}</h2>
-                    <p class="text-secondary">by <i style="font-size: 14px;">{{book.authors}}</i></p>
+                    <h2 [ngStyle]="{color:'red'}">{{data?.title}}</h2>
+                    <p class="text-secondary">by <i style="font-size: 14px;">{{data?.authors}}</i></p>
                 </div>
 
                 <div class="book-price">
-                    <div class="discountPrice" *ngIf="book.discount; else noDiscount">
+                    <div class="discountPrice" *ngIf="data?.discount; else noDiscount">
                         <del>
-                            <h3>₹{{ book.price }} </h3>
+                            <h3>₹{{ data?.price }} </h3>
                         </del>
                         <h4>
-                            {{ book.discount }}% off
+                            {{ data?.discount }}% off
                         </h4>
                         <h1>
-                            ₹{{calculateDiscount(book.price, book.discount) }}
+                            ₹{{calculateDiscount(data?.price, data?.discount) }}
                         </h1>
                     </div>
                     <ng-template #noDiscount>
-                        <h1>&#8377;{{book.price}}</h1>
+                        <h1>&#8377;{{data?.price}}</h1>
                     </ng-template>
 
                     <div class="book-qty">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="book-atc">
-                    <a class="cart-btn" (click)="addToCart(book)">Add to Cart <span class="material-symbols-outlined">
+                    <a class="cart-btn" (click)="addToCart(data)">Add to Cart <span class="material-symbols-outlined">
                             add_shopping_cart
                         </span></a>
                     <a routerLink="/buy" class="buynow-btn">Buy Now</a>
@@ -50,7 +50,7 @@
         </div>
         <div class="book-desc">
             <h2>Description</h2>
-            <p>{{book.longDescription}}</p>
+            <p>{{data?.longDescription}}</p>
 
         </div>
         <a routerLink="/" class="back-btn"><span class="material-symbols-outlined">

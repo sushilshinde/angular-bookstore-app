@@ -5,23 +5,24 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Book } from '../../interfaces/interface.book';
-// import { environment } from "src/environments/environment";
+import { environment } from 'environment/environment';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
   cartItems: any;
   constructor(private http: HttpClient) {}
-
+  private URL = environment.apiURL;
   //getBooks() will return all books but need to subscribe when using
-  getBooks() {
-    return this.http.get<Book[]>('http://localhost:3000/books');
+  getBooks()
+  {
+    return this.http.get<Book[]>(this.URL + '/books');
   }
 
   //getTrendingBooks() will return all books but need to subscribe when using
   getTrendingBooks() {
-    return this.http.get<Book[]>('http://localhost:3000/books').pipe(
+    return this.http.get<Book[]>(this.URL + '/books').pipe(
       map((Resp) => {
         const dataArray: any = [];
         for (const data of Resp) {
@@ -35,8 +36,9 @@ export class HttpService {
   }
 
   //getOfferBooks() will return all books but need to subscribe when using
-  getBestOffersBooks() {
-    return this.http.get<Book[]>('http://localhost:3000/books').pipe(
+  getBestOffersBooks(): Observable<any> 
+  {
+    return this.http.get<Book[]>(this.URL + '/books').pipe(
       map((Resp) => {
         const dataArray: any = [];
         for (const data of Resp) {
@@ -45,7 +47,8 @@ export class HttpService {
           }
         }
         return dataArray;
-      })
+      }),
+      catchError(err => throwError("error occured"))
     );
   }
 }

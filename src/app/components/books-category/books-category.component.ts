@@ -14,7 +14,8 @@ export class BooksCategoryComponent implements OnInit {
   constructor(private httpdata: HttpService) {}
 
   ngOnInit() {
-    this.httpdata.getBooks().subscribe((resp) => {
+    this.httpdata.getBooks().subscribe((resp) =>
+    {
       let booksoffer = [];
       let trending = [];
       for (let data of resp) {

@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map } from 'rxjs/operators';
+import { map, catchError, throwError, Subscription } from 'rxjs';
 import { environment } from 'environment/environment.dev';
 import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
@@ -16,27 +16,35 @@ import { addItem } from 'app/store/cart.actions';
 export class DetailPageComponent implements OnInit {
   data: any;
   count: number = 1;
+  // subscription!: Subscription;
   constructor(
     private http: HttpClient,
     private route: Router,
     private activeRoute: ActivatedRoute,
-    private store: Store<{ cartItems: cartState }>
+    private store: Store<{ cartItems: cartState }>,
   ) { }
+  
   private URL=environment.apiURL
-  ngOnInit(): void {
-    let params = new HttpParams().set(
-      'id',
-      this.activeRoute.snapshot.params['id']
-    );
+  ngOnInit(): void
+  {
+    let params = this.activeRoute.snapshot.params['id']
     this.http
-      .get(this.URL + `/books`, { params: params })
+      .get(this.URL + `/books/`+ params)
       .pipe(
-        map((responseData: any) => {
+        map((responseData: any) =>
+        {
           return responseData;
         })
+        // , catchError((error) =>
+        // {
+        //   console.log(error);
+  
+        //   throwError(error.message)
+        // })
       )
-      .subscribe((array) => {
-        this.data = array; //assigning params to data
+      .subscribe((array) =>
+      {
+        this.data = array; 
       });
   }
   onDecrement() {                   //decrement item 
@@ -59,4 +67,8 @@ export class DetailPageComponent implements OnInit {
     this.route.navigate(['/cart']);
     // this.route.nav
   }
+  // ngOnDestroy()
+  // {
+  //   this.subscription.unsubscribe()
+  // }
 }

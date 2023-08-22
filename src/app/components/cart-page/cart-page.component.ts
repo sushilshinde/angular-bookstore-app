@@ -15,11 +15,12 @@ import {
 })
 export class CartPageComponent implements OnInit {
   cartData: any = [];
+  error!:any
   count: number = 0;
   totalPrice: number = 0;
 
   updatePrice() {
-    this.totalPrice = this.cartData[0].reduce((acc: number, value: any) => {
+    this.totalPrice = this.cartData[0]?.reduce((acc: number, value: any) => {
       if (value.categories.includes('Offers')) {
         return (
           acc +
@@ -39,6 +40,7 @@ export class CartPageComponent implements OnInit {
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) => {
       this.cartData = data.cartItems;
+      this.error = data.error;
         this.updatePrice();
     });
   }

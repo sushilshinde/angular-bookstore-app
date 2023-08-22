@@ -33,7 +33,11 @@ export class ViewallBooksPageComponent {
       if (param['category'] === 'Trending') {
         this.http
           .getTrendingBooks()
-          .subscribe((resp) => (this.allBooks = resp)); //assigning allbooks with  trending books
+          .subscribe((resp) =>
+          {
+            console.log(resp);
+            (this.allBooks = resp)
+          }); //assigning allbooks with  trending books
       } else if (param['category'] === 'Best Offers') {
         this.http
           .getBestOffersBooks()
@@ -42,7 +46,9 @@ export class ViewallBooksPageComponent {
         this.http.getBooks().subscribe((resp) => (this.allBooks = resp)); //assigning allbooks with avaliable books
       }
     });
+   
   }
+  
   calculateDiscount(
     price: number,
     discount: number //discount calculating
@@ -83,6 +89,7 @@ export class ViewallBooksPageComponent {
   }
   sortBy(event:any)
   {
+    this.sortDirection = 'asc';
     this.isLoading = true;
     this.sort = event.target.value;
     this.clearLoading();

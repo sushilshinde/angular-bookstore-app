@@ -8,11 +8,13 @@ export class SortPipe implements PipeTransform {
     const sortField = args[0];
     const sortDir = args[1];
     let multiplier = 1;
-    if (sortDir === 'descending') {
-      multiplier = -1;    //if sortDirection is decending,the return value multiplyed with -1 value
+    if (sortDir === 'desc') {
+      multiplier = -1;    //if sortDirection is decending,the return value multiplied with -1 value
     }
-    value.sort((a: any, b: any) => {
+    return value.sort((a: any, b: any) =>
+    {
       if (a[sortField] < b[sortField]) {
+        // console.log();
         return -1 * multiplier;
       } else if (a[sortField] > b[sortField]) {
         return 1 * multiplier;
