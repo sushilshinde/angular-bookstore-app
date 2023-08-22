@@ -7,6 +7,7 @@ import {
   removeItem,
   getItem,
 } from 'app/store/cart.actions';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
@@ -16,7 +17,6 @@ export class CartPageComponent implements OnInit {
   cartData:any[] = [];
   count: number = 0;
   totalPrice: number = 0;
-
   updatePrice() {
     if(Array.isArray(this.cartData[0])){
     this.totalPrice = this.cartData[0].reduce((acc: number, value: any) => {
@@ -35,13 +35,17 @@ export class CartPageComponent implements OnInit {
   }
   }
 
-  constructor(private store: Store<{ cartItems: cartState }>,) {}
+  constructor(private store: Store<{ cartItems: cartState }>,private router:Router) {}
   ngOnInit(): void {
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) => {
       this.cartData = data.cartItems;
       this.updatePrice();
     });
+    const userDetails = localStorage.getItem('userdetails');
+    if (!userDetails) {
+      this.router.navigate(['signin'])
+    }
   }
 // ngOnChanges() {
 //   this.updatePrice();

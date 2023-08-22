@@ -37,6 +37,10 @@ export class DetailPageComponent implements OnInit {
       .subscribe((array) => {
         this.data = array; //assigning response to data
       });
+    const userDetails = localStorage.getItem('userdetails');
+    if (!userDetails) {
+      this.route.navigate(['signin']);
+    }
   }
   onDecrement() {
     //decrement item

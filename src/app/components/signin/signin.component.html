@@ -1,4 +1,4 @@
-<div class="signincomponent">
+<div class="signinform">
   <div class="signin">
     <form [formGroup]="login" (ngSubmit)="signin()">
       <h1>Sign In</h1>
@@ -36,6 +36,7 @@
         Sign In
       </button>
       <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>
+      <a class="homepage" routerLink="">Continue without Sign In</a>
     </form>
   </div>
 </div>

@@ -1,4 +1,4 @@
-.signincomponent {
+.signinform {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,10 +9,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(219, 221, 221);
+  background-color: rgb(225, 233, 233);
   height: 350px;
   width: 350px;
-  box-shadow: 5px 10px 15px rgb(153, 151, 151);
+  box-shadow: 5px 10px 15px rgb(202, 201, 201);
   border-radius: 15px;
 }
 h1 {
@@ -42,8 +42,15 @@ button {
   padding: 5px;
   margin-bottom: 20px;
 }
-p {
-  color: black;
+.homepage {
+  text-decoration: none;
+  color: rgb(87, 87, 88);
+  padding: 5px;
+  transition: all 0.2ms;
+}
+.homepage:hover {
+  border: 1px solid grey;
+  transform: scale(1.2);
 }
 
 @media only screen and (max-width: 400px) {

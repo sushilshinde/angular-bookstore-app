@@ -673,17 +673,32 @@
       "categories": [
         "Trending"
       ],
-      "quantity": 5
+      "quantity": 4
     },
     {
-      "title": "Fourth Wing",
-      "id": 2,
-      "price": 300,
-      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMGygN6vmJYLi9nkL769kQfNDg3kt-zfrb1AQRkAnvtiUysGdh",
-      "longDescription": "Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, living a quiet life among books and history. Now, the commanding general—also known as her tough-as-talons mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders. But when you’re smaller than everyone else and your body is brittle, death is only a heartbeat away...because dragons don’t bond to “fragile” humans. They incinerate them. With fewer dragons willing to bond than cadets, most would kill Violet to better their own chances of success. The rest would kill her just for being her mother’s daughter—like Xaden Riorson, the most powerful and ruthless wingleader in the Riders Quadrant. Yet, with every day that passes, the war outside grows more deadly, the kingdom's protective wards are failing, and the death toll continues to rise. Even worse, Violet begins to suspect leadership is hiding a terrible secret.",
+      "title": "It Starts with Us",
+      "id": 7,
+      "price": 1000,
+      "thumbnailUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGasNqKInCpdzxEnVUrcjaBmB8pHq99H4U7U-vQaVhElWEIwiU",
+      "longDescription": "Lily and her ex-husband, Ryle, have just settled into a civil coparenting rhythm when she suddenly bumps into her first love, Atlas, again. After nearly two years separated, she is elated that for once, time is on their side, and she immediately says yes when Atlas asks her on a date. But her excitement is quickly hampered by the knowledge that, though they are no longer married, Ryle is still very much a part of her life—and Atlas Corrigan is the one man he will hate being in his ex-wife and daughter’s life. Switching between the perspectives of Lily and Atlas, It Starts with Us picks up right where the epilogue for the “gripping, pulse-pounding” (Sarah Pekkanen, author of Perfect Neighbors) bestselling phenomenon It Ends with Us left off. Revealing more about Atlas’s past and following Lily as she embraces a second chance at true love while navigating a jealous ex-husband, it proves that “no one delivers an emotional read like Colleen Hoover” (Anna Todd, New York Times bestselling author).",
       "status": "PUBLISH",
       "authors": [
-        "Rebecca Yarros"
+        "Colleen Hoover"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
+    },
+    {
+      "title": "Gone Girl",
+      "id": 6,
+      "price": 800,
+      "thumbnailUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRqnQWlbi1AnkRDz3mTU2yYVuwkXsFiptcqQ_COdk16xkijN8yG",
+      "longDescription": "The diary entries describe how Amy met Nick in New York City, where they both worked as writers. Nick was a journalist who wrote movie and TV reviews, while Amy wrote personality quizzes for women's magazines. After two years of dating, they married. The couple lived in a beautiful brownstone home in Brooklyn where they were happy. In 2009, both Nick and Amy lost their jobs following the Great Recession. Amy's parents Rand and Marybeth, meanwhile, had written a successful children's book series called \"Amazing Amy,\" based on Amy's life experiences. However, when sales from the books declined and Rand and Marybeth didn't curb their spending, they also started facing financial issues. Their solution was to ask Amy for money from her trust fund, which made Nick unhappy. In Nick's narrative, he views Amy as a needlessly difficult, antisocial, controlling perfectionist, and an unwelcome obligation, but he is concerned about her disappearance. Nick becomes a suspect in the investigation, led by Detectives Rhonda Boney and Jim Gilpin, and Nick downplays their relationship issues. During the investigation, Nick faces intense media scrutiny, exacerbated by his lack of obvious emotion and apparent flippant attitude. It is also revealed by Amy's supposed best friend from the neighborhood, Noelle Hawthorne, that Amy was pregnant, which Nick was unaware of. Nick has serious credit card debt, which he claims to have been unaware of, and Amy's life insurance was recently increased by Nick, which he claims was her idea. It becomes apparent to Nick that his wife had hidden secrets from him.",
+      "status": "PUBLISH",
+      "authors": [
+        "Gillian Flynn"
       ],
       "categories": [
         "Trending"

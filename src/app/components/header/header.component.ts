@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { Store } from '@ngrx/store';
-
+import { AuthenticationService } from 'app/core/gaurds/authentication.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
   search = '';
   count = 0;
   constructor(
+    private authentication: AuthenticationService,
     private http: HttpClient,
     private cartservice: CartService,
     private router: Router,

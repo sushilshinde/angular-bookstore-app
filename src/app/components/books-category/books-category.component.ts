@@ -33,6 +33,7 @@ export class BooksCategoryComponent implements OnInit,OnDestroy {
         this.allBooks = resp; //updating all books
       }
     });
+    
   }
   ngOnDestroy(){
   this.subscription.unsubscribe()
