@@ -14,8 +14,7 @@ import
     incrementItemSuccess,
     decrement,
     decrementItemSuccess,
-    removeItemFail,
-    loadItemFail,
+    errorOccur,
   } from './cart.actions';
 @Injectable()
 export class CartEffects
@@ -32,7 +31,7 @@ export class CartEffects
           map((cartData: any) =>
           {
             return addItemSuccess({ bookdata: cartData });
-          })
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     )
@@ -47,7 +46,7 @@ export class CartEffects
           map((cartData: any) =>
           {
             return getItemSuccess({ bookdata: cartData });
-          }), catchError(err => of(loadItemFail(err))),
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     )
@@ -70,7 +69,7 @@ export class CartEffects
           {
             return removeItemSuccess({ id: item.id });
           }),
-          catchError(err => of(loadItemFail(err))),
+          catchError(err => of(errorOccur(err))),
         );
       })
     );
@@ -82,11 +81,12 @@ export class CartEffects
       switchMap((item: any) =>
       {
 
-        return this.cartService.incrementCartItems(item.id).pipe(
+        return this.cartService.updateCartItems(item.id,"increment").pipe(
           map((cartData: any) =>
           {
+            console.log(cartData,"response data");
             return incrementItemSuccess({ bookdata: cartData });
-          }),
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     );
@@ -98,13 +98,13 @@ export class CartEffects
       switchMap((item: any) =>
       {
 
-        return this.cartService.decrementCartItems(item.id).pipe(
+        return this.cartService.updateCartItems(item.id,"decrement").pipe(
           map((cartData: any) =>
           {
 
-
+            console.log(cartData, "response data");
             return decrementItemSuccess({ bookdata: cartData });
-          })
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     );

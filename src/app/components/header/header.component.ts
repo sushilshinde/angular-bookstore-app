@@ -53,8 +53,8 @@ export class HeaderComponent implements OnInit {
   }
   logout()
   {
-    this.router.navigate(['signin']);
     localStorage.removeItem('userdetails');
+    this.router.navigate(['signin']);
   }
   ngOnDestroy()
   {

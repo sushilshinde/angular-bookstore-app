@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header *ngIf="!errorMessage"></app-header>
 <div class="details-card">
-    <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined" >
+    <a routerLink="/" class="goback-arrow" *ngIf="!errorMessage"><span class="material-symbols-outlined">
             arrow_left_alt
         </span>
     </a>
+    <div *ngIf="!errorMessage;else errorOccur">
     <div class="bookdetails-card" >
         <div class="book-detail">
             <div class="book-img">
@@ -41,7 +42,8 @@
                     </div>
                 </div>
                 <div class="book-atc">
-                    <a class="cart-btn" (click)="addToCart(data)">Add to Cart <span class="material-symbols-outlined">
+                    <a class="cart-btn" (click)="addToCart(data)">{{existInCart?"Added":"Add"}} to Cart <span
+                            class="material-symbols-outlined">
                             add_shopping_cart
                         </span></a>
                     <a routerLink="/buy" class="buynow-btn">Buy Now</a>
@@ -57,5 +59,18 @@
                 arrow_left_alt
             </span> Back</a>
     </div>
-</div>
-<app-footer></app-footer>
+    </div>
+    <ng-template #errorOccur>
+        <div class="background flex-center text-danger">
+            <div appErrorStyles>
+                <h2>OOPS! {{errorMessage?.error.error.status}}</h2>
+                <h2>Something went wrong!</h2>
+                <h2>Please try after sometime</h2>
+                <h2>
+                    <a href="/" class="error-msg">GO BACK</a>
+                </h2>
+            </div>
+        </div>
+    </ng-template>
+    </div>
+    <app-footer *ngIf="!errorMessage"></app-footer>

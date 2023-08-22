@@ -21,7 +21,7 @@ export class AuthenticationService
 
   private isAuthenticate: boolean = false
   signin(login: any) {
-    this.http.get<any>("http://localhost:3000/users").subscribe(
+    this.http.get<any>(this.URL + '/users').subscribe(
       (res) =>
       {
         const user = res.find((a: any) => {
@@ -49,7 +49,11 @@ export class AuthenticationService
   {
    
     let userDetails = localStorage.getItem("userdetails");
-    if (userDetails) this.isAuthenticate = true;
+    if (userDetails) {
+     
+      this.isAuthenticate = true;
+    }
+    
     return this.isAuthenticate
   }
   signup(register: any)

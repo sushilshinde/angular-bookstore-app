@@ -1,20 +1,19 @@
 import { createReducer, on } from '@ngrx/store';
 import { cartState } from '../interfaces/interface.cartState';
 import
-  {
-    decrement,
-    increment,
-    addItem,
-    addItemSuccess,
-    getItem,
-    getItemSuccess,
-    removeItem,
-    removeItemSuccess,
-    incrementItemSuccess,
-    decrementItemSuccess,
-    removeItemFail,
-    loadItemFail,
-  } from './cart.actions';
+{
+  decrement,
+  increment,
+  addItem,
+  addItemSuccess,
+  getItem,
+  getItemSuccess,
+  removeItem,
+  removeItemSuccess,
+  incrementItemSuccess,
+  decrementItemSuccess,
+  errorOccur,
+} from './cart.actions';
 
 export const initialState: cartState = {
   cartItems: [],
@@ -40,13 +39,15 @@ export const cartReducer = createReducer(
   }),
   on(getItemSuccess, (state: cartState, action) =>
   {
+    console.log(action.bookdata);
     const bookd = action.bookdata;
     return {
       cartItems: [bookd],
       error: ''
     };
   }),
-  on(loadItemFail, (state, action) =>
+  on(errorOccur, (state, action) =>
+
   {
 
     return {
@@ -60,12 +61,12 @@ export const cartReducer = createReducer(
   }),
   on(incrementItemSuccess, (state, action: any) =>
   {
-    let cart: any = JSON.parse(JSON.stringify(state.cartItems[0]));
-    const index = cart.findIndex((item: any) => item.id === action.bookdata.id);
-    cart[index] = action.bookdata;
+    // let cart: any = JSON.parse(JSON.stringify(state.cartItems[0]));
+    // const index = cart.findIndex((item: any) => item.id === action.bookdata.id);
+    // cart[index] = action.bookdata;
     return {
       error: '',
-      cartItems: [cart],
+      cartItems: [action.bookdata],
     };
   }),
   on(decrement, (state, action) =>
@@ -74,26 +75,23 @@ export const cartReducer = createReducer(
   }),
   on(decrementItemSuccess, (state, action: any) =>
   {
-    let cart: any = JSON.parse(JSON.stringify(state.cartItems[0]));
-    const index = cart.findIndex((item: any) => item.id === action.bookdata.id);
-    cart[index] = action.bookdata;
     return {
       error: '',
-      cartItems: [cart],
+      cartItems: [action.bookdata],
     };
   }),
   on(removeItem, (state, action) =>
   {
     return state;
   }),
-  on(removeItemFail, (state, action) =>
-  {
+  // on(removeItemFail, (state, action) =>
+  // {
 
-    return {
-      ...state,
-      error: action.error
-    }
-  }),
+  //   return {
+  //     ...state,
+  //     error: action.error
+  //   }
+  // }),
   on(removeItemSuccess, (state, action) =>
   {
     const cart: any = [...state.cartItems][0];

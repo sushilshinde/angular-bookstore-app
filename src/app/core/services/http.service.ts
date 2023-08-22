@@ -10,20 +10,31 @@ import { Book } from '../../interfaces/interface.book';
 import { environment } from 'environment/environment';
 
 @Injectable({ providedIn: 'root' })
-export class HttpService {
+export class HttpService
+{
   cartItems: any;
-  constructor(private http: HttpClient) {}
+  constructor (private http: HttpClient) { }
   private URL = environment.apiURL;
   //getBooks() will return all books but need to subscribe when using
   getBooks()
   {
     return this.http.get<Book[]>(this.URL + '/books');
   }
+  getBookDetails(id: number)
+  {
+
+    return this.http.get<Book[]>(this.URL + '/books/' + id).pipe(map((data) =>
+    {
+      return data;
+    }), catchError((err) => throwError(err)));
+  }
 
   //getTrendingBooks() will return all books but need to subscribe when using
-  getTrendingBooks() {
+  getTrendingBooks()
+  {
     return this.http.get<Book[]>(this.URL + '/books').pipe(
-      map((Resp) => {
+      map((Resp) =>
+      {
         const dataArray: any = [];
         for (const data of Resp) {
           if (data.categories.includes('Trending')) {
@@ -39,7 +50,8 @@ export class HttpService {
   getBestOffersBooks(): Observable<any> 
   {
     return this.http.get<Book[]>(this.URL + '/books').pipe(
-      map((Resp) => {
+      map((Resp) =>
+      {
         const dataArray: any = [];
         for (const data of Resp) {
           if (data.discount) {

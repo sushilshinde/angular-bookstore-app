@@ -33,12 +33,13 @@ export class CartPageComponent implements OnInit {
   }
 
   constructor(
-    private store: Store<{ cartItems: cartState }>,
-    private httpService: HttpService
+    private store: Store<{ cartItems: cartState }>
   ) {}
   ngOnInit(): void {
     this.store.dispatch(getItem());
-    this.store.select('cartItems').subscribe((data) => {
+    this.store.select('cartItems').subscribe((data) =>
+    {
+      console.log(data.cartItems,"cartpage");
       this.cartData = data.cartItems;
       this.error = data.error;
         this.updatePrice();

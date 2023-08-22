@@ -1,5 +1,5 @@
-<app-header></app-header>
-<a routerLink="/"><span class="material-symbols-outlined"> arrow_left_alt </span>
+<app-header *ngIf="cartData[0]?.length > 0"></app-header>
+<a routerLink="/" *ngIf="cartData[0]?.length > 0"><span class="material-symbols-outlined"> arrow_left_alt </span>
 </a>
 <div class="cart-details">
   <div *ngIf="!error; else errorOcccur">
@@ -50,7 +50,7 @@
         Remove
       </button>
     </div>
-    <div *ngIf="cartData.length > 0; else noitems" class="price-card">
+    <div class="price-card">
       <div class="get-font">
         Total price:
         <hr>
@@ -85,4 +85,4 @@
     </div>
   </ng-template>
 </div>
-<app-footer></app-footer>
+<app-footer  *ngIf="cartData[0]?.length > 0"></app-footer>

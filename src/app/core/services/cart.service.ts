@@ -23,8 +23,21 @@ export class CartService {
   addCartItems(data: any)  //adding data to server
   {
     // console.log(data, "id for data");
-    // const item = this.cartItems.filter((value: any) => value.id === data.id);
-    // if (!item)
+    // console.log(this.cartItems, "cart items");
+    // const data1 = this.cartItems;
+    // console.log(data1, "data1");
+    // const filteredItem = data1.find((item: any) => item.id === data.id)
+
+    // console.log(typeof (filteredItem), "filtered item");
+    // let cartArr;
+    // if (filteredItem?.length === 0 || filteredItem === undefined) {
+    //   console.log("if if ");
+    //   cartArr = data;
+    // }
+    // else {
+    //   alert("already added")
+    // }
+    // console.log(cartArr, "arr");
     return this.http.post(this.URL + '/cartItems', data);
     // else {
     //   alert("already added")
@@ -33,7 +46,9 @@ export class CartService {
   }
   getCartItems() {                          //getting data from server
     return this.http.get<Book[]>(this.URL + '/cartItems').pipe(
-      map((Resp) => {
+      map((Resp) =>
+      {
+        console.log(Resp, "get");
         return Resp;
       })
     );
@@ -43,19 +58,18 @@ export class CartService {
     return this.http.delete(this.URL + `/cartItems/${id}`);  //removing or deleting the data from server
   }
 
-  incrementCartItems(item: any) {                 //incrementing the cart item quantity
+  updateCartItems(item: any, mode: string)
+  {
+    console.log(mode, "mode");               //updating the cart item quantity
     let currentQuantity = item.quantity;
-
-    let incitem: BookQty = { ...item, quantity: currentQuantity + 1 };
-
-    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
-  }
-  decrementCartItems(item: any) {               //decrementing the cart item quantity
-    let currentQuantity = item.quantity;
-
-    let incitem: BookQty = { ...item, quantity: currentQuantity - 1 };
-
-    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
+    let updatedQty;
+    if (mode === "increment") {
+      updatedQty = { ...item, quantity: currentQuantity + 1 };
+    }
+    else {
+      updatedQty = { ...item, quantity: currentQuantity - 1 };
+    }
+    return this.http.patch(this.URL + `/cartItems/${item.id}`, updatedQty);
   }
 }
 
