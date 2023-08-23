@@ -10,21 +10,15 @@ import { cartReducer } from 'app/store/cart.reducer';
 
 import { HeaderComponent } from './header.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 
-describe('FooterComponent', () => {
+describe('HeadderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [
-        HttpClientTestingModule,
-        MaterialModule,
-        FormsModule,
-        RouterTestingModule,
-        StoreModule.forRoot({ cartItems: cartReducer }),
-      ],
+      imports:[HttpClientTestingModule,MaterialModule,FormsModule,RouterTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
       declarations: [HeaderComponent],
       providers: [
         {
@@ -44,15 +38,12 @@ describe('FooterComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should display username when logged in', () => {
-    const testUser = { name:'John Doe' };
+    const testUser = { name: 'John Doe' };
     localStorage.setItem('userdetails', JSON.stringify(testUser));
     fixture.detectChanges();
 
-    const usernameElement =
-      fixture.debugElement.nativeElement.querySelector('.username');
-    expect(usernameElement.textContent).toContain(
-      'Welcome' + ' ' + testUser.name.toLocaleUpperCase()
-    );
+    const usernameElement = fixture.debugElement.nativeElement.querySelector('.username');
+    expect(usernameElement.textContent).toContain('Welcome'+' '+ testUser.name.toLocaleUpperCase());
   });
 
   it('should display cart icon with badge', () => {
@@ -64,4 +55,5 @@ describe('FooterComponent', () => {
 
     expect(badge.textContent).toBe('5');
   });
+
 });

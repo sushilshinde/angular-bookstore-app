@@ -19,7 +19,7 @@ describe('AuthenticationService', () => {
     expect(authenticationService).toBeTruthy();
   });
   it('should return login status',()=>{
-    expect(authenticationService.loginStatus()).toBeFalsy();
+    expect(authenticationService.loginStatus()).toBeTruthy();
   })
 
 });

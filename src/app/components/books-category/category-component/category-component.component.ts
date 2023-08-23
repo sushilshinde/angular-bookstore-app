@@ -1,5 +1,5 @@
 //category component is used to oneway data binding and reusable components for categorys
-import { AfterContentInit, Component, Input, OnChanges } from '@angular/core';
+import { AfterContentInit, Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Book } from 'app/interfaces/interface.book';
 @Component({
@@ -10,6 +10,7 @@ import { Book } from 'app/interfaces/interface.book';
 export class CategoryComponentComponent implements OnChanges, AfterContentInit {
   @Input() imagesData: Book[] = [];
   @Input() title: string = '';
+  @Output() eventEmit=new EventEmitter();
   changehook = false;
   spinner = false;
 
@@ -67,5 +68,8 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
   navigateToDetails(id: number) {
     //navigate to pirticular details page
     this.navpage.navigate(['details', id]);
+  }
+  emitEvent(price:number){
+    this.eventEmit.emit(price)
   }
 }

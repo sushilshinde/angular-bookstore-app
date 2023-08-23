@@ -1,8 +1,13 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { FooterComponent } from 'app/components/footer/footer.component';
+import { HeaderComponent } from 'app/components/header/header.component';
 import { MaterialModule } from 'app/shared/material_ui/material.module';
+import { cartReducer } from 'app/store/cart.reducer';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
@@ -13,8 +18,8 @@ describe('PageNotFoundComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-        imports:[MaterialModule,RouterTestingModule],
-      declarations: [PageNotFoundComponent]
+        imports:[MaterialModule,RouterTestingModule,HttpClientTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
+      declarations: [PageNotFoundComponent,HeaderComponent,FooterComponent]
     });
     fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;

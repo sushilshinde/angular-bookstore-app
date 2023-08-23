@@ -3,9 +3,13 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { ActivatedRoute, convertToParamMap, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
 import { HttpService } from 'app/core/services/http.service';
 import { MaterialModule } from 'app/shared/material_ui/material.module';
+import { cartReducer } from 'app/store/cart.reducer';
 import { of } from 'rxjs';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 import { SearchComponent } from './search.component';
 
@@ -49,8 +53,8 @@ describe('SearchComponent', () => {
     };
 
     TestBed.configureTestingModule({
-      imports:[RouterTestingModule,HttpClientTestingModule,MaterialModule],
-      declarations: [SearchComponent],
+      imports:[RouterTestingModule,HttpClientTestingModule,MaterialModule,StoreModule.forRoot({ cartItems: cartReducer })],
+      declarations: [SearchComponent,HeaderComponent,FooterComponent],
       providers: [
         {
           provide: ActivatedRoute,

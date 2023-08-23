@@ -20,7 +20,9 @@ export class DetailPageComponent implements OnInit {
     private route: Router,
     private activeRoute: ActivatedRoute,
     private store: Store<{ cartItems: cartState }>
-  ) {}
+  ) {
+    localStorage.removeItem('search')
+  }
   private URL = environment.apiURL;
   ngOnInit(): void {
     let params = new HttpParams().set(

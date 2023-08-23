@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { HttpService } from 'app/core/services/http.service';
 import { Book } from 'app/interfaces/interface.book';
 import { Subscription } from 'rxjs';
@@ -8,17 +8,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./books-category.component.css'],
 })
 export class BooksCategoryComponent implements OnInit, OnDestroy {
+  emitData: any
   trendingBooks: Book[] = [];
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
-  errors!: boolean;
   private subscription!: Subscription;
   constructor(private httpdata: HttpService) {}
 
   ngOnInit() {
     this.subscription = this.httpdata.getBooks().subscribe((resp: any) => {
-      this.errors = true;
-
       let booksoffer = [];
       let trending = [];
       for (let data of resp) {
@@ -34,7 +32,11 @@ export class BooksCategoryComponent implements OnInit, OnDestroy {
       }
     });
   }
+  emitworkes(data:any){
+    this.emitData=data;
+  }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
+  
 }

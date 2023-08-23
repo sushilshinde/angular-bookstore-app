@@ -3,13 +3,6 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
-import { FooterComponent } from 'app/components/footer/footer.component';
-import { HeaderComponent } from 'app/components/header/header.component';
-import { MaterialModule } from 'app/shared/material_ui/material.module';
-import { cartReducer } from 'app/store/cart.reducer';
-
 import { OrderSuccessPageComponent } from './order-success-page.component';
 
 describe('OrderSuccessPageComponent', () => {
@@ -17,18 +10,10 @@ describe('OrderSuccessPageComponent', () => {
   let fixture: ComponentFixture<OrderSuccessPageComponent>;
   let debugElement: DebugElement;
   beforeEach(() => {
-    TestBed.configureTestingModule({
-<<<<<<< HEAD
-        imports:[MaterialModule,FormsModule,RouterTestingModule,HttpClientTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
-      declarations: [OrderSuccessPageComponent,HeaderComponent,FooterComponent]
-=======
-      imports: [MaterialModule, RouterTestingModule],
-      declarations: [OrderSuccessPageComponent],
->>>>>>> vysali
-    });
     fixture = TestBed.createComponent(OrderSuccessPageComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
+    console.log(fixture)
     fixture.detectChanges();
   });
 
