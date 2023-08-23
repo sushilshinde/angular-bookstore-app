@@ -689,6 +689,36 @@
         "Trending"
       ],
       "quantity": 3
+    },
+    {
+      "title": "Twisted Love",
+      "id": 3,
+      "price": 400,
+      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTZhtsKmo50jpJ6Meltf1tzUAGTJH2osk37Nvz8Qegv6c8bVxhr",
+      "longDescription": "Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart. But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest: \"A crack\". \"A melt\" \"A fire that could end his world as he knew it\". Ava Chen is a free spirit trapped by nightmares of a childhood she can’t remember. But despite her broken past, she’s never stopped seeing the beauty in the world…including the heart beneath the icy exterior of a man she shouldn’t want. Her brother’s best friend. Her neighbor. Her savior and her downfall. Theirs is a love that was never supposed to happen—but when it does, it unleashes secrets that could destroy them both…and everything they hold dear. Twisted Love is a brother’s best friend/opposites attract romance with a hint of suspense. It's book one in the Twisted series but can be read as a standalone.",
+      "status": "PUBLISH",
+      "authors": [
+        "Ana Huang"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
+    },
+    {
+      "title": "Fourth Wing",
+      "id": 2,
+      "price": 300,
+      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMGygN6vmJYLi9nkL769kQfNDg3kt-zfrb1AQRkAnvtiUysGdh",
+      "longDescription": "Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, living a quiet life among books and history. Now, the commanding general—also known as her tough-as-talons mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders. But when you’re smaller than everyone else and your body is brittle, death is only a heartbeat away...because dragons don’t bond to “fragile” humans. They incinerate them. With fewer dragons willing to bond than cadets, most would kill Violet to better their own chances of success. The rest would kill her just for being her mother’s daughter—like Xaden Riorson, the most powerful and ruthless wingleader in the Riders Quadrant. Yet, with every day that passes, the war outside grows more deadly, the kingdom's protective wards are failing, and the death toll continues to rise. Even worse, Violet begins to suspect leadership is hiding a terrible secret.",
+      "status": "PUBLISH",
+      "authors": [
+        "Rebecca Yarros"
+      ],
+      "categories": [
+        "Trending"
+      ],
+      "quantity": 1
     }
   ],
   "users": [
