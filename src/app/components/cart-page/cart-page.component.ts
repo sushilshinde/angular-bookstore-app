@@ -20,7 +20,7 @@ export class CartPageComponent implements OnInit {
   totalPrice: number = 0;
 
   updatePrice() {
-    this.totalPrice = this.cartData[0]?.reduce((acc: number, value: any) => {
+    this.totalPrice = this.cartData?.reduce((acc: number, value: any) => {
       if (value.categories.includes('Offers')) {
         return (
           acc +
@@ -39,8 +39,7 @@ export class CartPageComponent implements OnInit {
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) =>
     {
-      console.log(data.cartItems,"cartpage");
-      this.cartData = data.cartItems;
+      this.cartData = data.cartItems[0];
       this.error = data.error;
         this.updatePrice();
     });

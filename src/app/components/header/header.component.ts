@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private store: Store<{ cartItems: cartState }>,
-    private router: Router // private httpser:HttpService
+    private router: Router
   ) {}
   username: string | null = null;
   search = '';

@@ -39,21 +39,11 @@ export const cartReducer = createReducer(
   }),
   on(getItemSuccess, (state: cartState, action) =>
   {
-    console.log(action.bookdata);
     const bookd = action.bookdata;
     return {
       cartItems: [bookd],
       error: ''
     };
-  }),
-  on(errorOccur, (state, action) =>
-
-  {
-
-    return {
-      ...state,
-      error: action.error
-    }
   }),
   on(increment, (state, action) =>
   {
@@ -61,9 +51,6 @@ export const cartReducer = createReducer(
   }),
   on(incrementItemSuccess, (state, action: any) =>
   {
-    // let cart: any = JSON.parse(JSON.stringify(state.cartItems[0]));
-    // const index = cart.findIndex((item: any) => item.id === action.bookdata.id);
-    // cart[index] = action.bookdata;
     return {
       error: '',
       cartItems: [action.bookdata],
@@ -84,14 +71,6 @@ export const cartReducer = createReducer(
   {
     return state;
   }),
-  // on(removeItemFail, (state, action) =>
-  // {
-
-  //   return {
-  //     ...state,
-  //     error: action.error
-  //   }
-  // }),
   on(removeItemSuccess, (state, action) =>
   {
     const cart: any = [...state.cartItems][0];
@@ -100,5 +79,12 @@ export const cartReducer = createReducer(
       error: '',
       cartItems: [filteredArr],
     };
+  }),
+  on(errorOccur, (state, action) =>
+{
+    return {
+      ...state,
+      error: action.error
+    }
   })
 );

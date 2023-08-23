@@ -52,12 +52,6 @@ export class CartEffects
     )
   );
 
-  call(err: any)
-  {
-    console.log(err);
-
-  }
-
   removeItem$ = createEffect(() =>
   {
     return this.action$.pipe(
@@ -84,7 +78,6 @@ export class CartEffects
         return this.cartService.updateCartItems(item.id,"increment").pipe(
           map((cartData: any) =>
           {
-            console.log(cartData,"response data");
             return incrementItemSuccess({ bookdata: cartData });
           }), catchError(err => of(errorOccur(err))),
         );
@@ -101,8 +94,6 @@ export class CartEffects
         return this.cartService.updateCartItems(item.id,"decrement").pipe(
           map((cartData: any) =>
           {
-
-            console.log(cartData, "response data");
             return decrementItemSuccess({ bookdata: cartData });
           }), catchError(err => of(errorOccur(err))),
         );

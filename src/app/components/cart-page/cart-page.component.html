@@ -1,10 +1,10 @@
-<app-header *ngIf="cartData[0]?.length > 0"></app-header>
-<a routerLink="/" *ngIf="cartData[0]?.length > 0"><span class="material-symbols-outlined"> arrow_left_alt </span>
+<app-header *ngIf="cartData?.length > 0"></app-header>
+<a routerLink="/" *ngIf="cartData?.length > 0"><span class="material-symbols-outlined"> arrow_left_alt </span>
 </a>
 <div class="cart-details">
   <div *ngIf="!error; else errorOcccur">
-  <div *ngIf="cartData[0]?.length>=1;else noitems" class="cartandpricediv"> <!-- cart and price div-->
-    <div class="cart-card" *ngFor="let item of cartData[0]">
+  <div *ngIf="cartData?.length>=1;else noitems" class="cartandpricediv"> <!-- cart and price div-->
+    <div class="cart-card" *ngFor="let item of cartData">
       <div class="cart-book">
         <div class="book-img">
           <img src="{{ item.thumbnailUrl }}" alt="{{ item.title }}" />
@@ -12,7 +12,7 @@
         <div class="book-details">
           <h3>{{ item.title }}</h3>
           <p>
-            by <i>{{ item.authors[0] }}</i>
+            by <i>{{ item.authors }}</i>
           </p>
           <!-- <h2>&#8377;{{ item.price }}</h2> -->
 
@@ -85,4 +85,4 @@
     </div>
   </ng-template>
 </div>
-<app-footer  *ngIf="cartData[0]?.length > 0"></app-footer>
+<app-footer  *ngIf="cartData?.length > 0"></app-footer>

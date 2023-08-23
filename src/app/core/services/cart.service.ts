@@ -22,45 +22,24 @@ export class CartService {
   }
   addCartItems(data: any)  //adding data to server
   {
-    // console.log(data, "id for data");
-    // console.log(this.cartItems, "cart items");
-    // const data1 = this.cartItems;
-    // console.log(data1, "data1");
-    // const filteredItem = data1.find((item: any) => item.id === data.id)
-
-    // console.log(typeof (filteredItem), "filtered item");
-    // let cartArr;
-    // if (filteredItem?.length === 0 || filteredItem === undefined) {
-    //   console.log("if if ");
-    //   cartArr = data;
-    // }
-    // else {
-    //   alert("already added")
-    // }
-    // console.log(cartArr, "arr");
     return this.http.post(this.URL + '/cartItems', data);
-    // else {
-    //   alert("already added")
-    // }
-    // return;
+
   }
   getCartItems() {                          //getting data from server
     return this.http.get<Book[]>(this.URL + '/cartItems').pipe(
       map((Resp) =>
       {
-        console.log(Resp, "get");
         return Resp;
       })
     );
   }
   removeCartItems(id: number)
   {
-    return this.http.delete(this.URL + `/cartItems/${id}`);  //removing or deleting the data from server
+    return this.http.delete(this.URL + `/catItems/${id}`);  //removing or deleting the data from server
   }
 
-  updateCartItems(item: any, mode: string)
-  {
-    console.log(mode, "mode");               //updating the cart item quantity
+  updateCartItems(item: any, mode: string)     //updating the cart item quantity
+  {           
     let currentQuantity = item.quantity;
     let updatedQty;
     if (mode === "increment") {

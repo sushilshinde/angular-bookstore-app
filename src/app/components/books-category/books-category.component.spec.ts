@@ -1,11 +1,7 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { StoreModule } from '@ngrx/store';
-// import { MaterialModule } from 'src/app/material_ui/material.module';
 import { HttpService } from 'app/core/services/http.service';
-// import { cartReducer } from 'src/app/store/cart.reducer';
 import { BooksCategoryComponent } from './books-category.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CategoryComponentComponent } from './category-component/category-component.component';

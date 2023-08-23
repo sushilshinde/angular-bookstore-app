@@ -35,7 +35,6 @@ export class ViewallBooksPageComponent {
           .getTrendingBooks()
           .subscribe((resp) =>
           {
-            console.log(resp);
             (this.allBooks = resp)
           }); //assigning allbooks with  trending books
       } else if (param['category'] === 'Best Offers') {

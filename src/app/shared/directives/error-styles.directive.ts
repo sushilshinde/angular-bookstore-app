@@ -22,6 +22,7 @@ export class ErrorStylesDirective
     this.el.nativeElement.style.borderRadius = "10px";
     this.el.nativeElement.style.padding = "15px";
     this.el.nativeElement.style.textAlign = "center";
+    this.el.nativeElement.style.textDecoration = "none";
 
   }
 

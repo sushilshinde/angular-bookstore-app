@@ -29,7 +29,6 @@ import { MatCardModule } from '@angular/material/card';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from './store/cart.reducer';
 import { EffectsModule } from '@ngrx/effects';
-// import { CartEffects } from './store/cart.effects';
 import { SortPipe } from './shared/pipes/sort.pipe';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';

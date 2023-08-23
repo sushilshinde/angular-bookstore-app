@@ -1,9 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { map, catchError, throwError, Subscription } from 'rxjs';
-import { environment } from 'environment/environment.dev';
 import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { addItem, getItem } from 'app/store/cart.actions';
@@ -23,9 +20,7 @@ export class DetailPageComponent implements OnInit
   existInCart = false;
   id!: number;
 
-  subscription!: Subscription;
   constructor (
-    private http: HttpClient,
     private route: Router,
     private activeRoute: ActivatedRoute,
     private httpService: HttpService,
@@ -36,7 +31,6 @@ export class DetailPageComponent implements OnInit
     this.activeRoute.params.subscribe(params => this.id = params['id'])
   }
 
-  private URL = environment.apiURL
   ngOnInit(): void
   {
 
@@ -44,8 +38,7 @@ export class DetailPageComponent implements OnInit
     this.store.select('cartItems').subscribe((data) =>
     {
       this.cartData = data.cartItems[0];
-      this.errorMessage = data.error;
-      const filteredId = this.cartData.map((item: any) => item?.id)
+      const filteredId = this.cartData?.map((item: any) => item?.id)
       if (filteredId.includes(+this.id)) {
         this.existInCart = true;
       }
@@ -85,10 +78,9 @@ export class DetailPageComponent implements OnInit
     bookdata['quantity'] = this.count;
     this.store.dispatch(addItem({ bookdata }));
     this.route.navigate(['/cart']);
-    // this.route.nav
   }
-  // ngOnDestroy()
-  // {
-  //   this.subscription.unsubscribe()
-  // }
+  goToCart()
+  {
+    this.route.navigate(['/cart']);
+  }
 }
