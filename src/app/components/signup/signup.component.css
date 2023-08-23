@@ -9,8 +9,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(225, 233, 233);
-  border: 1px solid rgb(219, 221, 221);
+  background-color: rgb(242, 245, 245);
   height: 450px;
   width: 350px;
   box-shadow: 5px 10px 15px rgb(202, 201, 201);
@@ -34,11 +33,9 @@ input[type="password"] {
   margin-bottom: 10px;
   text-align: start;
   height: 50px;
-  width: 250px;
 }
 .validate p {
   color: red;
-  word-wrap: break-word;
   font-size: x-small;
 }
 button {
@@ -46,18 +43,8 @@ button {
   padding: 5px;
   margin-bottom: 20px;
 }
-p {
-  color: black;
-}
-@media only screen and (max-width: 400px) {
-  .signup {
-    width: 80vw;
-  }
-  .input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-  }
+p a {
+  text-decoration: none;
 }
 @media only screen and (max-width: 400px) {
   .signup {
@@ -65,7 +52,11 @@ p {
   }
   input[type="text"],
   input[type="email"],
-  input[type="password"] {
+  input[type="password"],
+  input[type="confirm"] {
     width: 100%;
+  }
+  .validate p {
+    font-size: xx-small;
   }
 }

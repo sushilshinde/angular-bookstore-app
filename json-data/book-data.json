@@ -661,21 +661,6 @@
   ],
   "cartItems": [
     {
-      "title": "Twisted Love",
-      "id": 3,
-      "price": 400,
-      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTZhtsKmo50jpJ6Meltf1tzUAGTJH2osk37Nvz8Qegv6c8bVxhr",
-      "longDescription": "Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart. But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest: \"A crack\". \"A melt\" \"A fire that could end his world as he knew it\". Ava Chen is a free spirit trapped by nightmares of a childhood she can’t remember. But despite her broken past, she’s never stopped seeing the beauty in the world…including the heart beneath the icy exterior of a man she shouldn’t want. Her brother’s best friend. Her neighbor. Her savior and her downfall. Theirs is a love that was never supposed to happen—but when it does, it unleashes secrets that could destroy them both…and everything they hold dear. Twisted Love is a brother’s best friend/opposites attract romance with a hint of suspense. It's book one in the Twisted series but can be read as a standalone.",
-      "status": "PUBLISH",
-      "authors": [
-        "Ana Huang"
-      ],
-      "categories": [
-        "Trending"
-      ],
-      "quantity": 4
-    },
-    {
       "title": "It Starts with Us",
       "id": 7,
       "price": 1000,
@@ -688,7 +673,7 @@
       "categories": [
         "Trending"
       ],
-      "quantity": 1
+      "quantity": 5
     },
     {
       "title": "Gone Girl",
@@ -703,7 +688,7 @@
       "categories": [
         "Trending"
       ],
-      "quantity": 1
+      "quantity": 3
     }
   ],
   "users": [
@@ -1133,6 +1118,13 @@
       "password": "Loki@123",
       "confirm": "Loki@123",
       "id": 61
+    },
+    {
+      "name": "Moni",
+      "email": "moni@gmail.com",
+      "password": "Moni@123",
+      "confirm": "Moni@123",
+      "id": 62
     }
   ]
 }

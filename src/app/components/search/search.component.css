@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 mat-grid-tile {
-  background:rgb(223 215 215);
+  background: rgb(223 215 215);
   background: transparent;
 }
 img {
@@ -15,8 +15,8 @@ img {
   transition: all 0.3s;
   cursor: pointer;
 }
-.books-container:hover{
-opacity: 0.5;
+.books-container:hover {
+  opacity: 0.5;
 }
 .back-btn {
   position: absolute;
@@ -37,4 +37,11 @@ opacity: 0.5;
   right: 0px;
   bottom: 0px;
   cursor: pointer;
+}
+.nobooks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  color: red;
 }

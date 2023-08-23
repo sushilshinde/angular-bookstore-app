@@ -17,12 +17,12 @@
 h2 {
   font-size: medium;
 }
-a {
+.cols a {
   color: rgb(189, 189, 189);
   text-decoration: none;
 }
-a:hover {
-  color: aliceblue;
+.cols a:hover {
+  color: white;
   text-decoration: underline;
 }
 .icons {
@@ -31,9 +31,10 @@ a:hover {
   padding: 10px;
   margin: 0 10px;
   gap: 10px;
-  color: white;
 }
 mat-icon {
+  color: white;
+  cursor: pointer;
   transition: all 0.2ms;
 }
 mat-icon:hover {
@@ -43,7 +44,7 @@ span {
   display: flex;
   justify-content: center;
 }
-.clarity {
+.opacity {
   color: rgb(184, 186, 187);
 }
 @media screen and (min-width: 250px) and (max-width: 800px) {
@@ -52,11 +53,10 @@ span {
     height: 100%;
   }
 }
-@media screen and (min-width: 50px) and (max-width: 250px) {
+/* @media screen and (min-width: 50px) and (max-width: 250px) {
   .cols {
     overflow: hidden;
   }
   .icons {
     overflow: hidden;
-  }
-}
+  } */

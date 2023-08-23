@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: rgb(225, 233, 233);
+  background-color: rgb(242, 245, 245);
   height: 350px;
   width: 350px;
   box-shadow: 5px 10px 15px rgb(202, 201, 201);
@@ -29,30 +29,31 @@ input[type="password"] {
   border-radius: 5px;
 }
 .validate {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: start;
-  height: 40px;
+  height: 50px;
 }
 .validate p {
   color: red;
-  font-size: xx-small;
+  font-size: x-small;
 }
 button {
   width: 150px;
   padding: 5px;
   margin-bottom: 20px;
 }
+p a {
+  text-decoration: none;
+}
 .homepage {
   text-decoration: none;
   color: rgb(87, 87, 88);
   padding: 5px;
-  transition: all 0.2ms;
 }
 .homepage:hover {
+  color: rgb(63, 63, 63);
   border: 1px solid grey;
-  transform: scale(1.2);
 }
-
 @media only screen and (max-width: 400px) {
   .signin {
     width: 80vw;
