@@ -10,7 +10,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Running backend
 To run backend we used json-server which is used to serve the json data from local. To install "npm i json-server". To start that server run the following command "json-server --watch json-data/book-data.json --port 3000"
 
-## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 

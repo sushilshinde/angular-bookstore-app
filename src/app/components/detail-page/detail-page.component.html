@@ -4,7 +4,7 @@
             arrow_left_alt
         </span>
     </a>
-<div class="bookdetails-card" *ngIf="!errorMessage;else errorOccur">
+    <div class="bookdetails-card" *ngIf="!errorMessage;else errorOccur">
         <div class="book-detail">
             <div class="book-img">
                 <img [src]="data?.thumbnailUrl" [alt]="data?.title" />
@@ -41,7 +41,8 @@
                     </div>
                 </div>
                 <div class="book-atc">
-                    <button class="cart-btn" (click)="!existInCart?addToCart(data):goToCart()">{{existInCart?"Go":"Add"}} to Cart <span
+                    <button class="cart-btn"
+                        (click)="!existInCart?addToCart(data):goToCart()">{{existInCart?"Go":"Add"}} to Cart <span
                             class="material-symbols-outlined">
                             add_shopping_cart
                         </span></button>
@@ -70,5 +71,5 @@
             </div>
         </div>
     </ng-template>
-    </div>
-    <app-footer></app-footer>
+</div>
+<app-footer></app-footer>

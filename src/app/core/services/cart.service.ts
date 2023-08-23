@@ -13,7 +13,7 @@ export class CartService {
   cartItems: any;
   private URL = environment.apiURL;
   constructor(
-    private store: Store<{ cartItems: cartState }>,   //initializing the store
+    private store: Store<{ cartItems: cartState }>,   //declaring the store
     private http: HttpClient
   ) {
     this.store
@@ -35,7 +35,7 @@ export class CartService {
   }
   removeCartItems(id: number)
   {
-    return this.http.delete(this.URL + `/catItems/${id}`);  //removing or deleting the data from server
+    return this.http.delete(this.URL + `/cartItems/${id}`);  //removing or deleting the data from server
   }
 
   updateCartItems(item: any, mode: string)     //updating the cart item quantity

@@ -56,8 +56,14 @@ export class SearchComponent {
   }
 
   searchDetail() {
+    if(this.books){
     this.allBooks = this.books.filter((b: any) => {
       return b.title.toLowerCase().includes(this.search.toLowerCase());
     });
   }
+}
+navigateToHome(){
+  localStorage.removeItem('search')
+  this.navpage.navigate(['/'])
+}
 }

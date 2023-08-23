@@ -1,28 +1,27 @@
-
-import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs/internal/Subscription';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { CartService } from 'app/core/services/cart.service';
 import { Router } from '@angular/router';
-import { HttpService } from 'app/core/services/http.service';
-import { getItem } from 'app/store/cart.actions';
-import { Component, OnInit,OnDestroy } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { cartState } from 'app/interfaces/interface.cartState';
+import { Store } from '@ngrx/store';
+import { getItem } from 'app/store/cart.actions';
+import { Subscription } from 'rxjs';
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-
-
-
 export class HeaderComponent implements OnInit {
+  @ViewChild('searchField') searchField:any;
   constructor(
     private http: HttpClient,
     private store: Store<{ cartItems: cartState }>,
     private router: Router
   ) {}
   username: string | null = null;
-  search = '';
+  search :any= '';
   count!: number;
   cartData: any;
   cartItemsSubscription!: Subscription;
@@ -36,36 +35,33 @@ export class HeaderComponent implements OnInit {
       this.cartData = data.cartItems[0];
       this.count = this.cartData?.length;                  //returning cartData length and assigning to count
     })
-
     const userDetails = localStorage.getItem('userdetails');
+    this.search = localStorage.getItem('search');
     if (userDetails) {
       const user = JSON.parse(userDetails);
+
       this.username = user.name;
     }
 
-
-
-    // ngOnInit(): void
-  }
-  signinPage()
-  {
-    this.router.navigate(['signin']);
-  }
-  logout()
-  {
-    localStorage.removeItem('userdetails');
-    this.router.navigate(['signin']);
-  }
-  ngOnDestroy()
-  {
-    if (this.cartItemsSubscription) {
-      this.cartItemsSubscription.unsubscribe();              //unsubscription
-    }
-  }
   
-  go(event:any){
-    
+  }
+  ngAfterViewInit(){
+    this.searchField.nativeElement.focus({preventScroll: true})
+  }
+
+  redirectToSearch(event: any) {
+    localStorage.setItem('search',this.search)
     this.router.navigate(['search', event.target.value]);
   }
- 
+  signinPage() {
+    this.router.navigate(['signin']);
+  }
+  logout() {
+    let result = confirm('Are you sure you want to Sign Out?');
+    if (result) {
+      this.router.navigate(['signin']);
+      localStorage.removeItem('userdetails');
+    }
+  }
+
 }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
-import { MaterialModule } from './shared/material_ui/material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -33,7 +32,9 @@ import { SortPipe } from './shared/pipes/sort.pipe';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { CartEffects } from './store/cart.effects';
+import { MaterialModule } from './shared/material_ui/material.module';
 import { ErrorStylesDirective } from './shared/directives/error-styles.directive';
+
 
 @NgModule({
   declarations: [

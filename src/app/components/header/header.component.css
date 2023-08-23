@@ -10,26 +10,25 @@
   position: sticky;
   background-color: rgb(142 233 216);
 }
-.navItems{
-  margin-top: 5px;
-  margin-left: 20px;
-}
-
 .category {
   cursor: pointer;
   width: 50vw;
 }
-a {
-  text-decoration: none;
+.navIcon {
+  border-radius: 50%;
+  padding: 0px;
 }
-.navLink{
-  padding: 7px;
-  color: rgb(17, 17, 17);
+.navItems {
+  margin-top: 5px;
+  margin-left: 20px;
+}
+.navitem {
+  color: black;
   text-decoration: none;
   font-size: small;
-
+  padding: 7px;
 }
-.navLink:hover{
+.navitem:hover {
   background-color: rgb(42, 138, 138);
   color: white;
 }
@@ -48,11 +47,10 @@ input[type="text"] {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.logo-img{
-  outline: none;
-  padding: 0px;
+.search{
+  text-decoration: none;
 }
-.search {
+.searchicon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,48 +62,53 @@ input[type="text"] {
   border-bottom-right-radius: 10px;
 }
 .login {
-  font-size: smaller;
+  font-size:medium;
+  color: black;
   padding-left: 10px;
   padding-right: 10px;
+  text-decoration: none;
 }
-.username{
+.loginItems{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.username {
   font-size: small;
   padding-left: 10px;
   padding-right: 10px;
 }
-.logout{
-  padding-top: 8px;
-  font-size: large;
+.logout {
+  font-size: larger;
   transition: all 0.2ms;
 }
 .logout:hover {
   transform: scale(1.2);
 }
 .cart {
+  font-size: larger;
+  padding-left: 10px;
   transition: all 0.2ms;
 }
 .cart:hover {
   transform: scale(1.2);
 }
-.navIcon{
-  border-radius: 50%;
-}
+
 @media screen and (max-width: 600px) {
   .input {
     width: 100vw;
     height: 100%;
     padding: 10px 8px 4px 8px;
-  } 
-.category {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  /* width:40vw; */
-  width: 100%;
+  }
+  .category {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* width:40vw; */
+    width: 100%;
+  }
+  .navItems {
+    margin-left: auto;
+    margin-right: 10px;
+  }
 }
-.navItems{
-  margin-left: auto;
-  margin-right:10px;
-}
-}
-

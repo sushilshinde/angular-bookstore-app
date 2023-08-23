@@ -10,7 +10,7 @@ import { cartReducer } from 'app/store/cart.reducer';
 
 import { HeaderComponent } from './header.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 
 describe('HeadderComponent', () => {
   let component: HeaderComponent;
@@ -37,4 +37,23 @@ describe('HeadderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('should display username when logged in', () => {
+    const testUser = { name: 'John Doe' };
+    localStorage.setItem('userdetails', JSON.stringify(testUser));
+    fixture.detectChanges();
+
+    const usernameElement = fixture.debugElement.nativeElement.querySelector('.username');
+    expect(usernameElement.textContent).toContain('Welcome'+' '+ testUser.name.toLocaleUpperCase());
+  });
+
+  it('should display cart icon with badge', () => {
+    component.count = 5;
+    fixture.detectChanges();
+
+    const cartIcon = fixture.debugElement.nativeElement.querySelector('.cart');
+    const badge = cartIcon.querySelector('.mat-badge-content');
+
+    expect(badge.textContent).toBe('5');
+  });
+
 });

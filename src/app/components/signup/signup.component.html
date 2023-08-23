@@ -6,11 +6,14 @@
         <input type="text" placeholder="Name" formControlName="name" /><br />
         <p
           *ngIf="
-            register.controls['name'].touched&&
+            register.controls['name'].touched &&
             register.hasError('required', 'name')
           "
         >
           *This field is required
+        </p>
+        <p *ngIf="register.hasError('nameStrength', 'name')">
+          *Name must be upper & lower
         </p>
       </div>
       <div class="validate">
@@ -21,7 +24,7 @@
         /><br />
         <p
           *ngIf="
-            register.controls['email'].touched&&
+            register.controls['email'].touched &&
             register.hasError('required', 'email')
           "
         >
@@ -45,8 +48,11 @@
         >
           *This field is required
         </p>
-        <p class="pwd" *ngIf="register.hasError('passwordStrength', 'password')">
-          *Password must be upper,lower,numeric & special 
+        <p
+          class="pwd"
+          *ngIf="register.hasError('passwordStrength', 'password')"
+        >
+          *Password must be upper,lower,numeric & special
         </p>
       </div>
       <div class="validate">
@@ -54,6 +60,7 @@
           type="password"
           placeholder="Confirm password"
           formControlName="confirm"
+          (input)="confirmPasswordMatch()"
         /><br />
         <p
           *ngIf="
@@ -63,19 +70,15 @@
         >
           *This field is required
         </p>
-        <p
-          *ngIf="
-            register.get('password')?.value !==
-              register.get('confirm')?.value && register.get('confirm')?.valid
-          "
-        >
+        <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.value">
           *Password Doesn't Matched
         </p>
       </div>
+
       <button
         type="submit"
         class="btn btn-primary"
-        [disabled]="register.invalid"
+        [disabled]="register.invalid || !confirmPasswordMatch()"
       >
         Sign Up
       </button>

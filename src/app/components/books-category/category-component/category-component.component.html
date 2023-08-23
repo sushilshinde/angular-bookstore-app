@@ -1,6 +1,11 @@
 <div class="m-5 background">
+<div *ngIf="spinner,else spin" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #spin>
   <div class="d-flex justify-content-between headdingButton">
     <h2 class="text-danger">{{ title }}:</h2>
+    <P *ngIf="changehook" class="text-color">ngonchange</P>
     <a [routerLink]="['/viewall', title]"
       ><button class="btn btn-success" >View All</button></a
     >
@@ -47,9 +52,11 @@
           </p>
         </div>
         <ng-template #noDiscount class="text-center">
-          <p class="text-center m-0 text-success">₹{{ slide.price }}</p>
+          <p (click)="emitEvent(slide.price)" class="text-center m-0 text-success">₹{{ slide.price }}</p>
         </ng-template>
       </b>
     </div>
   </ngx-slick-carousel>
+</ng-template>
 </div>
+<ng-content></ng-content>

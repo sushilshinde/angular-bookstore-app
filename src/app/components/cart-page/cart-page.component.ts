@@ -1,64 +1,77 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { cartState } from 'app/interfaces/interface.cartState';
-import { HttpService } from 'app/core/services/http.service';
-import {
-  increment,
-  decrement,
-  removeItem,
-  getItem,
-} from 'app/store/cart.actions';
+import
+  {
+    increment,
+    decrement,
+    removeItem,
+    getItem,
+  } from 'app/store/cart.actions';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css'],
 })
-export class CartPageComponent implements OnInit {
+export class CartPageComponent implements OnInit
+{
   cartData: any = [];
-  error!:any
+  error!: any;
   count: number = 0;
   totalPrice: number = 0;
 
-  updatePrice() {
-    this.totalPrice = this.cartData?.reduce((acc: number, value: any) => {
-      if (value.categories.includes('Offers')) {
-        return (
-          acc +
-          this.calculateDiscount(value.price, value.discount) * value.quantity
-        );
-      } else {
-        return acc + value.price * value.quantity;
-      }
-    }, 0);
+  updatePrice()
+  {
+    if (Array.isArray(this.cartData)) {
+      this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
+      {
+        if (value.categories.includes('Offers')) {
+          return (
+            acc +
+            this.calculateDiscount(value.price, value.discount) * value.quantity
+          );
+        } else {
+          return acc + value.price * value.quantity;
+        }
+      }, 0);
+    }
+    else {
+      this.totalPrice = 0;
+    }
   }
 
-  constructor(
-    private store: Store<{ cartItems: cartState }>
-  ) {}
-  ngOnInit(): void {
+  constructor (private store: Store<{ cartItems: cartState }>,) { }
+  ngOnInit(): void
+  {
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) =>
     {
       this.cartData = data.cartItems[0];
       this.error = data.error;
-        this.updatePrice();
+      this.updatePrice();
     });
   }
-
-  onRemoveHandeller(id: number) {
+  // ngOnChanges() {
+  //   this.updatePrice();
+  // }
+  onRemoveHandeller(id: number)
+  {
     this.store.dispatch(removeItem({ id }));
-    this.updatePrice();
+    // this.updatePrice();
   }
-  onIncrement(id: number) {
+  onIncrement(id: number)
+  {
     this.store.dispatch(increment({ id }));
-    this.updatePrice();
+    // this.updatePrice();
   }
-  onDecrement(id: number) {
+  onDecrement(id: number)
+  {
     this.store.dispatch(decrement({ id }));
-    this.updatePrice();
+    // this.updatePrice();
   }
 
-  calculateDiscount(price: number, discount: number) {
+  calculateDiscount(price: number, discount: number)
+  {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }

@@ -31,13 +31,15 @@ input[type="password"] {
   border-radius: 5px;
 }
 .validate {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: start;
-  height: 40px;
+  height: 50px;
+  width: 250px;
 }
 .validate p {
   color: red;
-  font-size: x-small;
+  word-wrap: break-word;
+  font-size:x-small;
 }
 button {
   width: 150px;

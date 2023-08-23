@@ -20,7 +20,7 @@ const routes: Routes = [
     component: DetailPageComponent,
     canActivate: [AuthService],
   },
-  { path: 'cart', component: CartPageComponent, canActivate: [AuthService] },
+  { path: 'cart', component: CartPageComponent },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
   { path: 'buy', component: OrderSuccessPageComponent },
   { path: 'search/:search', component: SearchComponent },

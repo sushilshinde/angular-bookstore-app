@@ -63,4 +63,14 @@ export class HttpService
       catchError(err => throwError("error occured"))
     );
   }
+  addCartItems(data: any) {
+    return this.http.post(this.URL + '/cartItems', data);
+  }
+  getCartItems() {
+    return this.http.get<Book[]>(this.URL + '/cartItems').pipe(
+      map((Resp) => {
+        return Resp;
+      })
+    );
+  }
 }
