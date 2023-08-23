@@ -47,9 +47,9 @@
     <h1 class="nobooks">Opps..No Books Avaliable</h1>
   </ng-template>
   <div class="d-flex justify-content-end">
-    <a routerLink="/">
-      <button class="btn btn-primary mt-3 mb-3">Back</button>
-    </a>
+    <!-- <a routerLink="/"> -->
+      <button (click)="navigateToHome()" class="btn btn-primary mt-3 mb-3">Back</button>
+    <!-- </a> -->
   </div>
 </div>
 <app-footer></app-footer>

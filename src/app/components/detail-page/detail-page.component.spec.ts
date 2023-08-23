@@ -6,6 +6,9 @@ import { DetailPageComponent } from './detail-page.component';
 import { cartReducer } from 'app/store/cart.reducer';
 import { addItem } from 'app/store/cart.actions';
 import { cartState } from 'app/interfaces/interface.cartState';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { MaterialModule } from 'app/shared/material_ui/material.module';
 
 describe('DetailPageComponent', () => {
   let component: DetailPageComponent;
@@ -17,10 +20,10 @@ describe('DetailPageComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule,
+        HttpClientTestingModule,MaterialModule,
         StoreModule.forRoot({ cartItems: cartReducer }),
       ],
-      declarations: [DetailPageComponent],
+      declarations: [DetailPageComponent,HeaderComponent,FooterComponent],
       providers: [
         {
           provide: ActivatedRoute,
@@ -114,6 +117,6 @@ describe('DetailPageComponent', () => {
     expect(storeSpy).toHaveBeenCalledWith(
       addItem({ bookdata: { ...bookdata, quantity: 3 } })
     );
-    expect(routerSpy).toHaveBeenCalledWith(['/cart']);
+    expect(routerSpy).toHaveBeenCalledWith(['/cart']); //////////////////
   });
 });

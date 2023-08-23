@@ -39,7 +39,7 @@ describe('CategoryComponentComponent', () => {
     expect(titleElement.textContent).toContain('Available Books');
   });
   it('should navigate to details page on image click', () => {
-    spyOn(component['navpage'], 'navigate').and.stub();
+    spyOn(component['navpage'], 'navigate').and.stub(); 
     const bookId = 123;
     component.navigateToDetails(bookId);
     expect(component['navpage'].navigate).toHaveBeenCalledWith([

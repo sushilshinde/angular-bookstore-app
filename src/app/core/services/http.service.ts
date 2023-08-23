@@ -5,25 +5,36 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BookQty } from '../../interfaces/interface.book';
-import { map } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Book } from '../../interfaces/interface.book';
-import { environment } from 'environment/environment.dev';
+import { environment } from 'environment/environment';
 
 @Injectable({ providedIn: 'root' })
-export class HttpService {
+export class HttpService
+{
   cartItems: any;
-  constructor(private http: HttpClient) {}
+  constructor (private http: HttpClient) { }
   private URL = environment.apiURL;
   //getBooks() will return all books but need to subscribe when using
-  getBooks() {
+  getBooks()
+  {
     return this.http.get<Book[]>(this.URL + '/books');
+  }
+  getBookDetails(id: number)
+  {
+
+    return this.http.get<Book[]>(this.URL + '/books/' + id).pipe(map((data) =>
+    {
+      return data;
+    }), catchError((err) => throwError(err)));
   }
 
   //getTrendingBooks() will return all books but need to subscribe when using
-  getTrendingBooks() {
+  getTrendingBooks()
+  {
     return this.http.get<Book[]>(this.URL + '/books').pipe(
-      map((Resp) => {
+      map((Resp) =>
+      {
         const dataArray: any = [];
         for (const data of Resp) {
           if (data.categories.includes('Trending')) {
@@ -36,9 +47,11 @@ export class HttpService {
   }
 
   //getOfferBooks() will return all books but need to subscribe when using
-  getBestOffersBooks() {
+  getBestOffersBooks(): Observable<any> 
+  {
     return this.http.get<Book[]>(this.URL + '/books').pipe(
-      map((Resp) => {
+      map((Resp) =>
+      {
         const dataArray: any = [];
         for (const data of Resp) {
           if (data.discount) {
@@ -46,7 +59,8 @@ export class HttpService {
           }
         }
         return dataArray;
-      })
+      }),
+      catchError(err => throwError("error occured"))
     );
   }
   addCartItems(data: any) {
@@ -58,23 +72,5 @@ export class HttpService {
         return Resp;
       })
     );
-  }
-  removeCartItems(id: number) {
-    return this.http.delete(this.URL + `/cartItems/${id}`);
-  }
-
-  incrementCartItems(item: any) {
-    let currentQuantity = item.quantity;
-
-    let incitem: BookQty = { ...item, quantity: currentQuantity + 1 };
-
-    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
-  }
-  decrementCartItems(item: any) {
-    let currentQuantity = item.quantity;
-
-    let incitem: BookQty = { ...item, quantity: currentQuantity - 1 };
-
-    return this.http.put(this.URL + `/cartItems/${item.id}`, incitem);
   }
 }

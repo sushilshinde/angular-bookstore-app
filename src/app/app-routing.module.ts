@@ -12,15 +12,19 @@ import { SearchComponent } from './components/search/search.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  { path: '', component: LandingPageComponent, pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', component: LandingPageComponent, pathMatch: 'full' },
   {
     path: 'details/:id',
     component: DetailPageComponent,
     canActivate: [AuthService],
   },
-  { path: 'cart', component: CartPageComponent },
+  {
+    path: 'cart',
+    component: CartPageComponent,
+    canActivate: [AuthService],
+  },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
   { path: 'buy', component: OrderSuccessPageComponent },
   { path: 'search/:search', component: SearchComponent },

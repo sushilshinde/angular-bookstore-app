@@ -2,9 +2,12 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 import { HttpService } from 'app/core/services/http.service';
+import { MaterialModule } from 'app/shared/material_ui/material.module';
 import { getItem, removeItem } from 'app/store/cart.actions';
 import { cartReducer } from 'app/store/cart.reducer';
 import { of } from 'rxjs';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 import { CartPageComponent } from './cart-page.component';
 
@@ -26,10 +29,10 @@ describe('CartPageComponent', () => {
 
     TestBed.configureTestingModule({
       imports: [
-        HttpClientTestingModule,
+        HttpClientTestingModule,MaterialModule,
         StoreModule.forRoot({ cartItems: cartReducer }),
       ],
-      declarations: [CartPageComponent],
+      declarations: [CartPageComponent,HeaderComponent,FooterComponent],
       providers: [
         { provide: Store, useValue: testStore },
         { provide: HttpService, useValue: testHttpService },

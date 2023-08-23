@@ -2,16 +2,15 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
-  CanDeactivateFn,
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
+import { SigninComponent } from 'app/components/signin/signin.component';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService implements CanActivate{
-  
+export class AuthService implements CanActivate {
   constructor(
     private router: Router, //declaring router & authentication
     private authentication: AuthenticationService
@@ -20,7 +19,7 @@ export class AuthService implements CanActivate{
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): boolean{
+  ): boolean {
     if (this.authentication.loginStatus()) {
       //controling state true for authentication successful
       return true;
@@ -29,5 +28,4 @@ export class AuthService implements CanActivate{
       return false;
     }
   }
-   
 }

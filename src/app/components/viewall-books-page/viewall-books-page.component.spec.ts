@@ -8,6 +8,10 @@ import { HttpService } from 'app/core/services/http.service';
 import { ViewallBooksPageComponent } from './viewall-books-page.component';
 import { of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from 'app/store/cart.reducer';
 
 describe('ViewallBooksPageComponent', () => {
   let component: ViewallBooksPageComponent;
@@ -22,8 +26,8 @@ describe('ViewallBooksPageComponent', () => {
       getBooks: () => of([]),
     };
     TestBed.configureTestingModule({
-        imports:[RouterTestingModule,HttpClientTestingModule,MaterialModule,FormsModule],
-      declarations: [ViewallBooksPageComponent,SortPipe],
+        imports:[RouterTestingModule,HttpClientTestingModule,MaterialModule,FormsModule,StoreModule.forRoot({ cartItems: cartReducer })],
+      declarations: [ViewallBooksPageComponent,SortPipe,HeaderComponent,FooterComponent],
       providers: [{ provide: HttpService, useValue: testHttpService },{
         provide: ActivatedRoute,
         useValue: {

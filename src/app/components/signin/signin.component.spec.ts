@@ -37,7 +37,7 @@ describe('SigninComponent', () => {
   });
 
   it('submitting form should call signin method', () => {
-    spyOn(component, 'signin');
+    spyOn(component, 'signin');            
     const form = fixture.nativeElement.querySelector('form');
     form.dispatchEvent(new Event('ngSubmit'));
     expect(component.signin).toHaveBeenCalled();

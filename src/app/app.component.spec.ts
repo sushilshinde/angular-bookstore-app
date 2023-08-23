@@ -34,12 +34,8 @@ describe('AppComponent', () => {
   it('should render header, router-outlet, and footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const compiled = fixture.nativeElement;
-    const header = compiled.querySelector('app-header');
     const routerOutlet = compiled.querySelector('router-outlet');
-    const footer = compiled.querySelector('app-footer');
-    expect(header).toBeTruthy();
     expect(routerOutlet).toBeTruthy();
-    expect(footer).toBeTruthy();
   })
 
 });

@@ -8,8 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatBadgeModule } from '@angular/material/badge';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 const MaterialImports = [
   MatCardModule,
   MatCheckboxModule,
@@ -20,7 +19,7 @@ const MaterialImports = [
   MatFormFieldModule,
   MatGridListModule,
   MatBadgeModule,
-  MatProgressSpinnerModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({

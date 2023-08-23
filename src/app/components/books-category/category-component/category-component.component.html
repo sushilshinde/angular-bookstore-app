@@ -52,10 +52,11 @@
           </p>
         </div>
         <ng-template #noDiscount class="text-center">
-          <p class="text-center m-0 text-success">₹{{ slide.price }}</p>
+          <p (click)="emitEvent(slide.price)" class="text-center m-0 text-success">₹{{ slide.price }}</p>
         </ng-template>
       </b>
     </div>
   </ngx-slick-carousel>
 </ng-template>
 </div>
+<ng-content></ng-content>

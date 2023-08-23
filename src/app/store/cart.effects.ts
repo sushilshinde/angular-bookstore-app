@@ -1,34 +1,37 @@
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, throwError } from 'rxjs';
 import { CartService } from 'app/core/services/cart.service';
 import { Injectable } from '@angular/core';
-import {
-  getItem,
-  getItemSuccess,
-  addItem,
-  addItemSuccess,
-  removeItem,
-  removeItemSuccess,
-  increment,
-  incrementItemSuccess,
-  decrement,
-  decrementItemSuccess,
-} from './cart.actions';
+import
+  {
+    getItem,
+    getItemSuccess,
+    addItem,
+    addItemSuccess,
+    removeItem,
+    removeItemSuccess,
+    increment,
+    incrementItemSuccess,
+    decrement,
+    decrementItemSuccess,
+    errorOccur,
+  } from './cart.actions';
 @Injectable()
-export class CartEffects {
-  constructor(private action$: Actions, private cartService: CartService) {}
+export class CartEffects
+{
+  constructor (private action$: Actions, private cartService: CartService) { }
 
   addItem$ = createEffect(() =>
     this.action$.pipe(
       ofType(addItem),
-      switchMap((data: any) => {
-        // console.log(data, 'data');
-        // return of(onAdd({ bookdata: data.bookdata }))
+      switchMap((data: any) =>
+      {
+
         return this.cartService.addCartItems(data.bookdata).pipe(
-          map((cartData: any) => {
-            console.log(cartData, 'data 123');
+          map((cartData: any) =>
+          {
             return addItemSuccess({ bookdata: cartData });
-          })
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     )
@@ -37,53 +40,62 @@ export class CartEffects {
   getItem$ = createEffect(() =>
     this.action$.pipe(
       ofType(getItem),
-      switchMap(() => {
+      switchMap(() =>
+      {
         return this.cartService.getCartItems().pipe(
-          map((cartData: any) => {
+          map((cartData: any) =>
+          {
             return getItemSuccess({ bookdata: cartData });
-          })
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     )
   );
 
-  removeItem$ = createEffect(() => {
+  removeItem$ = createEffect(() =>
+  {
     return this.action$.pipe(
       ofType(removeItem),
-      switchMap((item: any) => {
+      switchMap((item: any) =>
+      {
         return this.cartService.removeCartItems(item.id).pipe(
-          map((cartData: any) => {
-            console.log(cartData, 'response-deleted data');
+          map((cartData: any) =>
+          {
             return removeItemSuccess({ id: item.id });
-          })
+          }),
+          catchError(err => of(errorOccur(err))),
         );
       })
     );
   });
-  updateIncrement$ = createEffect(() => {
+  updateIncrement$ = createEffect(() =>
+  {
     return this.action$.pipe(
       ofType(increment),
-      switchMap((item: any) => {
-        console.log(item, 'switchmap');
-        return this.cartService.incrementCartItems(item.id).pipe(
-          map((cartData: any) => {
+      switchMap((item: any) =>
+      {
+
+        return this.cartService.updateCartItems(item.id,"increment").pipe(
+          map((cartData: any) =>
+          {
             return incrementItemSuccess({ bookdata: cartData });
-          })
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     );
   });
-  updateDecrement$ = createEffect(() => {
+  updateDecrement$ = createEffect(() =>
+  {
     return this.action$.pipe(
       ofType(decrement),
-      switchMap((item: any) => {
-        console.log(item, 'switchmap');
-        return this.cartService.decrementCartItems(item.id).pipe(
-          map((cartData: any) => {
-            console.log(cartData, 'response-deleted data');
+      switchMap((item: any) =>
+      {
 
+        return this.cartService.updateCartItems(item.id,"decrement").pipe(
+          map((cartData: any) =>
+          {
             return decrementItemSuccess({ bookdata: cartData });
-          })
+          }), catchError(err => of(errorOccur(err))),
         );
       })
     );

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { environment } from '../../../environment/environment.dev';
+import { environment } from 'environment/environment.dev';
 @Injectable({
   providedIn: 'root',
 })
@@ -43,12 +43,6 @@ export class AuthenticationService {
       }
     );
   }
-  loginStatus() {
-    console.log(this.isAuthenticate, 'auth');
-    let userDetails = localStorage.getItem('userdetails');
-    if (userDetails) this.isAuthenticate = true;
-    return this.isAuthenticate;
-  }
   signup(register: any) {
     this.http.get<any>(this.URL + '/users').subscribe((res) => {
       const valid = res.find((val: any) => {
@@ -73,5 +67,20 @@ export class AuthenticationService {
         register.reset();
       }
     });
+  }
+  
+  logout() {
+    let result = confirm('Are you sure you want to Sign Out?');
+    if (result) {
+      this.router.navigate(['signin']);
+      localStorage.removeItem('userdetails');
+      this.isAuthenticate = false;
+    }
+  }
+  loginStatus() {
+    // console.log(this.isAuthenticate, 'auth');
+    // let userDetails = localStorage.getItem('userdetails');
+    // if (userDetails) this.isAuthenticate = true;
+    return this.isAuthenticate;
   }
 }
