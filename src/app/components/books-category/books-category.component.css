@@ -1,3 +1,11 @@
 .text-color{
-    color: rgb(218, 245, 239);
+    color:transparent;
   }
+  /* .bg-img-div{
+    width: 100vw;
+    height: 50vh;
+    background-image:url('../../../assets/images/scrolling images/scrollimg.jpg') ;
+    background-attachment: fixed,scroll;
+    background-position: center;
+    background-repeat: no-repeat;
+  } */

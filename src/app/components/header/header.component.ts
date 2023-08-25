@@ -6,6 +6,9 @@ import { cartState } from 'app/interfaces/interface.cartState';
 import { Store } from '@ngrx/store';
 import { getItem } from 'app/store/cart.actions';
 import { Subscription } from 'rxjs';
+import { HttpService } from 'app/core/services/http.service';
+import { Book } from 'app/interfaces/interface.book';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -15,43 +18,60 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('searchField') searchField:any;
+  username: string = '';
+  search :any='';
+  count!: number;
+  cartData: any;
+  allBooks!:Book[];
+  books!:Book[];
+  activeDropdown:boolean=false;
   constructor(
     private http: HttpClient,
     private store: Store<{ cartItems: cartState }>,
-    private router: Router
-  ) {}
-  username: string | null = null;
-  search :any= '';
-  count!: number;
-  cartData: any;
-  cartItemsSubscription!: Subscription;
-
-
-  ngOnInit(): void
+    private router: Router,
+    private httpservice:HttpService
+  ) {
+    
+  }
+  
+  
+  ngOnInit()
   {
+    this.httpservice.getBooks().subscribe({
+      next:resp => {
+        this.books = resp
+      },
+      error:err=>{
+        alert("something went wrong!")
+      }
+    });
     this.store.dispatch(getItem())
-    this.cartItemsSubscription = this.store.select('cartItems').subscribe((data) =>
+    this.store.select('cartItems').subscribe((data) =>
     {
       this.cartData = data.cartItems[0];
       this.count = this.cartData?.length;                  //returning cartData length and assigning to count
     })
     const userDetails = localStorage.getItem('userdetails');
-    this.search = localStorage.getItem('search');
+  
     if (userDetails) {
       const user = JSON.parse(userDetails);
-
+      
       this.username = user.name;
     }
-
-  
+    
   }
   ngAfterViewInit(){
     this.searchField.nativeElement.focus({preventScroll: true})
   }
-
-  redirectToSearch(event: any) {
-    localStorage.setItem('search',this.search)
-    this.router.navigate(['search', event.target.value]);
+  
+  redirectToSearch(event:any) {
+    this.activeDropdown=true;
+    // localStorage.setItem('search',event.target.value)
+    if(this.activeDropdown){
+      this.search=event.target.value;
+      this.searchDetail()
+    }
+    // this.router.navigate(['search', event.target.value]);
   }
   signinPage() {
     this.router.navigate(['signin']);
@@ -63,5 +83,22 @@ export class HeaderComponent implements OnInit {
       localStorage.removeItem('userdetails');
     }
   }
+  calculateDiscount(price: number, discount: number)
+  {
+    const discountedPrice = price - (price * discount) / 100;
+    return discountedPrice;
+  }
+  navigateToDetails(id: number) {
+    this.activeDropdown=false;
+    this.search='';
+    this.router.navigate(['details', id]); //navigate with id to details page
+  }
+  searchDetail() {
+    if(this.books){
+    this.allBooks = this.books.filter((b: any) => {
+      return b.title.toLowerCase().includes(this.search.toLowerCase());
+    });
+  }
+}
 
 }

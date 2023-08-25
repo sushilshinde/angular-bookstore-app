@@ -15,8 +15,8 @@
 </button>
 </div>
 </div>
-<mat-grid-list [cols]="cols" *ngIf="!isLoading;else loader">
-  <mat-grid-tile *ngFor="let data of allBooks | sort:[sort,sortDirection]">
+<mat-grid-list  [cols]="cols" *ngIf="!isLoading;else loader">
+  <mat-grid-tile  *ngFor="let data of allBooks | sort:[sort,sortDirection]">
       <div (click)="navigateToDetails(data.id)" class="d-flex flex-column justify-content-center books-container image-div">
         <div>
           <img src="{{ data.thumbnailUrl }}" alt="noimg" />

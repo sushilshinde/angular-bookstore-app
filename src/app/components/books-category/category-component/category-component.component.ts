@@ -33,6 +33,19 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
     autoplaySpeed: 8000,
     responsive: [
       //getting component images corresponding widths
+      
+      {
+        breakpoint: '2200',
+        settings: {
+          slidesToShow: 6,
+        },
+      },
+      {
+        breakpoint: '1500',
+        settings: {
+          slidesToShow: 5,
+        },
+      },
       {
         breakpoint: '922',
         settings: {
@@ -52,7 +65,7 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
         },
       },
       {
-        breakpoint: '400',
+        breakpoint: '435',
         settings: {
           slidesToShow: 1,
         },

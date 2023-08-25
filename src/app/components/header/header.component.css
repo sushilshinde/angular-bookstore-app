@@ -112,3 +112,46 @@ input[type="text"] {
     margin-right: 10px;
   }
 }
+
+.search-div{
+  position:absolute;
+  z-index: 100;
+  max-height: 50vh;
+  /* width: 900px; */
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: max-content;
+ right:20vw;
+  border-radius: 7px;
+}
+.search-error-div{
+overflow: auto;
+}
+.search-error-div h1{
+  margin: 0px;
+padding: 10px;
+background-color: yellowgreen;
+}
+.search-div h3{
+  margin: 0;
+}
+.search-image{
+  width: 60px;
+  height: 100px;
+}
+.for-div{
+  border: 1px solid white;
+  /* background-color: #bfddeb; */
+  background-color: #e9dcad;
+  border-radius: 10px;
+  opacity: 0.75;
+  transition: all 0.5s;
+}
+.for-div:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+.content{
+  width: 65%;
+}

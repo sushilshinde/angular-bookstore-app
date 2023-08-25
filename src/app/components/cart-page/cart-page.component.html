@@ -10,9 +10,9 @@
           <img src="{{ item.thumbnailUrl }}" alt="{{ item.title }}" />
         </div>
         <div class="book-details">
-          <h3>{{ item.title }}</h3>
+          <h3>{{ item.title|shorten:15 }}</h3>
           <p>
-            by <i>{{ item.authors }}</i>
+            by <i>{{ item.authors[0]|shorten:15 }}</i>
           </p>
           <!-- <h2>&#8377;{{ item.price }}</h2> -->
 

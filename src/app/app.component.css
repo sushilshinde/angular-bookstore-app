@@ -3,3 +3,13 @@
   /* background-color: lightgoldenrodyellow; */
   background-color: rgb(241, 243, 245);
 }
+.background{
+  /* width: 100vw; */
+  /* height: 50vh; */
+  /* background-image:url('../assets/images/scrolling images/abstract-1851073_1920.jpg') ; */
+  background-size: cover;
+  background-color: rgb(241, 243, 245);
+  background-attachment: fixed,scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -25,25 +25,13 @@ export class DetailPageComponent implements OnInit
     private activeRoute: ActivatedRoute,
     private httpService: HttpService,
     private store: Store<{ cartItems: cartState }>,
-
   )
   {
-    this.activeRoute.params.subscribe(params => this.id = params['id'])
   }
-
+  
   ngOnInit(): void
   {
-
-    this.store.dispatch(getItem());
-    this.store.select('cartItems').subscribe((data) =>
-    {
-      this.cartData = data.cartItems[0];
-      const filteredId = this.cartData?.map((item: any) => item?.id)
-      if (filteredId.includes(+this.id)) {
-        this.existInCart = true;
-      }
-    });
-    this.httpService
+    this.activeRoute.params.subscribe(params => {this.id = params['id'],this.httpService
     .getBookDetails(this.id)
     .subscribe({
       next: array =>
@@ -54,7 +42,18 @@ export class DetailPageComponent implements OnInit
       {
         this.errorMessage = error;
       }
+    });})
+
+    this.store.dispatch(getItem());
+    this.store.select('cartItems').subscribe((data) =>
+    {
+      this.cartData = data.cartItems[0];
+      const filteredId = this.cartData?.map((item: any) => item?.id)
+      if (filteredId.includes(+this.id)) {
+        this.existInCart = true;
+      }
     });
+    
   }
   onDecrement()         //decrement item 
   {                   

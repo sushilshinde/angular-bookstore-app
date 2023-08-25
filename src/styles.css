@@ -21,3 +21,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.text-danger{
+  color: red !important;
+  font-weight: bold !important;
+}
+.text-success{
+  color:green !important;
+  font-weight: bold !important;
+}
+.text-primary{
+  color:rgb(9, 0, 128) !important;
+  font-weight: bold !important;
+}
+.text-info{
+  color:#1f6cff !important;
+  font-weight: bold !important;
+}
