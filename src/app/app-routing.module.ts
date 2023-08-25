@@ -6,19 +6,20 @@ import { SigninComponent } from './components/signin/signin.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { ViewallBooksPageComponent } from './components/viewall-books-page/viewall-books-page.component';
 import { OrderSuccessPageComponent } from './modules/order-success-page/order-success-page.component';
-import { AuthService } from './core/gaurds/auth.service';
+import { AuthGaurdService } from './core/gaurds/auth-gaurd.service';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
 import { SearchComponent } from './components/search/search.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
+import { AuthenticationGaurdService } from './core/gaurds/authentication-gaurd.service';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
-  { path: 'signin', component: SigninComponent },
+  { path: 'signin', component: SigninComponent, canActivate: [AuthenticationGaurdService] },
   { path: 'signup', component: SignupComponent },
   {
     path: 'details/:id',
     component: DetailPageComponent,
-    canActivate: [AuthService],
+    canActivate: [AuthGaurdService],
   },
   { path: 'cart', component: CartPageComponent },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },

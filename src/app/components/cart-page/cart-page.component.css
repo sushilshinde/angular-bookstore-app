@@ -4,15 +4,15 @@ h3 {
 }
 .background {
   background-color: rgb(241, 243, 245);
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 .flex-center {
   display: flex;
-  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 15px;
 }
 
 .error-msg {
@@ -120,7 +120,7 @@ h3 {
 
 @media screen and (max-width: 650px) {
   * {
-    font-size: xx-small;
+    font-size: small;
   }
   .price-card {
     max-width: 100%;
@@ -160,7 +160,7 @@ margin-right: 0;
     height: 200px;
   }
   .book-img img {
-    width: 110px;
+    width: 100px;
     height: 135px;
     margin-left: 5px;
     margin-right: 10px;
@@ -173,6 +173,9 @@ margin-right: 0;
 @media only screen and (max-width: 400px) {
   .cart-book {
     justify-content: center;
+  }
+  .book-img{
+    margin-right: 10px;
   }
   .book-img img {
     width: 90px;

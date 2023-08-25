@@ -37,9 +37,9 @@ export class DetailPageComponent implements OnInit
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) =>
     {
-      this.cartData = data.cartItems[0];
+      this.cartData = data.cartItems;
       const filteredId = this.cartData?.map((item: any) => item?.id)
-      if (filteredId.includes(+this.id)) {
+      if (filteredId?.includes(+this.id)) {
         this.existInCart = true;
       }
     });

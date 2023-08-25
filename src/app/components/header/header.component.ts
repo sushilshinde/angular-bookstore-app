@@ -1,5 +1,4 @@
-import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { CartService } from 'app/core/services/cart.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { cartState } from 'app/interfaces/interface.cartState';
@@ -32,7 +31,7 @@ export class HeaderComponent implements OnInit {
     this.store.dispatch(getItem())
     this.cartItemsSubscription = this.store.select('cartItems').subscribe((data) =>
     {
-      this.cartData = data.cartItems[0];
+      this.cartData = data.cartItems;
       this.count = this.cartData?.length;                  //returning cartData length and assigning to count
     })
     const userDetails = localStorage.getItem('userdetails');
@@ -40,7 +39,7 @@ export class HeaderComponent implements OnInit {
     if (userDetails) {
       const user = JSON.parse(userDetails);
 
-      this.username = user.name;
+      this.username = user.users.name;
     }
 
   
@@ -59,8 +58,9 @@ export class HeaderComponent implements OnInit {
   logout() {
     let result = confirm('Are you sure you want to Sign Out?');
     if (result) {
-      this.router.navigate(['signin']);
       localStorage.removeItem('userdetails');
+      this.router.navigate(['/']);
+      window.location.reload();
     }
   }
 

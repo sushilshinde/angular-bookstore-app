@@ -1,9 +1,8 @@
 <app-header *ngIf="cartData?.length > 0"></app-header>
 <a routerLink="/" *ngIf="cartData?.length > 0"><span class="material-symbols-outlined"> arrow_left_alt </span>
 </a>
-<div class="cart-details">
-  <div *ngIf="!error; else errorOcccur">
-  <div *ngIf="cartData?.length>=1;else noitems" class="cartandpricediv"> <!-- cart and price div-->
+<div *ngIf="!error; else errorOcccur">
+<div class="cart-details" *ngIf="cartData?.length>=1; else noitems">
     <div class="cart-card" *ngFor="let item of cartData">
       <div class="cart-book">
         <div class="book-img">
@@ -46,7 +45,7 @@
       <ng-template #discountdata>
         <h3 class="text-secondary text-center mb-0">{{item.price*item.quantity|currency:"INR"}}</h3>
       </ng-template>
-      <button class="btn remove-btn" (click)="onRemoveHandeller(item.id)">
+      <button class="btn remove-btn" (click)="onRemoveHandeller(item)">
         Remove
       </button>
     </div>
@@ -59,7 +58,7 @@
       <a routerLink="/buy" class="buynow-btn">Buy Now</a>
     </div>
   </div>
-  
+  </div>
   <ng-template #noitems>
     <div class="background flex-center">
       <div appStyles>
@@ -71,7 +70,7 @@
       </div>
     </div>
   </ng-template>
-  </div>
+  
   <ng-template #errorOcccur>
     <div class="background flex-center text-danger">
       <div  appErrorStyles>
@@ -84,5 +83,4 @@
       </div>
     </div>
   </ng-template>
-</div>
 <app-footer  *ngIf="cartData?.length > 0"></app-footer>

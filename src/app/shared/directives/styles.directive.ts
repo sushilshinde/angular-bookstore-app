@@ -10,8 +10,6 @@ export class StylesDirective
   {
     this.el.nativeElement.style.backgroundColor = '#b9dfb9';
     this.el.nativeElement.style.color = 'black';
-    this.el.nativeElement.style.width = "40vw";
-    this.el.nativeElement.style.height = "200px";
     this.el.nativeElement.style.display = "flex";
     this.el.nativeElement.style.flexDirection = "column";
     this.el.nativeElement.style.justifyContent = "center";
