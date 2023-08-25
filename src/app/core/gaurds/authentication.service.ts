@@ -22,12 +22,10 @@ export class AuthenticationService
       .subscribe({
         next: userData =>
         {
-          this.user = userData.users;
-          console.log(this.user,"logged in");
           //if matched nav to home and set user details
           this.isAuthenticate = true;
           alert('Login Successfull');
-          localStorage.setItem('userdetails', JSON.stringify(this.user));
+          localStorage.setItem('userdetails', JSON.stringify(userData.users));
           this.router.navigate(['/']);
           login.reset();
           window.location.reload();
@@ -54,11 +52,10 @@ export class AuthenticationService
     return this.http.post<any>(this.URL + '/users', register.value).subscribe({
       next: userData =>
       {
-        this.user = userData.users;
         //if matched nav to home and set user details
         this.isAuthenticate = true;
         alert('Registered Successfully!');
-        localStorage.setItem('userdetails', JSON.stringify(this.user));
+        localStorage.setItem('userdetails', JSON.stringify(userData.users));
         register.reset();
         this.router.navigate(['/']);
         window.location.reload();

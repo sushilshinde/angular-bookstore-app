@@ -15,7 +15,7 @@ import { AuthenticationGaurdService } from './core/gaurds/authentication-gaurd.s
 const routes: Routes = [
   { path: '', component: LandingPageComponent, pathMatch: 'full' },
   { path: 'signin', component: SigninComponent, canActivate: [AuthenticationGaurdService] },
-  { path: 'signup', component: SignupComponent },
+  { path: 'signup', component: SignupComponent, canActivate: [AuthenticationGaurdService] },
   {
     path: 'details/:id',
     component: DetailPageComponent,
