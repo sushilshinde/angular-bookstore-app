@@ -9,8 +9,8 @@ describe('CategoryComponentComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-        imports:[SlickCarouselModule,RouterTestingModule],
-      declarations: [CategoryComponentComponent,BooksCategoryComponent],
+      imports: [SlickCarouselModule, RouterTestingModule],
+      declarations: [CategoryComponentComponent, BooksCategoryComponent],
     });
     fixture = TestBed.createComponent(CategoryComponentComponent);
     component = fixture.componentInstance;
@@ -19,7 +19,7 @@ describe('CategoryComponentComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
+
   it('should render the title', () => {
     component.title = 'Trending';
     fixture.detectChanges();
@@ -39,7 +39,7 @@ describe('CategoryComponentComponent', () => {
     expect(titleElement.textContent).toContain('Available Books');
   });
   it('should navigate to details page on image click', () => {
-    spyOn(component['navpage'], 'navigate').and.stub(); 
+    spyOn(component['navpage'], 'navigate').and.stub();
     const bookId = 123;
     component.navigateToDetails(bookId);
     expect(component['navpage'].navigate).toHaveBeenCalledWith([

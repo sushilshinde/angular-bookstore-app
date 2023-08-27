@@ -19,14 +19,12 @@ h3 {
   text-decoration: none;
 }
 .cart-details {
-  /* width: 100vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .cart-card {
-  /* width: 100%; */
   height: auto;
   display: flex;
   flex: row wrap;
@@ -100,7 +98,6 @@ h3 {
   align-items: center;
   text-align: center;
   height: auto;
-  /* width: 650px; */
   margin-bottom: 20px;
   padding: 15px;
   background-color: #00ffe7;

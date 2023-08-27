@@ -5,7 +5,6 @@ import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { addItem, getItem } from 'app/store/cart.actions';
 import { HttpService } from 'app/core/services/http.service';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'app-detail-page',
@@ -31,22 +30,22 @@ export class DetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(getItem());
-    this.store.select('cartItems').subscribe((data) => {
+    this.store.select('cartItems').subscribe((data) => {      //subscribing cart items
       this.cartData = data.cartItems;
       if(this.cartData){
 
-        const filteredId = this.cartData.map((item: any) => item.id);
+        const filteredId = this.cartData.map((item: any) => item.id);  //checkinng id exist in cart
         if (filteredId.includes(+this.id)) {
           this.existInCart = true;
       }
       }
     });
-    this.httpService.getBookDetails(this.id).subscribe({
+    this.httpService.getBookDetails(this.id).subscribe({  //getting all book data
       next: (array) => {
         this.data = array;
       },
-      error: (error) => {
-        this.errorMessage = error;
+      error: (error) => {                   //error handeling
+        this.errorMessage = error;                 
       },
     });
 
@@ -64,7 +63,7 @@ export class DetailPageComponent implements OnInit {
   }
   addToCart(bookdata: BookQty) {
     bookdata['quantity'] = this.count;
-    this.store.dispatch(addItem({ bookdata }));
+    this.store.dispatch(addItem({ bookdata }));     //dispatching additem action to store
     this.route.navigate(['/cart']);
   }
   goToCart() {

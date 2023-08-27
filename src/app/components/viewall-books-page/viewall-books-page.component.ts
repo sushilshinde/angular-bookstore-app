@@ -15,7 +15,7 @@ export class ViewallBooksPageComponent {
   isLoading = false;
   sortDirection = 'asc';
   cols: number = this.getRows();
-    @HostListener('window:resize', ['$event'])
+    @HostListener('window:resize', ['$event'])  //hostlistener for responsive colums
   onWindowResize(event: any) {
     this.cols = this.getRows();
   }
@@ -73,7 +73,7 @@ export class ViewallBooksPageComponent {
   navigateToDetails(id: number) {
     this.navpage.navigate(['details', id]); //navigate with id to details page
   }
-  sortDir()
+  sortDir()     //sort function setting params for sort pipe
   {
     this.isLoading = true;
     if (this.sortDirection === 'asc') {
@@ -94,11 +94,11 @@ export class ViewallBooksPageComponent {
     this.sort = event.target.value;
     this.clearLoading();
   }
-  clearLoading()
+  clearLoading()    
   {
-    setTimeout(() =>
+    setTimeout(() =>          //timeout for spinner display
     {
-      this.isLoading=false
+      this.isLoading=false          
     },400)
   }
 }

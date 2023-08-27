@@ -40,10 +40,10 @@ export class BooksCategoryComponent implements OnInit, OnDestroy {
       }
     });
   }
-  emitworkes(data:any){
-    this.emitData=data;
+  emitworkes(data:any){  
+    this.emitData=data; // getting emitted data
   }
-  ngOnDestroy() {
+  ngOnDestroy() {                //ondestroy lifecycle method
     this.subscription.unsubscribe();
   }
   

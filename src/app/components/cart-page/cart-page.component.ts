@@ -22,7 +22,7 @@ export class CartPageComponent implements OnInit,OnDestroy
   count: number = 0;
   totalPrice: number = 0;
 private subscription!:Subscription
-  updatePrice()
+  updatePrice()                              //calculating all items price with reduce method
   {
     if (Array.isArray(this.cartData)) {
       this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
@@ -47,30 +47,24 @@ private subscription!:Subscription
   ngOnInit(): void
   {
     this.store.dispatch(getItem());
-    this.subscription=this.store.select('cartItems').subscribe((data) =>
+    this.subscription=this.store.select('cartItems').subscribe((data) =>  //subscribing cart items
     {
       this.cartData = data.cartItems;
       this.error = data.error;
       this.updatePrice();
     });
   }
-  // ngOnChanges() {
-  //   this.updatePrice();
-  // }
   onRemoveHandeller(bookdata:BookQty)
   {
-    this.store.dispatch(removeItem({ bookdata }));
-    // this.updatePrice();
+    this.store.dispatch(removeItem({ bookdata }));        //dispatching removeitems action to store
   }
   onIncrement(id: number)
   {
-    this.store.dispatch(increment({ id }));
-    // this.updatePrice();
+    this.store.dispatch(increment({ id }));  //dispatching increment action to store
   }
   onDecrement(id: number)
   {
-    this.store.dispatch(decrement({ id }));
-    // this.updatePrice();
+    this.store.dispatch(decrement({ id })); //dispatching decrement action to store
   }
 
   calculateDiscount(price: number, discount: number)
@@ -80,6 +74,6 @@ private subscription!:Subscription
   }
   ngOnDestroy()
   {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe();           //unsubscription
   }
 }

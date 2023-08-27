@@ -10,7 +10,7 @@ import { Book } from 'app/interfaces/interface.book';
 export class CategoryComponentComponent implements OnChanges, AfterContentInit {
   @Input() imagesData: Book[] = [];
   @Input() title: string = '';
-  @Output() eventEmit=new EventEmitter();
+  @Output() eventEmit=new EventEmitter();           //declearing event emitter
   changehook = false;
   spinner = false;
 
@@ -20,7 +20,7 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
   ngOnChanges() {
     this.changehook = true;
   }
-  ngAfterContentInit() {
+  ngAfterContentInit() {               //lifcecycle hook aftercontentinit
     this.spinner = false;
   }
 
@@ -83,6 +83,6 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
     this.navpage.navigate(['details', id]);
   }
   emitEvent(price:number){
-    this.eventEmit.emit(price)
+    this.eventEmit.emit(price)        //emitng evevnt
   }
 }

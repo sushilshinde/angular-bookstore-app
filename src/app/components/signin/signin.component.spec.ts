@@ -10,7 +10,7 @@ describe('SigninComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-        imports:[HttpClientTestingModule,ReactiveFormsModule,FormsModule],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, FormsModule],
       declarations: [SigninComponent],
     });
     fixture = TestBed.createComponent(SigninComponent);
@@ -26,22 +26,19 @@ describe('SigninComponent', () => {
   });
 
   it('checking email field validity', () => {
-    const email:any = component.login.controls['email'];
+    const email: any = component.login.controls['email'];
     expect(email.valid).toBeFalsy();
   });
 
   it('checking password field validity', () => {
-    let password:any = component.login.controls['password'];
+    let password: any = component.login.controls['password'];
     expect(password.valid).toBeFalsy();
-
   });
 
   it('submitting form should call signin method', () => {
-    spyOn(component, 'signin');            
+    spyOn(component, 'signin');
     const form = fixture.nativeElement.querySelector('form');
     form.dispatchEvent(new Event('ngSubmit'));
     expect(component.signin).toHaveBeenCalled();
   });
-
-
 });
