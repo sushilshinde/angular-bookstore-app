@@ -3,7 +3,7 @@
   <a routerLink="/" class="goback-arrow"
     ><span class="material-symbols-outlined"> arrow_left_alt </span>
   </a>
-  <div class="bookdetails-card" *ngIf="!errorMessage; else errorOccur">
+  <div @myInsertRemoveTrigger class="bookdetails-card" *ngIf="!errorMessage; else errorOccur">
     <div class="book-detail">
       <div class="book-img">
         <img [src]="data?.thumbnailUrl" [alt]="data?.title" />

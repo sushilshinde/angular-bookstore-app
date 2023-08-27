@@ -5,11 +5,17 @@ import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { addItem, getItem } from 'app/store/cart.actions';
 import { HttpService } from 'app/core/services/http.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-detail-page',
   templateUrl: './detail-page.component.html',
   styleUrls: ['./detail-page.component.css'],
+  animations:[trigger('myInsertRemoveTrigger', [
+    transition(':enter', [
+      style({ translate:'800px -200px',scale:0}),
+      animate('800ms', style({ translate:'0px 0px',scale:1 })),
+    ])])]
 })
 export class DetailPageComponent implements OnInit {
   data: any;

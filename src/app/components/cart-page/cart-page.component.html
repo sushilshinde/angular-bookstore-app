@@ -4,7 +4,7 @@
 </a>
 <div class="cart-details">
   <div *ngIf="!error; else errorOcccur">
-    <div *ngIf="totalPrice; else noitems" class="cartandpricediv">
+    <div @myInsertRemoveTrigger *ngIf="totalPrice; else noitems" class="cartandpricediv">
       <div class="cart-card" *ngFor="let item of cartData">
         <div class="cart-book">
           <div class="book-img">
@@ -15,7 +15,7 @@
             <p>
               by <i>{{ item?.authors | shorten : 15 }}</i>
             </p>
-            <div class="text-left" *ngIf="item?.discount; else noDiscount">
+            <div class="text-left"  *ngIf="item?.discount; else noDiscount">
               <del>
                 <span class="text-left m-0 text-info">₹{{ item?.price }} </span>
               </del>
@@ -26,7 +26,7 @@
                 ₹{{ calculateDiscount(item.price, item.discount) }}
               </p>
             </div>
-            <ng-template #noDiscount class="text-center">
+            <ng-template  @myInsertRemoveTrigger #noDiscount class="text-center">
               <p class="text-left m-0 text-success">₹{{ item?.price }}</p>
             </ng-template>
             <div class="book-qty">

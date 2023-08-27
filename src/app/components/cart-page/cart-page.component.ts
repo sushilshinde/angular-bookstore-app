@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BookQty } from 'app/interfaces/interface.book';
@@ -14,6 +15,12 @@ import { Subscription } from 'rxjs';
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css'],
+  animations:[trigger('myInsertRemoveTrigger', [
+    transition(':enter', [
+      style({ opacity: 0,scale:0}),
+      animate('700ms', style({ opacity: 1,scale:1 })),
+    ]),
+  ]),]
 })
 export class CartPageComponent implements OnInit,OnDestroy
 {

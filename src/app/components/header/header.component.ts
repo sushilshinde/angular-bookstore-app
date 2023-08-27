@@ -13,6 +13,15 @@ import { animate, style, transition, trigger } from '@angular/animations';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
+   animations:[trigger('myInsertRemoveTrigger', [
+    transition(':enter', [
+      style({ opacity: 0,translate:'-200px -200px',scale:0}),
+      animate('1000ms', style({ opacity: 1,translate:'0px 0px',scale:1 })),
+    ]),
+    transition(':leave', [
+      animate('100ms', style({ opacity: 0,translate:'600px 0px',scale:0 }))
+    ])
+  ]),]
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('searchField') searchField: any;
