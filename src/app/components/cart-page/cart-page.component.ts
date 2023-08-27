@@ -1,5 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import
   {
@@ -8,24 +9,26 @@ import
     removeItem,
     getItem,
   } from 'app/store/cart.actions';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css'],
 })
-export class CartPageComponent implements OnInit
+export class CartPageComponent implements OnInit,OnDestroy
 {
   cartData: any = [];
   error!: any;
   count: number = 0;
   totalPrice: number = 0;
-
+private subscription!:Subscription
   updatePrice()
   {
     if (Array.isArray(this.cartData)) {
       this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
       {
-        if (value.categories.includes('Offers')) {
+        
+        if (value.discount) {
           return (
             acc +
             this.calculateDiscount(value.price, value.discount) * value.quantity
@@ -40,13 +43,13 @@ export class CartPageComponent implements OnInit
     }
   }
 
-  constructor (private store: Store<{ cartItems: cartState }>,) { }
+  constructor (private store: Store<{ cartItems: cartState }>,) {}
   ngOnInit(): void
   {
     this.store.dispatch(getItem());
-    this.store.select('cartItems').subscribe((data) =>
+    this.subscription=this.store.select('cartItems').subscribe((data) =>
     {
-      this.cartData = data.cartItems[0];
+      this.cartData = data.cartItems;
       this.error = data.error;
       this.updatePrice();
     });
@@ -54,9 +57,9 @@ export class CartPageComponent implements OnInit
   // ngOnChanges() {
   //   this.updatePrice();
   // }
-  onRemoveHandeller(id: number)
+  onRemoveHandeller(bookdata:BookQty)
   {
-    this.store.dispatch(removeItem({ id }));
+    this.store.dispatch(removeItem({ bookdata }));
     // this.updatePrice();
   }
   onIncrement(id: number)
@@ -74,5 +77,9 @@ export class CartPageComponent implements OnInit
   {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
+  }
+  ngOnDestroy()
+  {
+    this.subscription.unsubscribe();
   }
 }

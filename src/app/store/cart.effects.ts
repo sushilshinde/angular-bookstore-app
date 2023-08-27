@@ -26,7 +26,6 @@ export class CartEffects
       ofType(addItem),
       switchMap((data: any) =>
       {
-
         return this.cartService.addCartItems(data.bookdata).pipe(
           map((cartData: any) =>
           {
@@ -56,12 +55,12 @@ export class CartEffects
   {
     return this.action$.pipe(
       ofType(removeItem),
-      switchMap((item: any) =>
+      switchMap((data: any) =>
       {
-        return this.cartService.removeCartItems(item.id).pipe(
+        return this.cartService.removeCartItems(data.bookdata).pipe(
           map((cartData: any) =>
           {
-            return removeItemSuccess({ id: item.id });
+            return removeItemSuccess({ bookdata: cartData });
           }),
           catchError(err => of(errorOccur(err))),
         );

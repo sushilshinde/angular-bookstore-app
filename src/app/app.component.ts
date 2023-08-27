@@ -22,7 +22,6 @@ export class AppComponent {
         this.currertimage='../assets/images/scrolling images/fantasy.jpg'
       }
       else{
-      console.log(e.url)
         this.currertimage='../assets/images/scrolling images/library1.jpg'
       }
     }

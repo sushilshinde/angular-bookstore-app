@@ -10,8 +10,6 @@ export class ErrorStylesDirective
   {
     this.el.nativeElement.style.backgroundColor = '#03d2f733';
     this.el.nativeElement.style.color = 'red';
-    this.el.nativeElement.style.width = "40vw";
-    this.el.nativeElement.style.height = "220px";
     this.el.nativeElement.style.display = "flex";
     this.el.nativeElement.style.flexDirection = "column";
     this.el.nativeElement.style.justifyContent = "center";

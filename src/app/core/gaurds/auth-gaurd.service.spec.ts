@@ -3,21 +3,21 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AuthService } from './auth.service';
+import { AuthGaurdService } from './auth-gaurd.service';
 import { AuthenticationService } from './authentication.service';
 
 describe('AuthService', () => {
-  let authService: AuthService;
+  let authService: AuthGaurdService;
   let authenticationService: AuthenticationService;
   let router: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule,HttpClientModule,HttpClientTestingModule],
-      providers: [AuthService, AuthenticationService],
+      providers: [AuthGaurdService, AuthenticationService],
     });
     
-    authService = TestBed.inject(AuthService);
+    authService = TestBed.inject(AuthGaurdService);
     authenticationService = TestBed.inject(AuthenticationService);
     router = TestBed.inject(Router);
   });
