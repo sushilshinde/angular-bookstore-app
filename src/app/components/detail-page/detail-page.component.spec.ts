@@ -11,6 +11,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MaterialModule } from 'app/shared/material_ui/material.module';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DetailPageComponent', () => {
   let component: DetailPageComponent;
@@ -36,7 +37,7 @@ describe('DetailPageComponent', () => {
         { provide: ActivatedRoute, useValue: { params: of({ id: 123 }) } }, // Provide a mock ActivatedRoute
         { provide: Store, useValue: mockStore },
       ],
-      imports: [HttpClientTestingModule,MaterialModule,RouterTestingModule,CommonModule,
+      imports: [BrowserAnimationsModule,HttpClientTestingModule,MaterialModule,RouterTestingModule,CommonModule,
         StoreModule.forRoot({ cartItems: cartReducer }), // Set up a mock store module
       ],
     }).compileComponents();
