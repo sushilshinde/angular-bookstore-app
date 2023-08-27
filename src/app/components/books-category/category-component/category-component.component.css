@@ -16,6 +16,7 @@ button {
   border-image: linear-gradient(180deg, rgb(0, 255, 0) 50%, rgba(0, 0, 255) 20%)
     1;
   width: 100%;
+  cursor: pointer;
 }
 .carousel {
   margin: 30px 30px;
