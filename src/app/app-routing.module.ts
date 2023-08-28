@@ -20,9 +20,15 @@ const routes: Routes = [
     component: DetailPageComponent,
     canActivate: [AuthGaurdService],
   },
-  { path: 'cart', component: CartPageComponent },
+  {
+    path: 'cart', component: CartPageComponent,
+    canActivate: [AuthGaurdService],
+  },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
-  { path: 'buy', component: OrderSuccessPageComponent },
+  {
+    path: 'buy', component: OrderSuccessPageComponent,
+    canActivate: [AuthGaurdService],
+  },
   { path: '**', component: PageNotFoundComponent },
 ];
 
