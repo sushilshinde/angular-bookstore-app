@@ -26,4 +26,4 @@ const MaterialImports = [
   imports: [MaterialImports],
   exports: [MaterialImports],
 })
-export class MaterialModule {}
+export class MaterialModule { }

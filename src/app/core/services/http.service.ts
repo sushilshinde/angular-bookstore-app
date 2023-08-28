@@ -63,12 +63,15 @@ export class HttpService
       catchError(err => throwError("error occured"))
     );
   }
-  addCartItems(data: any) {
+  addCartItems(data: any)
+  {
     return this.http.post(this.URL + '/cartItems', data);
   }
-  getCartItems() {
+  getCartItems()
+  {
     return this.http.get<Book[]>(this.URL + '/cartItems').pipe(
-      map((Resp) => {
+      map((Resp) =>
+      {
         return Resp;
       })
     );

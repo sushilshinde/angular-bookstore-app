@@ -76,4 +76,4 @@ import { ErrorStylesDirective } from './shared/directives/error-styles.directive
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

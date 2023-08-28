@@ -12,12 +12,14 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 import { DebugElement } from '@angular/core';
 
-describe('HeaderComponent', () => {
+describe('HeaderComponent', () =>
+{
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let debugElement: DebugElement;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(waitForAsync(() =>
+  {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
@@ -38,18 +40,21 @@ describe('HeaderComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 
-  it('should display username when logged in', () => {
+  it('should display username when logged in', () =>
+  {
     const testUser = { users: { name: 'John Doe' } };
     localStorage.setItem('userdetails', JSON.stringify(testUser));
     fixture.detectChanges();
@@ -59,7 +64,8 @@ describe('HeaderComponent', () => {
     expect(usernameElement.textContent).toContain('Welcome JOHN DOE');
   });
 
-  it('should display cart icon with badge', () => {
+  it('should display cart icon with badge', () =>
+  {
     component.count = 5;
     fixture.detectChanges();
     const cartIcon = fixture.debugElement.nativeElement.querySelector('.cart');

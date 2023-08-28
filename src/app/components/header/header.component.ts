@@ -11,17 +11,18 @@ import { animate, style, transition, trigger } from '@angular/animations';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-   animations:[trigger('myInsertRemoveTrigger', [
+  animations: [trigger('myInsertRemoveTrigger', [
     transition(':enter', [
-      style({ opacity: 0,translate:'-200px -200px',scale:0}),
-      animate('1000ms', style({ opacity: 1,translate:'0px 0px',scale:1 })),
+      style({ opacity: 0, translate: '-200px -200px', scale: 0 }),
+      animate('1000ms', style({ opacity: 1, translate: '0px 0px', scale: 1 })),
     ]),
     transition(':leave', [
-      animate('100ms', style({ opacity: 0,translate:'600px 0px',scale:0 }))
+      animate('100ms', style({ opacity: 0, translate: '600px 0px', scale: 0 }))
     ])
   ]),]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit
+{
   @ViewChild('searchField') searchField: any;
   username: string = '';
   search: any = '';
@@ -34,11 +35,13 @@ export class HeaderComponent implements OnInit {
     private store: Store<{ cartItems: cartState }>,
     private router: Router,
     private httpservice: HttpService
-  ) {}
+  ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.httpservice.getBooks().subscribe({
-      next: (resp) => {
+      next: (resp) =>
+      {
         this.books = resp;
       },
       error: (err) =>
@@ -48,7 +51,8 @@ export class HeaderComponent implements OnInit {
       },
     });
     this.store.dispatch(getItem());
-    this.store.select('cartItems').subscribe((data) => {
+    this.store.select('cartItems').subscribe((data) =>
+    {
       this.cartData = data.cartItems;
       this.count = this.cartData?.length; //returning cartData length and assigning to count
     });
@@ -61,12 +65,14 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
-  ngAfterViewInit() {
+  ngAfterViewInit()
+  {
     //using afterviewinit hook for default focus on search
     this.searchField.nativeElement.focus({ preventScroll: true });
   }
 
-  redirectToSearch(event: any) {
+  redirectToSearch(event: any)
+  {
     this.activeDropdown = true;
     // localStorage.setItem('search',event.target.value)
     if (this.activeDropdown) {
@@ -75,10 +81,12 @@ export class HeaderComponent implements OnInit {
     }
     // this.router.navigate(['search', event.target.value]);
   }
-  signinPage() {
+  signinPage()
+  {
     this.router.navigate(['signin']);
   }
-  logout() {
+  logout()
+  {
     let result = confirm('Are you sure you want to Sign Out?');
     if (result) {
       localStorage.removeItem('userdetails');
@@ -89,19 +97,23 @@ export class HeaderComponent implements OnInit {
   calculateDiscount(
     price: number,
     discount: number //calculating discount
-  ) {
+  )
+  {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number) {
+  navigateToDetails(id: number)
+  {
     this.activeDropdown = false;
     this.search = '';
     this.router.navigate(['details', id]); //navigate with id to details page
   }
-  searchDetail() {
+  searchDetail()
+  {
     //search filter
     if (this.books) {
-      this.allBooks = this.books.filter((b: any) => {
+      this.allBooks = this.books.filter((b: any) =>
+      {
         return b.title.toLowerCase().includes(this.search.toLowerCase());
       });
     }

@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   templateUrl: './order-success-page.component.html',
   styleUrls: ['./order-success-page.component.css']
 })
-export class OrderSuccessPageComponent {
-  
+export class OrderSuccessPageComponent
+{
+
 }

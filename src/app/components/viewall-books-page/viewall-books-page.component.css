@@ -1,16 +1,16 @@
 * {
   box-sizing: border-box;
 }
-.container{
+.container {
   width: 100%;
   height: auto;
 }
 mat-grid-tile {
   background: transparent;
 }
-.spinner{
+.spinner {
   width: 100%;
- height: 475px;
+  height: 475px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,8 +25,8 @@ img {
   transition: all 0.3s;
   cursor: pointer;
 }
-.books-container:hover{
-opacity: 0.6;
+.books-container:hover {
+  opacity: 0.6;
 }
 .back-btn {
   position: absolute;
@@ -48,12 +48,12 @@ opacity: 0.6;
   bottom: 0px;
   cursor: pointer;
 }
-button{
+button {
   margin-left: 10px;
   outline: none;
   border-radius: 3px;
 }
-.heading{
+.heading {
   display: flex;
   flex: row wrap;
   color: red;

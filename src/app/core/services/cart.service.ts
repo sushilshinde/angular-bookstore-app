@@ -9,11 +9,12 @@ import { cartState } from 'app/interfaces/interface.cartState';
 import { map } from 'rxjs';
 import { environment } from 'environment/environment';
 @Injectable({ providedIn: 'root' })
-export class CartService {
+export class CartService
+{
   cartItems: any;
   userId: number;
   private URL = environment.apiURL;
-  constructor(
+  constructor (
     private store: Store<{ cartItems: cartState }>,   //declaring the store
     private http: HttpClient
   )
@@ -42,12 +43,12 @@ export class CartService {
   getCartItems()
   {                      //getting data from server
     return this.http.get<Book[]>(this.URL + '/cartItems/' + this.userId)
-    .pipe(
-      map((Resp) =>
-      {
-        return Resp;
-      })
-    );
+      .pipe(
+        map((Resp) =>
+        {
+          return Resp;
+        })
+      );
   }
   removeCartItems(data: any)
   {
@@ -55,7 +56,7 @@ export class CartService {
   }
 
   updateCartItems(item: any, mode: string)     //updating the cart item quantity
-  {           
+  {
     let currentQuantity = item.quantity;
     let updatedQty;
     if (mode === "increment") {

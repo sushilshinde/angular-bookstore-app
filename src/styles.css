@@ -1,39 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 
- html, body { height: 100%;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.slick:prev-before, .slick:next-before{
-    color: black !important;
-
+html,
+body {
+  height: 100%;
 }
-.slick-prev:before{
-    color: rgb(234, 0, 255) !important;
-    left: 50px !important;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
- .slick-next:before{
-    color: rgb(255, 0, 255) !important;
-    right: 50px !important;
-  }
-  .img-style{
-    width:400px;
-    height: 400px !important;
-  } 
+.slick:prev-before,
+.slick:next-before {
+  color: black !important;
+}
+.slick-prev:before {
+  color: rgb(234, 0, 255) !important;
+  left: 50px !important;
+}
+.slick-next:before {
+  color: rgb(255, 0, 255) !important;
+  right: 50px !important;
+}
+.img-style {
+  width: 400px;
+  height: 400px !important;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-.text-danger{
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.text-danger {
   color: red !important;
   font-weight: bold !important;
 }
-.text-success{
-  color:green !important;
+.text-success {
+  color: green !important;
   font-weight: bold !important;
 }
-.text-primary{
-  color:rgb(9, 0, 128) !important;
+.text-primary {
+  color: rgb(9, 0, 128) !important;
   font-weight: bold !important;
 }
-.text-info{
-  color:#1f6cff !important;
+.text-info {
+  color: #1f6cff !important;
   font-weight: bold !important;
 }

@@ -4,11 +4,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MaterialModule } from 'app/shared/material_ui/material.module';
 import { FooterComponent } from './footer.component';
 import { MatIconModule } from '@angular/material/icon';
-describe('FooterComponent', () => {
+describe('FooterComponent', () =>
+{
   let component: FooterComponent;
   let fixture: ComponentFixture<FooterComponent>;
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     TestBed.configureTestingModule({
       imports: [MatIconModule],
       declarations: [FooterComponent],
@@ -18,7 +20,8 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 });

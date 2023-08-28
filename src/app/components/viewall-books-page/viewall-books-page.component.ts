@@ -8,29 +8,33 @@ import { HttpService } from 'app/core/services/http.service';
   templateUrl: './viewall-books-page.component.html',
   styleUrls: ['./viewall-books-page.component.css'],
 })
-export class ViewallBooksPageComponent {
+export class ViewallBooksPageComponent
+{
   allBooks: any = [];
   category: string = '';
   sort!: string;
   isLoading = false;
   sortDirection = 'asc';
   cols: number = this.getRows();
-    @HostListener('window:resize', ['$event'])  //hostlistener for responsive colums
-  onWindowResize(event: any) {
+  @HostListener('window:resize', ['$event'])  //hostlistener for responsive colums
+  onWindowResize(event: any)
+  {
     this.cols = this.getRows();
   }
 
-  constructor(
+  constructor (
     private activeRoute: ActivatedRoute,
     private http: HttpService,
     private navpage: Router
-  ) {}
+  ) { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.activeRoute.params.subscribe(
       (res) => (this.category = res['category'])
     ); //asigning params to category
-    this.activeRoute.params.subscribe((param) => {
+    this.activeRoute.params.subscribe((param) =>
+    {
       if (param['category'] === 'Trending') {
         this.http
           .getTrendingBooks()
@@ -46,17 +50,19 @@ export class ViewallBooksPageComponent {
         this.http.getBooks().subscribe((resp) => (this.allBooks = resp)); //assigning allbooks with avaliable books
       }
     });
-   
+
   }
-  
+
   calculateDiscount(
     price: number,
     discount: number //discount calculating
-  ) {
+  )
+  {
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  getRows() {
+  getRows()
+  {
     if (window.innerWidth > 1000) {
       //grid items for window
       return 4;
@@ -70,7 +76,8 @@ export class ViewallBooksPageComponent {
       return 1;
     }
   }
-  navigateToDetails(id: number) {
+  navigateToDetails(id: number)
+  {
     this.navpage.navigate(['details', id]); //navigate with id to details page
   }
   sortDir()     //sort function setting params for sort pipe
@@ -79,7 +86,7 @@ export class ViewallBooksPageComponent {
     if (this.sortDirection === 'asc') {
       this.sortDirection = 'desc'
       this.clearLoading();
-      
+
     }
     else {
       this.sortDirection = 'asc'
@@ -87,7 +94,7 @@ export class ViewallBooksPageComponent {
 
     }
   }
-  sortBy(event:any)
+  sortBy(event: any)
   {
     this.sortDirection = 'asc';
     this.isLoading = true;
@@ -98,7 +105,7 @@ export class ViewallBooksPageComponent {
   {
     setTimeout(() =>          //timeout for spinner display
     {
-      this.isLoading=false          
-    },400)
+      this.isLoading = false
+    }, 400)
   }
 }

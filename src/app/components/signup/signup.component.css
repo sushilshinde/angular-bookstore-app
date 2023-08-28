@@ -39,7 +39,7 @@ input[type="password"] {
 .validate p {
   color: red;
   word-wrap: break-word;
-  font-size:x-small;
+  font-size: x-small;
 }
 button {
   width: 150px;

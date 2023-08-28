@@ -8,19 +8,22 @@ import { nameValidator } from './name.validator';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent {
+export class SignupComponent
+{
   userdata: any = [];
-  constructor(private authentication: AuthenticationService) {}
+  constructor (private authentication: AuthenticationService) { }
   register = new FormGroup({
-    name: new FormControl(null, [Validators.required,nameValidator()]),
+    name: new FormControl(null, [Validators.required, nameValidator()]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required, passwordValidator()]),
-    confirm: new FormControl(null,[Validators.required]),
+    confirm: new FormControl(null, [Validators.required]),
   });
-  signup() {
+  signup()
+  {
     this.authentication.signup(this.register);
   }
-  confirmPasswordMatch(): boolean {
+  confirmPasswordMatch(): boolean
+  {
     const password = this.register.get('password')?.value;
     const confirm = this.register.get('confirm')?.value;
     return password === confirm;

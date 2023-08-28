@@ -39,7 +39,7 @@ export const cartReducer = createReducer(
   }),
   on(getItemSuccess, (state: cartState, action) =>
   {
-    const bookd:any[] = action.bookdata;
+    const bookd: any[] = action.bookdata;
     return {
       cartItems: bookd,
       error: ''
@@ -71,7 +71,7 @@ export const cartReducer = createReducer(
   {
     return state;
   }),
-  on(removeItemSuccess, (state, action:any) =>
+  on(removeItemSuccess, (state, action: any) =>
   {
     return {
       error: '',
@@ -79,7 +79,7 @@ export const cartReducer = createReducer(
     };
   }),
   on(errorOccur, (state, action) =>
-{
+  {
     return {
       ...state,
       error: action.error
