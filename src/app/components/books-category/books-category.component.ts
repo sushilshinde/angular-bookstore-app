@@ -1,44 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { httpService } from 'src/app/services/http.service';
-import { Book } from 'src/app/interfaces/interface.book';
-
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { HttpService } from 'app/core/services/http.service';
+import { Book } from 'app/interfaces/interface.book';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-books-category',
   templateUrl: './books-category.component.html',
   styleUrls: ['./books-category.component.css'],
 })
-export class BooksCategoryComponent implements OnInit {
+export class BooksCategoryComponent implements OnInit, OnDestroy
+{
+  emitData: any
   trendingBooks: Book[] = [];
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
+  errorMessage!: any
+  private subscription!: Subscription
+  constructor (private httpdata: HttpService) { }
 
-  constructor(private httpdata: httpService) {}
-
-  ngOnInit() {
-    // this.httpdata.getTrendingBooks().subscribe((resp) => {
-    //   this.trendingBooks = resp;
-    // });
-    // this.httpdata.getBestOffersBooks().subscribe((resp) => {
-    //   this.bestOfferBooks = resp;
-    // });
-    // this.httpdata.getBooks().subscribe((resp) => {
-    //   this.allBooks = resp;
-    // });
-
-    this.httpdata.getBooks().subscribe((resp) => {
-      let booksoffer = [];
-      let trending = [];
-      for (let data of resp) {
-        if (data.discount) {
-          booksoffer.push({ ...data });
+  ngOnInit()
+  {
+    this.subscription = this.httpdata.getBooks().subscribe({
+      next: resp =>
+      {
+        let booksoffer = [];
+        let trending = [];
+        for (let data of resp) {
+          if (data.discount) {
+            booksoffer.push({ ...data }); //updating book offers
+          }
+          if (data.categories.includes('Trending')) {
+            trending.push({ ...data }); //updating trending books
+          }
+          this.bestOfferBooks = booksoffer;
+          this.trendingBooks = trending;
+          this.allBooks = resp; //updating all books
         }
-        if (data.categories.includes('Trending')) {
-          trending.push({ ...data });
-        }
-        this.bestOfferBooks = booksoffer;
-        this.trendingBooks = trending;
-        this.allBooks = resp;
+      },
+      error: err =>
+      {
+        this.errorMessage = err;
       }
     });
   }
+  emitworkes(data: any)
+  {
+    this.emitData = data; // getting emitted data
+  }
+  ngOnDestroy()
+  {                //ondestroy lifecycle method
+    this.subscription.unsubscribe();
+  }
+
 }

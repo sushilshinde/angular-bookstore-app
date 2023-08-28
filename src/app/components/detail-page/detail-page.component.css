@@ -4,10 +4,22 @@ h4,
 h3 {
   font-weight: bold;
 }
-h3{
+h3 {
   margin: 0px;
 }
-.discountPrice h4{
+.flex-center {
+  height: 500px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.error-msg {
+  text-decoration: none;
+}
+.discountPrice h4 {
   color: rgb(19, 182, 33);
 }
 .details-card {
@@ -19,7 +31,6 @@ h3{
   max-width: 1000px;
   height: auto;
   margin: 20px 20px 0 20px;
-
   padding-bottom: 20px;
   display: flex;
   justify-content: center;
@@ -53,13 +64,14 @@ h3{
   flex-wrap: wrap;
 }
 .title-name h2 {
-  color: rgb(5, 5, 61);
+  color: rgb(255, 239, 8);
 }
 .title-name {
   margin-left: 30px;
 }
 .book-price {
   margin-left: 30px;
+  color: greenyellow;
 }
 .book-qty {
   display: flex;
@@ -67,13 +79,14 @@ h3{
 }
 .book-qty p {
   padding-top: 4px;
+  color: yellow;
 }
 .book-qty button {
   border: none;
   font-weight: 600;
   color: black;
   font-size: 15px;
-  background-color: rgb(219, 217, 217);
+  background-color: rgb(248, 175, 175);
   height: 29px;
   width: 20px;
   margin: 0px 10px 0px 10px;
@@ -82,6 +95,9 @@ h3{
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+.book-atc a {
+  cursor: pointer;
 }
 .cart-btn {
   max-width: 160px;
@@ -120,20 +136,26 @@ h3{
   flex-wrap: wrap;
   margin: 20px 10px 25px 0;
   line-height: 25px;
+  color: #0008ffb0;
 }
 .book-desc p {
   max-width: 900px;
   margin-bottom: 25px;
   padding: 10px 0px 10px 12px;
+  color: aliceblue;
 }
-.goback-arrow .material-symbols-outlined{
+.goback-arrow .material-symbols-outlined {
   margin-left: 35px;
   font-size: 40px;
-  color:rgb(5, 5, 61);
+  color: rgb(208, 255, 0);
+}
+.back-btn .material-symbols-outlined {
+  padding-right: 2px;
+  text-align: center;
 }
 .back-btn {
   position: absolute;
-  max-width: 160px;
+  width: 80px;
   height: 40px;
   display: flex;
   text-align: center;

@@ -1,0 +1,22 @@
+.background {
+  background-color: azure;
+  width: 100vw;
+  height: 100vh;
+}
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+mat-icon {
+  overflow: visible;
+}
+@media only screen and (max-width: 672px) {
+  .card {
+    width: 65vw;
+    height: 200px;
+  }
+}

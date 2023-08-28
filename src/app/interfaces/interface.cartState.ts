@@ -1,5 +1,7 @@
-import { BookQty } from "./interface.bookwithqty";
+import { BookQty } from "./interface.book";
 
-export interface cartState{
-    cartItems:BookQty[]
+export interface cartState
+{  //cartstate interface for cart items
+    cartItems: BookQty[],
+    error: String
 }

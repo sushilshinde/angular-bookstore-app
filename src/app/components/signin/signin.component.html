@@ -1,38 +1,26 @@
-<div class="signin">
-  <div class="sign">
-    <form [formGroup]="login" (ngSubmit)="submit()">
+<div class="signincomponent">
+  <div class="signin">
+    <form [formGroup]="login" (ngSubmit)="signin()">
       <h1>Sign In</h1>
-      <div class="error">
-        <input
-          type="email"
-          placeholder="E-mail"
-          formControlName="email"
-        /><br />
-        <p
-          *ngIf="
+      <div class="validate">
+        <input type="email" placeholder="E-mail" formControlName="email" /><br />
+        <p *ngIf="
             login.controls['email'].touched &&
             login.hasError('required', 'email')
-          "
-        >
+          ">
           *This field is required
         </p>
       </div>
-      <div class="error">
-        <input
-          type="password"
-          placeholder="Password"
-          formControlName="password"
-        /><br />
-        <p
-          *ngIf="
+      <div class="validate">
+        <input type="password" placeholder="Password" formControlName="password" /><br />
+        <p *ngIf="
             login.controls['password'].touched &&
             login.hasError('required', 'password')
-          "
-        >
+          ">
           *This field is required
         </p>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!login.valid">
+      <button type="submit" class="btn btn-primary" [disabled]="login.invalid">
         Sign In
       </button>
       <p>Don't have an account? <a routerLink="/signup">Sign Up</a></p>

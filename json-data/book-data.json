@@ -342,7 +342,6 @@
       "authors": ["Christian Bauer", "Gavin King"],
       "categories": ["Offers"]
     },
-
     {
       "title": "Java Persistence with Hibernate",
       "id": 33,
@@ -434,42 +433,125 @@
       "categories": ["Offers"]
     }
   ],
-  "carousel": [
+  "cartItems": [
     {
-      "title": "Light Bringer - A Red Rising Novel",
-      "id": 41,
-      "price": 2399,
-      "thumbnailUrl": "https://covers3.booksamillion.com/covers/bam/0/42/528/597/0425285979_b.jpg",
-      "longDescription": "Darrow returns as Pierce Brown's New York Times bestselling Red Rising series continues in the thrilling sequel to Dark Age. \"Brown's plots are like a depth charge of nitromethane dropped in a bucket of gasoline. His pacing is 100% him standing over it all with a lit match and a smile, waiting for us to dare him to drop it.\"--NPR, on Dark Age. \"The measure of a man is not the fear he sows in his enemies. It is the hope he gives his friends.\"--Virginia au Augustus The Reaper is a legend, more myth than man: the savior of worlds, the leader of the Rising, the breaker of chains. But the Reaper is also Darrow, born of the red soil of Mars: a husband, a father, a friend. The worlds once needed the Reaper. But now they need Darrow. Because after the dark age will come a new age: of light, of victory, of hope. Don't miss any of Pierce Brown's Red Rising Saga: RED RISING - GOLDEN SON - MORNING STAR - IRON GOLD - DARK AGE - LIGHT BRINGER",
-      "authors": ["Pierce Brown"],
-      "categories": ["Carousel"]
+      "title": "Twisted Love",
+      "id": 3,
+      "price": 400,
+      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTZhtsKmo50jpJ6Meltf1tzUAGTJH2osk37Nvz8Qegv6c8bVxhr",
+      "longDescription": "Alex Volkov is a devil blessed with the face of an angel and cursed with a past he can’t escape.Driven by a tragedy that has haunted him for most of his life, his ruthless pursuits for success and vengeance leave little room for matters of the heart. But when he’s forced to look after his best friend’s sister, he starts to feel something in his chest: \"A crack\". \"A melt\" \"A fire that could end his world as he knew it\". Ava Chen is a free spirit trapped by nightmares of a childhood she can’t remember. But despite her broken past, she’s never stopped seeing the beauty in the world…including the heart beneath the icy exterior of a man she shouldn’t want. Her brother’s best friend. Her neighbor. Her savior and her downfall. Theirs is a love that was never supposed to happen—but when it does, it unleashes secrets that could destroy them both…and everything they hold dear. Twisted Love is a brother’s best friend/opposites attract romance with a hint of suspense. It's book one in the Twisted series but can be read as a standalone.",
+      "status": "PUBLISH",
+      "authors": ["Ana Huang"],
+      "categories": ["Trending"],
+      "quantity": 15
     },
     {
-      "title": "Baking Yesteryear",
-      "id": 42,
-      "price": 1999,
-      "thumbnailUrl": "https://covers2.booksamillion.com/covers/bam/0/74/408/004/0744080045.jpg",
-      "longDescription": "A decade-by-decade cookbook that highlights the best (and a few of the worst) baking recipes from the 20th century Friends of baking, are you sick and tired of making the same recipes again and again? Then look no further than this baking blast from the past, as B. Dylan Hollis highlights the most unique tasty treats of yesteryear. Travel back in time on a delicious decade-by-decade jaunt as Dylan shows you how to bake vintage forgotten greats. With a big pinch of fun and a full cup of humor, you'll be baking everything from Chocolate Potato Cake from the 1910s to Avocado Pie from the 1960s. Dylan has baked hundreds of recipes from countless antique cookbooks and selected only the best for this bakebook, sharing the shining stars from each decade. And because some of the recipes Dylan shares on his wildly popular social media channels are spectacular failures, he's thrown in a few of the most disastrously strange recipes for you to try if you dare. A few of Dylan's favorites that are going to have you licking your lips and begging for more include:\n● 1900s Cornflake Macaroons\n● 1910s ANZAC Biscuits\n● 1930s Peanut Butter Bread\n● 1940s Chocolate Sauerkraut Cake\n● 1950s Tomato Soup Cake\n● 1970s Potato Chip Cookies Baking Yesteryear contains 101 expertly curated recipes that will take you on a delicious journey through the past. With a larger-than-life personality and comedic puns galore, baking with Dylan never gets old. We'll leave that to the recipes.",
-      "authors": ["B. Dylan Hollis"],
-      "categories": ["Carousel"]
+      "title": "Happy Place",
+      "id": 1,
+      "price": 200,
+      "thumbnailUrl": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTMtIHKz6P5NlEdwV3Mt1lL_fkoqXTj57c8hf-xXO06O6fIE3Gr",
+      "longDescription": "Harriet and Wyn have been the perfect couple since they met in college—they go together like salt and pepper, honey and tea, lobster and rolls. They broke up six months ago. And still haven't told their best friends. Which is how they find themselves sharing the largest bedroom at the Maine cottage that has been their friend group’s yearly getaway for the last decade. Their annual respite from the world, where for one vibrant, blue week they leave behind their daily lives; have copious amounts of cheese, wine, and seafood; and soak up the salty coastal air with the people who understand them most. Only this year, Harriet and Wyn are lying through their teeth while trying not to notice how desperately they still want each other. Because the cottage is for sale and this is the last week they’ll all have together in this place. They can’t stand to break their friends’ hearts, and so they’ll play their parts. Harriet will be the driven surgical resident who never starts a fight, and Wyn will be the laid-back charmer who never lets the cracks show. It’s a flawless plan (if you look at it from a great distance and through a pair of sunscreen-smeared sunglasses). After years of being in love, how hard can it be to fake it for one week… in front of those who know you best?",
+      "status": "PUBLISH",
+      "authors": ["Emily Henry"],
+      "categories": ["Trending"],
+      "quantity": 9
     },
     {
-      "title": "Divine Rivals",
-      "id": 43,
-      "price": 1300,
-      "thumbnailUrl": "https://covers4.booksamillion.com/covers/bam/1/25/085/743/1250857430_b.jpg",
-      "longDescription": "When two young rival journalists find love through a magical connection, they must face the depths of hell, in a war among gods, to seal their fate forever.\n\nAfter centuries of sleep, the gods are warring again. But eighteen-year-old Iris Winnow just wants to hold her family together. Her mother is suffering from addiction and her brother is missing from the front lines. Her best bet is to win the columnist promotion at the Oath Gazette. To combat her worries, Iris writes letters to her brother and slips them beneath her wardrobe door, where they vanish--into the hands of Roman Kitt, her cold and handsome rival at the paper. When he anonymously writes Iris back, the two of them forge a connection that will follow Iris all the way to the front lines of battle: for her brother, the fate of mankind, and love. Shadow and Bone meets Lore in Rebecca Ross's Divine Rivals, an epic enemies-to-lovers fantasy novel filled with hope and heartbreak, and the unparalleled power of love.",
-      "authors": ["Rebecca Ross"],
-      "categories": ["Carousel"]
+      "title": "Fourth Wing",
+      "id": 2,
+      "price": 300,
+      "thumbnailUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTMGygN6vmJYLi9nkL769kQfNDg3kt-zfrb1AQRkAnvtiUysGdh",
+      "longDescription": "Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, living a quiet life among books and history. Now, the commanding general—also known as her tough-as-talons mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders. But when you’re smaller than everyone else and your body is brittle, death is only a heartbeat away...because dragons don’t bond to “fragile” humans. They incinerate them. With fewer dragons willing to bond than cadets, most would kill Violet to better their own chances of success. The rest would kill her just for being her mother’s daughter—like Xaden Riorson, the most powerful and ruthless wingleader in the Riders Quadrant. Yet, with every day that passes, the war outside grows more deadly, the kingdom's protective wards are failing, and the death toll continues to rise. Even worse, Violet begins to suspect leadership is hiding a terrible secret.",
+      "status": "PUBLISH",
+      "authors": ["Rebecca Yarros"],
+      "categories": ["Trending"],
+      "quantity": 1
+    }
+  ],
+  "users": [
+    {
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Ba2112@#",
+      "confirm": "Ba2112@#",
+      "id": 1
     },
     {
-      "title": "A Thousand Boy Kisses",
-      "id": 44,
-      "price": 1099,
-      "thumbnailUrl": "https://covers1.booksamillion.com/covers/bam/1/72/829/708/1728297087_b.jpg",
-      "longDescription": "He kissed me until there was no part of me that didn't know who it belonged to. He kissed me until my heart again fused with his--two halves of one whole.\n\nOne kiss lasts a moment. But a thousand kisses can last a lifetime.\n\nOne boy. One girl. A bond that is forged in an instant and cherished for a decade. A bond that neither time nor distance can break. A bond that will last forever.\n\nOr so they believe.\n\nWhen seventeen-year-old Rune Kristiansen returns from his native Norway to the sleepy town of Blossom Grove, Georgia, where he befriended Poppy Litchfield as a child, he has just one thing on his mind. Why did the girl who was one half of his soul, who promised to wait faithfully for his return, cut him off without a word of explanation?\n\nRune's heart was broken two years ago when Poppy fell silent. But when he discovers the truth of her absence, he finds that the greatest heartache is yet to come.\n\nThis Bloom edition includes a special bonus epilogue.",
-      "authors": ["Tillie Cole"],
-      "categories": ["Carousel"]
+      "name": "vicky",
+      "email": "v@gmail.com",
+      "password": "Vicky1@",
+      "confirm": "Vicky1@",
+      "id": 2
+    },
+    {
+      "name": "Balaji",
+      "email": "ba@gmail.coom",
+      "password": "Ba2112@#",
+      "confirm": "Ba2112@#",
+      "id": 3
+    },
+    {
+      "name": "sasi",
+      "email": "sasi@gmail.com",
+      "password": "Sasi@123",
+      "confirm": "Sasi@123",
+      "id": 56
+    },
+    {
+      "name": "priya",
+      "email": "priya@gmail.com",
+      "password": "Priya@123",
+      "confirm": "Priya@123",
+      "id": 57
+    },
+    {
+      "name": "ramya",
+      "email": "ramya@gmail.com",
+      "password": "Ramya@123",
+      "confirm": "Ramya@123",
+      "id": 58
+    },
+    {
+      "name": "kishore",
+      "email": "kishore@gmail.com",
+      "password": "Kishore@123",
+      "confirm": "Kishore@123",
+      "id": 59
+    },
+    {
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Ba1@",
+      "confirm": "Ba1@",
+      "id": 8
+    },
+    {
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Ba1@",
+      "confirm": "Ba1@",
+      "id": 9
+    },
+    {
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Balajin2112@#",
+      "confirm": "Balajin2112@#",
+      "id": 10
+    },
+    {
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Ba2112@#",
+      "confirm": "Ba2112@#",
+      "id": 11
+    },
+    {
+      "name": "Balaji",
+      "email": "b@gmail.com",
+      "password": "Ba2112@#",
+      "confirm": "Ba2112@#",
+      "id": 12
     }
   ]
 }

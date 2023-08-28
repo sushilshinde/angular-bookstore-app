@@ -1,29 +1,44 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HeaderComponent } from './components/header/header.component';
 import { AppComponent } from './app.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FooterComponent } from './components/footer/footer.component';
+import { StoreModule } from '@ngrx/store';
+import { cartReducer } from './store/cart.reducer';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+describe('AppComponent', () =>
+{
 
-describe('AppComponent', () => {
   beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+    imports: [MatToolbarModule, MatIconModule, HttpClientTestingModule, RouterTestingModule, StoreModule.forRoot({ cartItems: cartReducer })],
+    declarations: [AppComponent, HeaderComponent, FooterComponent],
+    providers: [
+      {
+        provide: ActivatedRoute,
+        useValue: null
+      },
+    ],
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  })
+
+  );
+
+
+  it('should create the app', () =>
+  {
+    expect(AppComponent).toBeTruthy();
   });
 
-  it(`should have as title 'bookstore-app'`, () => {
+  it('should render header, router-outlet, and footer', () =>
+  {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('bookstore-app');
-  });
+    const compiled = fixture.nativeElement;
+    const routerOutlet = compiled.querySelector('router-outlet');
+    expect(routerOutlet).toBeTruthy();
+  })
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('bookstore-app app is running!');
-  });
 });

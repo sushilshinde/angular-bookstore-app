@@ -1,64 +1,86 @@
-import { Component, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { BookQty } from 'src/app/interfaces/interface.bookwithqty';
-import { cartState } from 'src/app/interfaces/interface.cartState';
-import { decrement, onDelete } from 'src/app/store/cart.actions';
-import { increment } from 'src/app/store/cart.actions';
+import { BookQty } from 'app/interfaces/interface.book';
+import { cartState } from 'app/interfaces/interface.cartState';
+import
+{
+  increment,
+  decrement,
+  removeItem,
+  getItem,
+} from 'app/store/cart.actions';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
-  styleUrls: ['./cart-page.component.css']
+  styleUrls: ['./cart-page.component.css'],
+  animations: [trigger('myInsertRemoveTrigger', [
+    transition(':enter', [
+      style({ opacity: 0, scale: 0 }),
+      animate('700ms', style({ opacity: 1, scale: 1 })),
+    ]),
+  ]),]
 })
-
-export class CartPageComponent implements OnInit
+export class CartPageComponent implements OnInit, OnDestroy
 {
-  cartData:any=[];
+  cartData: any = [];
+  error!: any;
   count: number = 0;
-  totalPrice:number=0
+  totalPrice: number = 0;
+  private subscription!: Subscription
+  updatePrice()                              //calculating all items price with reduce method
+  {
+    if (Array.isArray(this.cartData)) {
+      this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
+      {
 
-updatePrice(){
-  this.totalPrice=this.cartData.reduce((acc:number,value:any)=>{
-    if(value.categories.includes('Offers')){
-      return acc+ this.calculateDiscount(value.price,value.discount)  *value.quantity
-
+        if (value.discount) {
+          return (
+            acc +
+            this.calculateDiscount(value.price, value.discount) * value.quantity
+          );
+        } else {
+          return acc + value.price * value.quantity;
+        }
+      }, 0);
     }
-    else{
-
-  return    acc+value.price*value.quantity
+    else {
+      this.totalPrice = 0;
     }
-  
-  
-  },0)
-}
+  }
 
-constructor(private store:Store<{cartItems:cartState}>){
-}
-ngOnInit(): void {
-  this.store.select('cartItems').subscribe((data)=>{
-    this.cartData=data.cartItems;
-  })
-  this.updatePrice();
+  constructor (private store: Store<{ cartItems: cartState }>) { }
+  ngOnInit(): void
+  {
+    this.store.dispatch(getItem());
+    this.subscription = this.store.select('cartItems').subscribe((data) =>  //subscribing cart items
+    {
+      this.cartData = data.cartItems;
+      this.error = data.error;
+      this.updatePrice();
+    });
+  }
+  onRemoveHandeller(bookdata: BookQty)
+  {
+    this.store.dispatch(removeItem({ bookdata }));        //dispatching removeitems action to store
+  }
+  onIncrement(id: number)
+  {
+    this.store.dispatch(increment({ id }));  //dispatching increment action to store
+  }
+  onDecrement(id: number)
+  {
+    this.store.dispatch(decrement({ id })); //dispatching decrement action to store
+  }
 
- }
-
-//  getDetails(){
-//   this.store.select('cartItems').subscribe((data)=>{console.log(data)})
-//  }
- onRemoveHandeller(id:number){
-this.store.dispatch(onDelete({id}))
-this.updatePrice()
- }
- onIncrement(item:BookQty){
-  this.store.dispatch(increment({item}))
-  this.updatePrice()
- }
- onDecrement(item:BookQty){
-  this.store.dispatch(decrement({item}))
-  this.updatePrice()
- }
-
-calculateDiscount(price: number, discount: number) {
-  const discountedPrice = price - (price * discount) / 100;
-  return discountedPrice;
-}
+  calculateDiscount(price: number, discount: number)
+  {
+    const discountedPrice = price - (price * discount) / 100;
+    return discountedPrice;
+  }
+  ngOnDestroy()
+  {
+    this.subscription.unsubscribe();           //unsubscription
+  }
 }

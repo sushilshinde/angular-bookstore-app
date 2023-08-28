@@ -1,21 +1,32 @@
 * {
   box-sizing: border-box;
 }
+.container {
+  width: 100%;
+  height: auto;
+}
 mat-grid-tile {
-  background:rgb(223 215 215);
+  background: transparent;
+}
+.spinner {
+  width: 100%;
+  height: 475px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 img {
   width: 100px;
-  height: 150px;
+  height: 133px;
 }
 .books-container {
   padding: 10px;
   align-items: center;
-  
+  transition: all 0.3s;
+  cursor: pointer;
 }
-.books-container:hover{
-opacity: 0.5;
-
+.books-container:hover {
+  opacity: 0.6;
 }
 .back-btn {
   position: absolute;
@@ -37,4 +48,17 @@ opacity: 0.5;
   bottom: 0px;
   cursor: pointer;
 }
-
+button {
+  margin-left: 10px;
+  outline: none;
+  border-radius: 3px;
+}
+.heading {
+  display: flex;
+  flex: row wrap;
+  color: red;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 15px;
+  justify-content: space-between;
+}

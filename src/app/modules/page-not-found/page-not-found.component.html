@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container">
+  <mat-card class="error-card">
+    <mat-card-content>
+      <h1 class="error-heading">400</h1>
+      <p class="error-message">
+        Oops! The page you are looking for doesn't exist.
+      </p>
+      <p>Please check the URL or go back to the home page.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [routerLink]="['/']"><button mat-raised-button color="primary">
+          Back to Home
+        </button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<app-footer></app-footer>
