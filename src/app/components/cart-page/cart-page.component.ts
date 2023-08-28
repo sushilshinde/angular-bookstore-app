@@ -47,10 +47,10 @@ export class CartPageComponent implements OnInit {
       this.error = data.error;
       this.updatePrice();
     });
-    // const userDetails = localStorage.getItem('userdetails');
-    // if (!userDetails) {
-    //   this.route.navigate(['signin']);
-    // }
+    const userDetails = localStorage.getItem('userdetails');
+    if (!userDetails) {
+      this.route.navigate(['signin']);
+    }
   }
   // ngOnChanges() {
   //   this.updatePrice();

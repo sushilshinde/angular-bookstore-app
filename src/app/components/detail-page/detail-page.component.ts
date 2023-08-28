@@ -45,10 +45,10 @@ export class DetailPageComponent implements OnInit {
         this.errorMessage = error;
       },
     });
-    // const userDetails = localStorage.getItem('userdetails');
-    // if (!userDetails) {
-    //   this.route.navigate(['signin']);
-    // }
+    const userDetails = localStorage.getItem('userdetails');
+    if (!userDetails) {
+      this.route.navigate(['signin']);
+    }
   }
   onDecrement() { //decrement item
     this.count -= 1;

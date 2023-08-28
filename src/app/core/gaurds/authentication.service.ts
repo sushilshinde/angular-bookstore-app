@@ -8,7 +8,7 @@ import { environment } from 'environment/environment.dev';
 export class AuthenticationService {
   user = [];
   private URL = environment.apiURL;
-  private isAuthenticate: boolean = false;
+  isAuthenticate: boolean = false;
   constructor(private http: HttpClient, private router: Router) {
     // this.http.get<any>(this.URL + '/users').subscribe((res) => {
     //   console.log(res, 'service');
@@ -28,13 +28,14 @@ export class AuthenticationService {
         });
         if (user) {
           //if matched nav to home and set user details
-          this.isAuthenticate = true;
           alert('Login Successfull');
-          login.reset();
-          this.router.navigate(['/']);
+          this.router.navigate(['']);
+          this.isAuthenticate = true;
           localStorage.setItem('userdetails', JSON.stringify(user));
+          login.reset();
         } else {
-          alert('User Not Found'); //else alert not found
+          alert('User Not Found,Please SignUp'); //else alert not found
+          this.router.navigate(['signup']);
           login.reset();
         }
       },
@@ -53,8 +54,8 @@ export class AuthenticationService {
         this.http.post<any>(this.URL + '/users', register.value).subscribe(
           (res) => {
             alert('Registration Successfull');
-            register.reset();
             this.router.navigate(['/signin']);
+            register.reset();
           },
           (err) => {
             //if encounter some error  alert someting went wrong
@@ -63,18 +64,20 @@ export class AuthenticationService {
         );
       } else {
         //if found alert that details allready exist
-        alert('User Already Exist');
+        alert('User Already Exist,Please SignIn');
+        this.router.navigate(['signin']);
         register.reset();
       }
     });
   }
-  
+
   logout() {
     let result = confirm('Are you sure you want to Sign Out?');
     if (result) {
+      this.isAuthenticate = false;
       this.router.navigate(['signin']);
       localStorage.removeItem('userdetails');
-      this.isAuthenticate = false;
+      // window.location.reload();
     }
   }
   loginStatus() {

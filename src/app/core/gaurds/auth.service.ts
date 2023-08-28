@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
-import { SigninComponent } from 'app/components/signin/signin.component';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -24,7 +24,8 @@ export class AuthService implements CanActivate {
       //controling state true for authentication successful
       return true;
     } else {
-      this.router.navigate(['signin']); //controling state as false for authentication reject and redirect to sigin
+      this.router.navigate(['signin']);
+      //controling state as false for authentication reject and redirect to sigin
       return false;
     }
   }
