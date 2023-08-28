@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BookQty } from 'app/interfaces/interface.book';
@@ -14,6 +15,12 @@ import { Subscription } from 'rxjs';
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css'],
+  animations:[trigger('myInsertRemoveTrigger', [
+    transition(':enter', [
+      style({ opacity: 0,scale:0}),
+      animate('700ms', style({ opacity: 1,scale:1 })),
+    ]),
+  ]),]
 })
 export class CartPageComponent implements OnInit,OnDestroy
 {
@@ -22,7 +29,7 @@ export class CartPageComponent implements OnInit,OnDestroy
   count: number = 0;
   totalPrice: number = 0;
 private subscription!:Subscription
-  updatePrice()
+  updatePrice()                              //calculating all items price with reduce method
   {
     if (Array.isArray(this.cartData)) {
       this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
@@ -47,7 +54,7 @@ private subscription!:Subscription
   ngOnInit(): void
   {
     this.store.dispatch(getItem());
-    this.subscription=this.store.select('cartItems').subscribe((data) =>
+    this.subscription=this.store.select('cartItems').subscribe((data) =>  //subscribing cart items
     {
       this.cartData = data.cartItems;
       this.error = data.error;
@@ -56,15 +63,15 @@ private subscription!:Subscription
   }
   onRemoveHandeller(bookdata:BookQty)
   {
-    this.store.dispatch(removeItem({ bookdata }));
+    this.store.dispatch(removeItem({ bookdata }));        //dispatching removeitems action to store
   }
   onIncrement(id: number)
   {
-    this.store.dispatch(increment({ id }));
+    this.store.dispatch(increment({ id }));  //dispatching increment action to store
   }
   onDecrement(id: number)
   {
-    this.store.dispatch(decrement({ id }));
+    this.store.dispatch(decrement({ id })); //dispatching decrement action to store
   }
 
   calculateDiscount(price: number, discount: number)
@@ -74,6 +81,6 @@ private subscription!:Subscription
   }
   ngOnDestroy()
   {
-    this.subscription.unsubscribe();
+    this.subscription.unsubscribe();           //unsubscription
   }
 }

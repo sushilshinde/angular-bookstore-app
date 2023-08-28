@@ -16,6 +16,6 @@ export class SigninComponent {
   constructor(private authentication: AuthenticationService) {}
 
   signin() {
-    this.authentication.signin(this.login);
+    this.authentication.signin(this.login); 
   }
 }

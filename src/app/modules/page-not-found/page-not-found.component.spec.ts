@@ -17,10 +17,6 @@ describe('PageNotFoundComponent', () => {
   let debugElement:DebugElement;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-        imports:[MaterialModule,RouterTestingModule,HttpClientTestingModule,StoreModule.forRoot({ cartItems: cartReducer })],
-      declarations: [PageNotFoundComponent,HeaderComponent,FooterComponent]
-    });
     fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;

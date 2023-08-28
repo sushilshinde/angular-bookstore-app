@@ -9,30 +9,29 @@ h3 {
 }
 .flex-center {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 15px;
 }
 
 .error-msg {
   text-decoration: none;
 }
 .cart-details {
-  max-width: 100%;
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .cart-card {
-  width: 650px;
   height: auto;
   display: flex;
   flex: row wrap;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(255, 255, 255);
+  background-color: #fbf768;
   border: 1px solid grey;
   border-radius: 15px;
   margin-bottom: 25px;
@@ -67,7 +66,7 @@ h3 {
 .book-qty button {
   border: none;
   font-weight: 600;
-  color: black;
+  color: rgb(255, 0, 0);
   font-size: 15px;
   background-color: rgb(219, 217, 217);
   height: 29px;
@@ -89,7 +88,9 @@ h3 {
 .material-symbols-outlined {
   margin: 20px 0px 0px 25px;
   font-size: 40px;
-  color: rgb(5, 5, 61);
+  color:yellow;
+  font-weight: bolder;
+  
 }
 .price-card {
   display: flex;
@@ -98,9 +99,10 @@ h3 {
   align-items: center;
   text-align: center;
   height: auto;
-  width: 650px;
   margin-bottom: 20px;
   padding: 15px;
+  background-color: #00ffe7;
+  border-radius: 10px;
 }
 .price-card h2 {
   padding-top: 15px;
@@ -111,19 +113,30 @@ h3 {
   background-color: rgb(243, 167, 26);
   border: 1px solid rgb(243, 167, 26);
   border-radius: 15px;
-  color: white;
+  color: #fff;
   text-align: center;
   text-decoration: none;
   font-weight: 500;
   font-size: 20px;
 }
-
+.cartandpricediv{
+  width: 60vw;
+}
+@media screen and (max-width:900px) {
+  .cartandpricediv{
+    width: 80vw;
+  }
+  .remove-btn{
+    padding: 2px 7px;
+    margin: 10px;
+  }
+}
 @media screen and (max-width: 650px) {
   * {
-    font-size: small;
+    font-size: xx-small;
   }
   .price-card {
-    max-width: 100%;
+  
     font-size: 13px;
     display: flex;
     flex-direction: row;
@@ -160,7 +173,7 @@ margin-right: 0;
     height: 200px;
   }
   .book-img img {
-    width: 100px;
+    width: 110px;
     height: 135px;
     margin-left: 5px;
     margin-right: 10px;
@@ -168,14 +181,14 @@ margin-right: 0;
   .remove-btn{
     padding: 2px 17px;
   }
+  .cartandpricediv{
+    width: 85vw;
+  }
 }
 
 @media only screen and (max-width: 400px) {
   .cart-book {
     justify-content: center;
-  }
-  .book-img{
-    margin-right: 10px;
   }
   .book-img img {
     width: 90px;

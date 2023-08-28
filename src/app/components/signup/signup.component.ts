@@ -17,9 +17,6 @@ export class SignupComponent {
     password: new FormControl(null, [Validators.required, passwordValidator()]),
     confirm: new FormControl(null,[Validators.required]),
   });
-  // ngOnInit() {
-  //   this.userdata = localStorage.getItem('userdetails');
-  // }
   signup() {
     this.authentication.signup(this.register);
   }

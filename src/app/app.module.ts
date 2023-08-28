@@ -30,7 +30,6 @@ import { cartReducer } from './store/cart.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { SortPipe } from './shared/pipes/sort.pipe';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
-import { SearchComponent } from './components/search/search.component';
 import { CartEffects } from './store/cart.effects';
 import { MaterialModule } from './shared/material_ui/material.module';
 import { ErrorStylesDirective } from './shared/directives/error-styles.directive';
@@ -55,7 +54,6 @@ import { ErrorStylesDirective } from './shared/directives/error-styles.directive
     StylesDirective,
     PageNotFoundComponent,
     SortPipe,
-    SearchComponent,
     ErrorStylesDirective,
   ],
   imports: [

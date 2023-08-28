@@ -1,39 +1,48 @@
 * {
   margin: 0;
   padding: 0;
-  /* line-height: 10px; */
 }
 .headdingButton {
   height: 30px;
 }
 button {
   padding: 0 5px;
+  font-weight: 400;
 }
 .slide {
   background-color: #dbf3c5;
   border: 3px solid;
   border: radius 50px !important;
-  border-image: linear-gradient(
-      180deg,
-      rgb(255 82 0)50%,
-      rgba(0, 0, 255, 0.651) 20%
-    )
+  border-image: linear-gradient(180deg, rgb(0, 255, 0) 50%, rgba(0, 0, 255) 20%)
     1;
   width: 100%;
+  cursor: pointer;
 }
-.text-color{
-  color: rgb(218, 245, 239);
+.carousel {
+  margin: 30px 30px;
+  padding: 0 40px;
 }
-@media screen and (max-width:400px) {
-  .text-color{
+.text-color {
+  color: transparent;
+}
+@media screen and (max-width: 991px) {
+  .carousel {
+    margin: 0px 0px;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .text-color {
     display: none;
   }
 }
-.background{
-  position:relative;
+.background {
+  position: relative;
+  margin: 0 40px;
 }
-.spinner{
-  position:absolute;
+.spinner {
+  position: absolute;
   left: 50%;
   top: 50%;
   z-index: 1;

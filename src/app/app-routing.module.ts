@@ -8,7 +8,6 @@ import { ViewallBooksPageComponent } from './components/viewall-books-page/viewa
 import { OrderSuccessPageComponent } from './modules/order-success-page/order-success-page.component';
 import { AuthGaurdService } from './core/gaurds/auth-gaurd.service';
 import { LandingPageComponent } from './modules/landing-page/landing-page.component';
-import { SearchComponent } from './components/search/search.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { AuthenticationGaurdService } from './core/gaurds/authentication-gaurd.service';
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   { path: 'cart', component: CartPageComponent },
   { path: 'viewall/:category', component: ViewallBooksPageComponent },
   { path: 'buy', component: OrderSuccessPageComponent },
-  { path: 'search/:search', component: SearchComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
