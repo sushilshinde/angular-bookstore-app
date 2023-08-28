@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
@@ -43,7 +43,7 @@ private subscription!:Subscription
     }
   }
 
-  constructor (private store: Store<{ cartItems: cartState }>,) { }
+  constructor (private store: Store<{ cartItems: cartState }>) { }
   ngOnInit(): void
   {
     this.store.dispatch(getItem());
@@ -54,23 +54,17 @@ private subscription!:Subscription
       this.updatePrice();
     });
   }
-  // ngOnChanges() {
-  //   this.updatePrice();
-  // }
   onRemoveHandeller(bookdata:BookQty)
   {
     this.store.dispatch(removeItem({ bookdata }));
-    // this.updatePrice();
   }
   onIncrement(id: number)
   {
     this.store.dispatch(increment({ id }));
-    // this.updatePrice();
   }
   onDecrement(id: number)
   {
     this.store.dispatch(decrement({ id }));
-    // this.updatePrice();
   }
 
   calculateDiscount(price: number, discount: number)
