@@ -46,8 +46,9 @@ input[type="text"] {
   border: 2px solid rgb(42, 138, 138);
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
+  padding: 0px 6px;
 }
-.search{
+.search {
   text-decoration: none;
 }
 .searchicon {
@@ -55,20 +56,24 @@ input[type="text"] {
   justify-content: center;
   align-items: center;
   width: 43px;
-  height: 38px;
+  height: 36px;
   background-color: rgb(42, 138, 138);
   color: white;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 .login {
-  font-size:medium;
+  font-size: medium;
   color: black;
   padding-left: 10px;
   padding-right: 10px;
   text-decoration: none;
+  transition: all 0.2ms;
 }
-.loginItems{
+.login:hover {
+  transform: scale(1.1);
+}
+.loginItems {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,11 +109,56 @@ input[type="text"] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* width:40vw; */
     width: 100%;
   }
   .navItems {
     margin-left: auto;
     margin-right: 10px;
+  }
+}
+
+.search-div {
+  position: absolute;
+  z-index: 100;
+  max-height: 50vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: max-content;
+  right: 20vw;
+  border-radius: 7px;
+}
+.search-error-div {
+  overflow: auto;
+}
+.search-error-div h1 {
+  margin: 0px;
+  padding: 10px;
+  background-color: yellowgreen;
+}
+.search-div h3 {
+  margin: 0;
+}
+.search-image {
+  width: 60px;
+  height: 100px;
+}
+.for-div {
+  border: 1px solid white;
+  background-color: #e9dcad;
+  border-radius: 10px;
+  opacity: 0.75;
+  transition: all 0.5s;
+}
+.for-div:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+.content {
+  width: 65%;
+}
+@media screen and (max-width: 500px) {
+  .search-error-div h1 {
+    font-size: 15px;
   }
 }

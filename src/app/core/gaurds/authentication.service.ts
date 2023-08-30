@@ -1,89 +1,76 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'environment/environment.dev';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthenticationService {
-  user = [];
+export class AuthenticationService
+{
+  user: any;
   private URL = environment.apiURL;
-  isAuthenticate: boolean = false;
-  constructor(private http: HttpClient, private router: Router) {
-    // this.http.get<any>(this.URL + '/users').subscribe((res) => {
-    //   console.log(res, 'service');
-    //   this.user = res;
-    //   console.log(this.user, 'service file');
-    // });
+  private isAuthenticate: boolean = false;
+  constructor (private http: HttpClient, private router: Router)
+  {
   }
-  signin(login: any) {
-    this.http.get<any>(this.URL + '/users').subscribe(
-      //getting all books
-      (res) => {
-        const user = res.find((a: any) => {
-          return (
-            a.email === login.controls.email.value && //checking user details to match
-            a.password === login.controls.password.value
-          );
-        });
-        if (user) {
+  signin(login: any)
+  {
+    const email = login.controls.email.value;
+    const password = login.controls.password.value;
+    const params = new HttpParams().set("email", email).set("password", password)//setting parms with email&password
+    return this.http.get<any>(this.URL + '/users', { params: params })
+      .subscribe({
+        next: userData =>
+        {
           //if matched nav to home and set user details
-          alert('Login Successfull');
-          this.router.navigate(['']);
           this.isAuthenticate = true;
-          localStorage.setItem('userdetails', JSON.stringify(user));
+          alert('Login Successfull');
+          localStorage.setItem('userdetails', JSON.stringify(userData.users));
+          this.router.navigate(['/']);
           login.reset();
-        } else {
-          alert('User Not Found,Please SignUp'); //else alert not found
-          this.router.navigate(['signup']);
-          login.reset();
-        }
-      },
-      (err) => {
-        alert('Something Went Wrong');
-      }
-    );
-  }
-  signup(register: any) {
-    this.http.get<any>(this.URL + '/users').subscribe((res) => {
-      const valid = res.find((val: any) => {
-        //getting all user data and checking
-        return val.email === register.value.email;
-      });
-      if (!valid) {
-        this.http.post<any>(this.URL + '/users', register.value).subscribe(
-          (res) => {
-            alert('Registration Successfull');
-            this.router.navigate(['/signin']);
-            register.reset();
-          },
-          (err) => {
-            //if encounter some error  alert someting went wrong
-            alert('Something Went Wrong');
+          window.location.reload();
+        },
+        error: err =>
+        {
+          if (err.error.error.status === '401') {
+            alert(err.error.error.message);
           }
-        );
-      } else {
-        //if found alert that details allready exist
-        alert('User Already Exist,Please SignIn');
-        this.router.navigate(['signin']);
+          else {
+            alert("Something went wrong, Please try again later...")
+          }
+        }
+      });
+  }
+  loginStatus()
+  {
+    let userDetails = localStorage.getItem('userdetails');
+    if (userDetails) this.isAuthenticate = true;
+    return this.isAuthenticate;
+  }
+  signup(register: any)
+  {
+    return this.http.post<any>(this.URL + '/users', register.value).subscribe({
+      next: userData =>
+      {
+        //if matched nav to home and set user details
+        this.isAuthenticate = true;
+        alert('Registered Successfully!');
+        localStorage.setItem('userdetails', JSON.stringify(userData.users));
         register.reset();
+        this.router.navigate(['/']);
+        window.location.reload();
+      },
+      error: err =>
+      {
+        if (err.error.error.status === '401') {
+          alert(err.error.error.message);
+        }
+        else {
+          alert("Something went wrong, Please try again later...")
+        }
       }
     });
-  }
 
-  logout() {
-    let result = confirm('Are you sure you want to Sign Out?');
-    if (result) {
-      this.isAuthenticate = false;
-      this.router.navigate(['signin']);
-      localStorage.removeItem('userdetails');
-      // window.location.reload();
-    }
-  }
-  loginStatus() {
-    // console.log(this.isAuthenticate, 'auth');
-    // let userDetails = localStorage.getItem('userdetails');
-    // if (userDetails) this.isAuthenticate = true;
-    return this.isAuthenticate;
+
   }
 }

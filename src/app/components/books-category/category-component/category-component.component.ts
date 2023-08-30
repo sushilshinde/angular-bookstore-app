@@ -7,20 +7,24 @@ import { Book } from 'app/interfaces/interface.book';
   templateUrl: './category-component.component.html',
   styleUrls: ['./category-component.component.css'],
 })
-export class CategoryComponentComponent implements OnChanges, AfterContentInit {
+export class CategoryComponentComponent implements OnChanges, AfterContentInit
+{
   @Input() imagesData: Book[] = [];
   @Input() title: string = '';
-  @Output() eventEmit=new EventEmitter();
+  @Output() eventEmit = new EventEmitter();           //declearing event emitter
   changehook = false;
   spinner = false;
 
-  constructor(private navpage: Router) {
+  constructor (private navpage: Router)
+  {
     this.spinner = true;
   }
-  ngOnChanges() {
+  ngOnChanges()
+  {
     this.changehook = true;
   }
-  ngAfterContentInit() {
+  ngAfterContentInit()
+  {               //lifcecycle hook aftercontentinit
     this.spinner = false;
   }
 
@@ -33,6 +37,19 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
     autoplaySpeed: 8000,
     responsive: [
       //getting component images corresponding widths
+
+      {
+        breakpoint: '2200',
+        settings: {
+          slidesToShow: 6,
+        },
+      },
+      {
+        breakpoint: '1500',
+        settings: {
+          slidesToShow: 5,
+        },
+      },
       {
         breakpoint: '922',
         settings: {
@@ -52,7 +69,7 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
         },
       },
       {
-        breakpoint: '400',
+        breakpoint: '435',
         settings: {
           slidesToShow: 1,
         },
@@ -60,16 +77,19 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit {
     ],
   };
 
-  calculateDiscount(price: number, discount: number) {
+  calculateDiscount(price: number, discount: number)
+  {
     //calculating discount
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number) {
+  navigateToDetails(id: number)
+  {
     //navigate to pirticular details page
     this.navpage.navigate(['details', id]);
   }
-  emitEvent(price:number){
-    this.eventEmit.emit(price)
+  emitEvent(price: number)
+  {
+    this.eventEmit.emit(price)        //emitng evevnt
   }
 }

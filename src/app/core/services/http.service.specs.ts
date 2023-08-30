@@ -2,17 +2,20 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { HttpService } from './http.service';
 
-describe('http service', () => {
+describe('http service', () =>
+{
   let http: HttpService;
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     TestBed.configureTestingModule({
       declarations: [HttpService],
-      providers:[HttpClientTestingModule]
+      providers: [HttpClientTestingModule]
     });
     http = TestBed.inject(HttpService);
   });
 
-  it('should be created',()=>{
+  it('should be created', () =>
+  {
     expect(http).toBeTruthy()
   })
 });

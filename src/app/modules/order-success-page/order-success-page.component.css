@@ -9,8 +9,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 15px;
 }
-mat-icon{
+mat-icon {
   overflow: visible;
 }
 @media only screen and (max-width: 672px) {

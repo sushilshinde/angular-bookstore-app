@@ -4,12 +4,10 @@
       <h1>Sign Up</h1>
       <div class="validate">
         <input type="text" placeholder="Name" formControlName="name" /><br />
-        <p
-          *ngIf="
+        <p *ngIf="
             register.controls['name'].touched &&
             register.hasError('required', 'name')
-          "
-        >
+          ">
           *This field is required
         </p>
         <p *ngIf="register.hasError('nameStrength', 'name')">
@@ -17,17 +15,11 @@
         </p>
       </div>
       <div class="validate">
-        <input
-          type="email"
-          placeholder="E-mail"
-          formControlName="email"
-        /><br />
-        <p
-          *ngIf="
+        <input type="email" placeholder="E-mail" formControlName="email" /><br />
+        <p *ngIf="
             register.controls['email'].touched &&
             register.hasError('required', 'email')
-          "
-        >
+          ">
           *This field is required
         </p>
         <p *ngIf="register.hasError('email', 'email')">
@@ -35,39 +27,24 @@
         </p>
       </div>
       <div class="validate">
-        <input
-          type="password"
-          placeholder="Password"
-          formControlName="password"
-        /><br />
-        <p
-          *ngIf="
+        <input type="password" placeholder="Password" formControlName="password" /><br />
+        <p *ngIf="
             register.controls['password'].touched &&
             register.hasError('required', 'password')
-          "
-        >
+          ">
           *This field is required
         </p>
-        <p
-          class="pwd"
-          *ngIf="register.hasError('passwordStrength', 'password')"
-        >
+        <p class="pwd" *ngIf="register.hasError('passwordStrength', 'password')">
           *Password must be upper,lower,numeric & special
         </p>
       </div>
       <div class="validate">
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          formControlName="confirm"
-          (input)="confirmPasswordMatch()"
-        /><br />
-        <p
-          *ngIf="
+        <input type="password" placeholder="Confirm password" formControlName="confirm"
+          (input)="confirmPasswordMatch()" /><br />
+        <p *ngIf="
             register.controls['confirm'].touched &&
             register.hasError('required', 'confirm')
-          "
-        >
+          ">
           *This field is required
         </p>
         <p *ngIf="!confirmPasswordMatch() && register.get('confirm')?.value">
@@ -75,11 +52,7 @@
         </p>
       </div>
 
-      <button
-        type="submit"
-        class="btn btn-primary"
-        [disabled]="register.invalid || !confirmPasswordMatch()"
-      >
+      <button type="submit" class="btn btn-primary" [disabled]="register.invalid || !confirmPasswordMatch()">
         Sign Up
       </button>
       <p>Already have an account? <a routerLink="/signin">Sign In</a></p>

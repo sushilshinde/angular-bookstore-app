@@ -3,19 +3,19 @@ import { catchError, map, of, switchMap, throwError } from 'rxjs';
 import { CartService } from 'app/core/services/cart.service';
 import { Injectable } from '@angular/core';
 import
-  {
-    getItem,
-    getItemSuccess,
-    addItem,
-    addItemSuccess,
-    removeItem,
-    removeItemSuccess,
-    increment,
-    incrementItemSuccess,
-    decrement,
-    decrementItemSuccess,
-    errorOccur,
-  } from './cart.actions';
+{
+  getItem,
+  getItemSuccess,
+  addItem,
+  addItemSuccess,
+  removeItem,
+  removeItemSuccess,
+  increment,
+  incrementItemSuccess,
+  decrement,
+  decrementItemSuccess,
+  errorOccur,
+} from './cart.actions';
 @Injectable()
 export class CartEffects
 {
@@ -26,7 +26,6 @@ export class CartEffects
       ofType(addItem),
       switchMap((data: any) =>
       {
-
         return this.cartService.addCartItems(data.bookdata).pipe(
           map((cartData: any) =>
           {
@@ -56,12 +55,12 @@ export class CartEffects
   {
     return this.action$.pipe(
       ofType(removeItem),
-      switchMap((item: any) =>
+      switchMap((data: any) =>
       {
-        return this.cartService.removeCartItems(item.id).pipe(
+        return this.cartService.removeCartItems(data.bookdata).pipe(
           map((cartData: any) =>
           {
-            return removeItemSuccess({ id: item.id });
+            return removeItemSuccess({ bookdata: cartData });
           }),
           catchError(err => of(errorOccur(err))),
         );
@@ -75,7 +74,7 @@ export class CartEffects
       switchMap((item: any) =>
       {
 
-        return this.cartService.updateCartItems(item.id,"increment").pipe(
+        return this.cartService.updateCartItems(item.id, "increment").pipe(
           map((cartData: any) =>
           {
             return incrementItemSuccess({ bookdata: cartData });
@@ -91,7 +90,7 @@ export class CartEffects
       switchMap((item: any) =>
       {
 
-        return this.cartService.updateCartItems(item.id,"decrement").pipe(
+        return this.cartService.updateCartItems(item.id, "decrement").pipe(
           map((cartData: any) =>
           {
             return decrementItemSuccess({ bookdata: cartData });

@@ -2,13 +2,7 @@
   <mat-toolbar class="navbar">
     <div class="category d-flex">
       <a routerLink="/">
-        <img
-          src="/assets/images/bookstore-logo.png"
-          alt="logo"
-          height="50px"
-          width="50px"
-          class="navIcon"
-        />
+        <img src="/assets/images/bookstore-logo.png" alt="logo" height="50px" width="50px" class="navIcon" />
       </a>
       <div class="navItems">
         <a class="navitem" routerLink="/viewall/Trending">TRENDING</a>
@@ -17,33 +11,61 @@
       </div>
     </div>
     <div class="input">
-      <input #searchField
-        type="text"
-        placeholder="Search by Title..."
-        [(ngModel)]="search"
-        (input)="redirectToSearch($event)"
-      />
+      <input #searchField type="text" placeholder="Search by Title..." (input)="redirectToSearch($event)"
+        class="search-input" />
       <a class="search">
         <mat-icon class="searchicon">search</mat-icon>
-        </a>
-      <a class="login" *ngIf="!username" (click)="login()">Sign In</a>
+      </a>
+      <a routerLink="/signin" class="login" *ngIf="!username">Sign In</a>
       <div class="loginItems" *ngIf="username">
         <span class="username">
-          <span [style]="{ color: 'blue' }">Welcome </span
-          >{{ username | uppercase }}
+          <span [style]="{ color: 'blue' }">Welcome </span>{{ username | uppercase }}
         </span>
-        <mat-icon class="logout" (click)="logout()" title="Sign Out">logout</mat-icon>
-        <mat-icon
-          class="cart"
-          matBadge="{{ count }}"
-          matBadgeSize="small"
-          matBadgeColor="warn"
-          aria-hidden="false"
-          routerLink="/cart"
-          title="Cart"
-          >shopping_cart</mat-icon
-        >
+        <mat-icon class="logout" (click)="logout()">logout</mat-icon>
+        <mat-icon class="cart" matBadge="{{ count }}" matBadgeSize="small" matBadgeColor="warn" aria-hidden="false"
+          routerLink="/cart">shopping_cart</mat-icon>
       </div>
     </div>
   </mat-toolbar>
+  <div
+    @myInsertRemoveTrigger
+    *ngIf="activeDropdown && search.length > 0 && allBooks.length > 0"
+    class="search-div bg-light"
+  >
+    <p *ngIf="allBooks.length > 0" class="text-success fw-bolder text-center">
+      found {{ allBooks.length }} items
+    </p>
+
+    <div (click)="navigateToDetails(oneBook.id)" class="for-div d-flex flex-row justify-content-between p-2"
+      *ngFor="let oneBook of allBooks">
+      <img class="search-image" src="{{ oneBook.thumbnailUrl }}" alt="{{ oneBook.title }}" />
+      <div class="d-flex flex-column justify-content-center content">
+        <h3 class="text-danger">{{ oneBook.title | shorten : 13 }}</h3>
+        <p>
+          by
+          <i class="text-secondary">{{ oneBook.authors[0] | shorten : 13 }}</i>
+        </p>
+        <div class="text-left" *ngIf="oneBook.discount; else noDiscount">
+          <del>
+            <span class="text-left m-0 text-info">₹{{ oneBook.price }} </span>
+          </del>
+          <span class="text-left text-secondary">
+            {{ oneBook.discount }}% off</span>
+          <p class="text-left m-0 text-success">
+            ₹{{ calculateDiscount(oneBook.price, oneBook.discount) }}
+          </p>
+        </div>
+        <ng-template #noDiscount class="text-center">
+          <p class="text-left m-0 text-success">₹{{ oneBook.price }}</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div
+    @myInsertRemoveTrigger
+    *ngIf="activeDropdown && search.length > 0 && allBooks.length < 1"
+    class="search-div search-error-div bg-light"
+  >
+    <h1 class="text-danger text-left">...Opps no books found</h1>
+  </div>
 </header>
