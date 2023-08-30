@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { cartState } from 'app/interfaces/interface.cartState';
 import { Store } from '@ngrx/store';
 import { getItem } from 'app/store/cart.actions';
-import { Subscription } from 'rxjs';
 import { HttpService } from 'app/core/services/http.service';
 import { Book } from 'app/interfaces/interface.book';
 import { animate, style, transition, trigger } from '@angular/animations';
