@@ -1,10 +1,17 @@
 .background {
-  background-color: rgb(241, 243, 245);
-}
-.background {
   background-size: cover;
   background-color: rgb(241, 243, 245);
   background-attachment: fixed, scroll;
   background-position: center;
   background-repeat: no-repeat;
+}
+.loading-img{
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border-radius: 50%;
 }
