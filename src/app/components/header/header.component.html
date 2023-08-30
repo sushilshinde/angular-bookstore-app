@@ -46,7 +46,11 @@
       </div>
     </div>
   </mat-toolbar>
-  <div @myInsertRemoveTrigger *ngIf="activeDropdown && search.length > 0 && allBooks.length > 0" class="search-div bg-light">
+  <div
+    @myInsertRemoveTrigger
+    *ngIf="activeDropdown && search.length > 0 && allBooks.length > 0"
+    class="search-div bg-light"
+  >
     <p *ngIf="allBooks.length > 0" class="text-success fw-bolder text-center">
       found {{ allBooks.length }} items
     </p>
@@ -84,7 +88,11 @@
       </div>
     </div>
   </div>
-  <div @myInsertRemoveTrigger *ngIf="activeDropdown && search.length > 0 && allBooks.length < 1" class="search-div search-error-div bg-light"  >
+  <div
+    @myInsertRemoveTrigger
+    *ngIf="activeDropdown && search.length > 0 && allBooks.length < 1"
+    class="search-div search-error-div bg-light"
+  >
     <h1 class="text-danger text-left">...Opps no books found</h1>
   </div>
 </header>

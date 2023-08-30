@@ -154,3 +154,8 @@ input[type="text"] {
 .content {
   width: 65%;
 }
+@media screen and (max-width:500px) {
+  .search-error-div h1{
+    font-size: 15px;
+  }
+}
