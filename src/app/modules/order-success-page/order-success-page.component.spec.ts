@@ -5,11 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { OrderSuccessPageComponent } from './order-success-page.component';
 
-describe('OrderSuccessPageComponent', () => {
+describe('OrderSuccessPageComponent', () =>
+{
   let component: OrderSuccessPageComponent;
   let fixture: ComponentFixture<OrderSuccessPageComponent>;
   let debugElement: DebugElement;
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(OrderSuccessPageComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
@@ -17,10 +19,12 @@ describe('OrderSuccessPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
-  it('should display success message and continue shopping button', () => {
+  it('should display success message and continue shopping button', () =>
+  {
     const tickIcon = debugElement.query(By.css('.tickicon'));
     const message = debugElement.query(By.css('h2'));
     const continueShoppingButton = debugElement.query(By.css('button'));

@@ -87,9 +87,8 @@ h3 {
 .material-symbols-outlined {
   margin: 20px 0px 0px 25px;
   font-size: 40px;
-  color:yellow;
+  color: yellow;
   font-weight: bolder;
-  
 }
 .price-card {
   display: flex;
@@ -118,14 +117,14 @@ h3 {
   font-weight: 500;
   font-size: 20px;
 }
-.cartandpricediv{
+.cartandpricediv {
   width: 60vw;
 }
-@media screen and (max-width:900px) {
-  .cartandpricediv{
+@media screen and (max-width: 900px) {
+  .cartandpricediv {
     width: 80vw;
   }
-  .remove-btn{
+  .remove-btn {
     padding: 2px 7px;
     margin: 10px;
   }
@@ -135,7 +134,6 @@ h3 {
     font-size: xx-small;
   }
   .price-card {
-  
     font-size: 13px;
     display: flex;
     flex-direction: row;
@@ -147,9 +145,9 @@ h3 {
   .buynow-btn {
     max-width: 130px;
   }
-.remove-btn {
-margin-right: 0;
-}
+  .remove-btn {
+    margin-right: 0;
+  }
   .cart-card {
     max-width: 100%;
     font-size: 15px;
@@ -177,10 +175,10 @@ margin-right: 0;
     margin-left: 5px;
     margin-right: 10px;
   }
-  .remove-btn{
+  .remove-btn {
     padding: 2px 17px;
   }
-  .cartandpricediv{
+  .cartandpricediv {
     width: 85vw;
   }
 }
@@ -195,7 +193,7 @@ margin-right: 0;
     margin-left: 5px;
     margin-right: 10px;
   }
-  .remove-btn{
+  .remove-btn {
     padding: 2px 17px;
   }
 }

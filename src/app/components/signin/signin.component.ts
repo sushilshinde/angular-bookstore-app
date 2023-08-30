@@ -8,14 +8,16 @@ import { passwordValidator } from '../signup/password.validator';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css'],
 })
-export class SigninComponent {
+export class SigninComponent
+{
   login = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]), // creating control for emial field with validations
     password: new FormControl(null, [Validators.required, passwordValidator()]), // creating control for password field with validations
   });
-  constructor(private authentication: AuthenticationService) {}
+  constructor (private authentication: AuthenticationService) { }
 
-  signin() {
-    this.authentication.signin(this.login); 
+  signin()
+  {
+    this.authentication.signin(this.login);
   }
 }

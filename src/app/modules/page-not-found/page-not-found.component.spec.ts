@@ -11,22 +11,26 @@ import { cartReducer } from 'app/store/cart.reducer';
 
 import { PageNotFoundComponent } from './page-not-found.component';
 
-describe('PageNotFoundComponent', () => {
+describe('PageNotFoundComponent', () =>
+{
   let component: PageNotFoundComponent;
   let fixture: ComponentFixture<PageNotFoundComponent>;
-  let debugElement:DebugElement;
+  let debugElement: DebugElement;
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     fixture = TestBed.createComponent(PageNotFoundComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
-  it('should display error message and "Back to Home" button', () => {
+  it('should display error message and "Back to Home" button', () =>
+  {
     const errorMessage = debugElement.query(By.css('.error-message'));
     const backButton = debugElement.query(By.css('button'));
 

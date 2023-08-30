@@ -4,11 +4,11 @@ h4,
 h3 {
   font-weight: bold;
 }
-h3{
+h3 {
   margin: 0px;
 }
 .flex-center {
-      height: 500px;
+  height: 500px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -16,10 +16,10 @@ h3{
   align-items: center;
   padding: 15px;
 }
-.error-msg{
+.error-msg {
   text-decoration: none;
 }
-.discountPrice h4{
+.discountPrice h4 {
   color: rgb(19, 182, 33);
 }
 .details-card {
@@ -96,7 +96,7 @@ h3{
   flex-direction: column;
   flex-wrap: wrap;
 }
-.book-atc a{
+.book-atc a {
   cursor: pointer;
 }
 .cart-btn {
@@ -136,7 +136,7 @@ h3{
   flex-wrap: wrap;
   margin: 20px 10px 25px 0;
   line-height: 25px;
-  color:#0008ffb0;
+  color: #0008ffb0;
 }
 .book-desc p {
   max-width: 900px;
@@ -144,12 +144,12 @@ h3{
   padding: 10px 0px 10px 12px;
   color: aliceblue;
 }
-.goback-arrow .material-symbols-outlined{
+.goback-arrow .material-symbols-outlined {
   margin-left: 35px;
   font-size: 40px;
-  color:rgb(208, 255, 0);
+  color: rgb(208, 255, 0);
 }
-.back-btn .material-symbols-outlined{
+.back-btn .material-symbols-outlined {
   padding-right: 2px;
   text-align: center;
 }

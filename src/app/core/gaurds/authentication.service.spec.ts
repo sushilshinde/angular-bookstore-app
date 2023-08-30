@@ -6,22 +6,26 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthGaurdService } from './auth-gaurd.service';
 
-describe('AuthenticationService', () => {
+describe('AuthenticationService', () =>
+{
   let authenticationService: AuthenticationService;
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     TestBed.configureTestingModule({
-        imports: [RouterTestingModule,HttpClientTestingModule],
-        providers: [AuthGaurdService,HttpClient],
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [AuthGaurdService, HttpClient],
     });
 
     authenticationService = TestBed.inject(AuthenticationService);
   });
 
-  it('should be created', () => {
+  it('should be created', () =>
+  {
     expect(authenticationService).toBeTruthy();
   });
-  it('should return login status',()=>{
+  it('should return login status', () =>
+  {
     expect(authenticationService.loginStatus()).toBeTruthy();
   })
 

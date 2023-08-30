@@ -16,16 +16,14 @@
   </div>
   <mat-grid-list [cols]="cols" *ngIf="!isLoading; else loader">
     <mat-grid-tile *ngFor="let data of allBooks | sort : [sort, sortDirection]">
-      <div
-        (click)="navigateToDetails(data.id)"
-        class="d-flex flex-column justify-content-center books-container image-div"
-      >
+      <div (click)="navigateToDetails(data.id)"
+        class="d-flex flex-column justify-content-center books-container image-div">
         <div>
           <img src="{{ data.thumbnailUrl }}" alt="noimg" />
         </div>
         <div>
-          <b
-            ><p class="text-center m-0 text-danger mt-1">
+          <b>
+            <p class="text-center m-0 text-danger mt-1">
               {{ data.title | shorten : 15 }}
             </p>
           </b>
@@ -35,13 +33,10 @@
           <b class="text-center">
             <div class="text-center" *ngIf="data.discount; else noDiscount">
               <del>
-                <span class="text-center m-0 text-warning"
-                  >₹{{ data.price }}</span
-                >
+                <span class="text-center m-0 text-warning">₹{{ data.price }}</span>
               </del>
               <span class="text-center text-secondary">
-                {{ data.discount }}% off</span
-              >
+                {{ data.discount }}% off</span>
               <p class="text-center m-0 text-success">
                 ₹{{ calculateDiscount(data.price, data.discount) }}
               </p>

@@ -1,40 +1,40 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { BookQty } from 'app/interfaces/interface.book';
 import { cartState } from 'app/interfaces/interface.cartState';
 import
-  {
-    increment,
-    decrement,
-    removeItem,
-    getItem,
-  } from 'app/store/cart.actions';
+{
+  increment,
+  decrement,
+  removeItem,
+  getItem,
+} from 'app/store/cart.actions';
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.css'],
-  animations:[trigger('myInsertRemoveTrigger', [
+  animations: [trigger('myInsertRemoveTrigger', [
     transition(':enter', [
-      style({ opacity: 0,scale:0}),
-      animate('700ms', style({ opacity: 1,scale:1 })),
+      style({ opacity: 0, scale: 0 }),
+      animate('700ms', style({ opacity: 1, scale: 1 })),
     ]),
   ]),]
 })
-export class CartPageComponent implements OnInit,OnDestroy
+export class CartPageComponent implements OnInit, OnDestroy
 {
   cartData: any = [];
   error!: any;
   count: number = 0;
   totalPrice: number = 0;
-private subscription!:Subscription
+  private subscription!: Subscription
   updatePrice()                              //calculating all items price with reduce method
   {
     if (Array.isArray(this.cartData)) {
       this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
       {
-        
+
         if (value.discount) {
           return (
             acc +
@@ -50,18 +50,18 @@ private subscription!:Subscription
     }
   }
 
-  constructor (private store: Store<{ cartItems: cartState }>,) {}
+  constructor (private store: Store<{ cartItems: cartState }>) { }
   ngOnInit(): void
   {
     this.store.dispatch(getItem());
-    this.subscription=this.store.select('cartItems').subscribe((data) =>  //subscribing cart items
+    this.subscription = this.store.select('cartItems').subscribe((data) =>  //subscribing cart items
     {
       this.cartData = data.cartItems;
       this.error = data.error;
       this.updatePrice();
     });
   }
-  onRemoveHandeller(bookdata:BookQty)
+  onRemoveHandeller(bookdata: BookQty)
   {
     this.store.dispatch(removeItem({ bookdata }));        //dispatching removeitems action to store
   }

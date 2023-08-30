@@ -7,17 +7,19 @@ import { Subscription } from 'rxjs';
   templateUrl: './books-category.component.html',
   styleUrls: ['./books-category.component.css'],
 })
-export class BooksCategoryComponent implements OnInit, OnDestroy {
+export class BooksCategoryComponent implements OnInit, OnDestroy
+{
   emitData: any
   trendingBooks: Book[] = [];
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
   errorMessage!: any
   private subscription!: Subscription
-  constructor(private httpdata: HttpService) {}
+  constructor (private httpdata: HttpService) { }
 
-  ngOnInit() {
-    this.subscription=this.httpdata.getBooks().subscribe({
+  ngOnInit()
+  {
+    this.subscription = this.httpdata.getBooks().subscribe({
       next: resp =>
       {
         let booksoffer = [];
@@ -40,11 +42,13 @@ export class BooksCategoryComponent implements OnInit, OnDestroy {
       }
     });
   }
-  emitworkes(data:any){  
-    this.emitData=data; // getting emitted data
+  emitworkes(data: any)
+  {
+    this.emitData = data; // getting emitted data
   }
-  ngOnDestroy() {                //ondestroy lifecycle method
+  ngOnDestroy()
+  {                //ondestroy lifecycle method
     this.subscription.unsubscribe();
   }
-  
+
 }

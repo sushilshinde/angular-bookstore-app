@@ -6,18 +6,21 @@ import { AuthGaurdService } from './auth-gaurd.service';
 import { AuthenticationGaurdService } from './authentication-gaurd.service';
 
 
-describe('AuthenticationGaurdsService', () => {
+describe('AuthenticationGaurdsService', () =>
+{
   let service: AuthenticationGaurdService;
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule,HttpClientTestingModule],
-      providers: [AuthGaurdService,HttpClient],
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [AuthGaurdService, HttpClient],
     });
     service = TestBed.inject(AuthenticationGaurdService);
   });
 
-  it('should be created', () => {
+  it('should be created', () =>
+  {
     expect(service).toBeTruthy();
   });
 });

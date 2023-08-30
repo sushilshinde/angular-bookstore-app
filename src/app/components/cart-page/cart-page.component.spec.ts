@@ -11,13 +11,15 @@ import { HeaderComponent } from '../header/header.component';
 
 import { CartPageComponent } from './cart-page.component';
 
-describe('CartPageComponent', () => {
+describe('CartPageComponent', () =>
+{
   let component: CartPageComponent;
   let fixture: ComponentFixture<CartPageComponent>;
   let testStore: Partial<Store>;
   let testHttpService: Partial<HttpService>;
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     testStore = {
       dispatch: jasmine.createSpy(),
       select: () => of({ cartItems: [] }),
@@ -44,16 +46,19 @@ describe('CartPageComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
 
-  it('should dispatch getItem action on initialization', () => {
+  it('should dispatch getItem action on initialization', () =>
+  {
     fixture.detectChanges();
     expect(testStore.dispatch).toHaveBeenCalledWith(getItem());
   });
 
-  it('should dispatch removeItem action when onRemoveHandler is called', () => {
+  it('should dispatch removeItem action when onRemoveHandler is called', () =>
+  {
     const bookdata = {
       title: 'Happy Place',
       id: 1,

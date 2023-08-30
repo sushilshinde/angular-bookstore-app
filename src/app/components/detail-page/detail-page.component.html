@@ -1,7 +1,6 @@
 <app-header></app-header>
 <div class="details-card">
-  <a routerLink="/" class="goback-arrow"
-    ><span class="material-symbols-outlined"> arrow_left_alt </span>
+  <a routerLink="/" class="goback-arrow"><span class="material-symbols-outlined"> arrow_left_alt </span>
   </a>
   <div @myInsertRemoveTrigger class="bookdetails-card" *ngIf="!errorMessage; else errorOccur">
     <div class="book-detail">
@@ -36,10 +35,7 @@
           </div>
         </div>
         <div class="book-atc">
-          <button
-            class="cart-btn"
-            (click)="!existInCart ? addToCart(data) : goToCart()"
-          >
+          <button class="cart-btn" (click)="!existInCart ? addToCart(data) : goToCart()">
             {{ existInCart ? "Go" : "Add" }} to Cart
             <span class="material-symbols-outlined"> add_shopping_cart </span>
           </button>
@@ -51,9 +47,7 @@
       <h2>Description</h2>
       <p>{{ data?.longDescription }}</p>
     </div>
-    <a routerLink="/" class="back-btn"
-      ><span class="material-symbols-outlined"> arrow_left_alt </span> Back</a
-    >
+    <a routerLink="/" class="back-btn"><span class="material-symbols-outlined"> arrow_left_alt </span> Back</a>
   </div>
   <ng-template #errorOccur>
     <div class="background flex-center text-danger h-500">

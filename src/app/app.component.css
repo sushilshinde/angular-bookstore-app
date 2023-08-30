@@ -1,10 +1,7 @@
 .background {
-  background-color: rgb(241, 243, 245);
-}
-.background{
   background-size: cover;
   background-color: rgb(241, 243, 245);
-  background-attachment: fixed,scroll;
+  background-attachment: fixed, scroll;
   background-position: center;
   background-repeat: no-repeat;
 }

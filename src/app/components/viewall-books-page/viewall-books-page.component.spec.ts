@@ -13,22 +13,24 @@ import { FooterComponent } from '../footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { cartReducer } from 'app/store/cart.reducer';
 
-describe('ViewallBooksPageComponent', () => {
+describe('ViewallBooksPageComponent', () =>
+{
   let component: ViewallBooksPageComponent;
   let fixture: ComponentFixture<ViewallBooksPageComponent>;
-  let testHttpService:Partial<HttpService>;
+  let testHttpService: Partial<HttpService>;
 
 
-  beforeEach(() => {
+  beforeEach(() =>
+  {
     testHttpService = {
       getTrendingBooks: () => of([]),
       getBestOffersBooks: () => of([]),
       getBooks: () => of([]),
     };
     TestBed.configureTestingModule({
-        imports:[RouterTestingModule,HttpClientTestingModule,MaterialModule,FormsModule,StoreModule.forRoot({ cartItems: cartReducer })],
-      declarations: [ViewallBooksPageComponent,SortPipe,HeaderComponent,FooterComponent],
-      providers: [{ provide: HttpService, useValue: testHttpService },{
+      imports: [RouterTestingModule, HttpClientTestingModule, MaterialModule, FormsModule, StoreModule.forRoot({ cartItems: cartReducer })],
+      declarations: [ViewallBooksPageComponent, SortPipe, HeaderComponent, FooterComponent],
+      providers: [{ provide: HttpService, useValue: testHttpService }, {
         provide: ActivatedRoute,
         useValue: {
           params: of({ category: 'Trending' }), //default paramsseting to Trending
@@ -39,21 +41,25 @@ describe('ViewallBooksPageComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  it('should create', () => {
+  it('should create', () =>
+  {
     expect(component).toBeTruthy();
   });
-  it('should set default category to "Trending"', () => {
+  it('should set default category to "Trending"', () =>
+  {
     expect(component.category).toBe('Trending');
   });
 
-  it('should fetch trending books when category is "Trending"', () => {
+  it('should fetch trending books when category is "Trending"', () =>
+  {
     spyOn(testHttpService, 'getTrendingBooks' as any).and.callThrough();
     component.category = 'Trending';
     component.ngOnInit();
     expect(testHttpService.getTrendingBooks).toHaveBeenCalled();
   });
 
-  it('should navigate to details page on book click', () => {
+  it('should navigate to details page on book click', () =>
+  {
     spyOn(component['navpage'], 'navigate').and.stub();
     const bookId = 123;
     component.navigateToDetails(bookId);

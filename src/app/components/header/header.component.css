@@ -105,7 +105,6 @@ input[type="text"] {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* width:40vw; */
     width: 100%;
   }
   .navItems {

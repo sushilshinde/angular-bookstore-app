@@ -3,19 +3,19 @@ import { catchError, map, of, switchMap, throwError } from 'rxjs';
 import { CartService } from 'app/core/services/cart.service';
 import { Injectable } from '@angular/core';
 import
-  {
-    getItem,
-    getItemSuccess,
-    addItem,
-    addItemSuccess,
-    removeItem,
-    removeItemSuccess,
-    increment,
-    incrementItemSuccess,
-    decrement,
-    decrementItemSuccess,
-    errorOccur,
-  } from './cart.actions';
+{
+  getItem,
+  getItemSuccess,
+  addItem,
+  addItemSuccess,
+  removeItem,
+  removeItemSuccess,
+  increment,
+  incrementItemSuccess,
+  decrement,
+  decrementItemSuccess,
+  errorOccur,
+} from './cart.actions';
 @Injectable()
 export class CartEffects
 {
@@ -74,7 +74,7 @@ export class CartEffects
       switchMap((item: any) =>
       {
 
-        return this.cartService.updateCartItems(item.id,"increment").pipe(
+        return this.cartService.updateCartItems(item.id, "increment").pipe(
           map((cartData: any) =>
           {
             return incrementItemSuccess({ bookdata: cartData });
@@ -90,7 +90,7 @@ export class CartEffects
       switchMap((item: any) =>
       {
 
-        return this.cartService.updateCartItems(item.id,"decrement").pipe(
+        return this.cartService.updateCartItems(item.id, "decrement").pipe(
           map((cartData: any) =>
           {
             return decrementItemSuccess({ bookdata: cartData });
