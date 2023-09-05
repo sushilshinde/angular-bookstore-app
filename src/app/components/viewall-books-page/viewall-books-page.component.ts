@@ -1,4 +1,3 @@
-import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpService } from 'app/core/services/http.service';
@@ -12,6 +11,7 @@ export class ViewallBooksPageComponent
 {
   allBooks: any = [];
   category: string = '';
+  errorMessage: any;
   sort!: string;
   isLoading = false;
   sortDirection = 'asc';
@@ -38,16 +38,41 @@ export class ViewallBooksPageComponent
       if (param['category'] === 'Trending') {
         this.http
           .getTrendingBooks()
-          .subscribe((resp) =>
+          .subscribe({
+            next: resp =>
+            {
+              (this.allBooks = resp)
+            },
+            error: err =>
+            {
+              this.errorMessage = err;
+            }
+          })
+      } //assigning allbooks with  trending books
+      else if (param['category'] === 'Best Offers') {
+        this.http
+          .getBestOffersBooks().subscribe({
+            next: resp =>
+            {
+              (this.allBooks = resp)
+            },
+            error: err =>
+            {
+              this.errorMessage = err;
+
+            }
+          }) //assigning allbooks with best offer books
+      } else {
+        this.http.getBooks().subscribe({
+          next: resp =>
           {
             (this.allBooks = resp)
-          }); //assigning allbooks with  trending books
-      } else if (param['category'] === 'Best Offers') {
-        this.http
-          .getBestOffersBooks()
-          .subscribe((resp) => (this.allBooks = resp)); //assigning allbooks with best offer books
-      } else {
-        this.http.getBooks().subscribe((resp) => (this.allBooks = resp)); //assigning allbooks with avaliable books
+          },
+          error: err =>
+          {
+            this.errorMessage = err;
+          }
+        }) //assigning allbooks with avaliable books
       }
     });
 

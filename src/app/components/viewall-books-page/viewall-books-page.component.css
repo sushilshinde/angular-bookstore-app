@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+h2 {
+  font-weight: bold;
+}
 .container {
   width: 100%;
   height: auto;
@@ -61,4 +64,16 @@ button {
   font-weight: bold;
   padding-top: 15px;
   justify-content: space-between;
+}
+.flex-center {
+  height: 500px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.error-msg {
+  text-decoration: none;
 }

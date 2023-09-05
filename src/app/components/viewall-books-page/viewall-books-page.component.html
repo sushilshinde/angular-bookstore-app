@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container">
+<div class="container" *ngIf="!errorMessage; else errorOccur">
   <div class="heading">
     <h2>{{ category }}</h2>
     <div>
@@ -60,4 +60,16 @@
     </a>
   </div>
 </div>
+<ng-template #errorOccur>
+  <div class="background flex-center text-danger h-500">
+    <div appErrorStyles>
+      <h2>OOPS! {{ errorMessage?.error.error.status }}</h2>
+      <h2>Something went wrong!</h2>
+      <h2>Please try after sometime</h2>
+      <h2>
+        <a href="/" class="error-msg">GO BACK</a>
+      </h2>
+    </div>
+  </div>
+</ng-template>
 <app-footer></app-footer>
