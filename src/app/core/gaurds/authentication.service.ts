@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { environment } from 'environment/environment.dev';
+import { environment } from 'environment/environment';
+
 @Injectable({
   providedIn: 'root',
 
@@ -23,13 +24,14 @@ export class AuthenticationService
       .subscribe({
         next: userData =>
         {
+          console.log(userData.users, "user-data")
           //if matched nav to home and set user details
           this.isAuthenticate = true;
           alert('LoggedIn Successfully!');
           localStorage.setItem('userdetails', JSON.stringify(userData.users));
-          this.router.navigate(['/']);
+          // this.router.navigate(['/']);
           login.reset();
-          window.location.reload();
+          // window.location.reload();
         },
         error: err =>
         {
