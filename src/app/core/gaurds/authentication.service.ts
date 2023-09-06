@@ -24,14 +24,13 @@ export class AuthenticationService
       .subscribe({
         next: userData =>
         {
-          console.log(userData.users, "user-data")
           //if matched nav to home and set user details
           this.isAuthenticate = true;
           alert('LoggedIn Successfully!');
           localStorage.setItem('userdetails', JSON.stringify(userData.users));
-          // this.router.navigate(['/']);
+          this.router.navigate(['/']);
           login.reset();
-          // window.location.reload();
+          window.location.reload();
         },
         error: err =>
         {
