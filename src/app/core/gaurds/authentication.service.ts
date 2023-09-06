@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { environment } from 'environment/environment.dev';
-import { MatSnackBar } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root',
 
@@ -12,7 +11,7 @@ export class AuthenticationService
   user: any;
   private URL = environment.apiURL;
   private isAuthenticate: boolean = false;
-  constructor (private http: HttpClient, private router: Router, private _snackBar: MatSnackBar)
+  constructor (private http: HttpClient, private router: Router)
   {
   }
   signin(login: any)
@@ -26,7 +25,7 @@ export class AuthenticationService
         {
           //if matched nav to home and set user details
           this.isAuthenticate = true;
-          this.openSnackBar();
+          alert('LoggedIn Successfully!');
           localStorage.setItem('userdetails', JSON.stringify(userData.users));
           this.router.navigate(['/']);
           login.reset();
@@ -49,11 +48,6 @@ export class AuthenticationService
     if (userDetails) this.isAuthenticate = true;
     return this.isAuthenticate;
   }
-  openSnackBar()
-  {
-    this._snackBar.open("Login Successfully!!!", "OK", { verticalPosition: 'top' });
-  }
-
   signup(register: any)
   {
     return this.http.post<any>(this.URL + '/users', register.value).subscribe({

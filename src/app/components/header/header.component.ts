@@ -39,17 +39,11 @@ export class HeaderComponent implements OnInit
 
   ngOnInit()
   {
-    this.httpservice.getBooks().subscribe({
-      next: (resp) =>
+    this.httpservice.getBooks().subscribe(resp =>
       {
         this.books = resp;
-      },
-      error: (err) =>
-      {
-        console.log(err);
-        // alert('something went wrong!');
-      },
-    });
+    }
+    );
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) =>
     {

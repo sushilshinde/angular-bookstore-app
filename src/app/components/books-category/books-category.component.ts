@@ -13,7 +13,6 @@ export class BooksCategoryComponent implements OnInit, OnDestroy
   trendingBooks: Book[] = [];
   bestOfferBooks: Book[] = [];
   allBooks: Book[] = [];
-  errorMessage!: any
   private subscription!: Subscription
   constructor (private httpdata: HttpService) { }
 
@@ -38,7 +37,7 @@ export class BooksCategoryComponent implements OnInit, OnDestroy
       },
       error: err =>
       {
-        this.errorMessage = err;
+        alert("Something went wrong, Please try again later...\n" + err.name)
       }
     });
   }
