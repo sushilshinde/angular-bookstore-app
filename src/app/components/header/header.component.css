@@ -130,7 +130,7 @@ input[type="text"] {
 .search-error-div h1 {
   margin: 0px;
   padding: 10px;
-  background-color: yellowgreen;
+  /* background-color:#e9dcad; */
 }
 .search-div h3 {
   margin: 0;
