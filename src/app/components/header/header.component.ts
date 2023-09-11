@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit
       error: (err) =>
       {
         console.log(err);
-        // alert('something went wrong!');
+        alert('something went wrong!');
       },
     });
     this.store.dispatch(getItem());
