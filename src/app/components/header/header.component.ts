@@ -28,8 +28,8 @@ export class HeaderComponent implements OnInit
   search: any = '';
   count!: number;
   cartData: any;
-  allBooks!: Book[];
-  books!: Book[];
+  allBooks: Book[]=[];
+  books: Book[]=[];
   activeDropdown: boolean = false;
   constructor (
     private store: Store<{ cartItems: cartState }>,
