@@ -28,8 +28,8 @@ export class HeaderComponent implements OnInit
   search: any = '';
   count!: number;
   cartData: any;
-  allBooks!: Book[];
-  books!: Book[];
+  allBooks: Book[]=[];
+  books: Book[]=[];
   activeDropdown: boolean = false;
   constructor (
     private store: Store<{ cartItems: cartState }>,
@@ -39,11 +39,17 @@ export class HeaderComponent implements OnInit
 
   ngOnInit()
   {
-    this.httpservice.getBooks().subscribe(resp =>
+    this.httpservice.getBooks().subscribe({
+      next: (resp) =>
       {
         this.books = resp;
-    }
-    );
+      },
+      error: (err) =>
+      {
+        console.log(err);
+        alert('something went wrong!');
+      },
+    });
     this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) =>
     {

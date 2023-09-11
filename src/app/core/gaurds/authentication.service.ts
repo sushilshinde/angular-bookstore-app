@@ -29,9 +29,9 @@ export class AuthenticationService
           this.isAuthenticate = true;
           alert('LoggedIn Successfully!');
           localStorage.setItem('userdetails', JSON.stringify(userData.users));
-          // this.router.navigate(['/']);
+          this.router.navigate(['/']);
           login.reset();
-          // window.location.reload();
+          window.location.reload();
         },
         error: err =>
         {
