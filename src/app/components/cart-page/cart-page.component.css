@@ -121,6 +121,9 @@ h3 {
 .cartandpricediv {
   width: 60vw;
 }
+.title-color{
+  color :rgb(255, 0, 212);
+}
 @media screen and (max-width: 900px) {
   .cartandpricediv {
     width: 80vw;

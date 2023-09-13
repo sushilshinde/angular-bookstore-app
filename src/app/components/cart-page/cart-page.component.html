@@ -11,7 +11,7 @@
               <img src="{{ item?.thumbnailUrl }}" alt="{{ item?.title }}" />
             </div>
             <div class="book-details">
-              <h3>{{ item?.title | shorten : 15 }}</h3>
+              <h3 class="title-color">{{ item?.title | shorten : 15 }}</h3>
               <p>
                 by <i>{{ item?.authors | shorten : 15 }}</i>
               </p>
@@ -19,7 +19,7 @@
                 <del>
                   <span class="text-left m-0 text-info">₹{{ item?.price }} </span>
                 </del>
-                <span class="text-left text-secondary">
+                <span class="text-left  fw-bolder">
                   {{ item.discount }}% off</span>
                 <p class="text-left m-0 text-success">
                   ₹{{ calculateDiscount(item.price, item.discount) }}
