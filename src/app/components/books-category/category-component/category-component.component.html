@@ -11,7 +11,7 @@
     <ngx-slick-carousel class="carousel mt-3" #slickModal="slick-carousel" [config]="slideConfig">
       <div ngxSlickItem *ngFor="let slide of imagesData.slice(0, 6)" class="slide m-2">
         <img class="slider-book-image" src="{{ slide.thumbnailUrl }}" alt="image not avaliable" width="100%"
-          height="250px" (click)="navigateToDetails(slide.id)" />
+          height="250px" (click)="navigateToDetails(slide._id)" />
         <hr />
         <b>
           <p class="text-center m-0 text-danger mt-1">

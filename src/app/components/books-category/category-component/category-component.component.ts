@@ -83,7 +83,7 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number)
+  navigateToDetails(id: any)
   {
     //navigate to pirticular details page
     this.navpage.navigate(['details', id]);

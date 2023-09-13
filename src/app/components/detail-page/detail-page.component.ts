@@ -44,8 +44,8 @@ export class DetailPageComponent implements OnInit
       this.cartData = data.cartItems;
       if (this.cartData) {
 
-        const filteredId = this.cartData.map((item: any) => item.id);  //checkinng id exist in cart
-        if (filteredId.includes(+this.id)) {
+        const filteredId = this.cartData.map((item: any) => item.book?._id);  //checkinng id exist in cart
+        if (filteredId.includes(this.id)) {
           this.existInCart = true;
         }
       }

@@ -19,22 +19,23 @@ export class AuthenticationService
   {
     const email = login.controls.email.value;
     const password = login.controls.password.value;
-    const params = new HttpParams().set("email", email).set("password", password)//setting parms with email&password
-    return this.http.get<any>(this.URL + '/users', { params: params })
+    const loginDetails = { email, password }
+    // const params = new HttpParams().set("email", email).set("password", password)//setting parms with email&password
+    return this.http.post<any>(this.URL + '/user/login', loginDetails)
       .subscribe({
         next: userData =>
         {
           //if matched nav to home and set user details
           this.isAuthenticate = true;
           alert('LoggedIn Successfully!');
-          localStorage.setItem('userdetails', JSON.stringify(userData.users));
+          localStorage.setItem('userdetails', JSON.stringify(userData));
           this.router.navigate(['/']);
           login.reset();
           window.location.reload();
         },
         error: err =>
         {
-          if (err.error.error && err.error.error.status === '401') {
+          if (err.error) {
             alert(err.error.error.message);
           }
           else {
@@ -51,20 +52,21 @@ export class AuthenticationService
   }
   signup(register: any)
   {
-    return this.http.post<any>(this.URL + '/users', register.value).subscribe({
+    return this.http.post<any>(this.URL + '/user/signup', register.value).subscribe({
       next: userData =>
       {
         //if matched nav to home and set user details
         this.isAuthenticate = true;
         alert('Registered Successfully!');
-        localStorage.setItem('userdetails', JSON.stringify(userData.users));
+        localStorage.setItem('userdetails', JSON.stringify(userData));
         register.reset();
         this.router.navigate(['/']);
         window.location.reload();
       },
       error: err =>
       {
-        if (err.error.error && err.error.error.status === '401') {
+
+        if (err.error.error) {
           alert(err.error.error.message);
         }
         else {

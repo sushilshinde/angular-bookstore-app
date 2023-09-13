@@ -36,7 +36,7 @@
       found {{ allBooks.length }} items
     </p>
 
-    <div (click)="navigateToDetails(oneBook.id)" class="for-div d-flex flex-row justify-content-between p-2"
+    <div (click)="navigateToDetails(oneBook._id)" class="for-div d-flex flex-row justify-content-between p-2"
       *ngFor="let oneBook of allBooks">
       <img class="search-image" src="{{ oneBook.thumbnailUrl }}" alt="{{ oneBook.title }}" />
       <div class="d-flex flex-column justify-content-center content">

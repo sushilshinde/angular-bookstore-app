@@ -34,14 +34,13 @@ export class CartPageComponent implements OnInit, OnDestroy
     if (Array.isArray(this.cartData)) {
       this.totalPrice = this.cartData.reduce((acc: number, value: any) =>
       {
-
-        if (value.discount) {
+        if (value.book.discount) {
           return (
             acc +
-            this.calculateDiscount(value.price, value.discount) * value.quantity
+            this.calculateDiscount(value.book.price, value.book.discount) * value.quantity
           );
         } else {
-          return acc + value.price * value.quantity;
+          return acc + value.book.price * value.quantity;
         }
       }, 0);
     }
@@ -65,11 +64,11 @@ export class CartPageComponent implements OnInit, OnDestroy
   {
     this.store.dispatch(removeItem({ bookdata }));        //dispatching removeitems action to store
   }
-  onIncrement(id: number)
+  onIncrement(id: any)
   {
     this.store.dispatch(increment({ id }));  //dispatching increment action to store
   }
-  onDecrement(id: number)
+  onDecrement(id: any)
   {
     this.store.dispatch(decrement({ id })); //dispatching decrement action to store
   }

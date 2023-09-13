@@ -20,10 +20,9 @@ export class HttpService
   {
     return this.http.get<Book[]>(this.URL + '/books');
   }
-  getBookDetails(id: number)
+  getBookDetails(id: any)
   {
-
-    return this.http.get<Book[]>(this.URL + '/books/' + id).pipe(map((data) =>
+    return this.http.get<Book[]>(this.URL + '/book/' + id).pipe(map((data) =>
     {
       return data;
     }), catchError((err) => throwError(err)));

@@ -44,18 +44,18 @@ export class HeaderComponent implements OnInit
         this.books = resp;
     }
     );
-    this.store.dispatch(getItem());
+    // this.store.dispatch(getItem());
     this.store.select('cartItems').subscribe((data) =>
     {
       this.cartData = data.cartItems;
-      this.count = this.cartData?.length; //returning cartData length and assigning to count
+      this.count = this.cartData?.length; //returning cartData length and assigning to count\
     });
     const userDetails = localStorage.getItem('userdetails');
 
     if (userDetails) {
       const user = JSON.parse(userDetails);
-      if (user.users && user.users.name) {
-        this.username = user.users.name;
+      if (user) {
+        this.username = user.name;
       }
     }
   }
@@ -96,7 +96,7 @@ export class HeaderComponent implements OnInit
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number)
+  navigateToDetails(id: any)
   {
     this.activeDropdown = false;
     this.search = '';
