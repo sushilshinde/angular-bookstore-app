@@ -47,6 +47,9 @@ button {
   .headding-category{
     padding: 0;
   }
+  .animated-button{
+    padding: 2px;
+   }
 }
 .background {
   position: relative;
