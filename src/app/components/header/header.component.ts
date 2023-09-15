@@ -28,8 +28,8 @@ export class HeaderComponent implements OnInit
   search: any = '';
   count!: number;
   cartData: any;
-  allBooks!: Book[];
-  books!: Book[];
+  allBooks: Book[]=[];
+  books: Book[]=[];
   activeDropdown: boolean = false;
   constructor (
     private store: Store<{ cartItems: cartState }>,
@@ -39,23 +39,29 @@ export class HeaderComponent implements OnInit
 
   ngOnInit()
   {
-    this.httpservice.getBooks().subscribe(resp =>
+    this.httpservice.getBooks().subscribe({
+      next: (resp) =>
       {
         this.books = resp;
-    }
-    );
-    this.store.dispatch(getItem());
+      },
+      error: (err) =>
+      {
+        alert('something went wrong!');
+      },
+    });
     this.store.select('cartItems').subscribe((data) =>
     {
       this.cartData = data.cartItems;
       this.count = this.cartData?.length; //returning cartData length and assigning to count
+
     });
     const userDetails = localStorage.getItem('userdetails');
 
     if (userDetails) {
       const user = JSON.parse(userDetails);
-      if (user.users && user.users.name) {
-        this.username = user.users.name;
+      if (user) {
+        this.store.dispatch(getItem());
+        this.username = user.name;
       }
     }
   }
@@ -68,7 +74,6 @@ export class HeaderComponent implements OnInit
   redirectToSearch(event: any)
   {
     this.activeDropdown = true;
-    // localStorage.setItem('search',event.target.value)
     if (this.activeDropdown) {
       this.search = event.target.value;
       this.searchDetail();
@@ -96,7 +101,7 @@ export class HeaderComponent implements OnInit
     const discountedPrice = price - (price * discount) / 100;
     return discountedPrice;
   }
-  navigateToDetails(id: number)
+  navigateToDetails(id: any)
   {
     this.activeDropdown = false;
     this.search = '';

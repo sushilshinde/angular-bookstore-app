@@ -15,7 +15,6 @@ describe('OrderSuccessPageComponent', () =>
     fixture = TestBed.createComponent(OrderSuccessPageComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
-    console.log(fixture)
     fixture.detectChanges();
   });
 

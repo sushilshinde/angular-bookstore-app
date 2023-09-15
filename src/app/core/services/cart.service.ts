@@ -20,29 +20,23 @@ export class CartService
   )
   {
     // const user = JSON.parse(localStorage.getItem('userdetails') || '{}');
-    const user = localStorage.getItem('userdetails');
-    const id = user !== null ? JSON.parse(user) : '';
-    this.userId = id.users?.id;
+    const value= localStorage.getItem('userdetails');
+    const user = value !== null ? JSON.parse(value) : '';
+    this.userId = user._id;
     this.store
       .select('cartItems')
       .subscribe((data) => (this.cartItems = data.cartItems));//updating cart items from store
   }
   addCartItems(data: any)  //adding data to server
   {
-    const title = data.title;
-    const id = data.id;
+    const id = data._id;
     const quantity = data.quantity;
-    const price = data.price;
-    const discount = data.discount;
-    const authors = data.authors[0];
-    const thumbnailUrl = data.thumbnailUrl;
-    const cart = { title, id, price, quantity, discount, authors, thumbnailUrl };
-    return this.http.post(this.URL + '/cartItems/' + this.userId, cart);
+    return this.http.patch(this.URL + '/add-cartItem/' + this.userId, {id,quantity})
 
   }
-  getCartItems()
-  {                      //getting data from server
-    return this.http.get<Book[]>(this.URL + '/cartItems/' + this.userId)
+  getCartItems()      //getting data from server
+  {                      
+    return this.http.get<Book[]>(this.URL + '/get-cartItem/' + this.userId)
       .pipe(
         map((Resp) =>
         {
@@ -52,20 +46,21 @@ export class CartService
   }
   removeCartItems(data: any)
   {
-    return this.http.patch(this.URL + '/cartItems/' + this.userId, data);  //removing or deleting the data from server
+    return this.http.patch(this.URL + '/remove-cartItem/' + this.userId, data);  //removing or deleting the data from server
   }
 
   updateCartItems(item: any, mode: string)     //updating the cart item quantity
   {
     let currentQuantity = item.quantity;
+    const id = item._id;
     let updatedQty;
     if (mode === "increment") {
-      updatedQty = { ...item, quantity: currentQuantity + 1 };
+      updatedQty = { id, quantity: currentQuantity + 1 };
     }
     else {
-      updatedQty = { ...item, quantity: currentQuantity - 1 };
+      updatedQty = { id, quantity: currentQuantity - 1 };
     }
-    return this.http.patch(this.URL + `/cartItems-qty/${this.userId}`, updatedQty);
+    return this.http.patch(this.URL + '/cartItem-qty/'+this.userId, updatedQty);
   }
 }
 

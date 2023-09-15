@@ -101,7 +101,7 @@ export class ViewallBooksPageComponent
       return 1;
     }
   }
-  navigateToDetails(id: number)
+  navigateToDetails(id: any)
   {
     this.navpage.navigate(['details', id]); //navigate with id to details page
   }

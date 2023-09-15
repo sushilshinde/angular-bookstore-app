@@ -1,52 +1,52 @@
-<app-header *ngIf="cartData?.length > 0"></app-header>
-<div class="cartdetails-card">
-  <a routerLink="/" *ngIf="cartData?.length > 0"><span class="material-symbols-outlined"> arrow_left_alt </span>
+<app-header *ngIf="cartData.length > 0"></app-header>
+<div class="cartdetails-card" *ngIf="!error; else errorOcccur">
+  <a routerLink="/" *ngIf="cartData.length > 0"><span class="material-symbols-outlined"> arrow_left_alt </span>
   </a>
   <div class="cart-details">
-    <div *ngIf="!error; else errorOcccur">
-      <div @myInsertRemoveTrigger *ngIf="totalPrice; else noitems" class="cartandpricediv">
+    <!-- <div *ngIf="!error; else errorOcccur"> -->
+      <div @myInsertRemoveTrigger *ngIf="cartData.length > 0; else noitems" class="cartandpricediv">
         <div class="cart-card" *ngFor="let item of cartData">
           <div class="cart-book">
             <div class="book-img">
-              <img src="{{ item?.thumbnailUrl }}" alt="{{ item?.title }}" />
+              <img src="{{ item.book.thumbnailUrl }}" alt="{{ item.book.title }}" />
             </div>
             <div class="book-details">
-              <h3>{{ item?.title | shorten : 15 }}</h3>
+              <h3 class="book-title">{{ item.book.title | shorten : 15 }}</h3>
               <p>
-                by <i>{{ item?.authors | shorten : 15 }}</i>
+                by <i>{{ item.book.authors | shorten : 15 }}</i>
               </p>
-              <div class="text-left" *ngIf="item?.discount; else noDiscount">
+              <div class="text-left" *ngIf="item.book.discount; else noDiscount">
                 <del>
-                  <span class="text-left m-0 text-info">₹{{ item?.price }} </span>
+                  <span class="text-left m-0 text-info">₹{{ item.book.price }} </span>
                 </del>
                 <span class="text-left text-secondary">
-                  {{ item.discount }}% off</span>
+                  {{ item.book.discount }}% off</span>
                 <p class="text-left m-0 text-success">
-                  ₹{{ calculateDiscount(item.price, item.discount) }}
+                  ₹{{ calculateDiscount(item.book.price, item.book.discount) }}
                 </p>
               </div>
               <ng-template #noDiscount class="text-center">
-                <p class="text-left m-0 text-success">₹{{ item?.price }}</p>
+                <p class="text-left m-0 text-success">₹{{ item.book.price }}</p>
               </ng-template>
               <div class="book-qty">
                 <h4>Quantity:</h4>
                 <button (click)="onDecrement(item)" [disabled]="item.quantity <= 1">
                   -
                 </button>
-                <p>{{ item?.quantity }}</p>
+                <p>{{ item.quantity }}</p>
                 <button (click)="onIncrement(item)">+</button>
               </div>
             </div>
           </div>
-          <h3 *ngIf="item.discount; else discountdata" class="text-secondary text-center mb-0">
+          <h3 *ngIf="item.book.discount; else discountdata" class="text-secondary text-center mb-0">
             {{
-            calculateDiscount(item.price, item.discount) * item.quantity
+            calculateDiscount(item.book.price, item.book.discount) * item.book.quantity
               | currency : "INR"
           }}
           </h3>
           <ng-template #discountdata>
             <h3 class="text-secondary text-center mb-0">
-              {{ item.price * item.quantity | currency : "INR" }}
+              {{ item.book.price * item.book.quantity | currency : "INR" }}
             </h3>
           </ng-template>
           <button class="btn remove-btn" (click)="onRemoveHandeller(item)">
@@ -75,18 +75,17 @@
         </div>
       </ng-template>
     </div>
-    <ng-template #errorOcccur>
-      <div class="background flex-center text-danger">
-        <div appErrorStyles>
-          <h2>OOPS! {{ error?.error.status }}</h2>
-          <h2>Something went wrong!</h2>
-          <h2>Please try after sometime</h2>
-          <h2>
-            <a href="/" class="error-msg">GO BACK</a>
-          </h2>
-        </div>
-      </div>
-    </ng-template>
   </div>
-</div>
-<app-footer *ngIf="cartData?.length > 0"></app-footer>
+  <ng-template #errorOcccur>
+    <div class="background flex-center text-danger">
+      <div appErrorStyles>
+        <h2>OOPS! {{ error?.error.status }}</h2>
+        <h2>Something went wrong!</h2>
+        <h2>Please try after sometime</h2>
+        <h2>
+          <a href="/" class="error-msg">GO BACK</a>
+        </h2>
+      </div>
+    </div>
+  </ng-template>
+<app-footer *ngIf="cartData.length > 0"></app-footer>

@@ -7,7 +7,7 @@ export class shortenPipe implements PipeTransform
 {
     transform(value: any, data: number)
     {//it will take number type argument 
-        if (value.length > data) {
+        if (value?.length > data) {
             return value.substr(0, data) + "..."
         }
         else {

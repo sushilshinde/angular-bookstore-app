@@ -73,7 +73,6 @@ export class CartEffects
       ofType(increment),
       switchMap((item: any) =>
       {
-
         return this.cartService.updateCartItems(item.id, "increment").pipe(
           map((cartData: any) =>
           {

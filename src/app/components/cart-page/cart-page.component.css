@@ -109,16 +109,20 @@ h3 {
   padding: 15px;
   width: 200px;
   background-color: rgb(243, 167, 26);
-  border: 1px solid rgb(243, 167, 26);
+  border: 5px solid blue;
   border-radius: 15px;
   color: #fff;
   text-align: center;
   text-decoration: none;
   font-weight: 500;
   font-size: 20px;
+  animation: color-change 1s infinite; 
 }
 .cartandpricediv {
   width: 60vw;
+}
+.title-color{
+  color :rgb(255, 0, 212);
 }
 @media screen and (max-width: 900px) {
   .cartandpricediv {
@@ -142,9 +146,10 @@ h3 {
     text-align: center;
     padding: 8px;
   }
-  .buynow-btn {
+  /* .buynow-btn {
     max-width: 130px;
-  }
+    
+  } */
   .remove-btn {
     margin-right: 0;
   }
@@ -182,6 +187,9 @@ h3 {
     width: 85vw;
   }
 }
+.book-title{
+  color :rgb(255, 0, 212);
+};
 
 @media only screen and (max-width: 400px) {
   .cart-book {
@@ -202,3 +210,10 @@ h3 {
   font-weight: bold;
   margin-top: 20px;
 }
+
+ 
+ 
+ @keyframes color-change {
+   0% { color:rgb(0, 255, 255); border-radius: 45%; width: 80px; }
+   100% { color: rgb(255, 255, 255); border-radius: 50%;width: 80px; }
+ }

@@ -1,7 +1,7 @@
 export interface Book
 {  //book interface before adding items to cart
   title: string;
-  id: number;
+  _id: String;
   price: number;
   thumbnailUrl: string;
   longDescription: string;

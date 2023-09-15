@@ -8,8 +8,7 @@ describe('http service', () =>
   beforeEach(() =>
   {
     TestBed.configureTestingModule({
-      declarations: [HttpService],
-      providers: [HttpClientTestingModule]
+      imports: [HttpClientTestingModule]
     });
     http = TestBed.inject(HttpService);
   });

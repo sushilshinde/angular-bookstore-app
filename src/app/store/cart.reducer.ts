@@ -25,11 +25,11 @@ export const cartReducer = createReducer(
   {
     return state;
   }),
-  on(addItemSuccess, (state, action) =>
+  on(addItemSuccess, (state, action: any) =>
   {
-    const bookd = { ...action.bookdata };
+    const bookd: any = action.bookdata.cartItem;
     return {
-      cartItems: [...state.cartItems, bookd],
+      cartItems: bookd,
       error: ''
     };
   }),
@@ -39,7 +39,8 @@ export const cartReducer = createReducer(
   }),
   on(getItemSuccess, (state: cartState, action) =>
   {
-    const bookd: any[] = action.bookdata;
+    const bookd: any[] = action.bookdata.cartItem;
+
     return {
       cartItems: bookd,
       error: ''
@@ -53,7 +54,7 @@ export const cartReducer = createReducer(
   {
     return {
       error: '',
-      cartItems: [...action.bookdata],
+      cartItems: action.bookdata.cartItem,
     };
   }),
   on(decrement, (state, action) =>
@@ -64,7 +65,7 @@ export const cartReducer = createReducer(
   {
     return {
       error: '',
-      cartItems: [...action.bookdata],
+      cartItems: action.bookdata.cartItem,
     };
   }),
   on(removeItem, (state, action) =>
@@ -75,7 +76,7 @@ export const cartReducer = createReducer(
   {
     return {
       error: '',
-      cartItems: [...action.bookdata],
+      cartItems: action.bookdata.cartItem,
     };
   }),
   on(errorOccur, (state, action) =>

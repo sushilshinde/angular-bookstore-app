@@ -9,6 +9,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+
 const MaterialImports = [
   MatCardModule,
   MatCheckboxModule,
@@ -19,7 +22,9 @@ const MaterialImports = [
   MatFormFieldModule,
   MatGridListModule,
   MatBadgeModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTooltipModule,
+  MatSnackBarModule
 ];
 
 @NgModule({
