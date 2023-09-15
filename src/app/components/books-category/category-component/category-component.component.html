@@ -6,11 +6,11 @@
     <div class="d-flex justify-content-between headdingButton">
       <h2 class="text-danger">{{ title }}:</h2>
       <P *ngIf="changehook" class="text-color">ngonchange</P>
-      <a [routerLink]="['/viewall', title]"><button class="btn btn-success">View All</button></a>
+      <a [routerLink]="['/viewall', title]"><button class="btn btn-success animated-button">View All</button></a>
     </div>
     <ngx-slick-carousel class="carousel mt-3" #slickModal="slick-carousel" [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let slide of imagesData.slice(0, 6)" class="slide m-2">
-        <img class="slider-book-image" src="{{ slide.thumbnailUrl }}" alt="image not avaliable" width="100%"
+      <div  matTooltip="'{{slide.title}} ' By {{slide.authors}}" ngxSlickItem *ngFor="let slide of imagesData" class="slide m-2">
+        <img  class="slider-book-image" src="{{ slide.thumbnailUrl }}" alt="image not avaliable" width="100%"
           height="250px" (click)="navigateToDetails(slide._id)" />
         <hr />
         <b>

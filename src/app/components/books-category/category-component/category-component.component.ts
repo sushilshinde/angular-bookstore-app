@@ -33,8 +33,6 @@ export class CategoryComponentComponent implements OnChanges, AfterContentInit
     slidesToScroll: 1,
     infinite: true,
     arrows: true,
-    autoplay: true,
-    autoplaySpeed: 8000,
     responsive: [
       //getting component images corresponding widths
 

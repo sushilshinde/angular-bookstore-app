@@ -25,6 +25,14 @@ button {
 .text-color {
   color: transparent;
 }
+.animated-button{
+  animation: color-change 1s infinite; 
+  padding: 5px 10px;
+ }
+ @keyframes color-change {
+   0% { color: rgb(255, 255, 255); border-radius: 0px; }
+   100% { color: rgb(220, 156, 233); border-radius: 10px; }
+ }
 @media screen and (max-width: 991px) {
   .carousel {
     margin: 0px 0px;
@@ -35,6 +43,9 @@ button {
 @media screen and (max-width: 400px) {
   .text-color {
     display: none;
+  }
+  .headding-category{
+    padding: 0;
   }
 }
 .background {

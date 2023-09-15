@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiURL: 'https://good-erin-snapper-vest.cyclic.cloud/team-c'
+    apiURL: 'https://angular-backend-api.cyclic.app/team-c'
 };

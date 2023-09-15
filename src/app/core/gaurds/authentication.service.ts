@@ -20,8 +20,7 @@ export class AuthenticationService
     const email = login.controls.email.value;
     const password = login.controls.password.value;
     const loginDetails = { email, password }
-    // const params = new HttpParams().set("email", email).set("password", password)//setting parms with email&password
-    return this.http.post<any>(this.URL + '/user/login', loginDetails)
+     return this.http.post<any>(this.URL + '/user/login', loginDetails)
       .subscribe({
         next: userData =>
         {

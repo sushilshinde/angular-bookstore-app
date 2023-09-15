@@ -13,9 +13,7 @@
     <div class="input">
       <input #searchField type="text" placeholder="Search by Title..." (input)="redirectToSearch($event)"
         class="search-input" />
-      <a class="search">
         <mat-icon class="searchicon">search</mat-icon>
-      </a>
       <a routerLink="signin" class="login" *ngIf="!username">sign in</a>
       <div class="loginItems" *ngIf="username">
         <span class="username">
