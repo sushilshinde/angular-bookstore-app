@@ -11,7 +11,7 @@
               <img src="{{ item.book.thumbnailUrl }}" alt="{{ item.book.title }}" />
             </div>
             <div class="book-details">
-              <h3>{{ item.book.title | shorten : 15 }}</h3>
+              <h3 class="book-title">{{ item.book.title | shorten : 15 }}</h3>
               <p>
                 by <i>{{ item.book.authors | shorten : 15 }}</i>
               </p>

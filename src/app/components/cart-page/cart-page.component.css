@@ -187,6 +187,9 @@ h3 {
     width: 85vw;
   }
 }
+.book-title{
+  color :rgb(255, 0, 212);
+};
 
 @media only screen and (max-width: 400px) {
   .cart-book {
